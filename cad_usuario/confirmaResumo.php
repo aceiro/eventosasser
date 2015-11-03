@@ -1,0 +1,61 @@
+<?php
+	session_start();
+?>
+<?php
+		$titulo = $_POST['titulo'];	
+		$curso = $_POST['curso'];
+		$orientador = $_POST['orientador'];
+		$autor1 = $_POST['autor1'];
+		$email1 = $_SESSION['email'];
+		$autor2 = $_POST['autor2'];
+		$email2 = $_POST['email2'];
+		$autor3 = $_POST['autor3'];
+		$email3 = $_POST['email3'];
+		$autor4 = $_POST['autor4'];
+		$email4 = $_POST['email4'];
+		$tipo = $_SESSION['tipo'];
+		$autores = $autor1." - ".$email1."; ".$autor2." - ".$email2."; ".$autor3." - ".$email3."; ".$autor4." - ".$email4;
+		$resumo = $_POST['resumo'];
+		$keyword = $_POST['keyword'];
+		$status = '0';
+		$comentarios = 'Professor avaliador, por favor anote as alterações para o autor aqui.';
+		
+	// Estabelecendo a conexão com o banco de dados
+	try{
+		$titulo = strtoupper($titulo);	
+		$curso = strtoupper($curso);
+		
+		$comentarios = strtoupper($comentarios );
+		
+		$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		$sql = "UPDATE evento SET titulo='$titulo', curso='$curso', 
+		orientador='$orientador', autores='$autores', resumo='$resumo', 
+		keyword='$keyword', status='$status', comentarios='$comentarios' WHERE email ='$email1'";
+		$link->query($sql);
+		
+		$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values
+			('$titulo', '$autor1', '$tipo', 0, '$email1')";
+		$link->query($sql);
+		
+		if(strcmp($autor2,"")!=0){
+			$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values('$titulo', '$autor2', '$tipo', 0, '$email2')";
+			$link->query($sql);
+			} 
+		if(strcmp($autor3,"")!=0){
+			$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values('$titulo', '$autor3', '$tipo', 0, '$email3')";
+			$link->query($sql);
+			} 
+		if(strcmp($autor4,"")!=0){
+			$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values('$titulo', '$autor4', '$tipo', 0, '$email4')";
+			$link->query($sql);
+			} 
+		
+
+		header("Location:confirma.php");
+
+	}catch(PDOException $e){
+		echo "ERROR" . $e->getMessage();
+	}
+?>

@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1 {
+	font-family: Arial;
+	font-size: 24px;
+	color: #000000;
+	text-align: center;
+}
+h2 {
+	font-family: Arial;
+	font-size: 12px;
+	color: #000000;
+	text-align: right;
+}
+h3 {
+	font-family: Arial;
+	font-size: 12px;
+	color: #000000;
+	text-align: justify;
+}

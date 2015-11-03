@@ -1,0 +1,87 @@
+<?php
+	session_start();
+?>
+
+<!DOCTYPE html >
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+	<title>Asser Eventos</title>
+	<link REL=StyleSheet HREF="../css/estilo.css"></head>
+<!-- Load jQuery and the validate plugin -->
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+  
+  <!-- jQuery Form Validation code -->
+  <script>
+  
+  // When the browser is ready...
+  $(function() {
+  
+    // Setup form validation on the #register-form element
+    $("#register-form").validate({
+    
+        // Specify the validation rules
+        rules: {
+            login: "required",
+            password: {
+                required: true,
+                minlength: 5
+            }
+        },
+        
+        // Specify the validation error messages
+        messages: {
+            login: "Entre com o login",
+            password: {
+                required: "Por favor, digite sua senha",
+                minlength: "Sua senha deve ter mais de 5 caracteres"
+            }
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+  
+  </script>
+
+<body>
+	<div id="corpo">
+    	
+        <div id="cabecalho">
+    	IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
+    	</div>
+        
+        <br />
+        
+        <div id="mmenu">
+		Acesso ao modo administrativo </div>
+        
+        <br />
+        
+        <div id="texto">
+    		<form id="register-form" name="register-form" method="post" action="a_login.php"  novalidate="novalidate">
+                <br />				
+                <p align="center"><b>Login:</b><input type="text" id="login" name="login" size="40" maxlength="40" /></p>
+                                
+				<p align="center"><b>Senha:</b><input type="password" id="password" name="password" />
+				<input name="acessar" type="submit" id="acessar" value="Acessar" /></p>
+				<br />	
+				<br />	
+				<br />	
+				<br />	
+				<br />	
+            </form>
+        </div>
+        
+        <br />
+        
+        <div id="rodape">
+    	<p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  Visualização: 800 x 600 - Desenvolvido pelo Curso de Sistemas de Informação. </p>
+    	</div>
+    </div>
+</body>
+</html>
