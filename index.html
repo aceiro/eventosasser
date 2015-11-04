@@ -1,47 +1,99 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<title>Asser Eventos</title>
-<link REL=StyleSheet HREF="css/estilo.css" TYPE="text/css"></head>
+	<meta charset="utf-8" />
+	<title>Asser Eventos</title>
+
+	<!-- adicionado o suporte para o jquery e thema redmond -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	 
+	<!-- função para ativar o suporte ao jquery --> 
+	  <script>
+	  	$(function() {
+	    	$( "#tabs" ).tabs();
+	  	});
+	  </script>
+
+	<!-- outros suporte a css da página -->
+	<link rel="stylesheet" href="css/estilo.css" type="text/css">
+	<link rel="stylesheet" href="css/menu-styles.css" type="text/css">
+
+	<!-- outros scripts para o menu-->
+	<script src="scripts/asser-main.js"></script>
+</head>
 
 <body>
+
 	<div id="corpo">    	
         <div id="cabecalho">
-    	IX -- Semana Conhecimento e VI - Mostra de Iniciação Científica
+    		IX - Semana Conhecimento
+    		<div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
     	</div>
+    	
+        <br />
+
+        <div id='cssmenu'>
+			<ul>
+			   <li class='active'><a href='#'>Apresentação</a></li>
+			   <li class='has-sub'><a href='programa.html'>Programação</a></li>			   
+			   <li><a href='#'>Sobre o evento</a></li>
+			   <li><a href='contato'>Contato</a></li>
+			   <li><a href='adm'>Administrativo</a></li>
+			</ul>
+		</div>
+
+        
+        <div id="mmenu"> &nbsp;</div>
+        <div id="mmenubar"> &nbsp;</div>
+        <div id="mmenusubbar"> &nbsp;</div>
         
         <br />
-        
-        <div id="mmenu">
-    Apresentação | <a href="programa.html">Programação</a> | <a href="contato">Contato</a> | <a href="adm">Administrativo</a></div>
-        
-        <br />
+
+
         
       <div id="texto">
-    	<p>Bem vindo a IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
-		ASSER 2015 da Escola Superior de Tecnologia e Educação de Rio Claro. 
-		O evento é uma iniciativa dos docentes, com o apoio dos coordenadores de cada curso e direção. 
-		O objetivo é divulgar projetos e trabalhos desenvolvidos durante o semestre letivo, 
-		além de oportunizar palestras, oficinas e atividades culturais.</p>
+    	<p>  Bem-vindo ao sistema de submissão de resumos. Para enviar o seu resumo siga os passos indicados abaixo. </p>
+
+		<div id="tabs">
+		  <ul>
+		    <li><a href="#tabs-1">Enviar Resumo</a></li>
+		    <li><a href="#tabs-2">Verificar Status</a></li>
+		    <li><a href="#tabs-3">Re-enviar Resumo</a></li>
+		    <li><a href="#tabs-4">Inscrição em palestras</a></li>
+		  </ul>
+		  <div id="tabs-1">
+		    
+		    <p> Aqui você poderá <b> Enviar o seu Resumo </b> para avaliação. Caso já tenha revisado o seu resumo com o professor responsável clique no ícone <a href="cad_usuario"><img style="vertical-align:middle" src="imagens/enviar.png" width="35" height="35" alt="Enviar resumo" /></a> e faça o envio. </p>
+
+		  </div>		  
+		  <div id="tabs-2">
+		    
+		    <p> Confira o status do seu resumo clicando em 
+		    <a  href="listar">
+		    <img src="imagens/status.png" style="vertical-align:middle" width="35" height="35"/></a> e verifique se o seu resumo foi <b>Aprovado</b> ou então se precisa ser revisado.		    	
+		    </p>
+		  
+		  </div>
+		  <div id="tabs-3">
+		    <p> 
+		    Verifique se o seu resumo foi <b>Aprovado</b> ou se você deve fazer alguma alteração para um novo re-envio. Para isso clique no link
+		    <a href="reenvio"><img style="vertical-align:middle" src="imagens/reenviar.png" width="35" height="35"/></a> e prossiga com o re-envio.
+
+		    </p>
+		  </div>
+		  <div id="tabs-4">
+		    <p> Faça a sua inscrição em palestras do evento. Para isso acesse o ícone <a href="palestra"><img style="vertical-align:middle" src="imagens/play.png" width="35" height="35"/></a> e escolhe a palestra e o dia de sua preferência. </p>
+		  </div>
+		</div>
+
         		
-		<p align="center">O que deseja fazer?</p>
-		<table align="center" style="width:50%">
-		<tr><td>Enviar Resumo</td>
-		<td><a href="cad_usuario"><img src="imagens/enviar.png" width="35" height="35"/></a></td></tr>
-		<tr><td>Reenviar Resumo</td>
-		<td><a href="reenvio"><img src="imagens/reenviar.png" width="35" height="35"/></a></td></tr>
-		<tr><td>Situação do Resumo</td>
-		<td><a href="listar"><img src="imagens/status.png" width="35" height="35"/></a></td></tr>
-		<tr><td>Inscrever-se nas palestras</td>
-		<td><a href="palestra"><img src="imagens/play.png" width="35" height="35"/></a></td></tr>
-		</table>
-
         <br />
+    </div>
 
-        <div id="rodape">
+    <div id="rodape">
     	<p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  Visualização: 800 x 600 - Desenvolvido pelo Curso de Sistemas de Informação. </p>
-    	</div>
     </div>
 </body>
 </html>
