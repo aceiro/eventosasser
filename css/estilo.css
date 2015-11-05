@@ -57,6 +57,21 @@
 	height: 50px;
 }
 
+.container {
+        width: 500px;
+        clear: both;
+        margin-left: 180px;
+}
+
+.container input {
+    width: 100%;
+    clear: both;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+
+
 /* classe padrão utilizada no menu*/
 .menuClass {
 	font-family: Arial, Helvetica, sans-serif;
