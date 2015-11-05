@@ -6,22 +6,31 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
-	<title>Asser Eventos</title>
-	<link REL=StyleSheet HREF="../css/estilo.css"></head>
-<!-- Load jQuery and the validate plugin -->
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<title>Asser Eventos</title>
+
+<!-- adicionado o suporte para o jquery e thema redmond -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<!-- outros suporte a css da página -->
+<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+
+<!-- outros scripts para o menu-->
+<script src="../scripts/asser-main-menu.js"></script>
+<script src="../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
   
-  <!-- jQuery Form Validation code -->
-  <script>
-  
-  // When the browser is ready...
+<script>
+
   $(function() {
   
-    // Setup form validation on the #register-form element
     $("#register-form").validate({
-    
-        // Specify the validation rules
         rules: {
             email: {
                 required: true,
@@ -32,8 +41,6 @@
                 minlength: 5
             }
         },
-        
-        // Specify the validation error messages
         messages: {
             email: "Escreva seu endereço de email corretamente",
             password: {
@@ -50,6 +57,7 @@
   });
   
   </script>
+</head>  
 
 <body>
 	<div id="corpo">
@@ -61,23 +69,42 @@
         
         <br />
         
-        <div id="mmenu">
-		Acesso | <a>Revisar Dados Resumo</a> | <a>Confirmar e Enviar</a> </div>
-        
+       <!-- menu da aplicacao -->
+      <div id='cssmenu'>
+            <ul>
+               <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+               <li><a href='../palestra'>Palestras</a></li>
+               <li><a href='../programa.html'>Programação</a></li>             
+               <li><a href='#'>Sobre o evento</a></li>             
+               <li><a href='../adm'>Administrativo</a></li>
+               <li><a href='../contato'>Contato</a></li>
+               <li><a href='#'>Créditos</a></li>
+            </ul>
+        </div>
+
+        <!-- adiciona o suporte ao separador gradiente -->
+        <div id="mmenu"> &nbsp;</div>
+        <div id="mmenubar"> &nbsp;</div>
+        <div id="mmenusubbar"> &nbsp;</div>
+        <div id="mmenusubsubbar"> &nbsp;</div>
         <br />
         
-        <div id="texto">
+        <div>
     		<form id="register-form" name="register-form" method="post" action="a_login.php"  novalidate="novalidate">
-                <br />				
-                <p align="center"><b>E-mail:</b><input type="text" id="email" name="email" size="70" maxlength="65" /></p>
-                                
-				<p align="center"><b>Senha:</b><input type="password" id="password" name="password" />
-				<input name="acessar" type="submit" id="acessar" value="Acessar" /></p>
-				<br />	
-				<br />	
-				<br />	
-				<br />	
-				<br />	
+            <fieldset>
+                <legend>Re-envio de Resumo</legend>
+                <div>
+                    <label>E-mail:</label>
+                    <input type="text" id="email" name="email" size="70" maxlength="65" />
+                </div>
+                <div>
+                    <label>Senha:</label>
+                    <input type="password" id="password" name="password" />
+                </div>
+                <div class="button">
+                    <input name="acessar" type="submit" id="acessar" value="Acessar" />
+                </div>
+            </fieldset>
             </form>
         </div>
         

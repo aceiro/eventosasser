@@ -3,7 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <title>Asser Eventos</title>
-<link REL=StyleSheet HREF="../css/estilo.css" TYPE="text/css"></head>
+<!-- adicionado o suporte para o jquery e thema redmond -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ 
+<!-- outros suporte a css da página -->
+
+<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+
+<!-- outros scripts para o menu-->
+<script src="../scripts/asser-main-menu.js"></script>
+</head>
 
 <body>
 	<div id="corpo">
@@ -15,12 +27,29 @@
         
         <br />
         
-        <div id="mmenu">
-		Situação dos trabalhos Enviados</div>
+       <!-- menu da aplicacao -->
+      <div id='cssmenu'>
+			<ul>
+			   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+			   <li><a href='../palestra'>Palestras</a></li>
+			   <li><a href='../programa.html'>Programação</a></li>			   
+			   <li><a href='#'>Sobre o evento</a></li>			   
+			   <li><a href='../adm'>Administrativo</a></li>
+			   <li><a href='../contato'>Contato</a></li>
+			   <li><a href='#'>Créditos</a></li>
+			</ul>
+	 	</div>
+
+		<!-- adiciona o suporte ao separador gradiente -->
+		<div id="mmenu"> &nbsp;</div>
+		<div id="mmenubar"> &nbsp;</div>
+		<div id="mmenusubbar"> &nbsp;</div>
+		<div id="mmenusubsubbar"> &nbsp;</div>
+		<br />
         
         
         
-        <div id="texto">
+        <div>
 		<p align="center"><a href="../">Voltar</a></p>
     		<form id="cad_usuario" name="usuario" method="post" action="av_resumo.php"  onSubmit="return validaCampo(); return false;">
                 
