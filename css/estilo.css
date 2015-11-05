@@ -56,14 +56,8 @@
 	text-align: center;
 	height: 50px;
 }
-body {
-	background-color: #FFF;
-}
-a {
-	color: #AAAAFF;
-	font-weight: bold;
-}
 
+/* classe padrão utilizada no menu*/
 .menuClass {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -98,6 +92,15 @@ a {
 	background-color: #E6E9ED;
 }
 
+/* configurações gerais */
+body {
+	background-color: #FFF;
+}
+a {
+	color: #AAAAFF;
+	font-weight: bold;
+}
+
 h1 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 24px;
@@ -110,4 +113,13 @@ table, th, td {
 }
 th, td {
     padding: 15px;
+}
+
+/* sobrescreve algumas propriedades do jquery */
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: #006;
+}
+
+#cssmenu > ul > li > a {
+	color: #006;
 }
