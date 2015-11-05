@@ -14,23 +14,19 @@
 <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
 <!-- outros scripts para o menu-->
-<script src="../scripts/asser-main.js"></script>
+<script src="../scripts/asser-main-menu.js"></script>
+<script src="../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
-</head>
 
- <!-- Load jQuery and the validate plugin -->
-  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+<script>
   
-  <!-- jQuery Form Validation code -->
-  <script>
-  
-  // When the browser is ready...
   $(function() {
   
-    // Setup form validation on the #register-form element
     $("#register-form").validate({
-    
-        // Specify the validation rules
         rules: {
             nome: "required",
             assunto: "required",
@@ -40,8 +36,6 @@
             },
             mensagem: "required"
         },
-        
-        // Specify the validation error messages
         messages: {
             nome: "Escreva o seu nome completo",
             email: "Escreva seu endereço de email corretamente",
@@ -53,10 +47,9 @@
             form.submit();
         }
     });
-
   });
-  
   </script>
+  </head>
 
 <body>
 	<div id="corpo">
@@ -71,11 +64,12 @@
        <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-                   <li class='active'><a href='index.html'>Submissão de Resumos</a></li>
+                   <li><a href='../index.html'>Submissão de Resumos</a></li>
+                   <li><a href='../palestra'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
                    <li><a href='#'>Sobre o evento</a></li>             
                    <li><a href='../adm'>Administrativo</a></li>
-                   <li><a href='#'>Contato</a></li>
+                   <li class='active'><a href='#'>Contato</a></li>
                    <li><a href='#'>Créditos</a></li>
                 </ul>
             </div>
@@ -90,25 +84,32 @@
         
         <br />
         
-        <div id="texto">
+        <div>
     		<form id="contato" name="contato" method="post" action="contato.php"  onSubmit="&quot;return validaCampo(); return false;">
-            	<p align="center"><b>*Nome:</b></p>
-                <p align="center"><input type="text" id="nome" name="nome" size="70" maxlength="65" /></p>
-                <br />
-				
-                <p align="center"><b>*Assunto:</b></p>
-				<p align="center"><input type="text" id="assunto" name="assunto" /></p>
-                <br />
-				
-                <p align="center"><b>*E-mail:</b></p>
-                <p align="center"><input type="text" id="email" name="email" size="70" maxlength="65" /></p>
-                <br />
-                
-				<p align="center"><b>*Mensagem:</b></p>
-				<p align="center"><textarea id="mensagem" name="mensagem" cols="100" rows="7"></textarea></p>
-                <br />
-                <p align="center"><input name="cadastrar" type="submit" id="cadastrar" value="Enviar Mensagem!" /> 
-                <input name="limpar" type="reset" id="limpar" value="Limpar Campos!" /><br /> </p>
+              <fieldset>
+                <legend>Contato</legend>
+                <div>
+                  <label>Nome:</label>
+                  <input type="text" id="nome" name="nome" size="70" maxlength="65" />
+                </div>
+                <div>
+                  <label>Assunto: </label>
+                  <input type="text" id="assunto" name="assunto" size="70" maxlength="65" />
+                </div>
+                <div>
+                  <label>E-mail:</label>
+                  <input type="text" id="email" name="email" size="70" maxlength="65" />
+                </div>
+                <div>
+                  <label>Mensagem:</label>
+                  <textarea id="mensagem" name="mensagem" cols="50" rows="7"></textarea>
+                </div>
+
+                <div class="button">
+                    <input name="cadastrar" type="submit" id="cadastrar" value="Enviar" /> 
+                    <input name="limpar" type="reset" id="limpar" value="Limpar" />
+                </div>
+              </fieldset>            	
             </form>
         </div>
         

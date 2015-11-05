@@ -18,24 +18,18 @@
 <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
 <!-- outros scripts para o menu-->
-<script src="../scripts/asser-main.js"></script>
+<script src="../scripts/asser-main-menu.js"></script>
+<script src="../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
 
 
-
-<!-- Load jQuery and the validate plugin -->
-  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
   
-  <!-- jQuery Form Validation code -->
-  <script>
+<script>
   
-  // When the browser is ready...
-  $(function() {
-  
-    // Setup form validation on the #register-form element
+$(function() {
     $("#register-form").validate({
-    
-        // Specify the validation rules
         rules: {
             login: "required",
             password: {
@@ -43,8 +37,6 @@
                 minlength: 5
             }
         },
-        
-        // Specify the validation error messages
         messages: {
             login: "Entre com o login",
             password: {
@@ -58,8 +50,7 @@
         }
     });
 
-  });
-  
+});
   </script>
   </head>
 
@@ -75,10 +66,11 @@
          <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-                   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+                   <li><a href='../index.html'>Submissão de Resumos</a></li>
+                   <li><a href='palestra'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
                    <li><a href='#'>Sobre o evento</a></li>             
-                   <li><a href='#'>Administrativo</a></li>
+                   <li class='active'><a href='#'>Administrativo</a></li>
                    <li><a href='../contato'>Contato</a></li>
                    <li><a href='#'>Créditos</a></li>
                 </ul>
@@ -95,19 +87,27 @@
               
         <br />
         
-        <div id="texto">
-    		<form id="register-form" name="register-form" method="post" action="a_login.php"  novalidate="novalidate">
-                <br />				
-                <p align="center"><b>Login:</b><input type="text" id="login" name="login" size="40" maxlength="40" /></p>
-                                
-				<p align="center"><b>Senha:</b><input type="password" id="password" name="password" />
-				<input name="acessar" type="submit" id="acessar" value="Acessar" /></p>
-				<br />	
-				<br />	
-				<br />	
-				<br />	
-				<br />	
-            </form>
+        <div>
+    		  <form id="register-form" name="register-form" method="post" action="a_login.php"  novalidate="novalidate">
+
+            <fieldset>
+              <legend>Login</legend>
+              <div> 
+                <label>Usuário:</label>
+                <input type="text" id="login" name="login" size="40" maxlength="40" />
+              </div>
+
+              <div>
+                <label>Senha:</label>
+                <input type="password" id="password" name="password" size="40" maxlength="40" />
+              </div>
+
+              <div class="button">
+                <input name="acessar" type="submit" id="acessar" value="Acessar" />
+              </div>
+            </fieldset>
+        
+          </form>
         </div>
         
         <br />

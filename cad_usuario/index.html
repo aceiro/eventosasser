@@ -14,23 +14,15 @@
 <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
 <!-- outros scripts para o menu-->
-<script src="../scripts/asser-main.js"></script>
+<script src="../scripts/asser-main-menu.js"></script>
+<script src="../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
 </head>
-
-<!-- Load jQuery and the validate plugin -->
-<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-  
-  <!-- jQuery Form Validation code -->
   <script>
-  
-  // When the browser is ready...
+
   $(function() {
-  
-    // Setup form validation on the #register-form element
     $("#register-form").validate({
-    
-        // Specify the validation rules
         rules: {
             nome: "required",
             tipo: "required",
@@ -43,15 +35,13 @@
                 minlength: 5
             }
         },
-        
-        // Specify the validation error messages
         messages: {
-            nome: "(*)Escreva o seu nome completo",
-            email: "(*)Escreva seu endereço de email corretamente",
-			tipo: "(*)Escolha um tipo de participação",
+            nome: "(*) Escreva o seu nome completo",
+            email: "(*) Escreva seu endereço de email corretamente",
+			  tipo: "(*) Escolha um tipo de participação",
             password: {
-                required: "(*)Por favor, digite uma senha",
-                minlength: "(*)Sua senha deve ter mais de 5 caracteres"
+                required: "(*) Por favor, digite uma senha",
+                minlength: "(*) Sua senha deve ter mais de 5 caracteres"
             }
         },
         
@@ -77,7 +67,8 @@
         <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-                   <li class='active'><a href='index.html'>Submissão de Resumos</a></li>
+                   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+                   <li><a href='../palestra'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
                    <li><a href='#'>Sobre o evento</a></li>             
                    <li><a href='../adm'>Administrativo</a></li>
@@ -94,30 +85,40 @@
             <br /> 
         <!-- fim do menu da aplicação -->
 
-        
-        <div id="mmenu">
-		  Dados Pessoais | <a>Dados Resumo</a> | <a>Resumo Enviado</a> 
-        </div>
-        
         <br />
         
-        <div class="container">
-    		<form id="register-form" name="register-form" method="post" action="confirmaUsuario.php"  novalidate="novalidate">
-            	<b>Nome:</b>
-		    	<input type="text" id="nome" name="nome" size="70" maxlength="65"  />
-                <br/>				
-                <b>E-mail:</b>
-                <input type="text" id="email" name="email" size="70" maxlength="65"/>
-                 <br/>               
-				<b>Senha:</b>
-				<input type="password" id="password" name="password" size="70" maxlength="65" />
-                <br/>
-				<b>Tipo:</b>
-				<input type="text" id="tipo" name="tipo" size="70" maxlength="65" />
-				<br/>
-                <p align="center">
-                    <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar" value="Confirmar cadastro" />
-                    <input name="limpar" style="width:30%;" type="reset" id="limpar" value="Limpar Campos!" /><br /> </p>
+        <div>
+    		<form id="register-form" 
+                  name="register-form" method="post" 
+                  action="confirmaUsuario.php"  novalidate="novalidate">
+
+                <fieldset>
+                        <legend>Envio de Resumo</legend>
+                        <div>
+                            <label> Nome:</label>
+                            <input type="text" id="nome" name="nome" size="70" maxlength="65"  />
+                        </div>
+
+                        <div>
+                            <label>E-mail:</label>
+                            <input type="text" id="email" name="email" size="70" maxlength="65"/>
+                        </div>
+
+                        <div>
+                            <label>Senha:</label>
+                            <input type="password" id="password" name="password" size="70" maxlength="65" />
+                        </div>
+
+                        <div>                        
+                            <label>Tipo:</label>
+                            <input type="text" id="tipo" name="tipo" size="70" maxlength="65" />
+                        </div>
+
+                        <div class="button">
+                           <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar"value="Enviar" />
+                           <input name="limpar" style="width:30%;" type="reset" id="limpar" value="Limpar" />
+                        </div>
+                </fieldset>
             </form>
         </div>
         
