@@ -34,6 +34,10 @@
 	font-size: 30px;
 }
 
+.subcabecalho{
+	font-size:14px;
+}
+
 
 #texto {
 	font-family: Arial, Helvetica, sans-serif;
@@ -59,7 +63,8 @@ a {
 	color: #AAAAFF;
 	font-weight: bold;
 }
-#mmenu {
+
+.menuClass {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	color: #FFF;
@@ -69,24 +74,28 @@ a {
 	text-align: center;
 }
 
-#mmenubar {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 4px;
+.menuClass, #mmenu {
+	font-size: 16px;
 	color: #FFF;
-	background-color: #7395B6;
-	font-style: normal;
-	font-weight: bold;
-	text-align: center;
+	background-color: #336799;
 }
 
-#mmenusubbar {
-	font-family: Arial, Helvetica, sans-serif;
+.menuClass, #mmenubar {
+	font-size: 4px;
+	color: #FFF;
+	background-color: #8EABC8;
+}
+
+.menuClass, #mmenusubbar {
 	font-size: 2px;
 	color: #FFF;
 	background-color: #C5D1DD;
-	font-style: normal;
-	font-weight: bold;
-	text-align: center;
+}
+
+.menuClass, #mmenusubsubbar {
+	font-size: 1px;
+	color: #FFF;
+	background-color: #E6E9ED;
 }
 
 h1 {
