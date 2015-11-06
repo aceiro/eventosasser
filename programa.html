@@ -18,6 +18,38 @@
 <!-- outros scripts para o menu-->
 <script src="scripts/asser-main-menu.js"></script>
 
+<style type="text/css">
+	table{
+		width: 100%;
+	}
+
+	table caption{
+		font-size: 14px;
+	}
+
+	table, th, td{
+		border: 1px solid #CBCDDD;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		padding: 5px;
+		text-align: left;		
+	}
+
+	tr:nth-child(even){
+		background-color: #eee;
+	}
+
+	tr:nth-child(odd){
+		background-color: #fff;
+	}
+
+	th{
+		background-color: #1862A1;
+		color: white;
+	}
+</style>
 </head>
 
 <body>
@@ -54,12 +86,14 @@
       <div id="texto">
 
         <br />
-		<p align="center">Programação
-		</p>
-		<table style="width:100%">
 		
-		<tr><td>Data</td><td>Atividade</td>		
-		</tr>
+		<table>
+		<caption><strong>Programação</strong></caption>
+			<th>
+				Data
+			</th>
+			<th>Atividade</th>
+
 		<tr><td>01 a 20 de maio</td><td>Prazo para envio dos resumos</td>
 		</tr>
 		<tr><td>27 a 29 de maio</td><td>Prazo para divulgação dos pareceres dos trabalhos</td>
@@ -68,7 +102,7 @@
 		</tr>
 		<tr><td>01 a 12 de junho</td><td>Inscrições abertas para apresentação de trabalho (aprovado) e ouvintes na secretaria. </td>
 		</tr>
-		<tr><td>10 de junho</td><td><p align="center"><a href="programaap.html">Divulgação das datas de apresentação</a></p>
+		<tr><td>10 de junho</td><td><p align="center"><a href="#"></a></p>
 				
 		</td>		
 		</tr>
@@ -77,6 +111,8 @@
 		<tr><td>19 de junho</td><td>Fim da IX - Semana Conhecimento e VI - Mostra de Iniciação Científica da ESRC</td>
 		</tr>
 		</table>
+
+
         <div id="rodape">
     	<p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  Visualização: 800 x 600 - Desenvolvido pelo Curso de Sistemas de Informação. </p>
     	</div>

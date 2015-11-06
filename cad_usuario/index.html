@@ -36,12 +36,12 @@
             }
         },
         messages: {
-            nome: "(*) Escreva o seu nome completo",
-            email: "(*) Escreva seu endereço de email corretamente",
-			  tipo: "(*) Escolha um tipo de participação",
+            nome: "Escreva o seu nome completo",
+            email: "Escreva seu endereço de email corretamente",
+			  tipo: "Escolha um tipo de participação",
             password: {
-                required: "(*) Por favor, digite uma senha",
-                minlength: "(*) Sua senha deve ter mais de 5 caracteres"
+                required: "Por favor, digite uma senha",
+                minlength: "Sua senha deve ter mais de 5 caracteres"
             }
         },
         
@@ -73,7 +73,7 @@
                    <li><a href='#'>Sobre o evento</a></li>             
                    <li><a href='../adm'>Administrativo</a></li>
                    <li><a href='../contato'>Contato</a></li>
-                   <li><a href='#'>Créditos</a></li>
+                   <li><a href='../creditos.html'>Créditos</a></li>
                 </ul>
             </div>
 
@@ -111,7 +111,10 @@
 
                         <div>                        
                             <label>Tipo:</label>
-                            <input type="text" id="tipo" name="tipo" size="70" maxlength="65" />
+                            <select id="tipo" name="tipo">
+                                <option value="oral"> Apresentação oral</option>
+                                <option value="painel"> Apresentação em painel</option>
+                            </select>                            
                         </div>
 
                         <div class="button">
