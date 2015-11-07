@@ -13,7 +13,7 @@
 		$nome = strtoupper($nome);
 		$tipo = strtoupper($tipo);
 		
-		$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+		$link = new PDO("mysql:host=127.0.0.1;dbname=eventsis", "root", "1234");
 		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$sql = "INSERT INTO evento (nome, email, tipo, senha) values ('$nome', '$email', '$tipo', '$password');";
