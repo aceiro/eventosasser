@@ -30,8 +30,7 @@
                    <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
                    <li><a href='../palestra'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
-                   <li><a href='#'>Sobre o evento</a></li>             
-                   <li><a href='../adm'>Administrativo</a></li>
+                   <li><a href='#'>Sobre o evento</a></li>           
                    <li><a href='../contato'>Contato</a></li>
                    <li><a href='../creditos.html'>Créditos</a></li>
                 </ul>
@@ -45,7 +44,6 @@
         <br />
         
         <div id="texto">
-		    <form id="cad_resumo" name="resumo" method="post" action="confirma.php"  onSubmit="return validaCampo(); return false;">
             	<fieldset>
 				<legend>Cadastro realizado com sucesso!</legend>
 				<br />
@@ -55,7 +53,6 @@
 				<br />
 				<p align="center"><a href="../">Voltar</a> | <a href="../listar">Verificar resumo</a></p>
 			</fieldset>
-            </form>
 		</div>
         
         <br />
