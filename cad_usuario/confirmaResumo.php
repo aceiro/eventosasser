@@ -14,7 +14,16 @@
 		$autor4 = $_POST['autor4'];
 		$email4 = $_POST['email4'];
 		$tipo = $_SESSION['tipo'];
-		$autores = $autor1." - ".$email1."; ".$autor2." - ".$email2."; ".$autor3." - ".$email3."; ".$autor4." - ".$email4;
+		$autores = $autor1." - ".$email1;
+		if(strcmp($autor2,"")!=0){
+			$autores = $autores."; ".$autor2." - ".$email2;
+		}
+		if(strcmp($autor3,"")!=0){
+			$autores = $autores."; ".$autor3." - ".$email3;
+		}
+		if(strcmp($autor4,"")!=0){
+			$autores = $autores."; ".$autor4." - ".$email4;
+		}
 		$resumo = $_POST['resumo'];
 		$keyword = $_POST['keyword'];
 		$status = '0';
