@@ -271,3 +271,31 @@ hr.fancy-line, hr.fancy-line:before {
 body, hr.fancy-line:after {
     background: #f4f4f4;
 }
+
+/** configuracao do css para o resumo **/
+.rotulo-resumo{
+     font-weight: bold;
+     font-size: 18px;
+     text-align: center;
+     color: #336799;
+   }
+   .input-resumo{
+     font-weight: bold;
+     font-size: 18px;
+     text-align: center;
+     color: #336799;
+     vertical-align: center;
+   }
+   .info-resumo {
+
+     font-size: 10px;
+     border: 1px solid #FFF;
+     text-align: center;
+     width: 30%;
+     background-color: rgba(26, 165, 26, 0.5);
+     border-color: white;
+     color: white;
+     border-radius: 40px 40px 40px 2px;
+     margin-left: 55%;
+
+   }
