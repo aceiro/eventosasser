@@ -37,7 +37,6 @@
                    <li><a href='../submissao.html'>Submissão de Resumos</a></li>
                    <li><a href='#' class='active'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
-                   <li><a href='../adm'>Administrativo</a></li>
                    <li><a href='../contato'>Contato</a></li>
                    <li><a href='../creditos.html'>Créditos</a></li>
                 </ul>
