@@ -3,20 +3,46 @@
 <head>
 <meta charset="utf-8" />
 <title>Asser Eventos - Cadastro realizado com sucesso</title>
-<link REL=StyleSheet HREF="../../../css/estilo.css" TYPE="text/css"></head>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="../../../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../../../css/estilo.css" type="text/css">
+
+<script src="../../../scripts/asser-main-menu.js"></script>
+<script src="../../../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
 <body>
 	<div id="corpo">
     	
-        <div id="cabecalho">
-		IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
-    	</div>
+		<div id="cabecalho">
+            IX - Semana Conhecimento
+            <div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
+        </div>
         
         <br />
-        
-        <div id="mmenu">
-		Confirmar dados e pagamento.</div>
-        
+
+          <div id='cssmenu'>
+                <ul>
+                   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+                   <li><a href='../palestra'>Palestras</a></li>
+                   <li><a href='../programa.html'>Programação</a></li>            
+                   <li><a href='#'>Sobre o evento</a></li>             
+                   <li><a href='../'>Administrativo</a></li>
+                   <li><a href='../contato'>Contato</a></li>
+                   <li><a href='../creditos.html'>Créditos</a></li>
+                </ul>
+            </div>
+
+            <div id="mmenu"> &nbsp;</div>
+            <div id="mmenubar"> &nbsp;</div>
+            <div id="mmenusubbar"> &nbsp;</div>
+            <div id="mmenusubsubbar"> &nbsp;</div>
+            <br /> 
+
         <br />
         
         <div id="texto">
@@ -32,26 +58,38 @@
 			$sql = "SELECT * FROM pagamento WHERE codigo='$codigo'";
 								
 			foreach($link->query($sql) as $row){
-				echo "<p align='center'><b>".$row['autor']."</b></p>";
-				echo "<p align='center'>".$row['titulo']."</p>";			
-				echo "<p align='center'>".$row['tipo']."</p>";			
+						
 			}
 					
 		}catch(PDOException $e){
 			echo "ERROR" . $e->getMessage();
 		}
 	?>
-				<p align="center"><b>Aluno:</b></p>
-		    	<p align="center"><input type="text" name ="autor" size="100" maxlength="250" value="<?php echo $row['autor'];?>" /></p>
-                <input type="hidden" name="codigo" value="<?php echo $codigo; ?>" />
-				<p align="center"><input type="text" name ="titulo" size="100" maxlength="250" value="<?php echo $row['titulo'];?>" /></p>				
-                <p align="center"><input type="text" name ="tipo" size="50" maxlength="50" value="<?php echo $row['tipo'];?>" /></p>
-				<p align="center"><b>Pagamento: 1 - Pago </b></p>
-                <p align="center"><input type="text" name ="pago" size="25" maxlength="25" value="1" /></p>
-				
-                <p align="center">
+		<fieldset>	
+			<legend>Realizar pagamento</legend>
+			
+			<div id="effect" class="ui-corner-all">Confira os dados do aluno abaixo</div><br />
+			<div>
+					<label>Aluno</label>
+					<input type="text" name ="autor" size="75" maxlength="250" value="<?php echo $row['autor'];?>" />
+			</div>
+					<input type="hidden" name="codigo" value="<?php echo $codigo; ?>" />
+			<div>
+					<label>Título</label>
+					<input type="text" name ="titulo" size="75" maxlength="250" value="<?php echo $row['titulo'];?>" />		
+			</div>
+			<div>
+					<label>Tipo</label>
+					<input type="text" name ="tipo" size="50" maxlength="50" value="<?php echo $row['tipo'];?>" />
+			   </div>
+			 <div>
+				<label>Pagamento 1 - Pago </label>
+				<input type="text" name ="pago" size="25" maxlength="25" value="1" />
+			 </div>
+			<p align="center">
               <input name="cadastrar" type="submit" id="cadastrar" value="Confirmar Pagamento?" />
               <input name="limpar" type="reset" id="limpar" value="Limpar Campos!" /><br /> </p>
+		</fieldset>	  
             </form>
 		</div>
         
