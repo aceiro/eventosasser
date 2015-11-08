@@ -3,27 +3,53 @@
 <head>
 <meta charset="utf-8" />
 <title>Asser Eventos</title>
-<link REL=StyleSheet HREF="../../../css/estilo.css" TYPE="text/css"></head>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="../../../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../../../css/estilo.css" type="text/css">
+
+<script src="../../../scripts/asser-main-menu.js"></script>
+<script src="../../../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+</head>
 
 <body>
 	<div id="corpo">
     	
 		<div id="cabecalho">
-			IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
-		</div>
+            IX - Semana Conhecimento
+            <div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
+        </div>
         
         <br />
-        
-        <div id="mmenu">
-		Histórico de pagamentos realizados - ouvintes.</div>
-        
-        <br />
+
+          <div id='cssmenu'>
+                <ul>
+                   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+                   <li><a href='../palestra'>Palestras</a></li>
+                   <li><a href='../programa.html'>Programação</a></li>            
+                   <li><a href='#'>Sobre o evento</a></li>             
+                   <li><a href='../'>Administrativo</a></li>
+                   <li><a href='../contato'>Contato</a></li>
+                   <li><a href='../creditos.html'>Créditos</a></li>
+                </ul>
+            </div>
+
+            <div id="mmenu"> &nbsp;</div>
+            <div id="mmenubar"> &nbsp;</div>
+            <div id="mmenusubbar"> &nbsp;</div>
+            <div id="mmenusubsubbar"> &nbsp;</div>
+            <br /> 
         
         <div id="texto">
     		<form id="cad_usuario" name="usuario" method="post" action="editar.php" >
-                <br />
-				<p align="center"><b>Digite o RA referente ao aluno para confirmar o pagamento.</b></p>
-				<p align="center"><input type="text" name="ra" size="19" maxlength="20" /><input name="Confirmar" type="submit" id="Confirmar" value="Confirmar" /></p>
+                <fieldset>
+				<legend>Confirma pagamento Ouvinte</legend>
+				<div>
+				<label>Digite o RA referente ao aluno para confirmar o pagamento.</label>
+				<input type="text" name="ra" size="19" maxlength="20" /><input name="Confirmar" type="submit" id="Confirmar" value="Confirmar" /></div>
 				<?php
 				// Estabelecendo a conexão com o banco de dados
 				try{
@@ -45,7 +71,7 @@
 				}
 				?>				
                 
-				<br />	
+				</fieldset>	
 
             </form>
         </div>
