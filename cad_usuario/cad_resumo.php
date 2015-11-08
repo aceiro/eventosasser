@@ -7,16 +7,11 @@
 <head>
 <meta charset="utf-8" />
 <title>Asser Eventos</title>
-<!-- adicionado o suporte para o jquery e thema redmond -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-<!-- outros suporte a css da página -->
 <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
 <link rel="stylesheet" href="../css/estilo.css" type="text/css">
-
-<!-- outros scripts para o menu-->
 <script src="../scripts/asser-main-menu.js"></script>
 <script src="../scripts/asser-commum.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
@@ -52,34 +47,6 @@
   });
   </script>
 
-  <style type="text/css">
-  	.rotulo-resumo{
-	  	font-weight: bold;
-	  	font-size: 18px;
-	  	text-align: center;
-	  	color: #336799;
-  	}
-  	.input-resumo{
-  		font-weight: bold;
-	  	font-size: 18px;
-	  	text-align: center;
-	  	color: #336799;
-  		vertical-align: center;
-  	}
-  	.info-resumo {
-
-			font-size: 10px;
-			border: 1px solid #FFF;
-			text-align: center;
-			width: 30%;
-			background-color: rgba(26, 165, 26, 0.5);
-			border-color: white;
-			color: white;
-			border-radius: 40px 40px 40px 2px;
-			margin-left: 55%;
-
-  	}
-  </style>
 <body>
 	<div id="corpo">
     	
@@ -90,7 +57,6 @@
         
         <br />
         
-        <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
                    <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
@@ -103,13 +69,11 @@
                 </ul>
             </div>
 
-            <!-- adiciona o suporte ao separador gradiente -->
             <div id="mmenu"> &nbsp;</div>
             <div id="mmenubar"> &nbsp;</div>
             <div id="mmenusubbar"> &nbsp;</div>
             <div id="mmenusubsubbar"> &nbsp;</div>
             <br /> 
-        <!-- fim do menu da aplicação -->
         
         <br />
         

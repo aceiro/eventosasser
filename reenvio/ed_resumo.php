@@ -7,22 +7,22 @@
 <head>
 <meta charset="utf-8" />
 <title>Asser Eventos - Cadastro realizado com sucesso</title>
-<link REL=StyleSheet HREF="../css/estilo.css" TYPE="text/css"></head>
 
-<!-- Load jQuery and the validate plugin -->
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-  
-  <!-- jQuery Form Validation code -->
-  <script>
-  
-  // When the browser is ready...
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+
+<script src="../scripts/asser-main-menu.js"></script>
+<script src="../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+  <script>  
   $(function() {
-  
-    // Setup form validation on the #register-form element
     $("#register-form").validate({
-    
-        // Specify the validation rules
         rules: {
             titulo: "required",
             curso: "required",
@@ -30,9 +30,7 @@
 			autores: "required",
 			resumo: "required",
             keyword: "required"
-        },
-        
-        // Specify the validation error messages
+        },        
         messages: {
             titulo: "Copie e cole o título aqui.",
             curso: "Escreva o nome do curso aqui.",
@@ -40,8 +38,7 @@
 			autores: "Copie e cole os autores aqui.",
 			resumo: "Copie e cole o resumo aqui.",
             keyword: "Copie e cole as palavras-chave aqui."
-        },
-        
+        },        
         submitHandler: function(form) {
             form.submit();
         }
@@ -53,49 +50,87 @@
 
 <body>
 	<div id="corpo">
-    	
+	
 		<div id="cabecalho">
-			IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
-		</div>
+            IX - Semana Conhecimento
+            <div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
+        </div>
         
         <br />
         
-        <div id="mmenu">
-		<a>Dados Pessoais</a> | Dados Resumo | <a>Resumo Enviado</a> </div>
-        
+      <div id='cssmenu'>
+            <ul>
+               <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+               <li><a href='../palestra'>Palestras</a></li>
+               <li><a href='../programa.html'>Programação</a></li>             
+               <li><a href='#'>Sobre o evento</a></li>             
+               <li><a href='../adm'>Administrativo</a></li>
+               <li><a href='../contato'>Contato</a></li>
+               <li><a href='#'>Créditos</a></li>
+            </ul>
+        </div>
+
+        <div id="mmenu"> &nbsp;</div>
+        <div id="mmenubar"> &nbsp;</div>
+        <div id="mmenusubbar"> &nbsp;</div>
+        <div id="mmenusubsubbar"> &nbsp;</div>
         <br />
         
         <div id="texto">
 		    <form id="register-form" name="register-form" method="post" action="confirma.php"  novalidate="novalidate">
-            	<p align="center">Copie e cole, ou escreva as informações para o envio do resumo nos campos abaixo:</p>
-				
-			<p align="center"><b>Comentários:</b></p>
-			<p align="center"><textArea id="comentarios" name="comentarios" cols="100" rows="7" ><?php echo $_SESSION['comentarios']; ?></textArea></p>
+			<fieldset>
+			<legend> Reenvio do Resumo </legend>
+				<div>
+					<p id="effect" class="ui-corner-all">
+						Copie e cole, ou escreva as informações para o reenvio do resumo nos campos abaixo.
+						Ao lado de cada item, você vai encontrar balões como este 
+						explicando o que deve ser colocado em cada campo. 
+						</p>
+				</div>		
+			<div class="info-resumo">Os comentários propostos pelo avaliador, conduz o autor às alterações que devem ser realizadas no resumo.</div>	
+			<div class="rotulo-resumo">Comentários</div>
+			<div class="input-resumo"><textArea id="comentarios" name="comentarios" cols="100" rows="7" ><?php echo $_SESSION['comentarios']; ?></textArea></div>
 								
-			<p align="center"><b>Titulo:</b></p>
-		    	<p align="center"><input type="text" id="titulo" name="titulo" size="70" maxlength="65"/></p>
-                				
-                <p align="center"><b>Curso:</b></p>
-                <p align="center"><input type="text" id="curso" name="curso" size="70" maxlength="65" /></p>
-                                
-			<p align="center"><b>Orientador:</b></p>
-			<p align="center"><input type="text" id="orientador" name="orientador" size="70" /></p>
-			<p align="center"><input id="email" name="email" type="hidden" value="<?php echo $_SESSION['email'];?>" /></p>
-				
-			<p align="center"><b>Autor(es):</b></p>
-			<p align="center"><font face="Arial, Helvetica, sans-serif" size="-1"> Separe os autores com ;</font></p>
-			<p align="center"><font face="Arial, Helvetica, sans-serif" size="-1">Exemplo: Azdrubal Peichoto - azdrubal@hotmail.com; Joseph Martins - joseph@hotmail.com</font></p>
-			<p align="center"><input type="text" id="autores" name="autores" size="70" /></p>
+			<div class="rotulo-resumo">Titulo</div>
+				<div class="input-resumo"><input type="text" id="titulo" name="titulo" size="70" maxlength="250"  /></div>
                 
-				<p align="center"><b>Resumo:</b></p>
-				<p align="center"><textArea id="resumo" name="resumo" cols="100" rows="7"></textArea></p>
+                <div class="info-resumo">Preencha com o curso, por exemplo, <strong>Bacharelado em Pedagogia</strong></div>
+				<div class="rotulo-resumo">Curso</div>
+				<div class="input-resumo"><input type="text" id="curso" name="curso" size="70" maxlength="65" /></div>
+                                
+				<div class="info-resumo">Preencha com o nome do seu orientador. Não esqueça da titulação Esp./Ms./Dr.</div>                                 
+				<div class="rotulo-resumo">Orientador</div>
+				<div class="input-resumo"><input type="text" id="orientador" name="orientador" size="70" maxlength="150" /></div>
+				<input type="hidden" name="email" id="email" value="<?php echo $email;?>" />
 				
-				<p align="center"><b>Palavras-chave:</b></p>
-				<p align="center"><input type="text" id="keyword" name="keyword" size="70" maxlength="65" /></p>
+			  	<div class="info-resumo">Você pode adicionar até 4 autores</div>
+				<div class="rotulo-resumo">Autor (1)</div>			
+				<div class="input-resumo"><input type="text" id="autor1" name="autor1" size="40" maxlength="255" value="<?php echo $_SESSION['nome']; ?>" /> - <input type="text" id="email1" name="email1" size="40" maxlength="255" value="<?php echo $_SESSION['email']; ?>" /></div>
+
+				<div class="rotulo-resumo">Autor (2)</div>
+				<div class="input-resumo"><input type="text" id="autor2" name="autor2" size="40" maxlength="255" /> - <input type="text" id="email2" name="email2" size="40" maxlength="255" /></div>
+
+				<div class="rotulo-resumo">Autor (3)</div>	
+				<div class="input-resumo"><input type="text" id="autor3" name="autor3" size="40" maxlength="255" /> - <input type="text" id="email3" name="email3" size="40" maxlength="255" /></div>
+
+				<div class="rotulo-resumo">Autor (4)</div>
+				<div class="input-resumo"><input type="text" id="autor4" name="autor4" size="40" maxlength="255" /> - <input type="text" id="email4" name="email4" size="40" maxlength="255" /></div>
+                
+                <div class="info-resumo">Aqui você deve inserir o seu resumo. Não esqueça que um resumo deve contér:
+                <strong>Contexto, Lacuna de pesquisa, Objetivo, Metodologia, Resultado e Conclusão</strong></div>
+				<div class="rotulo-resumo">Resumo</div>
+				<div class="input-resumo"><textArea id="resumo" name="resumo" cols="100" rows="7"></textArea></div>
 				
-                <p align="center">
-              <input name="cadastrar" type="submit" id="cadastrar" value="Confirmar cadastro" />
-              <input name="limpar" type="reset" id="limpar" value="Limpar Campos!" /><br /> </p>
+				<div class="info-resumo">Adicone pelo menos três palavras-chave que caracterizem o seu trabalho. 
+				Coloque as palavras-chave separadas por ponto-e-virgula. Por exemplo, <strong>Sistema Toyota; Administração de Empresas; Gestão</strong></div>
+				<div class="rotulo-resumo">Palavras-chave</div>
+				<div class="input-resumo"><input type="text" id="keyword" name="keyword" size="100" maxlength="95" /></div>
+				
+                <div class="button">
+              		<input name="cadastrar" type="submit" id="cadastrar" value="Confirmar cadastro" />
+              		<input name="limpar" type="reset" id="limpar" value="Limpar Campos!" />
+              	</div>
+			</fieldset>
             </form>
 		</div>
         

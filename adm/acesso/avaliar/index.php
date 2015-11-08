@@ -3,26 +3,51 @@
 <head>
 <meta charset="utf-8" />
 <title>Asser Eventos</title>
-<link REL=StyleSheet HREF="../../css/estilo.css" TYPE="text/css"></head>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="../../../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../../../css/estilo.css" type="text/css">
+
+<script src="../../../scripts/asser-main-menu.js"></script>
+<script src="../../../scripts/asser-commum.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
 <body>
 	<div id="corpo">
     	
         <div id="cabecalho">
-    	IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
-    	</div>
+            IX - Semana Conhecimento
+            <div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
+        </div>
         
         <br />
-        
-        <div id="mmenu">
-		<a>Dados Pessoais</a> | Dados Resumo  | <a>Avaliação realizada</a></div>
-        
-        <br />
+
+        <!-- inicio do menu da aplicacao -->
+          <div id='cssmenu'>
+                <ul>
+                   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+                   <li><a href='../palestra'>Palestras</a></li>
+                   <li><a href='../programa.html'>Programação</a></li>            
+                   <li><a href='#'>Sobre o evento</a></li>             
+                   <li><a href='../contato'>Contato</a></li>
+                   <li><a href='../creditos.html'>Créditos</a></li>
+                </ul>
+            </div>
+
+            <!-- adiciona o suporte ao separador gradiente -->
+            <div id="mmenu"> &nbsp;</div>
+            <div id="mmenubar"> &nbsp;</div>
+            <div id="mmenusubbar"> &nbsp;</div>
+            <div id="mmenusubsubbar"> &nbsp;</div>
+            <br /> 
         
         <div id="texto">
     		<form id="cad_usuario" name="usuario" method="post" action="av_resumo.php"  onSubmit="return validaCampo(); return false;">
-                
+                <fieldset>
+				<legend>Avaliar resumo</legend>
 				<p align="center"><b>Digite o ID do resumo a avaliar.</b></p>
 				<p align="center"><input type="text" name="id" size="19" maxlength="20" /><input name="avaliar" type="submit" id="avaliar" value="Avaliar" /></p>
 				<?php
@@ -48,7 +73,7 @@
 				?>				
                 
 				<br />	
-
+			</fieldset>
             </form>
         </div>
         
