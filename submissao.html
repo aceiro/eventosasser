@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+	<!-- adicionado o suporte para o bootstrap padrão  -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 	 
 	<!-- função para ativar o suporte de tabs do jquery --> 
 	  <script>
@@ -24,6 +29,8 @@
 
 	<!-- outros scripts para o menu-->
 	<script src="scripts/asser-main-menu.js"></script>
+
+	
 </head>
 
 <body>
@@ -35,14 +42,21 @@
     	
         <br />
 
-      <!-- menu da aplicacao -->
+     
+
+	  <!-- menu da aplicacao -->
       <div id='cssmenu'>
 			<ul>
-			   <li><a href='index.html'>Sobre o evento</a></li>
+			   <li><a href='index.html'>Evento</a></li>
 			   <li class='active'><a href='#'>Submissão de Resumos</a></li>
 			   <li><a href='palestra'>Palestras</a></li>
-			   <li><a href='programa.html'>Programação</a></li>			   			   
-			   <li><a href='eventsis'>Evento anterior</a></li>
+			   <li><a href='programa.html'>Programação</a></li>			   			   			
+			   <li class='has-sub'> <a href='#'>Edições anteriores</a> 
+			   		<ul>
+			   			<li> <a href='anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
+			   		</ul>
+			   </li>
+
 			   <li><a href='contato'>Contato</a></li>
 			   <li><a href='creditos.html'>Créditos</a></li>
 			</ul>
@@ -58,7 +72,7 @@
       <div id="texto">
       	
       	<div id="effect" class="ui-corner-all">
-    		<p>  Bem-vindo ao sistema de submissão de resumos. </p>
+    		<p>  Bem-vindo ao sistema de submissão de resumos. Aqui, você vai encontrar os passos para submeter (enviar) o seu trabalho. <strong> Leia os passos com atenção e siga os itens indicados.</strong> </p>
     	</div>
 
     	<br />
@@ -72,7 +86,9 @@
 
 	   <div id="tabs-1" style="padding:5px">
 	   		<p> 
-	   		Para facilitar a edição do seu trabalho use os arquivos de exemplos disponíveis aqui. Nesse caso, o arquivo do MsWorld contém os detalhes para a escrita e formato do resumo do evento e o arquivo do MsPowerPoint contém a formatação para apresentação do painel.
+	   		Aqui você econtra o <span class="bg-warning">primeiro passo</span> para enviar o seu resumo para avaliação. Para facilitar a edição do seu trabalho use os arquivos de exemplos disponíveis aqui. Nesse caso, o arquivo do <code> Ms/World</code> contém o formato do resumo do evento e o arquivo do <code> Ms/PowerPoint </code> descreve a formatação para o do painel para o dia da apresentação.</p>
+
+	   		<p <p class="bg-warning"> <strong>ATENÇÂO:</strong> para enviar o resumo, você vai precisar editar apenas o arquivo <code>.doc</code>. O arquivo <code> .ppt </code> deve ser utilizado apenas para o dia da apresentação.
 			
 			</p>
 			<p style="text-align: center;">
@@ -84,26 +100,33 @@
 
 		  <div id="tabs-2" style="padding:5px">
 		    
-		    <p> Aqui você econtra o <b>primeiro passo</b> para enviar o seu resumo para avaliação. Nesse caso, verifique com o seu orientador e/ou professor responsável se o resumo está pronto para ser enviado.</p> 
+		    <p> Aqui você econtra o <span class="bg-warning">segundo passo</span> para enviar o seu resumo para avaliação, logo após você ter editado o seu resumo no <code> Ms/World</code>. </p>
 
-		    <p> Faça uma revisão final e então clique no ícone <a href="cad_usuario"><img style="vertical-align:middle" src="imagens/enviar.png" width="25" height="25" alt="Enviar resumo" /></a></p>
+		    <p class="bg-warning"> <strong>ATENÇÂO:</strong> Verifique com o seu orientador e/ou professor responsável se o seu resumo está pronto para ser enviado. <strong>Caso o resumo não atenda os requisitos de formatação do evento o resumo deverá ser re-enviado pelo sistema. </strong> </p> 
+
+		    <p> Caso seu resumo esteja pronto para ser enviado, clique no ícone abaixo. </p>
+		    <p  style="text-align: center;">
+		    	<a href="cad_usuario"><img style="vertical-align:middle" src="imagens/enviar.png" width="25" height="25" alt="Enviar resumo" /></a>
+		    </p>
 
 		  </div>		  
 		  <div id="tabs-3" style="padding:5px">
 		    
-		    <p> Esse é o <b> segundo passo </b> para enviar o seu resumo. Aqui você pode conferir o status dele se foi aprovado ou se precisa de ajustes.</p>
+		    <p> Esse é o <span class="bg-warning"> terceiro passo </span> para o envio do resumo para o evento. Aqui você poderá conferir o status se está <span class="bg-success">aprovado</span> ou se precisa ser <span class="bg-danger">re-enviado</span>. Para verificar o seu resumo, clique no ícone abaixo para continuar.</p>
 
-		    <p> Para isso, clique no ícone
-		    <a  href="listar">
-		    <img src="imagens/status.png" style="vertical-align:middle" width="25" height="25"/></a> 	    	
+		    <p style="text-align: center;">
+		    	<a  href="listar">
+		    	<img src="imagens/status.png" style="vertical-align:middle" width="25" height="25"/></a> 	    	
 		    </p>
 		  
 		  </div>
 		  <div id="tabs-4" style="padding:5px">
 		    <p> 
-		    Esse Caso o seu resumo precise de algum ajuste e/ou correção, faça o re-envio dele nesse passo.</p>
+		    Finalmente, nesse passo você poderá re-enviar o seu resumo. Para isso, clique no ícone para continuar.</p>
 
-		    <p>Para isso clique no link
+		    <p class="bg-danger"> <strong>ATENÇÂO:</strong> Faça o re-envio do seu resumo apenas se o mesmo não foi aceito. </strong> </p> 
+
+		    <p style="text-align: center;">
 		    <a href="reenvio"><img style="vertical-align:middle" src="imagens/reenviar.png" width="25" height="25"/></a>
 		    </p>
 		  </div>
