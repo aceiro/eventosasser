@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<!-- adicionado o suporte para o bootstrap padrão  -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  
 <!-- outros suporte a css da página -->
 
@@ -15,6 +19,48 @@
 
 <!-- outros scripts para o menu-->
 <script src="../scripts/asser-main-menu.js"></script>
+
+<style type="text/css">
+	#listar-coteudo{
+		margin: 5px 5px 5px 50px;
+	}
+
+	table{
+		width: 95%;
+	}
+
+	table caption{
+		font-size: 14px;
+		text-align: center;
+	}
+
+	table, th, td{
+		border: 1px solid #CBCDDD;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		padding: 5px;
+		text-align: left;		
+	}
+
+	tr:nth-child(even){
+		background-color: #eee;
+	}
+
+	tr:nth-child(odd){
+		background-color: #fff;
+	}
+
+	th{
+		background-color: #1862A1;
+		color: white;
+	}
+
+	.linhaStatusVazio{ }
+
+</style>
+
 </head>
 
 <body>
@@ -49,7 +95,7 @@
         
         
         
-        <div>
+        <div id="listar-coteudo">
 		<p align="center"><a href="../">Voltar</a></p>
     		<form id="cad_usuario" name="usuario" method="post" action="av_resumo.php"  onSubmit="return validaCampo(); return false;">
                 
@@ -60,23 +106,49 @@
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 					$sql = 'SELECT * FROM evento order by curso';
-					echo '<p align="center" size="10"><b>';
-					echo ' 0 : Enviado |';
-					echo ' 1 : Aprovado |';
-					echo ' 2 : Reenvio |';
-					echo ' 4 : Reprovado</b></p>';
-					echo '<table style="width:100%">';
-					echo '<tr><td>ID</td><td>TITULO</td><td>ALUNO</td><td>CURSO</td><td>STATUS</td></tr>';
 					
+					echo '<table class=\'table-hover\'>';
+					echo '<caption><strong>Lista de Resumos submetidos </strong></caption>';
+					echo '<th>ID</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th><th>STATUS</th>';
+					$linhaStatus = "linhaStatusVazio";
+					$result = "-";
 					foreach($link->query($sql) as $row){
-					echo '<tr><td>'.$row['id'].'</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td>'.$row['status'].'</td></tr>';	
+						$status = $row['status'];						
+						switch($status){
+							case 0:{
+								$result="<span class=\" glyphicon glyphicon-list-alt\"></span> Enviado";
+								$linhaStatus = "info";
+								break;
+							}
+							case 1:{
+								$result="<span class=\" glyphicon glyphicon-ok-circle\"></span> Aprovado";
+								$linhaStatus = "success";
+								break;
+							}
+							case 2:{
+								$result="<span class=\" glyphicon glyphicon-ban-circle\"></span> Re-enviar";
+								$linhaStatus = "warning";
+								break;
+							}
+							case 3:{
+								$result="<span class=\" glyphicon glyphicon-remove-circle\"></span> Reprovado";
+								$linhaStatus = "danger";
+								break;
+							}
+							default:{
+								$result="-";								
+							}
+						}
+					
+						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td>'.$result.'</td></tr>';	
 					}
 					echo '</table>';
 					
 				}catch(PDOException $e){
 					echo "ERROR" . $e->getMessage();
 				}
-				?>				
+				?>		
+				<br />			
                 <p align="center"><a href="../">Voltar</a></p>
 				<br />	
 
