@@ -10,12 +10,14 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+
+
 <script src="../scripts/asser-main-menu.js"></script>
 <script src="../scripts/asser-commum.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
+<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../css/estilo.css" type="text/css">
 <script>
   
   $(function() {
@@ -46,6 +48,7 @@
 
   });
   </script>
+</head>
 
 <body>
 	<div id="corpo">
@@ -59,7 +62,7 @@
         
           <div id='cssmenu'>
                 <ul>
-                   <li><a href='#../index.html'>Evento</a></li>             
+                   <li><a href='../index.html'>Evento</a></li>             
                    <li class='active'><a href='../index.html'>Submissão de Trabalhos</a></li>
                    <li><a href='../palestra'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
