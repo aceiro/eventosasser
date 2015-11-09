@@ -8,39 +8,13 @@
 	padding-right:10px;
 	font-weight:bold;
 	}
-	
-  	.rotulo-resumo{
-	  	font-weight: bold;
-	  	font-size: 18px;
-	  	text-align: center;
-	  	color: #336799;
-  	}
-  	.input-resumo{
-  		font-weight: bold;
-	  	font-size: 18px;
-	  	text-align: center;
-	  	color: #336799;
-  		vertical-align: center;
-  	}
-  	.info-resumo {
-
-			font-size: 10px;
-			border: 1px solid #FFF;
-			text-align: center;
-			width: 30%;
-			background-color: rgba(26, 165, 26, 0.5);
-			border-color: white;
-			color: white;
-			border-radius: 40px 40px 40px 2px;
-			margin-left: 55%;
-
-  	}
     
 #register-form label.error, .output {
 	color:#FB3A3A;
 	font-weight:bold;
-	}
+}
 	
+
 #corpo {
 	width: 936px;
 	margin: 0 auto;
@@ -81,11 +55,25 @@
 #rodape {
 	background-color: #336799;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10px;
+	font-size: 11px;
 	color: #FFF;
 	text-align: center;
-	height: 50px;
+	height: 70px;
+	margin-top: 90px;
 }
+
+#rodape a{
+		color: #fff;
+}
+
+#rodape a:hover{
+	color: #eee;
+}
+
+#rodape a:visited{
+	color: #fff;
+}
+
 
 .container {
         width: 600px;
@@ -200,7 +188,6 @@ legend {
 	border:1px solid #336799;
 	color:#336799;
 	font-size:90%;
-	text-align:right;
 
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
@@ -222,6 +209,8 @@ label {
 	border-top-right-radius: 5px;
 }
 
+
+
 fieldset div {
 	padding: 8px;
 }  
@@ -229,6 +218,8 @@ fieldset div {
 fieldset input {
 	height: 20px;          
 }
+
+
 
 .button{
 	float: right;
@@ -249,3 +240,62 @@ label.error{
 input.ui-button {
 	padding: 0.4em 3em 2em;
 }
+
+
+/* configuracao do hr geral da página */
+hr.fancy-line { 
+    border: 0; 
+    height: 1px;
+
+}
+hr.fancy-line:before {
+    top: -0.5em;
+    height: 1em;
+}
+hr.fancy-line:after {
+    content:'';
+    height: 0.5em;
+    top: 1px;
+}
+
+hr.fancy-line:before, hr.fancy-line:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+}
+
+hr.fancy-line, hr.fancy-line:before {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+}
+
+body, hr.fancy-line:after {
+    background: #f4f4f4;
+}
+
+/** configuracao do css para o resumo **/
+.rotulo-resumo{
+     font-weight: bold;
+     font-size: 18px;
+     text-align: center;
+     color: #336799;
+   }
+   .input-resumo{
+     font-weight: bold;
+     font-size: 18px;
+     text-align: center;
+     color: #336799;
+     vertical-align: center;
+   }
+   .info-resumo {
+
+     font-size: 10px;
+     border: 1px solid #FFF;
+     text-align: center;
+     width: 30%;
+     background-color: rgba(26, 165, 26, 0.5);
+     border-color: white;
+     color: white;
+     border-radius: 40px 40px 40px 2px;
+     margin-left: 55%;
+
+   }
