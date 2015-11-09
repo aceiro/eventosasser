@@ -65,11 +65,11 @@
                 <legend>Inscrição em Palestras</legend>
                 <div>
                     <label>RA: </label>
-                    <input type="text" name="ra" size="19" maxlength="20" />
+                    <input type="text" name="ra" size="20" maxlength="20" />
                 </div>
                 <div>
                   <label>Nome: </label>
-                  <input type="text" name="nome" size="70" maxlength="65" />
+                  <input type="text" name="nome" size="50" maxlength="65" />
                 </div>
                 <div class="button">
                   <input type="hidden" name="palestra" size="80" maxlength="150" />

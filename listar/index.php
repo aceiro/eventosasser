@@ -59,6 +59,10 @@
 
 	.linhaStatusVazio{ }
 
+	.itemStatus {
+		text-align: center;
+	}
+
 </style>
 
 </head>
@@ -76,13 +80,18 @@
        <!-- menu da aplicacao -->
       <div id='cssmenu'>
 			<ul>
-			   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+			   <li><a href='../index.html'>Evento</a></li>	
+			   <li class='active'><a href='../index.html'>Submissão de Trabalhos</a></li>
 			   <li><a href='../palestra'>Palestras</a></li>
 			   <li><a href='../programa.html'>Programação</a></li>			   
-			   <li><a href='#'>Sobre o evento</a></li>			   
-			   <li><a href='../adm'>Administrativo</a></li>
+			   		
+			   <li class='has-sub'> <a href='#'>Edições Anteriores</a> 
+				   		<ul>
+				   			<li> <a href='../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
+				   		</ul>
+			   	    </li>   
 			   <li><a href='../contato'>Contato</a></li>
-			   <li><a href='#'>Créditos</a></li>
+			   <li><a href='../creditos.html'>Créditos</a></li>
 			</ul>
 	 	</div>
 
@@ -116,22 +125,22 @@
 						$status = $row['status'];						
 						switch($status){
 							case 0:{
-								$result="<span class=\" glyphicon glyphicon-list-alt\"></span> Enviado";
+								$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
 								$linhaStatus = "info";
 								break;
 							}
 							case 1:{
-								$result="<span class=\" glyphicon glyphicon-ok-circle\"></span> Aprovado";
+								$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
 								$linhaStatus = "success";
 								break;
 							}
 							case 2:{
-								$result="<span class=\" glyphicon glyphicon-ban-circle\"></span> Re-enviar";
+								$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
 								$linhaStatus = "warning";
 								break;
 							}
 							case 3:{
-								$result="<span class=\" glyphicon glyphicon-remove-circle\"></span> Reprovado";
+								$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
 								$linhaStatus = "danger";
 								break;
 							}
@@ -140,7 +149,7 @@
 							}
 						}
 					
-						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td>'.$result.'</td></tr>';	
+						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td class=\'itemStatus\'>'.$result.'</td></tr>';	
 					}
 					echo '</table>';
 					
