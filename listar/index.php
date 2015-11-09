@@ -1,3 +1,13 @@
+<?php
+	// adiciona o header para variaveis de conexão
+
+	$config = require '../cfg/config.php';
+
+	echo $config['dbuser'];
+
+	echo $config['dbpass'];
+?>
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
