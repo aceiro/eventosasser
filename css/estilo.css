@@ -12,8 +12,9 @@
 #register-form label.error, .output {
 	color:#FB3A3A;
 	font-weight:bold;
-	}
+}
 	
+
 #corpo {
 	width: 936px;
 	margin: 0 auto;
@@ -187,7 +188,6 @@ legend {
 	border:1px solid #336799;
 	color:#336799;
 	font-size:90%;
-	text-align:right;
 
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
