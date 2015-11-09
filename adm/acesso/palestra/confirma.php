@@ -12,7 +12,7 @@
 		$sql = "INSERT INTO palestra (palestrante,palestra,dia,horario)values('$palestrante','$palestra','$dia','$horario')";
 		$link->query($sql);
 
-		header("Location: ./");
+		header("Location: listar.php");
 
 	}catch(PDOException $e){
 		echo "ERROR" . $e->getMessage();

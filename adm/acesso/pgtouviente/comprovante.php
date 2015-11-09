@@ -28,7 +28,7 @@
         
         <div id="texto">
 		    <form id="comprovante" name="resumo" method="post"  >
-            	<p align="center">Declaro ter recebido de <?php echo $nome; ?> a importância de R$ 10,00 referente a taxa de inscrição
+            	<p align="center">Declaro ter recebido de <?php echo $nome; ?> a importância de R$ ______ referente a taxa de inscrição
 				para participação como ouvinte na IX - Semana Conhecimento e VI - Mostra de Iniciação Científica. </p><br />
 				<p align="center">Rio Claro, _____ de ____________ de 2015.</p>
 				<p align="center">Recebido de</p>
