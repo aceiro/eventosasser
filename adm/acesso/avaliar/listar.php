@@ -17,7 +17,6 @@
 	<div id="corpo">
     	
         <div id="cabecalho">
-    	Mostra Científica 2015.
     	</div>
         
         <br />

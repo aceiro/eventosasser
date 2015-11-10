@@ -15,7 +15,6 @@
 	<div id='corpo'>
     	
         <div id='cabecalho'>
-    	IX - Semana Conhecimento e VI - Mostra de Iniciação Científica.
     	</div>
         
         <br />
