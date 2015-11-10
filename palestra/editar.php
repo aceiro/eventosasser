@@ -1,3 +1,4 @@
+<?php $config = require '../cfg/config.php'; ?>
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -9,7 +10,6 @@
 	<div id="corpo">
     	
 		<div id="cabecalho">
-			IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
 		</div>
         
         <br />
@@ -28,7 +28,7 @@
 				$palestra = $_POST['palestra'];
 		// Estabelecendo a conexão com o banco de dados
 		try{
-			$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+			$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 			$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
 			$sql = "INSERT INTO palestras (ra,nome,palestra) VALUES ('$ra','$nome','$palestra')";

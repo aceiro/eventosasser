@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -24,8 +26,6 @@
 	<div id="corpo">
     	
 		<div id="cabecalho">
-            IX - Semana Conhecimento
-            <div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
         </div>
         
         <br />

@@ -1,3 +1,5 @@
+<?php $config = require '../../../cfg/config.php'; ?>
+
 <?php
 		$palestrante = $_POST['palestrante'];
 		$palestra = $_POST['palestra'];
@@ -6,7 +8,7 @@
 		
 	// Estabelecendo a conexão com o banco de dados
 	try{
-		$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$sql = "INSERT INTO palestra (palestrante,palestra,dia,horario)values('$palestrante','$palestra','$dia','$horario')";

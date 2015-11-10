@@ -18,8 +18,6 @@
 	<div id="corpo">
     	
         <div id="cabecalho">
-		<p align="center">ESCOLA SUPERIOR DE TECNOLOGIA E EDUCAÇÃO DE RIO CLARO</p>
-    	<p align="center">IX - Semana Conhecimento e VI - Mostra de Iniciação Científica</p>
     	</div>
         
         <br />

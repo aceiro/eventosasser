@@ -1,3 +1,4 @@
+<?php $config = require '../../../cfg/config.php'; ?>
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -19,8 +20,6 @@
 	<div id="corpo">
     	
 		<div id="cabecalho">
-            IX - Semana Conhecimento
-            <div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
         </div>
         
         <br />
@@ -50,7 +49,7 @@
 				<div id="effect" class="ui-corner-all">Escolha uma palestra para gerar a lista de presença</div>
 				<?php
 					try{
-						$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+                        $link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 						$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 						$sql = "SELECT * FROM palestra";

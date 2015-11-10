@@ -1,3 +1,5 @@
+<?php $config = require '../cfg/config.php'; ?>
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -71,8 +73,6 @@
 	<div id="corpo">
     	
 		<div id="cabecalho">
-    		IX - Semana Conhecimento
-    		<div id="subcabecalho" style="font-size:14px"> VI Mostra de Iniciação Científica </div>
     	</div>
         
         <br />
@@ -111,7 +111,7 @@
 				<?php
 				// Estabelecendo a conexão com o banco de dados
 				try{
-					$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 					$sql = 'SELECT * FROM evento order by curso';

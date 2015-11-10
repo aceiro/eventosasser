@@ -1,141 +1,165 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-	<meta charset="utf-8" />
-	<title>Asser Eventos</title>
+    <meta charset="utf-8"/>
+    <title>Asser Eventos</title>
 
-	<!-- adicionado o suporte para o jquery e thema redmond -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!-- adicionado o suporte para o jquery e thema redmond -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-	<!-- adicionado o suporte para o bootstrap padrão  -->
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- adicionado o suporte para o bootstrap padrão  -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-	 
-	<!-- função para ativar o suporte de tabs do jquery --> 
-	  <script>
-	  	$(function() {
-	    	$( "#tabs" ).tabs();
-	  	});
 
-	  </script>
+    <!-- função para ativar o suporte de tabs do jquery -->
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
 
-	<!-- outros suporte a css da página -->
+    </script>
 
-	<link rel="stylesheet" href="css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="css/estilo.css" type="text/css">
+    <!-- outros suporte a css da página -->
 
-	<!-- outros scripts para o menu-->
-	<script src="scripts/asser-main-menu.js"></script>
+    <link rel="stylesheet" href="css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="css/estilo.css" type="text/css">
 
-	
+    <!-- outros scripts para o menu-->
+    <script src="scripts/asser-main-menu.js"></script>
+
+
 </head>
 
 <body>
 
-	<div id="corpo">    	
-        <div id="cabecalho"> IX - Semana Conhecimento
-    		<div class="subcabecalho" > VI Mostra de Iniciação Científica </div>
-    	</div>
-    	
-        <br />
+<div id="corpo">
+    <div id="cabecalho">
+    </div>
 
-     
+    <br/>
 
-	  <!-- menu da aplicacao -->
-      <div id='cssmenu'>
-			<ul>
-			   <li><a href='index.html'>Evento</a></li>
-			   <li class='active'><a href='#'>Submissão de Resumos</a></li>
-			   <li><a href='palestra'>Palestras</a></li>
-			   <li><a href='programa.html'>Programação</a></li>			   			   			
-			   <li class='has-sub'> <a href='#'>Edições anteriores</a> 
-			   		<ul>
-			   			<li> <a href='anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
-			   		</ul>
-			   </li>
 
-			   <li><a href='contato'>Contato</a></li>
-			   <li><a href='creditos.html'>Créditos</a></li>
-			</ul>
-	 	</div>
+    <!-- menu da aplicacao -->
+    <div id='cssmenu'>
+        <ul>
+            <li><a href='index.html'>Evento</a></li>
+            <li class='active'><a href='#'>Submissão de Resumos</a></li>
+            <li><a href='palestra'>Palestras</a></li>
+            <li><a href='programa.html'>Programação</a></li>
+            <li class='has-sub'><a href='#'>Edições anteriores</a>
+                <ul>
+                    <li><a href='anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop
+                        (Anais 6/2015)</a></li>
+                </ul>
+            </li>
 
-		<!-- adiciona o suporte ao separador gradiente -->
-		<div id="mmenu"> &nbsp;</div>
-		<div id="mmenubar"> &nbsp;</div>
-		<div id="mmenusubbar"> &nbsp;</div>
-		<div id="mmenusubsubbar"> &nbsp;</div>
-		<br />
-	        
-      <div id="texto">
-      	
-      	<div id="effect" class="ui-corner-all">
-    		<p>  Bem-vindo ao sistema de submissão de resumos. Aqui, você vai encontrar os passos para submeter (enviar) o seu trabalho. <strong> Leia os passos com atenção e siga os itens indicados.</strong> </p>
-    	</div>
+            <li><a href='contato'>Contato</a></li>
+            <li><a href='creditos.html'>Créditos</a></li>
+        </ul>
+    </div>
 
-    	<br />
-		<div id="tabs">
-		  <ul>
-		  	<li><a href="#tabs-1">Modelos</a></li>
-		    <li><a href="#tabs-2">Enviar Resumo</a></li>
-		    <li><a href="#tabs-3">Verificar Status</a></li>
-		    <li><a href="#tabs-4">Re-enviar Resumo</a></li>
-		  </ul>
+    <!-- adiciona o suporte ao separador gradiente -->
+    <div id="mmenu"> &nbsp;</div>
+    <div id="mmenubar"> &nbsp;</div>
+    <div id="mmenusubbar"> &nbsp;</div>
+    <div id="mmenusubsubbar"> &nbsp;</div>
+    <br/>
 
-	   <div id="tabs-1" style="padding:5px">
-	   		<p> 
-	   		Aqui você econtra o <span class="bg-warning">primeiro passo</span> para enviar o seu resumo para avaliação. Para facilitar a edição do seu trabalho use os arquivos de exemplos disponíveis aqui. Nesse caso, o arquivo do <code> Ms/World</code> contém o formato do resumo do evento e o arquivo do <code> Ms/PowerPoint </code> descreve a formatação para o do painel para o dia da apresentação.</p>
+    <div id="texto">
 
-	   		<p <p class="bg-warning"> <strong>ATENÇÂO:</strong> para enviar o resumo, você vai precisar editar apenas o arquivo <code>.doc</code>. O arquivo <code> .ppt </code> deve ser utilizado apenas para o dia da apresentação.
-			
-			</p>
-			<p style="text-align: center;">
-				<a href="artigo.doc"><img src="imagens/word.png" width="30" height="30"></a> 
-				<a href="painel.ppt"><img src="imagens/ppt.png" width="30" height="30"></a>
+        <div id="effect" class="ui-corner-all">
+            <p> Bem-vindo ao sistema de submissão de resumos. Aqui, você vai encontrar os passos para submeter (enviar)
+                o seu trabalho. <strong> Leia os passos com atenção e siga os itens indicados.</strong></p>
+        </div>
 
-			</p>
-	   </div>
+        <br/>
 
-		  <div id="tabs-2" style="padding:5px">
-		    
-		    <p> Aqui você econtra o <span class="bg-warning">segundo passo</span> para enviar o seu resumo para avaliação, logo após você ter editado o seu resumo no <code> Ms/World</code>. </p>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Modelos</a></li>
+                <li><a href="#tabs-2">Enviar Resumo</a></li>
+                <li><a href="#tabs-3">Verificar Status</a></li>
+                <li><a href="#tabs-4">Re-enviar Resumo</a></li>
+            </ul>
 
-		    <p class="bg-warning"> <strong>ATENÇÂO:</strong> Verifique com o seu orientador e/ou professor responsável se o seu resumo está pronto para ser enviado. <strong>Caso o resumo não atenda os requisitos de formatação do evento o resumo deverá ser re-enviado pelo sistema. </strong> </p> 
+            <div id="tabs-1" style="padding:5px">
+                <p>
+                    Aqui você econtra o <span class="bg-warning">primeiro passo</span> para enviar o seu resumo para
+                    avaliação. Para facilitar a edição do seu trabalho use os arquivos de exemplos disponíveis aqui.
+                    Nesse caso, o arquivo do <code> Ms/World</code> contém o formato do resumo do evento e o arquivo do
+                    <code> Ms/PowerPoint </code> descreve a formatação para o do painel para o dia da apresentação.</p>
 
-		    <p> Caso seu resumo esteja pronto para ser enviado, clique no ícone abaixo. </p>
-		    <p  style="text-align: center;">
-		    	<a href="cad_usuario"><img style="vertical-align:middle" src="imagens/enviar.png" width="25" height="25" alt="Enviar resumo" /></a>
-		    </p>
+                <p class="bg-warning"><strong>ATENÇÂO:</strong> para enviar o resumo, você vai precisar editar apenas o
+                    arquivo <code>.doc</code>. O arquivo <code> .ppt </code> deve ser utilizado apenas para o dia da
+                    apresentação.
 
-		  </div>		  
-		  <div id="tabs-3" style="padding:5px">
-		    
-		    <p> Esse é o <span class="bg-warning"> terceiro passo </span> para o envio do resumo para o evento. Aqui você poderá conferir o status se está <span class="bg-success">aprovado</span> ou se precisa ser <span class="bg-danger">re-enviado</span>. Para verificar o seu resumo, clique no ícone abaixo para continuar.</p>
+                </p>
 
-		    <p style="text-align: center;">
-		    	<a  href="listar">
-		    	<img src="imagens/status.png" style="vertical-align:middle" width="25" height="25"/></a> 	    	
-		    </p>
-		  
-		  </div>
-		  <div id="tabs-4" style="padding:5px">
-		    <p> 
-		    Finalmente, nesse passo você poderá re-enviar o seu resumo. Para isso, clique no ícone para continuar.</p>
+                <p style="text-align: center;">
+                    <a href="modelos/artigo.doc"><img src="imagens/word.png" width="30" height="30"></a>
+                    <a href="modelos/painel.ppt"><img src="imagens/ppt.png" width="30" height="30"></a>
 
-		    <p class="bg-danger"> <strong>ATENÇÂO:</strong> Faça o re-envio do seu resumo apenas se o mesmo não foi aceito. </strong> </p> 
+                </p>
+            </div>
 
-		    <p style="text-align: center;">
-		    <a href="reenvio"><img style="vertical-align:middle" src="imagens/reenviar.png" width="25" height="25"/></a>
-		    </p>
-		  </div>
-		  </div>
- 		
+            <div id="tabs-2" style="padding:5px">
+
+                <p> Aqui você encontra o <span class="bg-warning">segundo passo</span> para enviar o seu resumo para
+                    avaliação, logo após você ter editado o seu resumo no <code> Ms/World</code>. </p>
+
+                <p class="bg-warning"><strong>ATENÇÂO:</strong> Verifique com o seu orientador e/ou professor
+                    responsável se o seu resumo está pronto para ser enviado. <strong>Caso o resumo não atenda os
+                        requisitos de formatação do evento o resumo deverá ser re-enviado pelo sistema. </strong></p>
+
+                <p> Caso seu resumo esteja pronto para ser enviado, clique no ícone abaixo. </p>
+
+                <p style="text-align: center;">
+                    <a href="cad_usuario"><img style="vertical-align:middle" src="imagens/enviar.png" width="25"
+                                               height="25" alt="Enviar resumo"/></a>
+                </p>
+
+            </div>
+            <div id="tabs-3" style="padding:5px">
+
+                <p> Esse é o <span class="bg-warning"> terceiro passo </span> para o envio do resumo para o evento. Aqui
+                    você poderá conferir o status se está <span class="bg-success">aprovado</span> ou se precisa ser
+                    <span class="bg-danger">re-enviado</span>. Para verificar o seu resumo, clique no ícone abaixo para
+                    continuar.</p>
+
+                <p style="text-align: center;">
+                    <a href="listar">
+                        <img src="imagens/status.png" style="vertical-align:middle" width="25" height="25"/></a>
+                </p>
+
+            </div>
+            <div id="tabs-4" style="padding:5px">
+                <p>
+                    Finalmente, nesse passo você poderá re-enviar o seu resumo. Para isso, clique no ícone para
+                    continuar.</p>
+
+                <p class="bg-danger"><strong>ATENÇÂO:</strong> Faça o re-envio do seu resumo apenas se o mesmo não foi
+                    aceito. </strong> </p>
+
+                <p style="text-align: center;">
+                    <a href="reenvio"><img style="vertical-align:middle" src="imagens/reenviar.png" width="25"
+                                           height="25"/></a>
+                </p>
+            </div>
+        </div>
+
     </div>
 
     <div id="rodape">
-              <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
-      </div>
-</body>
+        <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos
+            os direitos reservados <br/> Desenvolvido pelo <a
+                    href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de
+                Informação </a>
+        </p>
+    </div>
+
+
+</div></body>
 </html>
