@@ -1,12 +1,4 @@
-<?php
-	// adiciona o header para variaveis de conexão
-
-	$config = require '../cfg/config.php';
-
-	echo $config['dbuser'];
-
-	echo $config['dbpass'];
-?>
+<?php $config = require '../cfg/config.php'; ?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
@@ -121,7 +113,7 @@
 				<?php
 				// Estabelecendo a conexão com o banco de dados
 				try{
-					$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 					$sql = 'SELECT * FROM evento order by curso';

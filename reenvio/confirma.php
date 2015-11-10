@@ -1,3 +1,4 @@
+<?php $config = require '../cfg/config.php'; ?>
 <?php
 	session_start();
 
@@ -14,7 +15,7 @@
 	// Estabelecendo a conexão com o banco de dados
 	try{
 		$comentarios = strtoupper($comentarios);
-		$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$sql = "UPDATE evento SET titulo='$titulo', curso='$curso', orientador='$orientador', autores='$autores', resumo='$resumo', keyword='$keyword', status='$status', comentarios='$comentarios' WHERE email ='$email'";

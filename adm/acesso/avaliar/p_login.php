@@ -1,3 +1,4 @@
+<?php $config = require '../../../cfg/config.php'; ?>
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -35,7 +36,7 @@
 				$email = $_POST['email'];
 				$senha = $_POST['senha'];
 				try{
-					$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 					
 					$sql = "SELECT email, senha FROM evento WHERE email = '$email'";

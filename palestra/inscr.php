@@ -1,3 +1,4 @@
+<?php $config = require '../cfg/config.php'; ?>
 <?php
 	$ra = $_POST['ra'];
 	$nome = $_POST['nome'];
@@ -32,7 +33,7 @@
 				<p align='center'><select name='palestra' id='palestra'>";
 //conexão com o banco de dados
 		try{
-			$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+			$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 			$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
 //cadastra palestras

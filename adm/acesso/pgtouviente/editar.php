@@ -1,3 +1,4 @@
+<?php $config = require '../../../cfg/config.php'; ?>
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -49,7 +50,7 @@
 	<?php
 		$ra = $_POST['ra'];
 		try{
-			$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+			$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 			$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
 			$sql = "SELECT DISTINCT nome, ra FROM palestras WHERE ra='$ra'";
