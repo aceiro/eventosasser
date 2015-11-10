@@ -1,3 +1,5 @@
+<?php $config = require '../../../cfg/config.php'; ?>
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -50,7 +52,7 @@
 				$codigo = $_POST['codigo'];
 		// Estabelecendo a conexão com o banco de dados
 		try{
-			$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+			$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 			$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
 			$sql = "SELECT * FROM pagamento WHERE codigo='$codigo'";

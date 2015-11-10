@@ -1,3 +1,4 @@
+<?php $config = require '../cfg/config.php'; ?>
 <?php
 		session_start();
 		$_SESSION['email'] = $_POST['email'];
@@ -12,8 +13,8 @@
 	try{
 		$nome = strtoupper($nome);
 		$tipo = strtoupper($tipo);
-		
-		$link = new PDO("mysql:host=127.0.0.1;dbname=eventsis", "root", "");
+
+		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$sql = "INSERT INTO evento (nome, email, tipo, senha) values ('$nome', '$email', '$tipo', '$password');";

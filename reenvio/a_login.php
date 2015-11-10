@@ -1,3 +1,4 @@
+<?php $config = require '../cfg/config.php'; ?>
 <?php
 	session_start();
 	$_SESSION['email'] = $_POST['email'];
@@ -11,7 +12,7 @@
 	//Caso algum professor não tenha comentado, mas aluno deseja alterar o resumo
 	
 	try{
-		$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$sql = "SELECT comentarios FROM evento where email = '$email'";
@@ -32,7 +33,7 @@
 	// Estabelecendo a conexão com o banco de dados
 
 	try{
-		$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 					
 		$sql = "SELECT email, senha FROM evento WHERE email = '$email'";

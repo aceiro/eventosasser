@@ -1,3 +1,4 @@
+<?php $config = require '../cfg/config.php'; ?>
 
 <?php
 require('fpdf.php');
@@ -6,7 +7,7 @@ ini_set("display_errors", 0 );
 $email = $_POST['email'];
 
 try{
-	$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+	$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 	$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 	$sql = "SELECT Distinct p.autor, p.titulo, p.tipo, e.curso FROM pagamento p, evento e WHERE p.pago='1' AND e.email='$email'";

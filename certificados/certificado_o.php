@@ -1,3 +1,4 @@
+<?php $config = require '../cfg/config.php'; ?>
 <?php
 require('fpdf.php');
 error_reporting(0);
@@ -5,7 +6,7 @@ ini_set("display_errors", 0 );
 $ra = $_POST['ra'];
 
 try{
-	$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+	$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 	$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 	$sql = "SELECT DISTINCT nome FROM palestras WHERE pago='1' AND ra='$ra' AND presenca=1";

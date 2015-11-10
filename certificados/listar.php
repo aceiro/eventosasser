@@ -1,3 +1,5 @@
+<?php $config = require '../cfg/config.php'; ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,7 +11,7 @@
 				<?php
 				// Estabelecendo a conexão com o banco de dados
 				try{
-					$link = new PDO("mysql:host=localhost;dbname=eventsis", "root", "");
+					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 					$sql = "SELECT ra, nome, pago, presenca FROM palestras order by nome";
