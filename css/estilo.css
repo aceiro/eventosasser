@@ -19,10 +19,7 @@
 	width: 936px;
 	margin: 0 auto;
 	background-color: #FFF;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #336799;
-
+	border: 1px solid #336799;
 
 }
 #cabecalho {
@@ -87,8 +84,7 @@
 	width: 740px;  
 	padding: 1em;  
 	font-size: 1.2em; 
-	border: 1px solid #A6C9E2; 
-	/*background: #eee; */
+	border: 1px solid #A6C9E2;
 	color: #333; 
 	background: rgba(219, 230, 245, 0.27) none repeat scroll 0% 0%;
 }
@@ -173,10 +169,7 @@ fieldset {
 	margin: auto;
 	font-family: Arial, Helvetica, sans-serif;
 
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-radius: 5px;
 }
 
 legend {
@@ -185,11 +178,8 @@ legend {
 	color:#336799;
 	font-size:90%;
 
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
- }
+	border-radius: 5px;
+}
 
 label {
 	float:left;
@@ -199,10 +189,7 @@ label {
 	text-align:right;
 	font-weight:bold;
 
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-radius: 5px;
 }
 
 
@@ -264,9 +251,9 @@ hr.fancy-line, hr.fancy-line:before {
     background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
 }
 
-body, hr.fancy-line:after {
+/*body, hr.fancy-line:after {
     background: #f4f4f4;
-}
+}*/
 
 /** configuracao do css para o resumo **/
 .rotulo-resumo{
@@ -275,26 +262,24 @@ body, hr.fancy-line:after {
      text-align: center;
      color: #336799;
    }
-   .input-resumo{
-     font-weight: bold;
-     font-size: 18px;
-     text-align: center;
-     color: #336799;
-     vertical-align: center;
-   }
-   .info-resumo {
+.input-resumo{
+	 font-weight: bold;
+	 font-size: 18px;
+	 text-align: center;
+	 color: #336799;
+}
+.info-resumo {
 
-     font-size: 10px;
-     border: 1px solid #FFF;
-     text-align: center;
-     width: 30%;
-     background-color: rgba(26, 165, 26, 0.5);
-     border-color: white;
-     color: white;
-     border-radius: 40px 40px 40px 2px;
-     margin-left: 55%;
+	 font-size: 10px;
+	 text-align: center;
+	 width: 30%;
+	 background-color: rgba(26, 165, 26, 0.5);
+	 border: 1px solid white;
+	 color: white;
+	 border-radius: 40px 40px 40px 2px;
+	 margin-left: 55%;
 
-   }
+}
 
 
 /* Estilo para as frases (quotes) */
