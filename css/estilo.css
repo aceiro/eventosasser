@@ -24,7 +24,7 @@
 }
 #cabecalho {
 	height: 159px;
-	background: rgb(15, 35, 69) url("../imagens/header.png") no-repeat scroll center bottom / 860px 155px;
+	background: rgb(15, 35, 69) url("../imagens/header.png") no-repeat scroll center bottom / 933px 158px; /*860px 155px;*/
 	background-size: 860px 155px;
 	padding: 0px 0px 0px 17px;
 }
