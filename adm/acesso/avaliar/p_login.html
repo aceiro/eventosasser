@@ -14,25 +14,32 @@
 <script src="../../../scripts/asser-commum.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
-<script type="text/javascript">
-    function validaCampo()
-    {
-    if(document.cad_usuario.email.value=="")
-    {
-    alert("O Campo email é obrigatório!");
-    return false;
-    }
-    else
-    if(document.cad_usuario.senha.value=="")
-    {
-    alert("Digite uma senha!");
-    return false;
-    }
-    else
-    return true;
-    }
-    <!-- Fim do JavaScript que validará os campos obrigatórios! -->
-    </script>
+<script>
+  
+$(function() {
+    $("#register-form").validate({
+        rules: {
+            login: "required",
+            password: {
+                required: true,
+                minlength: 5
+            }
+        },
+        messages: {
+            login: "Entre com o login",
+            password: {
+                required: "Por favor, digite sua senha",
+                minlength: "Sua senha deve ter mais de 5 caracteres"
+            }
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+});
+  </script>
 
 <body>
 	<div id="corpo">
@@ -49,7 +56,7 @@
         <br />
         
         <div id="texto">
-    		<form id="a_login" name="login" method="post" action="listar.php"  onSubmit="return validaCampo(); return false;">
+    		<form id="register-form" name="register-form" method="post" action="a_login.php"  novalidate="novalidate">
                 <br />				
                 <p align="center"><b>E-mail:</b><input type="text" name="email" size="70" maxlength="65" /></p>
                                 

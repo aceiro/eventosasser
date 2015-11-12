@@ -30,7 +30,7 @@
         <br />
         
         <div id="texto">
-    		<form id="p_login" name="login" method="post" action="av_resumo.php"  onSubmit="return validaCampo(); return false;">
+    		<form id="p_login" name="login" method="post" action="av_resumo.php" >
                 <?php
 				// Estabelecendo a conexão com o banco de dados
 				$email = $_POST['email'];

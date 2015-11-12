@@ -28,7 +28,7 @@
         <br />
         
         <div id="texto">
-    		<form id="cad_usuario" name="usuario" method="post" action="av_resumo.php"  onSubmit="return validaCampo(); return false;">
+    		<form id="cad_usuario" name="usuario" method="post" action="av_resumo.php" >
                 <br />
 				<p align="center"><b>Digite o ID do resumo a avaliar.</b></p>
 				<p align="center"><input type="text" name="id" size="19" maxlength="20" /><input name="avaliar" type="submit" id="avaliar" value="Avaliar" /></p>
