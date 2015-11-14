@@ -14,7 +14,7 @@
 <script src="../../../scripts/asser-main-menu.js"></script>
 <script src="../../../scripts/asser-commum.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-
+</head>
 <body>
 	<div id="corpo">
     	
