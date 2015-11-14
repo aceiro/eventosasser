@@ -50,7 +50,7 @@
             <br /> 
         
         <div id="texto">
-    		<form id="register-form" name="register-form" method="post" action="a_login.php"  >
+    		<form id="register-form" name="register-form" method="post" action="av_resumo.php"  >
                 <fieldset>
 				<legend>Avaliar resumo</legend>
 				<p align="center"><b>Digite o ID do resumo a avaliar.</b></p>
