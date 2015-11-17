@@ -64,10 +64,17 @@
               <fieldset>
                 <legend>Inscrição em Palestras</legend>
                 <div>
-                    <p>As inscrições para as palestras serão liberadas a partir do dia 27 de novembro até 08 de dezembro e
-					deverá ser pago uma taxa de inscrição na secretaria da faculdade mediante apresentação do RA cadastrado. </p>
+                    <label>RA: </label>
+                    <input type="text" name="ra" size="20" maxlength="20" />
                 </div>
-                
+                <div>
+                  <label>Nome: </label>
+                  <input type="text" name="nome" size="50" maxlength="65" />
+                </div>
+                <div class="button">
+                  <input type="hidden" name="palestra" size="80" maxlength="150" />
+                  <input name="Proximo" type="submit" id="Confirmar" value="Confirmar" />
+                </div>
               </fieldset>
            </form>
         </div>

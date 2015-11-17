@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html lang='pt-BR'>
 <head><meta charset='utf-8' />
-<title>Asser Eventos - Cadastro realizado com sucesso</title>
+<title>Asser Eventos - Remoção realizada com sucesso</title>
 
 <link rel='stylesheet' href='//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css'>
 <script src='//code.jquery.com/jquery-1.10.2.js'></script>
@@ -26,7 +26,7 @@
           <div id='cssmenu'>
                 <ul>
                    <li><a href='#'>Evento</a></li>    
-                   <li class='active'><a href='../index.html'>Submissão de Trabalhos</a></li>
+                   <li class='active'><a href='../'>Administração</a></li>
                    <li><a href='../palestra'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
                    
@@ -48,7 +48,7 @@
 
         <br />
 		<fieldset>
-                <legend>Avaliação realizada com sucesso!</legend>
+                <legend>Remoção realizada com sucesso!</legend>
                <div>
                     <p id="effect" class="ui-corner-all"> Deseja fazer nova avaliação?</p>
                </div>

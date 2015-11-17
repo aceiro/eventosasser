@@ -24,26 +24,12 @@
   $(function() {
     $("#register-form").validate({
         rules: {
-            nome: "required",
+            comentarios: "required",
             tipo: "required",
             email: {
                 required: true,
                 email: true
             },
-            password: {
-                required: true,
-                minlength: 5
-            }
-        },
-        messages: {
-            nome: "Escreva o seu nome completo",
-            email: "Escreva seu endereço de email corretamente",
-			  tipo: "Escolha um tipo de participação",
-            password: {
-                required: "Por favor, digite uma senha",
-                minlength: "Sua senha deve ter mais de 5 caracteres"
-            }
-        },
         
         submitHandler: function(form) {
             form.submit();
