@@ -48,33 +48,46 @@
 		}
 
 		#drawer{
-			width:890px;
+			/*width:890px;*/
 			box-shadow:1px 1px 2px #555;
 			background-color: rgba(242, 236, 130, 0.8);
 			color: #0F2345;
 			margin-top: -72px;
 			border-radius: 1px;
+			margin-left: 30px;
 		}
 
 		#drawer li{
-			height:30px;
+			height:40px;
 			overflow:hidden;
 			margin-bottom:10px;
 
-			transition: height 1s;
-			-moz-transition: height 1s; /* Firefox 4 */
-			-webkit-transition: height 1s; /* Safari and Chrome */
-			-o-transition: height 1s; /* Opera */
+			transition: height 0.5s;
+			-moz-transition: height 0.5s; /* Firefox 4 */
+			-webkit-transition: height 0.5s; /* Safari and Chrome */
+			-o-transition: height 0.5s; /* Opera */
 		}
 
 		#drawer li:hover{
-			height:60px;
+			cursor: pointer;
+		}
+
+		.newImage{
+			width: 47px;
+			height: 40px;
+			margin-left: 3px;
 		}
 
 
 	</style>
 
-
+	<script type="application/javascript">
+		$(document).ready(function(){
+			$( "#drawer" ).click(function(){
+				window.open('programa.html','_parent');
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -83,7 +96,9 @@
 	<br/>
 
 	<ul id="drawer">
-		<li><strong> AVISO ! Prorrogação de datas </strong>
+		<li> <img src="imagens/new.png" class="newImage"></li>
+		<li>
+			<strong> AVISO ! Prorrogação de datas </strong>
 			<div> A data de submissão dos trabalhos foi prorrogada para o dia <strong> 23/11/2015 </strong>
 			</div>
 		</li>
