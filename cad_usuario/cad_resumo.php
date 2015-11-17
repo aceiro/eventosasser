@@ -99,15 +99,15 @@
 
 				<div class="info-resumo">Lembre-se o título descreve sinteticamente o seu trabalho</div>
 				<div class="rotulo-resumo">Titulo</div>
-				<div class="input-resumo"><input type="text" id="titulo" name="titulo" size="70" maxlength="250"  /></div>
+				<div class="input-resumo"><input type="text" id="titulo" name="titulo" size="100" maxlength="250"  /></div>
                 
                 <div class="info-resumo">Preencha com o curso, por exemplo, <strong>Bacharelado em Pedagogia</strong></div>
 				<div class="rotulo-resumo">Curso</div>
-				<div class="input-resumo"><input type="text" id="curso" name="curso" size="70" maxlength="65" /></div>
+				<div class="input-resumo"><input type="text" id="curso" name="curso" size="100" maxlength="65" /></div>
                                 
 				<div class="info-resumo">Preencha com o nome do seu orientador. Não esqueça da titulação Esp./Ms./Dr.</div>                                 
 				<div class="rotulo-resumo">Orientador</div>
-				<div class="input-resumo"><input type="text" id="orientador" name="orientador" size="70" maxlength="150" /></div>
+				<div class="input-resumo"><input type="text" id="orientador" name="orientador" size="100" maxlength="150" /></div>
 				<input type="hidden" name="email" id="email" value="<?php echo $email;?>" />
 				
 			  	<div class="info-resumo">Você pode adicionar até 4 autores</div>

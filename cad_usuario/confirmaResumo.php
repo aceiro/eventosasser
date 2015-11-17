@@ -33,7 +33,7 @@
 	// Estabelecendo a conexão com o banco de dados
 	try{
 		$titulo = strtoupper($titulo);	
-		$curso = strtoupper($curso);
+		$curso  = strtoupper($curso);
 		
 		$comentarios = strtoupper($comentarios );
 
@@ -43,6 +43,7 @@
 		$sql = "UPDATE evento SET titulo='$titulo', curso='$curso', 
 		orientador='$orientador', autores='$autores', resumo='$resumo', 
 		keyword='$keyword', status='$status', comentarios='$comentarios' WHERE email ='$email1'";
+
 		$link->query($sql);
 		
 		$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values
