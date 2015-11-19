@@ -50,10 +50,10 @@
 		<fieldset>
                 <legend>Remoção realizada com sucesso!</legend>
                <div>
-                    <p id="effect" class="ui-corner-all"> Deseja fazer nova avaliação?</p>
+                    <p id="effect" class="ui-corner-all"> Deseja fazer nova remoção?</p>
                </div>
 			
-			<p align="center"><a href='./'>Avaliar novo resumo</a> | <a href='../../../'>Sair</a> </p>
+			<p align="center"><a href='./'>Remover novo resumo</a> | <a href='../../../'>Sair</a> </p>
 	</div>
 	<br />
 <div id='rodape'>
