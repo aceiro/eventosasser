@@ -1,62 +1,28 @@
-<?php
-	session_start();
-?>
-
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8"/>
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="cache-control" content="no-store" />
+<link rel="shortcut icon" href="favicon.ico">
+
 <title>Asser Eventos</title>
 
-<!-- adicionado o suporte para o jquery e thema redmond -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<!-- outros suporte a css da página -->
+
+<script src="../scripts/asser-main-menu.js"></script>
+<script src="../scripts/asser-commum.js"></script>
+
 <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
 <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
-<!-- outros scripts para o menu-->
-<script src="../scripts/asser-main-menu.js"></script>
-<script src="../scripts/asser-commum.js"></script>
-<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
 
 
-<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-  
-<script>
-
-  $(function() {
-  
-    $("#register-form").validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true,
-                minlength: 5
-            }
-        },
-        messages: {
-            email: "Escreva seu endereço de email corretamente",
-            password: {
-                required: "Por favor, digite uma senha",
-                minlength: "Sua senha deve ter mais de 5 caracteres"
-            }
-        },
-        
-        submitHandler: function(form) {
-            form.submit();
-        }
-    });
-
-  });
-  
-  </script>
 </head>  
 
 <body>
@@ -70,13 +36,19 @@
        <!-- menu da aplicacao -->
       <div id='cssmenu'>
             <ul>
+               <li><a href='../index.html'>Evento</a></li>
                <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
                <li><a href='../palestra'>Palestras</a></li>
-               <li><a href='../programa.html'>Programação</a></li>             
-               <li><a href='#'>Sobre o evento</a></li>             
-               <li><a href='../adm'>Administrativo</a></li>
-               <li><a href='../contato'>Contato</a></li>
-               <li><a href='#'>Créditos</a></li>
+               <li><a href='../programa.html'>Programação</a></li>
+
+                <li class='has-sub'> <a href='#'>Edições Anteriores</a>
+                    <ul>
+                        <li> <a href='../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
+                    </ul>
+                </li>
+                <li><a href='../contato'>Contato</a></li>
+                <li><a href='../creditos.html'>Créditos</a></li>
+
             </ul>
         </div>
 
@@ -88,7 +60,7 @@
         <br />
         
         <div>
-    		<form id="register-form" name="register-form" method="post" action="a_login.php"  novalidate="novalidate">
+    		<form method="post" action="a_login.php" novalidate="novalidate">
             <fieldset>
                 <legend>Re-envio de Resumo</legend>
                 <div>
@@ -100,7 +72,7 @@
                     <input type="password" id="password" name="password" size="50" />
                 </div>
                 <div class="button">
-                    <input name="acessar" type="submit" id="acessar" value="Acessar" />
+                    <input type="submit" value="Acessar" />
                 </div>
             </fieldset>
             </form>

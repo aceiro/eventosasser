@@ -1,6 +1,19 @@
 <?php $config = require '../cfg/config.php'; ?>
 <?php
 	session_start();
+
+	function isEmpty($input)
+	{
+		$strTemp = $input;
+		$strTemp = trim($strTemp); // trimming the string
+
+		if( $strTemp == null       ||
+		    $strTemp == ''         ||
+		    strlen($strTemp) == 0  ) {
+			return true;
+		}
+		return false;
+	}
 ?>
 <?php
 		$titulo = $_POST['titulo'];	
@@ -29,7 +42,13 @@
 		$keyword = $_POST['keyword'];
 		$status = '0';
 		$comentarios = 'Professor avaliador, por favor anote as alterações para o autor aqui.';
-		
+
+		// verifica se não está vazia as strings
+		// senao faz um bypass
+		if( isEmpty($titulo) || isEmpty($curso) || isEmpty($orientador) || isEmpty($resumo) || isEmpty($keyword) )
+			return;
+
+
 	// Estabelecendo a conexão com o banco de dados
 	try{
 		$titulo = strtoupper($titulo);	

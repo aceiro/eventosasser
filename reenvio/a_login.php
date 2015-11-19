@@ -1,12 +1,11 @@
-<?php $config = require '../cfg/config.php'; ?>
-<?php
+<?php 
 	session_start();
+	$config = require '../cfg/config.php';
+
 	$_SESSION['email'] = $_POST['email'];
 	$_SESSION['password'] = $_POST['password'];
 	$_SESSION['comentarios'];
-?>
 
-<?php
 	$email = $_SESSION['email'];
 	$senha = $_SESSION['password'];
 	//Caso algum professor não tenha comentado, mas aluno deseja alterar o resumo
@@ -42,12 +41,11 @@
 		}				
 	//Se achou vai para modo de edição, se não, volta para login
 		if($row['senha']==$senha){
-			header('Location:ed_resumo.php');
+			header('Location: ed_resumo.php');
 		}else{
-			header('Location:index.html');
+			header('Location: index.html');
 		}
 					
 	}catch(PDOException $e){
 		echo "ERROR";
 	}
-?>
