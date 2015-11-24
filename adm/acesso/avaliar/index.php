@@ -2,7 +2,7 @@
     $user = $_SESSION['email'];
     if($user==null){
        header('Location: ../../../index.html');
-       die('Retornando...');
+       die();
     }
 
 ?>

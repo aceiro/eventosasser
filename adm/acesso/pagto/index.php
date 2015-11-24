@@ -1,3 +1,11 @@
+<?php session_start();
+    $user = $_SESSION['email'];
+    if($user==null){
+        header('Location: ../../../index.html');
+        die();
+    }
+?>
+
 <?php $config = require '../../../cfg/config.php'; ?>
 <!DOCTYPE html >
 <html lang="pt-BR">
