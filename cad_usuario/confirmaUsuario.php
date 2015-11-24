@@ -1,3 +1,25 @@
+<!DOCTYPE html >
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<title>Asser Eventos</title>
+	<html>
+		<body>
+		<div align="center">
+			Período de envio de resumos expirou !
+			</br><a href='../' >  Voltar </a>
+		</div>
+			<?php
+				die();
+			?>
+		</body>
+	</html>
+
+
 <?php $config = require '../cfg/config.php'; ?>
 <?php
 		session_start();
