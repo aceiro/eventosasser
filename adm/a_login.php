@@ -1,10 +1,12 @@
-<?php $config = require '../cfg/config.php'; ?>
 <?php
 	session_start();
-	$_SESSION['login'] = $_POST['login'];
+	$config = require '../cfg/config.php'; ?>
+<?php
+	
+	$_SESSION['email'] = $_POST['login'];
 	$_SESSION['password'] = $_POST['password'];
 
-	$login = $_SESSION['login'];
+	$login = $_POST['login'];
 	$senha = $_SESSION['password'];
 	
 	try{
@@ -16,9 +18,9 @@
 		foreach($link->query($sql) as $row){
 			if(strcmp($row['login'],$login)==0){
 				if(strcmp($row['senha'],$senha)==0){
-					header("Location:acesso");
+					header("Location: acesso");
 			}else{
-				header("Location:./");
+				header("Location: ./");
 			}
 		}
 		}			

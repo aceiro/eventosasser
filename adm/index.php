@@ -1,10 +1,4 @@
-<?php session_start();
-    $user = $_SESSION['email'];
-    if($user==null){
-        header('Location: ../../index.html');
-        die();
-    }
-?>
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
