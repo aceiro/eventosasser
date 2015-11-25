@@ -1,4 +1,5 @@
 <?php $config = require '../cfg/config.php'; ?>
+<?php include_once('../utils/common.php'); ?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
@@ -7,7 +8,7 @@
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-store" />
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="../favicon.ico">
 <title>Asser Eventos</title>
 <!-- adicionado o suporte para o jquery e thema redmond -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
@@ -115,12 +116,15 @@
     		<form id="cad_usuario" name="usuario" method="post" action="av_resumo.php"  onSubmit="return validaCampo(); return false;">
                 
 				<?php
-				// Estabelecendo a conexão com o banco de dados
+
 				try{
 					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-					$sql = 'SELECT * FROM evento order by curso';
+					$sql = 'SELECT DISTINCT  * FROM evento WHERE titulo <> \'\' AND  titulo IS NOT NULL AND
+                                                                 nome <> \'\' AND  nome IS NOT NULL AND
+                                                                 curso <> \'\' AND  curso IS NOT NULL
+                                                           ORDER BY curso';
 					
 					echo '<table class=\'table-hover\'>';
 					echo '<caption><strong>Lista de Resumos submetidos </strong></caption>';
@@ -128,7 +132,7 @@
 					$linhaStatus = "linhaStatusVazio";
 					$result = "-";
 					foreach($link->query($sql) as $row){
-						$status = $row['status'];						
+						$status = $row['status'];
 						switch($status){
 							case 0:{
 								$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";

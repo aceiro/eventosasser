@@ -45,8 +45,10 @@
 
 		// verifica se não está vazia as strings
 		// senao faz um bypass
-		if( isEmpty($titulo) || isEmpty($curso) || isEmpty($orientador) || isEmpty($resumo) || isEmpty($keyword) )
-			return;
+		if( isEmpty($titulo) || isEmpty($curso) || isEmpty($orientador) || isEmpty($resumo) || isEmpty($keyword) ){
+			die;
+		}
+
 
 
 	// Estabelecendo a conexão com o banco de dados

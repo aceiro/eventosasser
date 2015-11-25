@@ -7,6 +7,8 @@
 
 ?>
 <?php $config = require '../../../cfg/config.php'; ?>
+<?php include_once('../../../utils/common.php'); ?>
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -74,14 +76,17 @@
 				try{
                     $link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-					$sql = 'SELECT * FROM evento order by curso';
+
+                    $sql = 'SELECT DISTINCT  * FROM evento WHERE titulo <> \'\' AND  titulo IS NOT NULL AND
+                                                                 nome <> \'\' AND  nome IS NOT NULL AND
+                                                                 curso <> \'\' AND  curso IS NOT NULL
+                                                           ORDER BY curso';
 					
 					echo '<table style="width:100%">';
 					echo '<tr><td>ID</td><td>TITULO</td><td>ALUNO</td><td>CURSO</td><td>STATUS</td></tr>';
 					
 					foreach($link->query($sql) as $row){
-						echo "<tr><td>".$row['id']."</td>";
+                        echo "<tr><td>".$row['id']."</td>";
 						echo '</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td>'.$row['status'].'</td></tr>';	
 					}
 					echo '</table>';
