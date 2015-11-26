@@ -1,4 +1,5 @@
 <?php $config = require '../../../cfg/config.php'; ?>
+<?php require_once('../../../utils/common.php'); ?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
@@ -86,11 +87,16 @@
 						foreach($link->query($sql) as $row){
 							echo "<p align='center'><b>".$row['id']."</b></p>";
 							echo "<p align='center'><b>".$row['titulo']."</b></p>";
-							echo "<p align='right'>".$row['autores']."</p>";			
-							echo "<p align='right'>".$row['curso']."</p>";			
-							echo "<p align='right'>Orientador(a): ".$row['orientador']."</p>";			
-							echo "<p align='justify'>".$row['resumo']."</p>";			
-							echo "<p align='left'>".$row['keyword']."</p>";			
+							if( !isEmpty($row['autores']) ) {
+                                echo "<p align='right'>" . $row['autores'] . "</p>";
+                            }else {
+                                echo "<p align='right'>" . $row['nome']. " - " . $row['email'] . "</p>";
+                            }
+
+                            echo "<p align='right'>".$row['curso']."</p>";
+							echo "<p align='right'>Orientador(a): ".$row['orientador']."</p>";
+							echo "<p align='justify'>".$row['resumo']."</p>";
+							echo "<p align='left'>".$row['keyword']."</p>";
 						}
 					
 				}catch(PDOException $e){

@@ -1,6 +1,9 @@
-<?php $config = require '../cfg/config.php'; ?>
 <?php
 	session_start();
+	$config = require '../cfg/config.php';
+?>
+<?php
+
 
 	$email = $_SESSION['email'];
 	$titulo = strtoupper($_POST['titulo']);	
