@@ -38,19 +38,7 @@
         <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-                   <li><a href='#'>Evento</a></li> 
-                   <li class='active'><a href='../index.html'>Submissão de Trabalhos</a></li>
-                   <li><a href='../palestra'>Palestras</a></li>
-                   <li><a href='../programa.html'>Programação</a></li>            
-                    
-                   <li class='has-sub'> <a href='#'>Edições anteriores</a> 
-                        <ul>
-                          <li> <a href='../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
-                        </ul>
-                  </li> 
-
-                   <li><a href='../contato'>Contato</a></li>
-                   <li><a href='../creditos.html'>Créditos</a></li>
+                   <li class='active'><a href='../../index.html'>Sair</a></li>
                 </ul>
             </div>
 
