@@ -25,12 +25,89 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
+<!-- adicionado o suporte para o bootstrap padrão  -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="../../../css/menu-styles.css" type="text/css">
 <link rel="stylesheet" href="../../../css/estilo.css" type="text/css">
 
 <script src="../../../scripts/asser-main-menu.js"></script>
 <script src="../../../scripts/asser-commum.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+
+
+<link rel="stylesheet" href="../../../scripts/tablesorter/blue/style.css" type="text/css" id="" media="print, projection, screen">
+<script type="text/javascript" src="../../../scripts/tablesorter/jquery.tablesorter.js"></script>
+
+<script type="application/javascript">
+    $(document).ready(function()
+        {
+            $("#myTable").tablesorter();
+        }
+    );
+
+</script>
+
+
+    <style type="text/css">
+        #listar-coteudo{
+            margin: 5px 5px 5px 50px;
+        }
+
+        table{
+            width: 95%;
+        }
+
+        table caption{
+            font-size: 14px;
+            text-align: center;
+        }
+
+        table, th, td{
+            border: 1px solid #CBCDDD;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        tr:nth-child(even){
+            background-color: #eee;
+        }
+
+        tr:nth-child(odd){
+            background-color: #fff;
+        }
+
+        th{
+            background-color: #1862A1;
+            color: white;
+        }
+
+        .itemStatus {
+            text-align: center;
+        }
+
+
+        fieldset{
+            width: auto;
+            height: auto;
+            margin: 10px;
+        }
+
+        table.tablesorter thead tr th{
+            background-color: #1862A1;
+        }
+
+
+
+    </style>
+
+</head>
 
 <body>
 	<div id="corpo">
@@ -43,18 +120,7 @@
         <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-                   <li><a href='#'>Evento</a></li>   
-                   <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
-                   <li><a href='../palestra'>Palestras</a></li>
-                   <li><a href='../../../programa.html'>Programação</a></li>
-                        
-                   <li class='has-sub'> <a href='#'>Edições Anteriores</a> 
-                      <ul>
-                        <li> <a href='../../../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
-                      </ul>
-                   </li>             
-                   <li><a href='../../../contato'>Contato</a></li>
-                   <li><a href='../../../creditos.html'>Créditos</a></li>
+                   <li><a href='../../../index.html'>Sair</a></li>
                 </ul>
             </div>
 
@@ -65,12 +131,20 @@
             <div id="mmenusubsubbar"> &nbsp;</div>
             <br /> 
         
-        <div id="texto">
+        <div id="listar-coteudo">
     		<form id="register-form" name="register-form" method="post" action="av_resumo.php"  >
-                <fieldset>
-				<legend>Avaliar resumo</legend>
-				<p align="center"><b>Digite o ID do resumo a avaliar.</b></p>
-				<p align="center"><input type="text" name="id" size="19" maxlength="20" /><input name="avaliar" type="submit" id="avaliar" value="Avaliar" /></p>
+                    <div>
+                        <p align="center">
+                            <b>Digite o ID do resumo a avaliar</b>
+                        </p>
+
+                        <p align="center">
+                            <input type="text" name="id" size="19" maxlength="20" />
+                            <input name="avaliar" type="submit" id="avaliar" value="Avaliar" />
+                        </p>
+                    </div>
+
+
 				<?php
 				// Estabelecendo a conexão com o banco de dados
 				try{
@@ -78,17 +152,21 @@
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     $sql = 'SELECT DISTINCT  * FROM evento WHERE titulo <> \'\' AND  titulo IS NOT NULL AND
-                                                                 nome <> \'\' AND  nome IS NOT NULL AND
-                                                                 curso <> \'\' AND  curso IS NOT NULL
+                                                                 nome   <> \'\' AND  nome IS NOT NULL AND
+                                                                 curso  <> \'\' AND  curso IS NOT NULL
                                                            ORDER BY curso';
-					
-					echo '<table style="width:100%">';
-					echo '<tr><td>ID</td><td>TITULO</td><td>ALUNO</td><td>CURSO</td><td>STATUS</td></tr>';
-					
-					foreach($link->query($sql) as $row){
-                        echo "<tr><td>".$row['id']."</td>";
-						echo '</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td>'.$row['status'].'</td></tr>';	
-					}
+
+					echo '<table id="myTable" class="tablesorter" >';
+                    echo '<caption><strong>Lista de resumos submetidos para avaliação</strong> <br/> clique nas colunas para ordenar</caption>';
+                    echo '<thead>';
+					echo '<tr><th>ID</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th><th>STATUS</th></tr>';
+                    echo '</thead>';
+					echo '<tbody>';
+                        foreach($link->query($sql) as $row){
+                            echo "<tr><td>".$row['id']."</td>";
+                            echo '</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td class=\'itemStatus\'>'.buildSimpleRowStatus($row['status']).'</td></tr>';
+                        }
+                    echo '</tbody>';
 					echo '</table>';
 					
 				}catch(PDOException $e){
@@ -96,8 +174,7 @@
 				}
 				?>				
                 
-				<br />	
-			</fieldset>
+				<br />
             </form>
         </div>
         
