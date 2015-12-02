@@ -18,9 +18,38 @@
 <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
 <!-- outros scripts para o menu-->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <script src="../scripts/asser-main-menu.js"></script>
-</head>
+<script src="../scripts/asser-commum.js"></script>
 
+  </head>
+ <script>
+
+  $(function() {
+    $("#register-form").validate({
+        rules: {
+            nome: "required",
+            ra: {
+				required: true,
+                minlength: 7
+				}
+        },
+        messages: {
+            nome: "Escreva o seu nome completo",
+            ra: {
+                required: "Entre com o RA corretamente",
+                minlength: "Seu RA deve ter mais de 7 caracteres"
+            }
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+
+  </script>
 <body>
 	<div id='corpo'>
     	
@@ -45,7 +74,9 @@
         <br />
         
         <div>
-      		<form id="cad_usuario" name="usuario" method="post" action="inscr.php" >
+		<form id="register-form" 
+                  name="register-form" method="post" 
+                  action="inscr.php"  novalidate="novalidate">
               <fieldset>
                 <legend>Inscrição em Palestras</legend>
                 <div>
@@ -56,10 +87,11 @@
                   <label>Nome: </label>
                   <input type="text" id="nome" name="nome" size="50" maxlength="65" />
                 </div>
-                <div class="button">
-                  <input type="hidden" name="palestra" size="80" maxlength="150" />
-                  <input name="Proximo" type="submit" id="Confirmar" value="Confirmar" />
-                </div>
+				<input type="hidden" name="palestra" size="80" maxlength="150" />
+					<div class="button">
+                           <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar" value="Continuar" />
+                           <input name="limpar" style="width:30%;" type="reset" id="limpar" value="Limpar" />
+					</div>
               </fieldset>
            </form>
         </div>        
