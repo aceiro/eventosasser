@@ -1,9 +1,11 @@
-
-
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
+	<meta charset="utf-8"/>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<link rel="shortcut icon" href="favicon.ico">
 <title>Asser Eventos</title>
 
 <!-- adicionado o suporte para o jquery e thema redmond -->
@@ -16,69 +18,83 @@
 <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
 <!-- outros scripts para o menu-->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <script src="../scripts/asser-main-menu.js"></script>
 <script src="../scripts/asser-commum.js"></script>
-<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-</head>
 
+  </head>
+ <script>
 
-<body>
-	<div id="corpo">
-    	
-		<div id="cabecalho">
-        </div>
+  $(function() {
+    $("#register-form").validate({
+        rules: {
+            nome: "required",
+            ra: {
+				required: true,
+                minlength: 7
+				}
+        },
+        messages: {
+            nome: "Escreva o seu nome completo",
+            ra: {
+                required: "Entre com o RA corretamente",
+                minlength: "Seu RA deve ter mais de 7 caracteres"
+            }
+        },
         
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+
+  </script>
+<body>
+	<div id='corpo'>
+    	
+		<div id='cabecalho'>
+        </div>        
         <br />
         
         <!-- menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-                   <li><a href='../index.html'>Evento</a></li> 
-                   <li><a href='../submissao.html'>Submissão de Trabalhos</a></li>
-                   <li><a href='#' class='active'>Palestras</a></li>
-                   <li><a href='../programa.html'>Programação</a></li>    
-                   <li class='has-sub'> <a href='#'>Edições anteriores</a> 
-                        <ul>
-                          <li> <a href='../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
-                        </ul>
-                    </li>        
-                   <li><a href='../contato'>Contato</a></li>
-                   <li><a href='../creditos.html'>Créditos</a></li>
+                   <li><a href='../'>Sair</a></li> 
                 </ul>
             </div>
 
             <!-- adiciona o suporte ao separador gradiente -->
-            <div id="mmenu"> &nbsp;</div>
-            <div id="mmenubar"> &nbsp;</div>
-            <div id="mmenusubbar"> &nbsp;</div>
-            <div id="mmenusubsubbar"> &nbsp;</div>
-            <br />
-
-
-
-        
+            <div id='mmenu'> &nbsp;</div>
+            <div id='mmenubar'> &nbsp;</div>
+            <div id='mmenusubbar'> &nbsp;</div>
+            <div id='mmenusubsubbar'> &nbsp;</div>
+            <br />        
+        <br />        
         <br />
         
         <div>
-      		<form id="cad_usuario" name="usuario" method="post" action="inscr.php" >
+		<form id="register-form" 
+                  name="register-form" method="post" 
+                  action="inscr.php"  novalidate="novalidate">
               <fieldset>
                 <legend>Inscrição em Palestras</legend>
                 <div>
                     <label>RA: </label>
-                    <input type="text" name="ra" size="20" maxlength="20" />
+                    <input type="text" id="ra" name="ra" size="20" maxlength="20" />
                 </div>
                 <div>
                   <label>Nome: </label>
-                  <input type="text" name="nome" size="50" maxlength="65" />
+                  <input type="text" id="nome" name="nome" size="50" maxlength="65" />
                 </div>
-                <div class="button">
-                  <input type="hidden" name="palestra" size="80" maxlength="150" />
-                  <input name="Proximo" type="submit" id="Confirmar" value="Confirmar" />
-                </div>
+				<input type="hidden" name="palestra" size="80" maxlength="150" />
+					<div class="button">
+                           <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar" value="Continuar" />
+                           <input name="limpar" style="width:30%;" type="reset" id="limpar" value="Limpar" />
+					</div>
               </fieldset>
            </form>
-        </div>
-        
+        </div>        
         <br />
     
     <div id="rodape">

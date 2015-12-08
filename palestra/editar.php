@@ -2,27 +2,95 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<title>Asser Eventos - Cadastro realizado com sucesso</title>
-<link REL=StyleSheet HREF="../listar/estilo.css" TYPE="text/css"></head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<link rel="shortcut icon" href="favicon.ico">
+<title>Asser Eventos</title>
+
+<!-- adicionado o suporte para o jquery e thema redmond -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<!-- outros suporte a css da página -->
+<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+
+<!-- outros scripts para o menu-->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script src="../scripts/asser-main-menu.js"></script>
+<script src="../scripts/asser-commum.js"></script>
+
+<style type="text/css">
+	#listar-coteudo{
+		margin: 5px 5px 5px 50px;
+	}
+
+	table{
+		width: 95%;
+	}
+
+	table caption{
+		font-size: 14px;
+		text-align: center;
+	}
+
+	table, th, td{
+		border: 1px solid #CBCDDD;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		padding: 5px;
+		text-align: left;		
+	}
+
+	tr:nth-child(even){
+		background-color: #eee;
+	}
+
+	tr:nth-child(odd){
+		background-color: #fff;
+	}
+
+	th{
+		background-color: #1862A1;
+		color: white;
+	}
+
+	.linhaStatusVazio{ }
+
+	.itemStatus {
+		text-align: center;
+	}
+
+</style>
+</head>
 
 <body>
-	<div id="corpo">
-    	
-		<div id="cabecalho">
-		</div>
-        
+	<div id='corpo'>    	
+		<div id='cabecalho'>
+        </div>        
+        <br />        
+        <!-- menu da aplicacao -->
+          <div id='cssmenu'>
+                <ul>
+                   <li><a href='../'>Sair</a></li> 
+                </ul>
+            </div>
+            <!-- adiciona o suporte ao separador gradiente -->
+            <div id='mmenu'> &nbsp;</div>
+            <div id='mmenubar'> &nbsp;</div>
+            <div id='mmenusubbar'> &nbsp;</div>
+            <div id='mmenusubsubbar'> &nbsp;</div>
+            <br />        
         <br />
-        
-        <div id="mmenu">
-		Inscrição em palestra realizada com sucesso</div>
-        
-        <br />
-        
         <div id="texto">
 		    <form id="cad_resumo" name="resumo" method="post" action="inscr.php" >
             	
-			<?php
+	<?php
 				$ra = $_POST['ra'];
 				$nome = $_POST['nome'];
 				$palestra = $_POST['palestra'];
@@ -35,11 +103,11 @@
 			$link->query($sql);
 			
 			$sql = "SELECT * FROM palestras WHERE ra='$ra'";
-			echo '<table style="width:100%">';
-			echo '<tr><td>ID</td><td>RA</td><td>ALUNO</td><td>PALESTRA</td></tr>';
+			echo '<table class=\'table-hover\'>';
+			echo '<th>RA</th><th>ALUNO</th><th>PALESTRA</th>';
 					
 			foreach($link->query($sql) as $row){
-				echo '<tr><td>'.$row['id'].'</td><td>'.$row['ra'].'</td><td>'.$row['nome'].'</td><td>'.$row['palestra'].'</td></tr>';	
+				echo '<tr><td>'.$row['ra'].'</td><td>'.$row['nome'].'</td><td>'.$row['palestra'].'</td></tr>';	
 			}
 			
 			echo '</table>';
@@ -49,10 +117,13 @@
 		}
 		
 	?>
-	<input type="hidden" name="ra" value="<?php echo $ra; ?>" />
-	<input type="hidden" name="nome" value="<?php echo $nome; ?>" />
-				<p align="center"><a href="confirma.php">Finalizar</a></p>
-				<p align="center"><input name="cadastrar" type="submit" id="cadastrar" value="Inscrever-se em mais palestras" /></p>
+				<input type="hidden" name="ra" value="<?php echo $ra; ?>" />
+				<input type="hidden" name="nome" value="<?php echo $nome; ?>" />
+				<input type="hidden" name="palestra" value="<?php echo $palestra; ?>" />
+				<br />
+				<div class='button'>
+					<input name="cadastrar" type="submit" id="cadastrar" value="Inscrever-se em mais palestras" />
+				</div>
             </form>
 		</div>
         

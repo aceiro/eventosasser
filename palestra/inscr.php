@@ -10,61 +10,68 @@
 <head>
 <meta charset='utf-8' />
 <title>Asser Eventos</title>
-<link REL=StyleSheet HREF='../css/estilo.css' TYPE='text/css'></head>
+<link REL=StyleSheet HREF='../css/estilo.css' TYPE='text/css'>
+<!-- adicionado o suporte para o jquery e thema redmond -->
+<link rel='stylesheet' href='//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css'>
+<script src='//code.jquery.com/jquery-1.10.2.js'></script>
+<script src='//code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
 
+<!-- outros suporte a css da página -->
+<link rel='stylesheet' href='../css/menu-styles.css' type='text/css'>
+<link rel='stylesheet' href='../css/estilo.css' type='text/css'>
+
+<!-- outros scripts para o menu-->
+<script src='//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js'></script>
+<script src='../scripts/asser-main-menu.js'></script>
+<script src='../scripts/asser-commum.js'></script>
+</head>
 <body>
 	<div id='corpo'>
     	
-        <div id='cabecalho'>
-    	</div>
-        
+		<div id='cabecalho'>
+        </div>        
         <br />
         
-        <div id='mmenu'>
-		Palestras</div>
-        
+        <!-- menu da aplicacao -->
+          <div id='cssmenu'>
+                <ul>
+                   <li><a href='../'>Sair</a></li> 
+                </ul>
+            </div>
+
+            <!-- adiciona o suporte ao separador gradiente -->
+            <div id='mmenu'> &nbsp;</div>
+            <div id='mmenubar'> &nbsp;</div>
+            <div id='mmenusubbar'> &nbsp;</div>
+            <div id='mmenusubsubbar'> &nbsp;</div>
+            <br />        
+        <br />        
         <br />
         
         <div id='texto'>
-    		<form id='cad_usuario' name='usuario' method='post' action='inscr.php' >
-
+    		<form id='cad_usuario' name='usuario' method='post' action='editar.php' >
 				<p align='center'><b>Escolha uma palestra</b></p>
-				<p align='center'><select name='palestra' id='palestra'>";
+				<div align='center'><select name='palestra' id='palestra' style='width:700px;'>";
 //conexão com o banco de dados
 		try{
 			$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 			$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			
-//cadastra palestras
-			if($_POST['palestra']!=""){
-			  $sql = "INSERT INTO palestras (ra,nome,palestra) VALUES ('$ra','$nome','$palestra')";
-			  $link->query($sql);
-			}
-//busca palestras cadastradas
-			$sql = "SELECT * FROM palestras WHERE ra = '$ra'";
-			$link->query($sql);
-
-			foreach($link->query($sql) as $row){
-				$meuhtml = $meuhtml."<p align='center'>".$row['palestra']."</p>";
-				$nome = $row['nome'];
-			}
-			
+					
 			$sql = "SELECT * FROM palestra";
 			$link->query($sql);
-
 			foreach($link->query($sql) as $row){
-				$concatena = $row['dia'].' '.$row['horario'].' '.$row['palestrante'].' '.$row['palestra'];
-				$meuhtml = $meuhtml."<option value='$concatena'>$concatena</option>";
+				$palestrasel = $row['dia'].' '.$row['horario'].' '.$row['palestrante'].' '.$row['palestra'];
+				$meuhtml = $meuhtml."<option value='$palestrasel'>$palestrasel</option>";
 			}
 			echo $meuhtml;
-			$meuhtml = "</select></p>
-				<p align='center'><input type='hidden' name='ra' value=".$ra." />.$nome.
-				<p align='center'><input type='hidden' name='nome' value='$nome' />
-				<p align='center'><input name='Proximo' type='submit' id='Confirmar' value='Proximo' /></p>
+			$meuhtml = "</select></div>
+				<p align='center'><input type='hidden' id='ra'  name='ra' value='$ra' />
+				<p align='center'><input type='hidden' id='nome' name='nome' value='$nome' />
+				<div class='button'>	
+					<input name='proximo' style='width:30%;' type='submit' id='proximo' value='Proximo' />
+				</div>
 				<br />	
-
             </form>
-			<p align='center'><a href='../'>Sair</a></p>
         </div>
         
         <br />
@@ -82,10 +89,3 @@
 		}
 							
 ?>		
-			
-				
-		
-	
-
-				
-				

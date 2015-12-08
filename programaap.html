@@ -1,68 +1,138 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
+	<meta charset="utf-8"/>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<link rel="shortcut icon" href="favicon.ico">
 <title>Asser Eventos</title>
-<link REL=StyleSheet HREF="css/estilo.css" TYPE="text/css"></head>
+
+
+
+<!-- adicionado o suporte para o jquery e thema redmond -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<!-- outros suporte a css da página -->
+<link rel="stylesheet" href="css/menu-styles.css" type="text/css">
+<link rel="stylesheet" href="css/estilo.css" type="text/css">
+
+<!-- outros scripts para o menu-->
+<script src="scripts/asser-main-menu.js"></script>
+
+<style type="text/css">
+	table{
+		width: 100%;
+	}
+
+	table caption{
+		font-size: 14px;
+	}
+
+	table, th, td{
+		border: 1px solid #CBCDDD;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		padding: 5px;
+		text-align: left;		
+	}
+
+	tr:nth-child(even){
+		background-color: #eee;
+	}
+
+	tr:nth-child(odd){
+		background-color: #fff;
+	}
+
+	th{
+		background-color: #1862A1;
+		color: white;
+	}
+
+	
+</style>
+</head>
 
 <body>
+	
+
 	<div id="corpo">
-    	
-        <div id="cabecalho">
-    	IX - Semana Conhecimento e VI - Mostra de Iniciação Científica
-    	</div>        
-        <br />        
-        <div id="mmenu">
-    <a href="index.html">Apresentação</a> | <a href="contato/contato.html">Contato</a> | Programação</div>
-        
+
+       <div id="cabecalho">
+    	</div>
+        <br />      
+
+        <!-- inicio do menu da aplicacao -->
+	      <div id='cssmenu'>
+				<ul>
+				   <li><a href='index.html'>Evento</a></li>
+				   <li><a href='submissao.html'>Submissão de Trabalhos</a></li>
+				   <li><a href='palestra'>Palestras</a></li>
+				   <li class='active'><a href='#'>Programação</a></li>			   
+				   <li class='has-sub'> <a href='#'>Edições Anteriores</a> 
+				   		<ul>
+				   			<li> <a href='anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
+				   		</ul>
+			   	    </li>
+
+				   <li><a href='contato'>Contato</a></li>
+				   <li><a href='creditos.html'>Créditos</a></li>
+				</ul>
+		 	</div>
+
+			<!-- adiciona o suporte ao separador gradiente -->
+			<div id="mmenu"> &nbsp;</div>
+			<div id="mmenubar"> &nbsp;</div>
+			<div id="mmenusubbar"> &nbsp;</div>
+			<div id="mmenusubsubbar"> &nbsp;</div>
+			<br /> 
+        <!-- fim do menu da aplicação -->
       <div id="texto">
 
         <br />
-		<p align="center"><h1>Divulgação das datas de apresentações e palestras</h1>
-		</p>
 		<table style="width:100%">
 		
 		<tr><td><p align="center"><h2>ATENÇÃO: </h2></p>
 		<ul>
-		<li><p align="justify">Alunos com situação/status aprovado devem recolher taxa de R$ 10,00 na secretaria.</li></p>
-		<li><p align="justify">Participação da semana como ouvinte: primeiro se cadastrar no sistema (<a href="palestra">aqui</a>) e recolher taxa de R$ 10,00 na secretaria.</li></p>
+		<li><p align="justify">Alunos com situação/status aprovado devem recolher taxa na secretaria.</li></p>
+		<li><p align="justify">Participação da semana como ouvinte: primeiro se cadastrar no sistema (<a href="palestra">aqui</a>) e recolher taxa na secretaria.</li></p>
 		</ul>
-		<p align="center"><h2>Segunda-feira - 15/06/2015</h2></p>
+		<p align="center"><h2>Segunda-feira - 14/12/2015</h2></p>
 		<p align="justify">19h - Credenciamento e entrega do material</p>
-		<p align="justify">19h30 - 21h - Apresentação de Painéis: Cursos de Fisioterapia e Nutrição.</p>
-		<p align="justify">20h - Palestra: Programa de Exercício Físico em Unidades de Saúde Profª Dra. Camila Papini</p>
-		<p align="justify">20h - Palestra: Escola de Tempo Integral Profª Ms. Patrícia Viscainho</p>
+		<p align="justify">20h - Apresentação Musical - Projeto Guri.</p>
+		<p align="justify">20h - Exposição de Painéis - Étnico-Racial.</p>
 		<br />
-		<p align="center"><h2>Terça-feira - 16/06/2015</h2></p>
-		<p align="justify">19h30 - 21h - Apresentação de Painéis: Cursos de Educação Física e Pedagogia.</p>
-		<p align="justify">19h30 - Comunicação Oral: Pedagogia</p>
-		<ul>
-		<li><p align="justify">Comunicação 01:Sônia Lanzoni, Roberta Custódio, Ricardo Castro e Patrícia Viscainho</p></li>
-		<li><p align="justify">Comunicação 02: Daniela Abreu, Thein Spinelli, Valéria Algarve</p></li>
-		</ul>
+		<p align="center"><h2>Terça-feira - 15/12/2015</h2></p>
+		<p align="justify">19h30 - 21h - Apresentação de Painéis.</p>
+		<p align="justify">20h - Palestra: "Do encantamento à Leitura" - Profª Rosana Tessuto.</p>
+		<p align="justify">20h - Palestra: "Os perigos da atividade física sem orientação e o poder da influência mediática" - Profª Ms. Maria Carolina Traina Gama.</p>
+		<p align="justify">20h - Comunicação Oral: Pedagogia.</p>
 		<br />
-		<p align="center"><h2>Quarta-feira - 17/06/2015</h2></p>
-		<p align="justify">19h30 - 21h - Apresentação de Painéis: Cursos de Arquitetura e Urbanismo.</p>
-		<p align="justify">20h Palestra: "Imigração e urbanização na região de Rio Claro: séculos XIX e XX". Profª Ms. Flávia Mengardo</p>
+		<p align="center"><h2>Quarta-feira - 16/12/2015</h2></p>
+		<p align="justify">19h30 - 21h - Apresentação de Painéis.</p>
+		<p align="justify">20h - Palestra: "Futebol como projeto profissional de mulheres" - Profª Dr. Osmar Moreira de Souza Júnior.</p>
+		<p align="justify">20h - Comunicação Oral: Pedagogia.</p>
 		<br />
-		<p align="center"><h2>Quinta-feira - 18/06/2015</h2></p>
-		<p align="justify">17h as 20h – Apresentação dos TCCs Fisioterapia </p>
-		<p align="justify">19h30 – 21h – Apresentação de Painéis: Engenharia de Produção, Administração e Sistema de Informação.</p>
-		<p align="justify">20h – Oficina de material reciclado – Rute </p>
-		<p align="justify">20h – Concepções Sobre Violência Escolar: Estudo Comparado Brasil e Espanha – Profª Dra. Sonia Lanzoni</p>
-		<p align="justify">20h – Método Self-healing e a conexão olho corpo - Profª Sonia Cristina Tinos Carrocine</p>
-		<p align="justify">20h – Sucesso – Como aproveitar experiências utilizadas nas grandes obras de Engenharia Civil - Eng. Luiz R. Furtado </p>
+		<p align="center"><h2>Quinta-feira - 17/12/2015</h2></p>
+		<p align="justify">19h30 – 21h – Apresentação de Painéis.</p>
+		<p align="justify">20h - Palestra: "Atuação da equipe multidisciplinar na produção da saúde" - Dr. Anderson. </p>
+		<p align="justify">20h - Comunicação Oral: Pedagogia.</p>
 		<br />
-		<p align="center"><h2>Sexta-feira - 19/06/2015</h2></p>
-		<p align="justify">19h30 - Atividade Cultural</p>
-		<p align="justify">19h as 21h – Apresentação dos TCCs Fisioterapia </p>
+		<p align="center"><h2>Sexta-feira - 18/12/2015</h2></p>
+		<p align="justify">19h30 - 21h - Apresentação de Painéis.</p>
+		<p align="justify">20h - Palestra: "Atualizações científicas: como se atualizar na área de Educação Física" - Prof. Ms. Paulo. </p>
 		</td>		
 		</tr>
 		
 		</table>
-        <div id="rodape">
-    	<p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  Visualização: 800 x 600 - Desenvolvido pelo Curso de Sistemas de Informação. </p>
-    	</div>
-    </div>
+        </div>
+    <div id="rodape">
+              <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
+      </div>
 </body>
 </html>
