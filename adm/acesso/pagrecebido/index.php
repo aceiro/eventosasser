@@ -133,7 +133,7 @@
 					echo '<table id="myTable" class="tablesorter" >';
                     echo '<caption><strong>Lista de alunos com pagamento já efetuado</strong> <br/> clique nas colunas para ordenar</caption>';
                     echo '<thead>';
-					echo '<tr><th>ID</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th></tr>';
+					echo '<tr><th>ID</th><th>ALUNO</th><th>TITULO</th><th>TIPO</th></tr>';
                     echo '</thead>';
 					echo '<tbody>';
                         foreach($link->query($sql) as $row){
