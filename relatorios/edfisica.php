@@ -89,7 +89,7 @@
         
         <div id="listar-coteudo">
 				<?php
-
+				echo "<div align='center'><p id='effect' class='ui-corner-all'><a href = 'cronogramaef.pdf'>Cronograma de apresentação</a></p></div>";
 				try{
 					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
