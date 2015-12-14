@@ -66,6 +66,10 @@
 			<td><a href="presenca"><img src="../../imagens/play.png" width="35" height="35"/></a></td></tr>
 			<tr><td>Avaliar Resumo</td>
 			<td><a href="avaliar"><img src="../../imagens/play.png" width="35" height="35"/></a></td></tr>
+			<tr><td>Relatório de alunos participantes da mostra com pagamento efetuado</td>
+			<td><a href="pagrecebido"><img src="../../imagens/play.png" width="35" height="35"/></a></td></tr>
+			<tr><td>Relatório de alunos puvintes da mostra com pagamento efetuado</td>
+			<td><a href="pagrecouvinte"><img src="../../imagens/play.png" width="35" height="35"/></a></td></tr>
 			</table>
 
         <br />
