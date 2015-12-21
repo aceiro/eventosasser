@@ -1,5 +1,4 @@
 <?php $config = require '../cfg/config.php';
-
 require('fpdf.php');
 error_reporting(0);
 ini_set("display_errors", 0 );
@@ -9,10 +8,10 @@ try{
 	$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 	$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
-	$sql = "SELECT Distinct p.autor, p.titulo, p.tipo, e.curso FROM pagamento p, evento e WHERE p.pago='1' AND e.email='$email'";
+	$sql = "SELECT Distinct e.nome, e.titulo, e.tipo, e.curso FROM pagamento p, evento e WHERE p.pago='1' AND e.email like '%$email%'";
 						
 	foreach($link->query($sql) as $row){
-		$nome = strtoupper($row['autor']);
+		$nome = strtoupper($row['nome']);
 		$titulo = strtoupper($row['titulo']);	
 		$tipo = strtoupper($row['tipo']);
 		$curso = $row['curso'];
@@ -55,13 +54,13 @@ $pdf->setFont('arial','',14);
 $pdf->MultiCell(0,10,$str,0,'J');
  
 $pdf->Cell(0,10,"",0,1,'C');
-$pdf->Cell(0,20,"Rio Claro, 18 de dezembro de 2015.",0,1,'C');
+$pdf->Cell(0,10,"Rio Claro, 18 de dezembro de 2015.",0,1,'C');
 $pdf->Cell(0,10,"_______________________________",0,1,'C');
 $pdf->Cell(0,5,"Prof. Dr. Artur Darezzo Filho",0,1,'C');
 $pdf->Cell(0,5,"Diretor da ESRC/ASSER",0,1,'C');
 $pdf->Image('logo.png',250,170,-300);
 
-
+ob_clean();
 $pdf->Output("Certificado.pdf","D");
 }
 
