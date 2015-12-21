@@ -14,10 +14,15 @@ try{
 		$nome = strtoupper($row['nome']);
 	}
 	
-	$total = "SELECT count(nome)*6 AS num FROM `palestras` WHERE ra = '80' ";
+	$total = "SELECT count(nome) AS num FROM palestras WHERE ra = '$ra' ";
 	$total = $link->query($total); 	
 	$total = $total->fetch(PDO::FETCH_ASSOC);
-	$total = $total['num'];
+	if($total>=3){
+		$total = 30;
+	}else{
+		$total = $total * 4;
+	}
+		
 					
 }catch(PDOException $e){
 	echo "ERROR" . $e->getMessage();
@@ -73,7 +78,7 @@ try{
 		$palestra = strtoupper($row['palestra']);
 	
 		$ppalestra = utf8_decode($palestra);
-		$pdf->Cell(0,10,$ppalestra,0,1,'L');
+		$pdf->MultiCell(250,10,$ppalestra,0,'L');
 	}
 	$pdf->setFont('arial','I',10);
 	$str = utf8_decode('Este certificado possui validade presente carimbo e assinatura da instituição.');

@@ -1,6 +1,5 @@
-<?php $config = require '../cfg/config.php'; ?>
+<?php $config = require '../cfg/config.php';
 
-<?php
 require('fpdf.php');
 error_reporting(0);
 ini_set("display_errors", 0 );
@@ -62,31 +61,7 @@ $pdf->Cell(0,5,"Prof. Dr. Artur Darezzo Filho",0,1,'C');
 $pdf->Cell(0,5,"Diretor da ESRC/ASSER",0,1,'C');
 $pdf->Image('logo.png',250,170,-300);
 
-//página 2 para certificados da fisioterapia
-if($curso=="Fisioterapia"){
-	$pdf->AddPage();
-	$pdf->setFont('arial','B',14);
-	$ppalestra = utf8_decode('Programação IX - Semana Conhecimento e VI - Mostra de Iniciação Científica - 2015');
-	$pdf->Cell(0,20,$ppalestra,0,1,'C');
-	$pdf->setFont('arial','',12);					
-	$ppalestra = utf8_decode('Segunda-feira - Programa de exercício físico em unidades de saúde - Profª Drª Camila Panini');
-	$pdf->Cell(0,10,$ppalestra,0,1,'L');
-	
-	$ppalestra = utf8_decode('Quinta-feira - 17:00 às 20:00 - apresentação de TCCs Fisioterapia');
-	$pdf->Cell(0,10,$ppalestra,0,1,'L');
-	
-	$ppalestra = utf8_decode('Quinta-feira - Método self healing e a conexão olho corpo - Sonia Cristina Tinos Carrocine');
-	$pdf->Cell(0,10,$ppalestra,0,1,'L');
-	
-	$ppalestra = utf8_decode('Sexta-feira - 19:00 às 21:00 apresentação de TCCs Fisioterapia');
-	$pdf->Cell(0,10,$ppalestra,0,1,'L');
-}
 
-$pdf->setFont('arial','I',10);
-	$str = utf8_decode('Este certificado possui validade presente carimbo e assinatura da instituição.');
-	$pdf->Cell(0,20,$str,0,1,'C');
-	
-$pdf->Image('logo.png',250,170,-300);
 $pdf->Output("Certificado.pdf","D");
 }
 
