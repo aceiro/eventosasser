@@ -1,6 +1,6 @@
 # Plataforma de EventosAsser
 
-A submissão de trabalhos acadêmicos para eventos científicos exige um alto nível de formalismo, sobretudo em se tratando da organização, especificação e formatação de resumos. 
+A submissão de trabalhos acadêmicos para eventos científicos exige um alto nível de formalismo, sobretudo com relação a organização, especificação e formatação de resumos. 
 
 Nesse contexto, o uso de plataformas que melhorem o ciclo de submissão de resumos "submissão-revisão" pode promover a melhora da qualidade dos trabalhos submetidos bem como o processo de revisão. 
 
@@ -13,4 +13,4 @@ Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para do
 </p>
 
 
-Primeira release da plataforma de Eventos Asser, versão 1.0.0 [1] (http://eventosasser.com.br/) atualizado em 24 de fevereiro de 2016.
+Primeira release da plataforma de Eventos Asser, versão [1.0.0] (http://eventosasser.com.br/) atualizado em 24 de fevereiro de 2016.
