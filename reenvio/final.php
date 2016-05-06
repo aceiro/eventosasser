@@ -1,19 +1,35 @@
+<?php 
+	require_once("../cfg/Session.php");
+	error_reporting(0);
+	$session = new Session("EventosAsser2016");
+	header("Content-Type: text/html; charset=UTF-8", true);
+
+	require_once("../cfg/BD.php");
+	$bd = new BD();
+	$bd->reenviar();
+?>
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<title>Asser Eventos - Cadastro realizado com sucesso</title>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-<link rel="stylesheet" href="../css/estilo.css" type="text/css">
-
-<script src="../scripts/asser-main-menu.js"></script>
-<script src="../scripts/asser-commum.js"></script>
-<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<link rel="shortcut icon" href="../favicon.ico">
+	<title>Asser Eventos</title>	
+	<!-- adicionado o suporte para o jquery e thema redmond -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<!-- outros suporte a css da página -->
+	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+	<!-- outros scripts para o menu-->
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+	<script src="../scripts/asser-main-menu.js"></script>
+	<script src="../scripts/asser-commum.js"></script>
+</head>
 
 <body>
 	<div id="corpo">
@@ -25,12 +41,13 @@
         
       <div id='cssmenu'>
             <ul>
-               <li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
-               <li><a href='../palestra'>Palestras</a></li>
-               <li><a href='../programa.html'>Programação</a></li>             
-               <li><a href='#'>Sobre o evento</a></li>           
-               <li><a href='../contato'>Contato</a></li>
-               <li><a href='#'>Créditos</a></li>
+				<li><a href='../index.html'>Evento</a></li>
+				<li class='active'><a href='../index.html'>Submissão de Resumos</a></li>
+				<li><a href='../palestra'>Palestras</a></li>
+				<li><a href='../programa.html'>Programação</a></li>
+				<li> <a href='../anais'>Edições<br>Anteriores</a></li>  
+				<li><a href='../contato'>Contato</a></li>
+				<li><a href='../creditos.html'>Créditos</a></li>
             </ul>
         </div>
 

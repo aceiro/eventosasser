@@ -1,7 +1,4 @@
-<?php $config = require '../cfg/config.php'; ?>
 <?php
-	session_start();
-
 	function isEmpty($input)
 	{
 		$strTemp = $input;
@@ -14,80 +11,68 @@
 		}
 		return false;
 	}
-?>
-<?php
-		$titulo = $_POST['titulo'];	
-		$curso = $_POST['curso'];
-		$orientador = $_POST['orientador'];
-		$autor1 = $_POST['autor1'];
-		$email1 = $_SESSION['email'];
-		$autor2 = $_POST['autor2'];
-		$email2 = $_POST['email2'];
-		$autor3 = $_POST['autor3'];
-		$email3 = $_POST['email3'];
-		$autor4 = $_POST['autor4'];
-		$email4 = $_POST['email4'];
-		$tipo = $_SESSION['tipo'];
-		$autores = $autor1." - ".$email1;
-		if(strcmp($autor2,"")!=0){
-			$autores = $autores."; ".$autor2." - ".$email2;
-		}
-		if(strcmp($autor3,"")!=0){
-			$autores = $autores."; ".$autor3." - ".$email3;
-		}
-		if(strcmp($autor4,"")!=0){
-			$autores = $autores."; ".$autor4." - ".$email4;
-		}
-		$resumo = $_POST['resumo'];
-		$keyword = $_POST['keyword'];
-		$status = '0';
-		$comentarios = 'Professor avaliador, por favor anote as alterações para o autor aqui.';
-
-		// verifica se não está vazia as strings
-		// senao faz um bypass
-		if( isEmpty($titulo) || isEmpty($curso) || isEmpty($orientador) || isEmpty($resumo) || isEmpty($keyword) ){
-			die;
-		}
-
-
-
-	// Estabelecendo a conexão com o banco de dados
-	try{
-		$titulo = strtoupper($titulo);	
-		$curso  = strtoupper($curso);
+ 
+	require_once("../cfg/Session.php");
+	$session = new Session("EventosAsser2016");
+	header("Content-Type: text/html; charset=UTF-8", true);
+	
+	$session->set('autor1',$_POST['autor1']);
+	$session->set('email1',$_POST['email1']);
+	$session->set("titulo", $_POST['titulo']);
+	$session->set("curso", $_POST['curso']);
+	$orientador = $_POST['esp'] . ' ' . $_POST['orientador'];
+	$session->set("orientador", $orientador);
+	$session->set("resumo", $_POST['resumo']);
+	$session->set("keyword", $_POST['keyword']);
+	$session->set("status", '0');
+	$session->set("comentarios", 'Professor avaliador, por favor anote as alterações para o autor aqui.');
+	
+	$autores = $session->get("autor1") . "  - " . $session->get("email1");
+//verifica se há mais autores
+	if(strcmp($_POST['autor2'],"")!=0){
+			$session->set("autor2",$_POST['autor2']);
+			$session->set("email2",$_POST['email2']);
+			$autores = $autores . "; " . $session->get('autor2') . " - " . $session->get('email2');	
+		}	
+	if(strcmp($_POST['autor3'],"")!=0){
+			$session->set("autor3",$_POST['autor3']);
+			$session->set("email3",$_POST['email3']);
+			$autores = $autores . "; " . $session->get('autor3') . " - " . $session->get('email3');		
+		}	
+	if(strcmp($_POST['autor4'],"")!=0){
+			$session->set("autor4",$_POST['autor4']);
+			$session->set("email4",$_POST['email4']);
+			$autores = $autores . "; " . $session->get('autor4') . " - " . $session->get('email4');			
+		}		
+	if(strcmp($_POST['autor5'],"")!=0){
+			$session->set("autor5",$_POST['autor5']);
+			$session->set("email5",$_POST['email5']);
+			$autores = $autores . "; " . $session->get('autor5') . " - " . $session->get('email5');	
+		}	
 		
-		$comentarios = strtoupper($comentarios );
-
-		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
-		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		$sql = "UPDATE evento SET titulo='$titulo', curso='$curso', 
-		orientador='$orientador', autores='$autores', resumo='$resumo', 
-		keyword='$keyword', status='$status', comentarios='$comentarios' WHERE email ='$email1'";
-
-		$link->query($sql);
-		
-		$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values
-			('$titulo', '$autor1', '$tipo', 0, '$email1')";
-		$link->query($sql);
-		
-		if(strcmp($autor2,"")!=0){
-			$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values('$titulo', '$autor2', '$tipo', 0, '$email2')";
-			$link->query($sql);
-			} 
-		if(strcmp($autor3,"")!=0){
-			$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values('$titulo', '$autor3', '$tipo', 0, '$email3')";
-			$link->query($sql);
-			} 
-		if(strcmp($autor4,"")!=0){
-			$sql = "INSERT INTO pagamento (titulo,autor,tipo,pago,email) values('$titulo', '$autor4', '$tipo', 0, '$email4')";
-			$link->query($sql);
-			} 
-		
-
-		header("Location:confirma.php");
-
-	}catch(PDOException $e){
-		echo "ERROR" . $e->getMessage();
+	//se mais autores vindo por um vetor como é que fica aqui?
+	//if(strcmp($_POST['autorplus'],"")!=0){
+		$arraynome = $_POST['autorplus'];
+		$arrayemail = $_POST['emailplus'];
+		$cont = 0;
+		foreach($arraynome as $row){
+			$autores = $autores . "; " . $row . " - " . $arrayemail[$cont];	
+			$cont++;
+		//}
+		/*
+		$session->set("autorplus",$arraynome);
+		$session->set("emailplus",$arrayemail);
+		*/
 	}
+	
+	$session->set("autores", $autores);
+
+// verifica se não está vazia as strings
+// senao faz um bypass
+	if( isEmpty($session->get('titulo')) || isEmpty($session->get('curso')) || isEmpty($session->get('orientador')) || isEmpty($session->get('resumo')) || isEmpty($session->get('keyword')) ){
+			die();
+		}
+	
+	header("Location:confirma.php");
+	
 ?>

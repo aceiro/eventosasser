@@ -1,51 +1,42 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<title>Asser Eventos</title>
-<link REL=StyleSheet HREF="../css/estilo.css" TYPE="text/css"></head>
-
- <!-- Load jQuery and the validate plugin -->
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-  
-  <!-- jQuery Form Validation code -->
-  <script>
-  
-  // When the browser is ready...
-  $(function() {
-  
-    // Setup form validation on the #register-form element
-    $("#register-form").validate({
-    
-        // Specify the validation rules
-        rules: {
-            nome: "required",
-            assunto: "required",
-            email: {
-                required: true,
-                email: true
-            },
-            mensagem: "required"
-        },
-        
-        // Specify the validation error messages
-        messages: {
-            nome: "Escreva o seu nome completo",
-            email: "Escreva seu endereço de email corretamente",
-			assunto: "Qual o assunto?",
-            mensagem:  "Digite suas dúvidas aqui."
-        },
-        
-        submitHandler: function(form) {
-            form.submit();
-        }
-    });
-
-  });
-  
-  </script>
-
+	<meta charset="UTF-8"/>
+	<title>Asser Eventos</title>
+	<link REL=StyleSheet HREF="../css/estilo.css" TYPE="text/css">
+	<!-- Load jQuery and the validate plugin -->
+	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>	  
+	<!-- jQuery Form Validation code -->
+	<script>  
+		// When the browser is ready...
+		$(function() {  
+			// Setup form validation on the #register-form element
+			$("#register-form").validate({    
+				// Specify the validation rules
+				rules: {
+					nome: "required",
+					assunto: "required",
+					email: {
+						required: true,
+						email: true
+					},
+					mensagem: "required"
+				},        
+				// Specify the validation error messages
+				messages: {
+					nome: "Escreva o seu nome completo",
+					email: "Escreva seu endereço de email corretamente",
+					assunto: "Qual o assunto?",
+					mensagem:  "Digite suas dúvidas aqui."
+				},        
+				submitHandler: function(form) {
+					form.submit();
+				}
+			});
+		});  
+	</script>
+</head>
 <body>
 	<div id="corpo">
     	

@@ -1,30 +1,14 @@
 <?php
-	session_start();
-	$config = require '../cfg/config.php'; ?>
-<?php
+	require_once("../cfg/Session.php");
+	require_once("BD.php");
+	error_reporting(0);
+	$bd = new BD();
+	$session = new Session("EventosAsser2016");
+	header("Content-Type: text/html; charset=UTF-8", true);
 	
-	$_SESSION['email'] = $_POST['login'];
-	$_SESSION['password'] = $_POST['password'];
+	$session->set('login', $_POST['login']);
+	$session->set('password', $_POST['password']);
+	$session->set('funcao',$_POST['funcao']);
+	
+	$bd->check($session->get('login'), $session->get('password'));
 
-	$login = $_POST['login'];
-	$senha = $_SESSION['password'];
-	
-	try{
-		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
-		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		$sql = "SELECT login, senha FROM adm where login = '$login'";
-		
-		foreach($link->query($sql) as $row){
-			if(strcmp($row['login'],$login)==0){
-				if(strcmp($row['senha'],$senha)==0){
-					header("Location: acesso");
-			}else{
-				header("Location: ./");
-			}
-		}
-		}			
-	}catch(PDOException $e){
-		echo "ERROR" . $e->getMessage();
-	}
-?>

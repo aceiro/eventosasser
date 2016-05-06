@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* CSS Document */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 #cssmenu,
 #cssmenu ul,
@@ -39,7 +41,8 @@
   left: 0;
   height: 3px;
   /*background: #009ae1;*/
-  background: #991D27;
+  /*background: #991D27;*/
+  background: #FBB24A;
   -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -ms-transition: all 0.25s ease-out;
@@ -81,7 +84,8 @@
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li.active > a {
   /*color: #009ae1;*/
-  color:#991D27;
+  /*color:#991D27;*/
+  color:#FBB24A;
 }
 #cssmenu > ul > li.has-sub > a {
   padding-right: 25px;

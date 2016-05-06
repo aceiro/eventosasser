@@ -1,51 +1,26 @@
 <?php 
-	session_start();
-	$config = require '../cfg/config.php';
-
-	$_SESSION['email'] = $_POST['email'];
-	$_SESSION['password'] = $_POST['password'];
-	$_SESSION['comentarios'];
-
-	$email = $_SESSION['email'];
-	$senha = $_SESSION['password'];
-	//Caso algum professor não tenha comentado, mas aluno deseja alterar o resumo
+	$config = require_once("../cfg/Session.php");
+	require_once("../cfg/BD.php");
+	$bd = new BD();
+	$session = new Session("EventosAsser2016");
+	header("Content-Type: text/html; charset=UTF-8", true);
 	
-	try{
-		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
-		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		$sql = "SELECT comentarios FROM evento where email = '$email'";
-		$comentarios = "Professor avaliador, por favor anote as alterações para o autor aqui.";
-	//Professor fez comentário				
-		foreach($link->query($sql) as $row){
-			if(strcmp($row['comentarios'],$comentarios)==0){
-				$_SESSION['comentarios'] = "Modo Edição do aluno";
-			}else{
-			$_SESSION['comentarios'] = $row['comentarios'];
-			}
-		}
-					
-	}catch(PDOException $e){
-		echo "ERROR" . $e->getMessage();
-	}
-
-	// Estabelecendo a conexão com o banco de dados
-
-	try{
-		$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
-		$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					
-		$sql = "SELECT email, senha FROM evento WHERE email = '$email'";
-					
-		foreach($link->query($sql) as $row){
-		}				
-	//Se achou vai para modo de edição, se não, volta para login
-		if($row['senha']==$senha){
+	$session->set('email',$_POST['email']);
+	$session->set('password',$_POST['password']);
+	
+	foreach($bd->selecionaResumo() as $row){
+				
+		if(strcmp($row['password'],$session->get('password'))==0){
+			$session->set('nome',$row['nome']);
+			$session->set('tipo',$row['tipo']);
+			$session->set('titulo',$row['titulo']);
+			$session->set('curso',$row['curso']);
+			$session->set('orientador',$row['orientador']);
+			$session->set('autores',$row['autores']);
+			$session->set('resumo',$row['resumo']);
+			$session->set('keyword',$row['keyword']);
 			header('Location: ed_resumo.php');
 		}else{
-			header('Location: index.html');
+			header('Location: ../reenvio');
 		}
-					
-	}catch(PDOException $e){
-		echo "ERROR";
 	}

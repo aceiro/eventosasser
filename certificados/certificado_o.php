@@ -1,92 +1,70 @@
-<?php $config = require '../cfg/config.php'; ?>
-<?php
-require('fpdf.php');
-error_reporting(0);
-ini_set("display_errors", 0 );
-$ra = $_POST['ra'];
+<?php 	
+	require_once("../Session.php");
+	$session = new Session("EventosAsser2016");
+	header("Content-Type: text/html; charset=UTF-8", true);
+	require('fpdf.php');
+	error_reporting(0);
+	ini_set("display_errors", 0 );
+	$session->set('ra',$_POST['ra']);
+	$bd->buscaAlunoO();
 
-try{
-	$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
-	$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	
-	$sql = "SELECT DISTINCT nome FROM palestras WHERE pago='1' AND ra='$ra' AND presenca=1";
-	foreach($link->query($sql) as $row){
-		$nome = strtoupper($row['nome']);
-	}
-	
-	$total = "SELECT count(nome) AS num FROM palestras WHERE ra = '$ra' ";
-	$total = $link->query($total); 	
-	$total = $total->fetch(PDO::FETCH_ASSOC);
-	if($total>=3){
-		$total = 30;
+	if($session->get('nome')==null){
+		echo '<br /><br /><p align="center">' . "RA não registrado, ou presença não confirmada, 
+		ou pagamento não efetuado!" . '</p><br /><br />';
+		echo '<br /><br /><p align="center">' . '<a href="../">Voltar</a>' . '</p>';
 	}else{
-		$total = $total * 4;
-	}
+			
+		$pdf = new FPDF('L');
+		$pdf->AddPage();
+		$pdf->Image('logo1.png',10,10,-450);
+
+		$pdf->SetFont('times','B',16);
+		$pdf->Cell(50,20,'');
+		$str = 'ESRC - ESCOLA SUPERIOR DE TECNOLOGIA E EDUCAÇÃO DE RIO CLARO';
+		$pdf->Cell(0,20,$str,0,0,'C');
+		$pdf->SetFont('times','B',14);
+		$str = 'ASSER - ASSOCIAÇÃO DAS ESCOLAS REUNIDAS';
+		$pdf->Cell(-140,40,$str,0,1,'C');
+
+		//certificado
+		$pdf->SetFont('times','B',34);
+		$pdf->Cell(0,30,"CERTIFICADO",0,1,'C');
+
+
+		//certificamos
+		$pdf->SetFont('times','B',14);
+		$pdf->Cell(0,20,"Certificamos que " . $session->get('nome') . ",",0,1,'C');
+
+		//texto
+		$str = 'Participou do V Workshop e da VII - Mostra de Iniciação Científica 2016 das Faculdades ASSER - Rio Claro, realizada no período de 30 de maio a 01 de junho, como ouvinte totalizando 30 horas.');
+		$pdf->setFont('times','',14);
+		$pdf->MultiCell(0,10,$str,0,'J');
+		 
+		$pdf->Cell(0,5,"",0,1,'C');
+		$pdf->Cell(0,10,"Rio Claro, 05 de junho de 2016.",0,1,'C');
+		$pdf->Cell(0,10,"_______________________________",0,1,'C');
+		$pdf->Cell(0,5,"Prof. Dr. Artur Darezzo Filho",0,1,'C');
+		$pdf->Cell(0,5,"Diretor da ESRC/ASSER",0,1,'C');
+
+		$pdf->Image('logo.png',250,170,-300);
+
+		$pdf->AddPage();
+		$pdf->setFont('times','B',14);
+		$str = 'Programação V Workshop  e VII Mostra de Iniciação Científica - 2016';
+		$pdf->Cell(0,20,$str,0,1,'C'); 
+		$pdf->setFont('times','',11);
+				
+		foreach($bd->buscarPalestraO() as $row){
+			$palestra = strtoupper($row['palestra']);		
+			$ppalestra = utf8_decode($palestra);
+			$pdf->MultiCell(250,10,$ppalestra,0,'L');
+		}
 		
-					
-}catch(PDOException $e){
-	echo "ERROR" . $e->getMessage();
-}
-if($nome==null){
-	echo '<br /><br /><p align="center">'.utf8_decode("RA não registrado, ou presença não confirmada, ou pagamento não efetuado!").'</p><br /><br />';
-	echo '<br /><br /><p align="center">'.'<a href="../">Voltar</a>'.'</p>';
-}else{
-$nome = utf8_decode($nome);
+		$pdf->setFont('times','I',10);
+		$str = 'Este certificado possui validade presente carimbo e assinatura da instituição.';
+		$pdf->Cell(0,20,$str,0,1,'C');
 		
-$pdf = new FPDF('L');
-$pdf->AddPage();
-$pdf->Image('logo1.png',10,10,-450);
-
-$pdf->SetFont('Arial','B',16);
-$pdf->Cell(50,20,'');
-$str = utf8_decode('ESRC - ESCOLA SUPERIOR DE TECNOLOGIA E EDUCAÇÃO DE RIO CLARO');
-$pdf->Cell(0,20,$str,0,0,'C');
-$pdf->SetFont('Arial','B',14);
-$str = utf8_decode('ASSER - ASSOCIAÇÃO DAS ESCOLAS REUNIDAS');
-$pdf->Cell(-140,40,$str,0,1,'C');
-
-//certificado
-$pdf->SetFont('arial','B',34);
-$pdf->Cell(0,30,"CERTIFICADO",0,1,'C');
-
-
-//certificamos
-$pdf->SetFont('arial','B',14);
-$pdf->Cell(0,20,"Certificamos que ".utf8_decode($nome).",",0,1,'C');
-
-//texto
-$str = utf8_decode('Participou da IX - Semana Conhecimento e VI - Mostra de Iniciação Científica 2015 das Faculdades ASSER - Rio Claro, realizada no período de 14 a 18 de dezembro, como ouvinte totalizando '.$total.' horas.');
-$pdf->setFont('arial','',14);
-$pdf->MultiCell(0,10,$str,0,'J');
- 
-$pdf->Cell(0,5,"",0,1,'C');
-$pdf->Cell(0,10,"Rio Claro, 18 de dezembro de 2015.",0,1,'C');
-$pdf->Cell(0,10,"_______________________________",0,1,'C');
-$pdf->Cell(0,5,"Prof. Dr. Artur Darezzo Filho",0,1,'C');
-$pdf->Cell(0,5,"Diretor da ESRC/ASSER",0,1,'C');
-
-$pdf->Image('logo.png',250,170,-300);
-
-$pdf->AddPage();
-$pdf->setFont('arial','B',14);
-$str = utf8_decode('Programação IX - Semana Conhecimento e VI - Mostra de Iniciação Científica - 2015');
-$pdf->Cell(0,20,$str,0,1,'C'); 
-$pdf->setFont('arial','',11);
-try{
-	$ppalestra = "SELECT palestra FROM palestras WHERE pago='1' AND ra='$ra' AND presenca=1 order by palestra";
-	foreach($link->query($ppalestra) as $row){
-		$palestra = strtoupper($row['palestra']);
-	
-		$ppalestra = utf8_decode($palestra);
-		$pdf->MultiCell(250,10,$ppalestra,0,'L');
+		$pdf->Image('logo.png',250,170,-300);
+		$pdf->Output("Certificado.pdf","D");
 	}
-	$pdf->setFont('arial','I',10);
-	$str = utf8_decode('Este certificado possui validade presente carimbo e assinatura da instituição.');
-	$pdf->Cell(0,20,$str,0,1,'C');
-}catch(PDOException $e){
-	echo "ERROR" . $e->getMessage();
-}
-$pdf->Image('logo.png',250,170,-300);
-$pdf->Output("Certificado.pdf","D");
-}
 ?>
