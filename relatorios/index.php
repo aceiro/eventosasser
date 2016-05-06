@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8"/>
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="cache-control" content="no-store" />
@@ -34,12 +34,7 @@
                 <li><a href='../submissao.html'>Submissão de Trabalhos</a></li>
                 <li><a href='../palestra'>Palestras</a></li>
                 <li class='active'><a href='#'>Programação</a></li>
-                <li class='has-sub'> <a href='#'>Edições Anteriores</a>
-                    <ul>
-                        <li> <a href='../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
-                    </ul>
-                </li>
-
+                <li><a href='../anais'>Edições<br>Anteriores</li>
                 <li><a href='../contato'>Contato</a></li>
                 <li><a href='../creditos.html'>Créditos</a></li>
             </ul>

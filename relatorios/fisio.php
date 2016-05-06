@@ -1,31 +1,37 @@
-<?php $config = require '../cfg/config.php'; ?>
-<?php include_once('../utils/common.php'); ?>
+<?php 
+	require_once('../cfg/BD.php');
+	$bd = new BD();
+	require_once('../cfg/Session.php');
+	$session = new Session("EventosAsser2016");
+	include_once('../utils/common.php'); 
+	error_reporting(0);
+?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-	<meta charset="utf-8"/>
+	<meta charset="UTF-8"/>
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-store" />
 	<link rel="shortcut icon" href="../favicon.ico">
-<title>Asser Eventos</title>
-<!-- adicionado o suporte para o jquery e thema redmond -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<title>Asser Eventos</title>
+	<!-- adicionado o suporte para o jquery e thema redmond -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<!-- adicionado o suporte para o bootstrap padrão  -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- 
-<!-- outros suporte a css da página -->
+	<!-- adicionado o suporte para o bootstrap padrão  -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+	<!-- outros suporte a css da página -->
 
-<!-- outros scripts para o menu-->
-<script src="../scripts/asser-main-menu.js"></script>
+	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+
+	<!-- outros scripts para o menu-->
+	<script src="../scripts/asser-main-menu.js"></script>
 
 <style type="text/css">
 	#listar-coteudo{
@@ -72,8 +78,6 @@
 
 </style>
 
-
-
 </head>
 
 <body>
@@ -83,63 +87,48 @@
     	</div>
         
         <br />
-        
-
-        
-        
+                
         <div id="listar-coteudo">
-				<?php
 
-				try{
-					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
-					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-					$sql = 'SELECT DISTINCT  * FROM evento WHERE titulo <> \'\' AND  titulo IS NOT NULL AND
-                                                                 nome <> \'\' AND  nome IS NOT NULL AND
-                                                                 curso LIKE \'%fisio%\' AND
-                                                                 status LIKE \'1\'
-                                                           ORDER BY tipo';
-					
-					echo '<table class=\'table-hover\'>';
-					echo '<caption><strong>Relatório de Trabalhos APROVADOS </strong> - <a href="#" onclick="window.print();return false;">Imprimir página</a> </caption>';
-					echo '<th>ID</th><th>TIPO</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th>';
-					$linhaStatus = "linhaStatusVazio";
-					$result = "-";
-					foreach($link->query($sql) as $row){
-						$status = $row['status'];
-						switch($status){
-							case 0:{
-								$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
-								$linhaStatus = "info";
-								break;
-							}
-							case 1:{
-								$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
-								$linhaStatus = "success";
-								break;
-							}
-							case 2:{
-								$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
-								$linhaStatus = "warning";
-								break;
-							}
-							case 3:{
-								$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
-								$linhaStatus = "danger";
-								break;
-							}
-							default:{
-								$result="-";								
-							}
+			<?php
+
+				echo '<table class=\'table-hover\'>';
+				echo '<caption><strong>Relatório de Trabalhos APROVADOS </strong> - <a href="#" onclick="window.print();return false;">Imprimir página</a></caption>';
+				echo '<th>ID</th><th>TIPO</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th>';
+				$linhaStatus = "linhaStatusVazio";
+				$result = "-";
+				$session->set('curso', 'fisioterapia');
+				foreach($bd->selecionarCursos() as $row){
+					$status = $row['status'];
+					switch($status){
+						case 0:{
+							$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
+							$linhaStatus = "info";
+							break;
 						}
-					
-						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>'.$row['tipo'].'</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td></tr>';
-					}
-					echo '</table>';
-					
-				}catch(PDOException $e){
-					echo "ERROR" . $e->getMessage();
+						case 1:{
+							$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
+							$linhaStatus = "success";
+							break;
+						}
+						case 2:{
+							$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
+							$linhaStatus = "warning";
+							break;
+						}
+						case 3:{
+							$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
+							$linhaStatus = "danger";
+							break;
+						}
+						default:{
+							$result="-";								
+						}
+					}				
+					echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>'.$row['tipo'].'</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td></tr>';
 				}
+				echo '</table>';
+					
 				?>		
         </div>
         

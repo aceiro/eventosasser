@@ -1,78 +1,91 @@
-<?php $config = require '../cfg/config.php'; ?>
-<?php include_once('../utils/common.php'); ?>
+<?php 
+	include_once('../utils/common.php');
+	require_once("../cfg/BD.php");
+	$bd = new BD();
+	header("Content-Type: text/html; charset=UTF-8", true);	
+?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-	<meta charset="utf-8"/>
+	<meta charset="UTF-8"/>
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-store" />
 	<link rel="shortcut icon" href="../favicon.ico">
-<title>Asser Eventos</title>
-<!-- adicionado o suporte para o jquery e thema redmond -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<title>Asser Eventos</title>
+	<!-- adicionado o suporte para o jquery e thema redmond -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<!-- adicionado o suporte para o bootstrap padrão  -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	 
+	<!-- outros suporte a css da página -->
+	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+	<!-- outros scripts para o menu-->
+	<script src="../scripts/asser-main-menu.js"></script>
+	<script type="application/javascript">
+		$(document).ready(function()
+        {
+            $("#myTable").tablesorter();
+        }
+		);
+	</script>
 
-<!-- adicionado o suporte para o bootstrap padrão  -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- 
-<!-- outros suporte a css da página -->
+    <style type="text/css">
+        #listar-coteudo{
+            margin: 5px 5px 5px 50px;
+        }
 
-<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+        table{
+            width: 95%;
+        }
 
-<!-- outros scripts para o menu-->
-<script src="../scripts/asser-main-menu.js"></script>
+        table caption{
+            font-size: 14px;
+            text-align: center;
+        }
 
-<style type="text/css">
-	#listar-coteudo{
-		margin: 5px 5px 5px 50px;
-	}
+        table, th, td{
+            border: 1px solid #CBCDDD;
+            border-collapse: collapse;
+        }
 
-	table{
-		width: 95%;
-	}
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
 
-	table caption{
-		font-size: 14px;
-		text-align: center;
-	}
+        tr:nth-child(even){
+            background-color: #eee;
+        }
 
-	table, th, td{
-		border: 1px solid #CBCDDD;
-		border-collapse: collapse;
-	}
+        tr:nth-child(odd){
+            background-color: #fff;
+        }
 
-	th, td {
-		padding: 5px;
-		text-align: left;		
-	}
+        th{
+            background-color: #1862A1;
+            color: white;
+        }
 
-	tr:nth-child(even){
-		background-color: #eee;
-	}
-
-	tr:nth-child(odd){
-		background-color: #fff;
-	}
-
-	th{
-		background-color: #1862A1;
-		color: white;
-	}
-
-	.linhaStatusVazio{ }
-
-	.itemStatus {
-		text-align: center;
-	}
-
-</style>
+        .itemStatus {
+            text-align: center;
+        }
 
 
+        fieldset{
+            width: auto;
+            height: auto;
+            margin: 10px;
+        }
+
+        table.tablesorter thead tr th{
+            background-color: #1862A1;
+        }
+    </style>
 
 </head>
 
@@ -88,15 +101,10 @@
       <div id='cssmenu'>
 			<ul>
 			   <li><a href='../index.html'>Evento</a></li>	
-			   <li class='active'><a href='../index.html'>Submissão de Trabalhos</a></li>
+			   <li class='active'><a href='../submissao.html'>Submissão de Trabalhos</a></li>
 			   <li><a href='../palestra'>Palestras</a></li>
 			   <li><a href='../programa.html'>Programação</a></li>			   
-			   		
-			   <li class='has-sub'> <a href='#'>Edições Anteriores</a> 
-				   		<ul>
-				   			<li> <a href='../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
-				   		</ul>
-			   	    </li>   
+			   <li> <a href='../anais'>Edições<br>Anteriores</a></li>  
 			   <li><a href='../contato'>Contato</a></li>
 			   <li><a href='../creditos.html'>Créditos</a></li>
 			</ul>
@@ -107,31 +115,17 @@
 		<div id="mmenubar"> &nbsp;</div>
 		<div id="mmenusubbar"> &nbsp;</div>
 		<div id="mmenusubsubbar"> &nbsp;</div>
-		<br />
-        
-        
+		<br />   
         
         <div id="listar-coteudo">
 		<p align="center"><a href="../">Voltar</a></p>
-    		<form id="cad_usuario" name="usuario" method="post" action="av_resumo.php"  onSubmit="return validaCampo(); return false;">
-                
+                <table id="table-hover">
+					<caption><strong>Lista de Resumos submetidos </strong><br>
+					Trabalhos com status aprovado devem recolher taxa de R$ 20,00 na secretaria.
+					</caption>
+					<th>ID</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th><th>STATUS</th>
 				<?php
-
-				try{
-					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
-					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-					$sql = 'SELECT DISTINCT  * FROM evento WHERE titulo <> \'\' AND  titulo IS NOT NULL AND
-                                                                 nome <> \'\' AND  nome IS NOT NULL AND
-                                                                 curso <> \'\' AND  curso IS NOT NULL
-                                                           ORDER BY curso';
-					
-					echo '<table class=\'table-hover\'>';
-					echo '<caption><strong>Lista de Resumos submetidos </strong></caption>';
-					echo '<th>ID</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th><th>STATUS</th>';
-					$linhaStatus = "linhaStatusVazio";
-					$result = "-";
-					foreach($link->query($sql) as $row){
+					foreach ($bd->listar() as $row) {
 						$status = $row['status'];
 						switch($status){
 							case 0:{
@@ -158,20 +152,23 @@
 								$result="-";								
 							}
 						}
-					
-						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>'.$row['titulo'].'</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td class=\'itemStatus\'>'.$result.'</td></tr>';	
-					}
-					echo '</table>';
-					
-				}catch(PDOException $e){
-					echo "ERROR" . $e->getMessage();
-				}
+						$titulo = $row['titulo'];						
+						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>';?>
+						
+						<script>			
+							var str = ' <?php echo $titulo; ?>  ';
+							var res = str.toUpperCase();
+							document.write(res);			
+						</script>						
+						
+						<?php
+							echo '</td><td>' . $row['nome'] . '</td><td>' . $row['curso'] . '</td><td>' . $result . '</td></tr>';
+					}					
 				?>		
+				</table>
 				<br />			
                 <p align="center"><a href="../">Voltar</a></p>
 				<br />	
-
-            </form>
         </div>
         
         <br />

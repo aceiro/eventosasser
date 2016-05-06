@@ -3,7 +3,7 @@
 header("Content-type: application/vnd.ms-word");
 header("Content-Disposition: attachment;Filename=anais_2015.doc");
 echo "<html>";
-echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 echo "<head>";
 echo '<style type="text/css">';
 echo 'h1 {	font-family: Arial;	font-size: 24px;	color: #000000;	text-align: center;}';
@@ -15,7 +15,7 @@ try{
 					$link = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 					$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-					$sql = 'SELECT * FROM evento where status = "1" order by curso';
+					$sql = 'SELECT * FROM eventos where status = "1" order by curso';
 					foreach($link->query($sql) as $row){
 						echo "<h1>".strtoupper($row['titulo'])."</h1>";
 						echo "<h2>".$row['autores']."</h2>";

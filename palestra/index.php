@@ -1,26 +1,24 @@
-
-
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<title>Asser Eventos</title>
-
-<!-- adicionado o suporte para o jquery e thema redmond -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-<!-- outros suporte a css da página -->
-<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-<link rel="stylesheet" href="../css/estilo.css" type="text/css">
-
-<!-- outros scripts para o menu-->
-<script src="../scripts/asser-main-menu.js"></script>
-<script src="../scripts/asser-commum.js"></script>
-<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<link rel="shortcut icon" href="../favicon.ico">
+	<title>Asser Eventos</title>
+	<!-- adicionado o suporte para o jquery e thema redmond -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<!-- outros suporte a css da página -->
+	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+	<!-- outros scripts para o menu-->
+	<script src="../scripts/asser-main-menu.js"></script>
+	<script src="../scripts/asser-commum.js"></script>
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 </head>
-
 
 <body>
 	<div id="corpo">
@@ -37,11 +35,7 @@
                    <li><a href='../submissao.html'>Submissão de Trabalhos</a></li>
                    <li><a href='#' class='active'>Palestras</a></li>
                    <li><a href='../programa.html'>Programação</a></li>    
-                   <li class='has-sub'> <a href='#'>Edições anteriores</a> 
-                        <ul>
-                          <li> <a href='../anais/Anais2015_FINAL.pdf' target="_blank"> V Mostra de Iniciação Científica e Workshop (Anais 6/2015)</a> </li>
-                        </ul>
-                    </li>        
+                   <li> <a href='../anais'>Edições<br>Anteriores</a></li>         
                    <li><a href='../contato'>Contato</a></li>
                    <li><a href='../creditos.html'>Créditos</a></li>
                 </ul>
@@ -64,8 +58,8 @@
               <fieldset>
                 <legend>Inscrição em Palestras</legend>
                 <div>
-                    <p>As inscrições para as palestras serão liberadas a partir do dia 27 de novembro até 08 de dezembro e
-					deverá ser pago uma taxa de inscrição na secretaria da faculdade mediante apresentação do RA cadastrado. </p>
+                    <p>As inscrições para as palestras serão liberadas a partir do dia 17 de maio até 20 de maio e
+					deverá ser pago uma taxa de inscrição (R$ 20,00) na secretaria da faculdade mediante apresentação do RA cadastrado. </p>
                 </div>
                 
               </fieldset>
