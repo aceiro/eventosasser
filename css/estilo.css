@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.label {
+	width:100px;
+	text-align:right;
+	float:left;
+	padding-right:10px;
+	font-weight:bold;
+	}
+    
+#register-form label.error, .output {
+	color:#FB3A3A;
+	font-weight:bold;
+}
+
+#corpo {
+	width: 860px;
+	margin: 0 auto;
+	background-color: #FFF;
+	/*border: 1px solid #336799;*/
+
+}
+#cabecalho {
+	height: 159px;
+	background: rgb(255, 255, 255) url("../imagens/header.png") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
+	background-size: 860px 160px;
+	padding: 0px 0px 0px 17px;
+}
+
+.subcabecalho{
+	font-size:14px;
+}
+
+
+#texto {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #44443D;
+	margin-right: 1px;
+	margin-left: 1px;
+	line-height:1.5;
+}
+
+
+#rodape {
+	background-color: #336799;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFF;
+	text-align: center;
+	height: 70px;
+	margin-top: 90px;
+}
+
+#rodape a{
+		color: #fff;
+}
+
+#rodape a:hover{
+	color: #eee;
+}
+
+#rodape a:visited{
+	color: #fff;
+}
+
+
+.container {
+        width: 600px;
+        clear: both;
+        margin-left: 180px;
+}
+
+.container input {
+    width: 100%;
+    clear: both;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+#effect { 
+	/* width: 740px;*/
+	padding: 1em;  
+	font-size: 1.2em; 
+	/*border: 1px solid #A6C9E2;*/
+	color: #333; 
+	background: rgba(219, 230, 245, 0.27) none repeat scroll 0% 0%;
+}
+
+
+/* classe padrão utilizada no menu*/
+.menuClass {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #FFF;
+	background-color: #336799;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+}
+
+.menuClass, #mmenu {
+	font-size: 16px;
+	color: #FFF;
+	background-color: #336799;
+}
+
+.menuClass, #mmenubar {
+	font-size: 4px;
+	color: #FFF;
+	background-color: #8EABC8;
+}
+
+.menuClass, #mmenusubbar {
+	font-size: 2px;
+	color: #FFF;
+	background-color: #C5D1DD;
+}
+
+.menuClass, #mmenusubsubbar {
+	font-size: 1px;
+	color: #FFF;
+	background-color: #E6E9ED;
+}
+
+/* configurações gerais */
+body {
+	background-color: #FFF;
+	font-size: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+}
+a {
+	color: #AAAAFF;
+	font-weight: bold;
+}
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #006;
+	text-align: center;
+}
+	
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+
+/* sobrescreve algumas propriedades do jquery */
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: #006;
+}
+
+#cssmenu > ul > li > a {
+	color: #006;
+}
+
+
+/* criacao de estilo para os formulários */
+fieldset { 
+	border:1px solid #C5D1DD;
+	width: 70%;
+	height: 100%;
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+
+	border-radius: 5px;
+}
+//
+	/*#listar-coteudo{
+		margin: 5px 5px 5px 50px;
+	}*/
+
+	table{
+		width: 95%;
+	}
+
+	table caption{
+		font-size: 14px;
+		text-align: center;
+	}
+
+	table, th, td{
+		border: 1px solid #CBCDDD;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		padding: 5px;
+		text-align: left;		
+	}
+
+	tr:nth-child(even){
+		background-color: #eee;
+	}
+
+	tr:nth-child(odd){
+		background-color: #fff;
+	}
+
+	th{
+		background-color: #1862A1;
+		color: white;
+	}
+
+legend {
+	padding: 0.2em 0.5em;
+	border:1px solid #336799;
+	color:#336799;
+	font-size:90%;
+
+	border-radius: 5px;
+}
+
+label {
+	float:left;
+	width:25%;
+	margin-right:0.5em;
+	color:#336799;
+	text-align:right;
+	font-weight:bold;
+
+	border-radius: 5px;
+}
+
+fieldset div {
+	padding: 8px;
+}  
+
+fieldset input {
+	height: 20px;          
+}
+
+#semra{
+			float: right;
+			width: 150px;
+			height: 50px;
+			background-color: #0000AA;
+		}
+
+.button{
+	float: right;
+	width: 60%;  
+	font-size: 10px;  
+}   
+
+label.error{
+	float: none;
+	font-size: 12px;
+	border: 1px solid;
+	color: rgba(255, 0, 0, 0.7);
+	background: rgba(255, 0, 0, 0.1) none repeat scroll 0% 0%;
+	padding: 4px;
+	margin-left: 167px;
+}
+
+input.ui-button {
+	padding: 0.4em 3em 2em;
+}
+
+
+/* configuracao do hr geral da página */
+hr.fancy-line { 
+    border: 0; 
+    height: 1px;
+
+}
+hr.fancy-line:before {
+    top: -0.5em;
+    height: 1em;
+}
+hr.fancy-line:after {
+    content:'';
+    height: 0.5em;
+    top: 1px;
+}
+
+hr.fancy-line:before, hr.fancy-line:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+}
+
+hr.fancy-line, hr.fancy-line:before {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+}
+
+/*body, hr.fancy-line:after {
+    background: #f4f4f4;
+}*/
+
+/** configuracao do css para o resumo **/
+.rotulo-resumo{
+     font-weight: bold;
+     font-size: 18px;
+     text-align: center;
+     color: #336799;
+   }
+.input-resumo{
+	 font-weight: bold;
+	 font-size: 18px;
+	 text-align: center;
+	 color: #336799;
+}
+.info-resumo {
+
+	 font-size: 10px;
+	 text-align: center;
+	 width: 30%;
+	 background-color: rgba(26, 165, 26, 0.5);
+	 border: 1px solid white;
+	 color: white;
+	 border-radius: 40px 40px 40px 2px;
+	 margin-left: 55%;
+
+}
+
+
+/* Estilo para as frases (quotes) */
+blockquote {
+	/*background: #def99f;*/
+	background: rgba(251, 178, 74, 0.1);
+	/* border-left: 10px solid #336799; */
+	
+	/*border-left: 20px solid rgba(51, 103, 153, 0.71);*/
+	/*border-left: 20px solid rgba(232, 77, 12, 0.71);*/
+	border-left: 20px solid rgba(255, 0, 0, 0.71);
+	border-right: 20px solid rgba(255, 0, 0, 0.71);
+
+	padding: 1.0em 0.6em;
+	quotes: "\201C""\201D""\2018""\2019";
+	font-style: italic;
+	border-radius: 3px;
+	/*margin: 1.5em 0.5em 1.5em 7.0em;*/
+	margin: -0.5em 0.5em 1.5em 0em;
+
+}
+
+blockquote:before {
+	/*color: #336799;*/
+	color: #FF0000;
+	content: open-quote;
+	font-size: 4.5em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+
+blockquote:after {
+	/*color: #336799;*/
+	color: #FF0000;
+	content: close-quote;
+	font-size: 4.5em;
+	line-height: 0.1em;
+	margin: 0 0 0 1em;
+	vertical-align: 0em;
+}
+
+
+blockquote p {
+	display: inline;
+}
+
+
+/*.citacao blockquote {*/
+	/*background: #F9F9F9 none repeat scroll 0% 0%;*/
+	/*border-left: 10px solid #CCC;*/
+	/*margin: 1.5em 10px;*/
+	/*padding: 0.5em 10px;*/
+/*}*/
+
+#image-quote {
+	float: left;
+	margin-right: 30px;
+
+	height: 170px; 
+	width: 300px; 
+
+}
+
+#blockquote-right {
+	position: relative;
+	height: 155px;
+}
+
+#phrase_quote{
+	margin: 15px;
+}
+
+#quote-author{
+	vertical-align: -2em;
+	margin-left: 290px;
+}
