@@ -37,8 +37,8 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #44443D;
-	margin-right: 80px;
-	margin-left: 80px;
+	margin-right: 1px;
+	margin-left: 1px;
 	line-height:1.5;
 }
 
@@ -80,7 +80,7 @@
 }
 
 #effect { 
-	width: 740px;  
+	/* width: 740px;*/
 	padding: 1em;  
 	font-size: 1.2em; 
 	/*border: 1px solid #A6C9E2;*/
@@ -351,6 +351,16 @@ blockquote:before {
 	vertical-align: -0.4em;
 }
 
+blockquote:after {
+	/*color: #336799;*/
+	color: #FF0000;
+	content: close-quote;
+	font-size: 4.5em;
+	line-height: 0.1em;
+	margin: 0 0 0 1em;
+	vertical-align: 0em;
+}
+
 
 blockquote p {
 	display: inline;
@@ -366,7 +376,7 @@ blockquote p {
 
 #image-quote {
 	float: left;
-	margin-right: 15px;
+	margin-right: 30px;
 
 	height: 170px; 
 	width: 300px; 
@@ -376,4 +386,13 @@ blockquote p {
 #blockquote-right {
 	position: relative;
 	height: 155px;
+}
+
+#phrase_quote{
+	margin: 15px;
+}
+
+#quote-author{
+	vertical-align: -2em;
+	margin-left: 290px;
 }
