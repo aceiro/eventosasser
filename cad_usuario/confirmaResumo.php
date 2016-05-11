@@ -28,7 +28,7 @@
 	$session->set("comentarios", 'Professor avaliador, por favor anote as alterações para o autor aqui.');
 	
 	$autores = $session->get("autor1") . "  - " . $session->get("email1");
-//verifica se há mais autores
+	//verifica se há mais autores
 	if(strcmp($_POST['autor2'],"")!=0){
 			$session->set("autor2",$_POST['autor2']);
 			$session->set("email2",$_POST['email2']);
@@ -50,20 +50,18 @@
 			$autores = $autores . "; " . $session->get('autor5') . " - " . $session->get('email5');	
 		}	
 		
-	//se mais autores vindo por um vetor como é que fica aqui?
-	//if(strcmp($_POST['autorplus'],"")!=0){
-		$arraynome = $_POST['autorplus'];
-		$arrayemail = $_POST['emailplus'];
-		$cont = 0;
-		foreach($arraynome as $row){
-			$autores = $autores . "; " . $row . " - " . $arrayemail[$cont];	
-			$cont++;
-		//}
-		/*
-		$session->set("autorplus",$arraynome);
-		$session->set("emailplus",$arrayemail);
-		*/
+
+	if( isset($_POST['authorPlus']) ){
+		$authorPlus = $_POST['authorPlus'];
+
+		foreach ($authorPlus as $key => $value) {
+			$authorName  = $value['author'];
+			$authorEmail = $value['email'];
+
+			$autores = $autores . '; ' . $authorName . ' - ' . $authorEmail;
+		}
 	}
+
 	
 	$session->set("autores", $autores);
 

@@ -267,6 +267,25 @@ fieldset input {
     border-radius: 4px; 
 }
 
+.text-align-center{
+	text-align: center;
+	padding: 0px;
+}
+
+.button-center{
+	text-align: center;
+	color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    margin: 10px;
+}   
+
+.button-center:hover {
+	color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}  
+
 
 .button-right{
 	float: right; 
@@ -293,7 +312,8 @@ label.error{
 }
 
 input.ui-button {
-	padding: 0.4em 3em 2em;
+	/*padding: 0.4em 3em 2em;*/
+	/*padding: 10px;*/
 }
 
 
@@ -333,20 +353,31 @@ hr.fancy-line, hr.fancy-line:before {
      font-size: 18px;
      text-align: center;
      color: #336799;
-   }
+}
+
+.deail-final-resumo{
+	 font-weight: bold;
+	 font-size: 18px;
+	 text-align: center;
+	 color: rgba(214, 6, 6, 0.9);
+	 border-color: rgba(0, 0, 0, 0.65);
+     border-style: dashed;
+}
+
 .input-resumo{
 	 font-weight: bold;
 	 font-size: 18px;
 	 text-align: center;
-	 color: #336799;
+	 color: rgba(214, 6, 6, 0.9);
 }
+
 .info-resumo {
 
-	 font-size: 10px;
+	 font-size: 12px;
 	 text-align: center;
 	 width: 30%;
 	 background-color: rgba(26, 165, 26, 0.5);
-	 border: 1px solid white;
+	 border: 1px dashed red ;
 	 color: white;
 	 border-radius: 40px 40px 40px 2px;
 	 margin-left: 55%;

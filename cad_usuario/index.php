@@ -118,11 +118,12 @@
                             </select>                            
                         </div>
 
-                        <div class="button">
-                           <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar" value="Enviar" />
-                           <input name="limpar" style="width:30%;" type="reset" id="limpar" value="Limpar" />
-                        </div>
+                        
                 </fieldset>
+                <div class="text-align-center">
+                           <input class="button button-center" name="cadastrar" type="submit" id="cadastrar" value="Enviar" />
+                           <input class="button button-center" name="limpar" type="reset" id="limpar" value="Limpar" />
+                </div>
             </form>
         </div>
         

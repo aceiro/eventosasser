@@ -20,15 +20,18 @@
 	<title>Asser Eventos</title>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+	
 
 	<script src="../scripts/asser-main-menu.js"></script>
 	<script src="../scripts/asser-commum.js"></script>
-	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+	
+
+	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
 </head>
 <body>
 	<div id="corpo">
@@ -62,13 +65,20 @@
 				<legend>Cadastro realizado com sucesso!</legend>
 				<br />
 				
-				<p id="effect" class="ui-corner-all">O que fazer agora?</p>
-				<p id="effect" class="ui-corner-all">Agora você pode verificar o andamento da avaliação do seu resumo. Basta clicar em Verificar resumo.</p>
-				<p id="effect" class="ui-corner-all">Caso seu resumo estiver com <strong>Status</strong> de <strong>aprovado</strong>, recolher taxa de R$ 20,00 na secretaria da faculdade.</p>
-				
-				<br />
-				<p align="center"><a href="../">Voltar</a> | <a href="../listar">Verificar resumo</a></p>
+				<p id="effect" class="ui-corner-all">Agora você deve acompanhar o andamento da avaliação do seu resumo.</p>
+				<p id="effect" class="ui-corner-all">Caso seu resumo seja aprovado (com <strong>Status</strong> de <strong>aprovado</strong>), recolha taxa de R$ 20,00 na secretaria da faculdade.</p>
+
+				<div class="rotulo-resumo"><strong>Salve e imprima os dados de acesso para acompanhar o <strong>Status</strong> do seu resumo</strong></div>
+				<div class="deail-final-resumo">
+					Login: <strong><?php echo $session->get('login'); ?></strong> <br />
+					Senha: <strong><?php echo $session->get('password'); ?></strong>
+				</div>
+
 			</fieldset>
+			<div class="text-align-center">
+              		<button class="button button-center" onclick="javascript:location.href='../'" />  Voltar </button>
+              		<button class="button button-center"  onclick="javascript:location.href='../listar'" /> Verificar Resumo </button>
+             </div>
 		</div>
         
         <br />
