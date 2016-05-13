@@ -6,7 +6,7 @@
 	header("Content-Type: text/html; charset=UTF-8", true);
 	include_once('../../utils/common.php');
 	
-	//$bd->checkUsuario($session->get('login')); verificar este erro
+	$bd->checkUsuario($session->get('login'));
 	
     if(!strcmp($session->get('login'),null)){
        header('Location: ../../');
@@ -118,8 +118,8 @@
         <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-				<li><a href='../'>Voltar</a></li>
-                   <li><a href='../../'>Sair</a></li>
+				<li><a href='./'>Voltar</a></li>
+                   <li><a href='../'>Sair</a></li>
                 </ul>
             </div>
 
