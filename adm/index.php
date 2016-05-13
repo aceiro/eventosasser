@@ -29,32 +29,6 @@
 	<script src="../scripts/asser-commum.js"></script>
 
 </head>
-<script> 
-$(function() {
-    $("#register-form").validate({
-        rules: {
-            login: "required",
-            password: {
-                required: true,
-                minlength: 5
-            }
-        },
-        messages: {
-            login: "Entre com o login",
-            password: {
-                required: "Por favor, digite sua senha",
-                minlength: "Sua senha deve ter mais de 5 caracteres"
-            }
-        },
-        
-        submitHandler: function(form) {
-            form.submit();
-        }
-    });
-
-});
-  </script>
-  </head>
 
 <body>
 	<div id="corpo">
@@ -102,7 +76,7 @@ $(function() {
 				  </div>
 
 				  <div>
-					<label>Senha</label><input type="password" id="password" name="password" size="6" maxlength="6" />
+					<label>Senha</label><input type="password" id="password" name="password" />
 				  </div>
 
 				  <div class="button">
