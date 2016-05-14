@@ -517,6 +517,20 @@ table, th, td {
 }
 
 .tabs-container{
-	height: 200px;
+	height: 250px;
+}
+
+.button-step-send {
+	 margin: auto;
+	 width: 50px;
+	 height:50px;
+	 display:block;
+	 background:transparent url('../imagens/enviar.png') center top no-repeat;
+}
+
+.button-step-send:hover {
+	 opacity: 0.3;
+     filter: alpha(opacity=30); /* For IE8 and earlier */
+     border-color: 2px solid black;
 }
 
