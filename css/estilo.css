@@ -534,3 +534,7 @@ table, th, td {
      border-color: 2px solid black;
 }
 
+.display-none {
+		 display: none; /* used to do opacity effect  with jQuery */
+}
+

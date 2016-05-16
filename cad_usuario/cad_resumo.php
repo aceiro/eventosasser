@@ -24,7 +24,25 @@
 		var evs = ASSER.submission;
 
 	  	$(function() {
-		    evs.init();
+		    evs.init();		   
+		});
+
+		$(document).ready(function(){
+			var TimeoutFadeIn = {
+				FAST		: 1500,
+				SLOW		: 3000,
+				VERY_SLOW	: 6000
+			};
+
+			$("#effect").fadeIn(TimeoutFadeIn.FAST);
+			$("#info-title-bubble").fadeIn(TimeoutFadeIn.SLOW);
+			$("#info-course-bubble").fadeIn(TimeoutFadeIn.SLOW);	
+			$("#info-adviser-bubble").fadeIn(TimeoutFadeIn.VERY_SLOW);
+			$("#info-authors-bubble").fadeIn(TimeoutFadeIn.VERY_SLOW);
+			$("#info-abstract-bubble").fadeIn(TimeoutFadeIn.VERY_SLOW);
+			$("#info-keywords-bubble").fadeIn(TimeoutFadeIn.VERY_SLOW);
+			
+			
 		});
 
 	</script>
@@ -37,7 +55,6 @@
         </div>
         
         <br />
-        
           <div id='cssmenu'>
                 <ul>
                    <li><a href='../index.html'>Evento</a></li>             
@@ -63,7 +80,7 @@
 	        <div>
 			    <form id="register-form" name="register-form" method="post" action="confirmaResumo.php"  novalidate="novalidate">
 					<div>
-						<p id="effect" class="ui-corner-all">
+						<p id="effect" class="ui-corner-all display-none">
 
 							Copie e cole, ou escreva as informações para o envio do resumo nos campos abaixo.
 							Ao lado de cada item, você vai encontrar balões como este 
@@ -71,11 +88,11 @@
 							</p>
 					</div>			
 
-					<div class="info-resumo">Lembre-se o título descreve sinteticamente o seu trabalho</div>
+					<div id="info-title-bubble" class="info-resumo display-none">Lembre-se o título descreve sinteticamente o seu trabalho</div>
 					<div class="rotulo-resumo">Titulo</div>
 					<div class="input-resumo"><input type="text" id="titulo" name="titulo" size="100" maxlength="250"  /></div>
 	                
-	                <div class="info-resumo">Escolha o curso</div>
+	                <div id="info-course-bubble" class="info-resumo display-none">Escolha o curso</div>
 					<div class="rotulo-resumo">Curso</div>
 					<center><select id="curso" name="curso">
 						<option value="Bacharelado em Administração">Bacharelado em Administração</option>
@@ -89,13 +106,13 @@
 						<option value="Licenciatura em Educação Física">Licenciatura em Educação Física</option>
 						<option value="Bacharelado em Fisioterapia">Bacharelado em Fisioterapia</option>
 						<option value="Bacharelado em Nutrição">Bacharelado em Nutrição</option>
-						<option value="Tecnólogo em Farmácia">Tecnólogo em Farmácia</option>
+						<option value="Bacharelado em Farmácia">Bacharelado em Farmácia</option>
 						<option value="Tecnólogo em Design de Interiores">Tecnólogo em Design de Interiores</option>
 						<option value="Tecnólogo em Gestão Financeira">Tecnólogo em Gestão Financeira</option>
 						<option value="Tecnólogo em Gestão da Produção Industrial">Tecnólogo em Gestão da Produção Industrial</option>
 					</select></center></br>
 					                                
-					<div class="info-resumo">Preencha com o nome do seu orientador. Não esqueça da titulação Esp./Ms./Dr.</div>                                 
+					<div id="info-adviser-bubble" class="info-resumo display-none">Preencha com o nome do seu orientador. Não esqueça da titulação Esp./Ms./Dr.</div>                                 
 					<div class="rotulo-resumo">Orientador</div>
 					<div class="input-resumo">
 					<select id="esp" name="esp">
@@ -108,7 +125,7 @@
 					</select>
 					<input type="text" id="orientador" name="orientador" size="75" maxlength="255" /></div>
 									
-				  	<div class="info-resumo">Informe nome completo e e-mail dos autores</div>	
+				  	<div id="info-authors-bubble" class="info-resumo display-none">Informe nome completo e e-mail dos autores</div>	
 					<br/>
 				  	<table id="table-authors-wrapper">
 				    <thead>
@@ -164,12 +181,12 @@
 				<br/> <br/> <br/>
 					
 			                
-	                <div class="info-resumo"> &nbsp; Informe seu resumo aqui, com Contexto, Lacuna de pesquisa, Objetivo, Metodologia, Resultado e Conclusão.
+	                <div id="info-abstract-bubble" class="info-resumo display-none"> &nbsp; Informe seu resumo aqui, com Contexto, Lacuna de pesquisa, Objetivo, Metodologia, Resultado e Conclusão.
 	                </div>
 					<div class="rotulo-resumo">Resumo</div>
 					<div class="input-resumo"><textArea id="resumo" name="resumo" cols="100" rows="7"></textArea></div>
 					
-					<div class="info-resumo">Adicone pelo menos três palavras-chave que caracterizem o seu trabalho. 
+					<div id="info-keywords-bubble" class="info-resumo display-none">Adicone pelo menos três palavras-chave que caracterizem o seu trabalho. 
 					Coloque as palavras-chave separadas por ponto-e-virgula. Por exemplo, <strong>Sistema Toyota; Administração de Empresas; Gestão</strong></div>
 					<div class="rotulo-resumo">Palavras-chave</div>
 					<div class="input-resumo"><input type="text" id="keyword" name="keyword" size="100" maxlength="95" /></div>
