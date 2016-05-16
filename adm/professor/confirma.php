@@ -1,5 +1,5 @@
 <?php
-	require_once("../../../cfg/Session.php");
+	require_once("../../cfg/Session.php");
 	require_once("BD.php");
 	$bd = new BD();
 	$session = new Session("EventosAsser2016");

@@ -33,7 +33,7 @@
                 <ul>
                    <li><a href='../index.html'>Evento</a></li> 
                    <li><a href='../submissao.html'>Submissão de Trabalhos</a></li>
-                   <li><a href='#' class='active'>Palestras</a></li>
+                   <li class='active'><a href='#'>Palestrar</a></li>  
                    <li><a href='../programa.html'>Programação</a></li>    
                    <li> <a href='../anais'>Edições<br>Anteriores</a></li>         
                    <li><a href='../contato'>Contato</a></li>

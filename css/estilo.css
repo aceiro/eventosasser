@@ -171,42 +171,42 @@ fieldset {
 
 	border-radius: 5px;
 }
-//
-	/*#listar-coteudo{
-		margin: 5px 5px 5px 50px;
-	}*/
 
-	table{
-		width: 95%;
-	}
+/*#listar-coteudo{
+	margin: 5px 5px 5px 50px;
+}*/
 
-	table caption{
-		font-size: 14px;
-		text-align: center;
-	}
+table{
+	width: 95%;
+}
 
-	table, th, td{
-		border: 1px solid #CBCDDD;
-		border-collapse: collapse;
-	}
+table caption{
+	font-size: 14px;
+	text-align: center;
+}
 
-	th, td {
-		padding: 5px;
-		text-align: left;		
-	}
+table, th, td{
+	border: 1px solid #CBCDDD;
+	border-collapse: collapse;
+}
 
-	tr:nth-child(even){
-		background-color: #eee;
-	}
+th, td {
+	padding: 5px;
+	text-align: left;		
+}
 
-	tr:nth-child(odd){
-		background-color: #fff;
-	}
+tr:nth-child(even){
+	background-color: #eee;
+}
 
-	th{
-		background-color: #1862A1;
-		color: white;
-	}
+tr:nth-child(odd){
+	background-color: #fff;
+}
+
+th{
+	background-color: #1862A1;
+	color: white;
+}
 
 legend {
 	padding: 0.2em 0.5em;
@@ -505,3 +505,32 @@ table, th, td {
 	width: 15em;	
 	font-size: 12px;
 }
+
+.program-container{
+     margin: auto;
+     padding: 10px;
+}
+
+.program-table-center{
+	margin: auto;
+    padding: 10px;
+}
+
+.tabs-container{
+	height: 250px;
+}
+
+.button-step-send {
+	 margin: auto;
+	 width: 50px;
+	 height:50px;
+	 display:block;
+	 background:transparent url('../imagens/enviar.png') center top no-repeat;
+}
+
+.button-step-send:hover {
+	 opacity: 0.3;
+     filter: alpha(opacity=30); /* For IE8 and earlier */
+     border-color: 2px solid black;
+}
+
