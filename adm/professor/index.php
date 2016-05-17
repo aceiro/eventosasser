@@ -6,7 +6,7 @@
 	header("Content-Type: text/html; charset=UTF-8", true);
 	include_once('../../utils/common.php');
 	
-	$bd->checkUsuario($session->get('login'));
+	//$bd->checkUsuario($session->get('login'));
 	
     if(!strcmp($session->get('login'),null)){
        header('Location: ../../');

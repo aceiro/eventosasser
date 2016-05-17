@@ -41,13 +41,8 @@
         
           <div id='cssmenu'>
                 <ul>
-                   <li><a href='../index.html'>Evento</a></li>      
-                   <li><a href='../sumissao.html'>Submissão de Trabalhos</a></li>
-                   <li><a href='../palestra'>Palestras</a></li>
-                   <li><a href='../programa.html'>Programação</a></li>            
-                   <li><a href='../anais'>Edições<br>Anteriores</a></li>          
-                   <li><a href='../contato'>Contato</a></li>
-                   <li><a href='../creditos.html'>Créditos</a></li>
+                   <li><a href='../'>Evento</a>
+				   <li><a href='../'>Sair</a>
                 </ul>
             </div>
 
@@ -66,9 +61,8 @@
 				  <div> 
 					<label>Tipo de função</label>
 					<select id="funcao" name="funcao">
-						<option value="secretariado">Secretariado</option>
 						<option value="professor">Professor Avaliador</option>
-						<option value="administrativo">Administrativo</option>
+						<option value="secretariado">Secretariado</option>
 					</select>
 				  </div>
 				  
