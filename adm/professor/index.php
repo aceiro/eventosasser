@@ -118,7 +118,7 @@
         <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-				<li><a href='./'>Voltar</a></li>
+				<li><a href='../'>Voltar</a></li>
                    <li><a href='../'>Sair</a></li>
                 </ul>
             </div>

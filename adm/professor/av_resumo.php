@@ -67,8 +67,8 @@
         
           <div id='cssmenu'>
               <ul>
-                   <li class='active'><a href='../'>Voltar</a></li>
-                   <li><a href='../../../'>Sair</a></li>
+                   <li class='active'><a href='./'>Voltar</a></li>
+                   <li><a href='../'>Sair</a></li>
                 </ul>
             </div>
 
@@ -130,8 +130,9 @@
 					
 			     <input type="hidden" name="id" value="<?php echo $id; ?>" />			
                 	
-				<div class="button">
+				<div button type="button" class="btn btn-default" aria-label="Left Align">
 				   <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar" value="Enviar" />
+				
 				   <input name="limpar" style="width:30%;" type="reset" id="limpar" value="Limpar" />
 				</div>					
                 </fieldset>
