@@ -37,74 +37,24 @@
 	<link rel="stylesheet" href="../../css/menu-styles.css" type="text/css">
 	<link rel="stylesheet" href="../../css/estilo.css" type="text/css">
 
+
 	<!-- outros scripts para o menu-->
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 	<script src="../../scripts/asser-main-menu.js"></script>
 	<script src="../../scripts/asser-commum.js"></script>
-	<link rel="stylesheet" href="../../scripts/tablesorter/blue/style.css" type="text/css" id="" media="print, projection, screen">
+	<link rel="stylesheet" href="../../scripts/tablesorter/blue/style.css" type="text/css" media="print, projection, screen">
+	<link rel="stylesheet" href="../../css/table-asser-sort.css" type="text/css">
 	<script type="text/javascript" src="../../scripts/tablesorter/jquery.tablesorter.js"></script>
+	
+
 
 	<script type="application/javascript">
-		$(document).ready(function()
-        {
+		$(document).ready(function(){
             $("#myTable").tablesorter();
-        }
+        	}
 		);
 	</script>
-
-    <style type="text/css">
-        #listar-coteudo{
-            margin: 5px 5px 5px 50px;
-        }
-
-        table{
-            width: 95%;
-        }
-
-        table caption{
-            font-size: 14px;
-            text-align: center;
-        }
-
-        table, th, td{
-            border: 1px solid #CBCDDD;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 5px;
-            text-align: left;
-        }
-
-        tr:nth-child(even){
-            background-color: #eee;
-        }
-
-        tr:nth-child(odd){
-            background-color: #fff;
-        }
-
-        th{
-            background-color: #1862A1;
-            color: white;
-        }
-
-        .itemStatus {
-            text-align: center;
-        }
-
-
-        fieldset{
-            width: auto;
-            height: auto;
-            margin: 10px;
-        }
-
-        table.tablesorter thead tr th{
-            background-color: #1862A1;
-        }
-    </style>
-
+   
 </head>
 
 <body>
