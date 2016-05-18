@@ -19,6 +19,6 @@
 		$session->set('ra',$ra);
 	}
 	
-	header("location:index2.php");
+	header("location:index.php");
 
 ?>
