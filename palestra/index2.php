@@ -64,7 +64,7 @@
 					}				
 				?>				
 				<div><label>Nome</label><input type="text" name="nome" id="nome" size="60"></div>
-				<div class='button'>	
+				<div button type="button" class="btn btn-default" aria-label="Left Align">	
 					<input name='proximo' style='width:30%;' type='submit' id='proximo' value='Próximo' />
 				</div>
 			</fieldset>

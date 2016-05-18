@@ -63,11 +63,10 @@
 					}
 					echo $meuhtml;
 				?>
-				</select></div>
-				<div class='button'>	
-					<input name='proximo' style='width:30%;' type='submit' id='proximo' value='Proximo' />
+				</select></div><br />	
+				<div button type="button" class="btn btn-default" aria-label="Left Align">	
+					<center><input name='proximo' style='width:30%;' type='submit' id='proximo' value='Proximo' /></center>
 				</div>
-				<br />	
             </form>
         </div>        
         <br />
