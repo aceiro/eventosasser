@@ -35,7 +35,7 @@
 <?php
 		$ra = $_POST['ra'];
 		$nome = $_POST['nome'];
-		$pago = $_POST['pago'];
+		$pago = $session->get('pago');
 		$bd->gravaPagamento($ra,$pago);
 		$session->set('nome',$nome);
 		$session->set('ra',$ra);
