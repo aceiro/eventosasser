@@ -37,14 +37,16 @@
 					password: {
 						required: true,
 						minlength: 5
-					}
+					},
+					password-again: { equalTo: '#password' }
 				},
 				messages: {
 					nome: "Escreva o seu nome completo",
 					email: "Escreva seu endereço de email corretamente",
-					  tipo: "Escolha um tipo de participação",
+					tipo: "Escolha um tipo de participação",
+					password-again: "As senhas devem ser iguais",
 					password: {
-						required: "Por favor, digite uma senha",
+						required: "Campo obrigatório",
 						minlength: "Sua senha deve ter mais de 5 caracteres"
 					}
 				},
@@ -53,7 +55,7 @@
 					form.submit();
 				}
 			});
-		});  
+		}); 
 	</script>
 </head>
 <body>
@@ -90,7 +92,7 @@
                   action="confirmaUsuario.php"  novalidate="novalidate">
 
                 <fieldset>
-                        <legend>Envio de Resumo</legend>
+                        <legend>Cadastro de Autor Principal </legend>
                         <div>
                             <label> Nome:</label>
                             <input type="text" id="autor" name="autor" size="50" maxlength="65"  />
@@ -104,6 +106,11 @@
                         <div>
                             <label>Senha:</label>
                             <input type="password" id="password" name="password" size="50" maxlength="65" />
+                        </div>
+
+                        <div>
+                            <label>Confirmar Senha:</label>
+                            <input type="password" id="password-again" name="password-again" size="50" maxlength="65"  />
                         </div>
 
                         <div>                        

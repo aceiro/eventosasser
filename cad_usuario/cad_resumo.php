@@ -94,7 +94,8 @@
 	                
 	                <div id="info-course-bubble" class="info-resumo display-none">Escolha o curso</div>
 					<div class="rotulo-resumo">Curso</div>
-					<center><select id="curso" name="curso">
+					<center>
+					<select id="curso" name="curso">
 						<option value="Bacharelado em Administração">Bacharelado em Administração</option>
 						<option value="Bacharelado em Arquitetura e Urbanismo">Bacharelado em Arquitetura e Urbanismo</option>
 						<option value="Licenciatura em Pedagogia">Licenciatura em Pedagogia</option>
