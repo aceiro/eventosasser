@@ -30,8 +30,8 @@
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
 	<!-- adicionado o suporte para o bootstrap padrão  -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<!-- outros suporte a css da página -->
 	<link rel="stylesheet" href="../../css/menu-styles.css" type="text/css">
@@ -42,17 +42,24 @@
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 	<script src="../../scripts/asser-main-menu.js"></script>
 	<script src="../../scripts/asser-commum.js"></script>
+
 	<link rel="stylesheet" href="../../scripts/tablesorter/blue/style.css" type="text/css" media="print, projection, screen">
-	<link rel="stylesheet" href="../../css/table-asser-sort.css" type="text/css">
+	<link rel="stylesheet" href="../../css/teacher-evaluation-style.css" type="text/css">
 	<script type="text/javascript" src="../../scripts/tablesorter/jquery.tablesorter.js"></script>
 	
 
 
 	<script type="application/javascript">
-		$(document).ready(function(){
-            $("#myTable").tablesorter();
-        	}
-		);
+		$(function() {
+		    evc.init();
+		    evc.addSelectOptionCourse('select-content');
+		    evc.addTableFilter('#abstracts-table','#select-content select');
+		});
+
+		var evc = ASSER.courses;
+
+	  	
+		
 	</script>
    
 </head>
@@ -83,15 +90,20 @@
         <div id="listar-coteudo">
     		<form id="register-form" name="register-form" method="post" action="av_resumo.php"  >
             <fieldset>
-				<legend>Digite o ID do resumo a avaliar</legend>
-				<div align="center"><strong>ID: </strong><input type="text" name="id" id="id" size="19" maxlength="20" />
-					<input name="avaliar" type="submit" id="avaliar" value="Avaliar" />
+				<legend> Formulário de Avaliação </legend>
+
+				<div class="filter-container">
+					<div> Curso: </div> <div id="select-content"> </div> 
+					<div> ID: </div> 	 <div> 
+											<input type="text" name="id" id="id" size="5" maxlength="5" />
+								 	 	 	<input name="avaliar" type="submit" id="avaliar" value="Avaliar" />
+								 	 	 </div>	
 				</div>
 				<div>
-					<table id="myTable" class="tablesorter" >
-                    <caption><strong>Lista de resumos submetidos para avaliação</strong> <br/> Clique nas colunas para ordenar</caption>
+					<table id="abstracts-table" class="tablesorter" >
+                    
                     <thead>
-					<tr><th>ID</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th><th>STATUS</th></tr>
+					<tr><th>ID</th><th>Título</th><th>Aluno</th><th>Curso</th><th>Status</th></tr>
                     </thead>
 					<tbody>
 					<?php					

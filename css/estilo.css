@@ -272,6 +272,11 @@ fieldset input {
 	padding: 0px;
 }
 
+.text-align-left{
+	text-align: left;
+	padding: 0px;
+}
+
 .button-center{
 	text-align: center;
 	color: #fff;
@@ -535,6 +540,11 @@ table, th, td {
 }
 
 .display-none {
-		 display: none; /* used to do opacity effect  with jQuery */
+	display: none; /* used to do opacity effect  with jQuery */
 }
+
+.display-remove {
+	display: '';
+}
+
 

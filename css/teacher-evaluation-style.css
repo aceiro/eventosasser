@@ -49,3 +49,21 @@ table.tablesorter thead tr th{
     background-color: #1862A1;
     padding-right: 20px;
 }
+
+
+.filter-container{
+    clear: both;
+    border: 1px solid #1862A1;
+    width: 95%;
+    margin: 20px;
+    display: inline-flex;
+
+}
+
+.background-color-none{
+    background-color: #0F0F0F;
+}
+
+table.tablesorter {
+    background-color: white;
+}
