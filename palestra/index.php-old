@@ -1,12 +1,3 @@
-<?php 
-	require_once("../cfg/BD.php");
-	require_once("../cfg/Session.php");
-	error_reporting(0);
-	$session = new Session("EventosAsser2016");
-	$bd = new BD();
-	header("Content-Type: text/html; charset=UTF-8", true);
-	include_once('../utils/common.php');
-?>		
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -24,55 +15,58 @@
 	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
 	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
 	<!-- outros scripts para o menu-->
-	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 	<script src="../scripts/asser-main-menu.js"></script>
 	<script src="../scripts/asser-commum.js"></script>
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 </head>
- 
+
 <body>
-	<div id='corpo'>
+	<div id="corpo">
     	
-		<div id='cabecalho'>
-        </div>        
+		<div id="cabecalho">
+        </div>
+        
         <br />
         
         <!-- menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-                   <li><a href='../'>Sair</a></li> 
+                   <li><a href='../index.html'>Evento</a></li> 
+                   <li><a href='../submissao.html'>Submissão de Trabalhos</a></li>
+                   <li class='active'><a href='#'>Palestrar</a></li>  
+                   <li><a href='../programa.html'>Programação</a></li>    
+                   <li> <a href='../anais'>Edições<br>Anteriores</a></li>         
+                   <li><a href='../contato'>Contato</a></li>
+                   <li><a href='../creditos.html'>Créditos</a></li>
                 </ul>
             </div>
 
             <!-- adiciona o suporte ao separador gradiente -->
-            <div id='mmenu'> &nbsp;</div>
-            <div id='mmenubar'> &nbsp;</div>
-            <div id='mmenusubbar'> &nbsp;</div>
-            <div id='mmenusubsubbar'> &nbsp;</div>
-            <br /> <br />       
+            <div id="mmenu"> &nbsp;</div>
+            <div id="mmenubar"> &nbsp;</div>
+            <div id="mmenusubbar"> &nbsp;</div>
+            <div id="mmenusubsubbar"> &nbsp;</div>
+            <br />
+
+
+
         
+        <br />
         
         <div>
-			<div align='center'><table><th><center>Palestras em que está cadastrado</center></th>
-			<?php
-				foreach($bd->listaPalestrasRa() as $row){
-					echo '<tr><td>' . $row['palestra'] . '</td></tr>';
-				}
-			?>
-			</table></div>
-				<br/>
-				<div class="deail-final-resumo">
-					<p> Recolher a taxa de R$ 20,00 na secretaria da faculdade apresentando o RA.</p>
-					<p> Participantes externos devem apresentar o RA gerado pelo sistema. </p> 
-				</div>
-				<br/>
-				<div class="text-align-center">
-					<button class="button button-center"  onclick="javascript:location.href='palestras.php'" /> Cadastrar outra palestra </button>
-
-              		<button class="button button-center" onclick="javascript:location.href='../'" />  Voltar </button>
-              		
-             	</div>
-
-        </div>   
+      		<form id="cad_usuario" name="usuario" method="post" action="inscr.php" >
+              <fieldset>
+                <legend>Inscrição em Palestras</legend>
+                <div>
+                    <p>As inscrições para as palestras serão liberadas a partir do dia 17 de maio até 20 de maio e
+					deverá ser pago uma taxa de inscrição (R$ 20,00) na secretaria da faculdade mediante apresentação do RA cadastrado. </p>
+                </div>
+                
+              </fieldset>
+           </form>
+        </div>
+        
+        <br />
     
     <div id="rodape">
               <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
