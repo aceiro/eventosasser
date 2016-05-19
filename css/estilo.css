@@ -539,6 +539,21 @@ table, th, td {
      border-color: 2px solid black;
 }
 
+.button-step-status {
+	 margin: auto;
+	 width: 50px;
+	 height:50px;
+	 display:block;
+	 background:transparent url('../imagens/status.png') center top no-repeat;
+}
+
+.button-step-status:hover {
+	 opacity: 0.3;
+     filter: alpha(opacity=30); /* For IE8 and earlier */
+     border-color: 2px solid black;
+}
+
+
 .display-none {
 	display: none; /* used to do opacity effect  with jQuery */
 }

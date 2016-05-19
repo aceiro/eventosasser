@@ -29,7 +29,24 @@
 	<script type="application/javascript">
 		$(document).ready(function()
         {
-            $("#myTable").tablesorter();
+            var $table 		= $("#myTable")	, 
+            	$rowsResend = $('table tr:contains("Re-enviar")');	
+            
+            /* $table.tablesorter(); */
+            $rowsResend.each(function(){ 
+            		var $row = $(this);
+            		$row.css("cursor","pointer");	
+
+            		$row.hover(function(){
+            			$row.css("background-color", "#87F59D");
+            		}, function(){
+            			$row.css("background-color", "");
+            		});
+
+            		$row.click(function(){
+            			window.location.href='../reenvio'
+            		});            		
+            	});
         }
 		);
 	</script>
