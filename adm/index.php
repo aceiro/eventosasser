@@ -63,6 +63,7 @@
 					<select id="funcao" name="funcao">
 						<option value="professor">Professor Avaliador</option>
 						<option value="secretariado">Secretariado</option>
+						<option value="administrativo">Administrativo</option>
 					</select>
 				  </div>
 				  

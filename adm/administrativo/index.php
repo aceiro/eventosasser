@@ -2,13 +2,13 @@
 	require_once("../../cfg/Session.php");
 	$config = require '../../cfg/config.php';
 	$session = new Session("EventosAsser2016");
+
 	header("Content-Type: text/html; charset=UTF-8", true);
 	include_once('../../utils/common.php');
-	
-	
 	require_once("../professor/BD.php");
+
 	$bd = new BD();
-	$bd->checkUsuario($session->get('login'));
+	// $bd->checkUsuario($session->get('login'));
 	error_reporting(0);
     if(!strcmp($session->get('login'),null)){
        header('Location: ../../');
