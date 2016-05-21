@@ -121,7 +121,7 @@
 							curso='{$session->get('curso')}', orientador='{$session->get('orientador')}', 
 							autores='{$session->get('autores')}', resumo='{$session->get('resumo')}', 
 							keyword = '{$session->get('keyword')}', status = 0,	comentarios = 'Professor avaliador, por favor 
-							anote as alterações para o autor aqui.' WHERE email like '%{$session->get('email')}%' 
+							anote as alterações para o autor aqui.' WHERE email like '{$session->get('email')}' 
 							AND semestre like '%1sem%' AND ano like '%2016%'";
 				$pdo->query($sql);
 

@@ -44,7 +44,7 @@
             		});
 
             		$row.click(function(){
-            			window.location.href='../reenvio'
+            			window.location.href='../n_reenvio'
             		});            		
             	});
         }
