@@ -22,7 +22,6 @@
 	$session->set("resumo", $_POST['resumo']);
 	$session->set("keyword", $_POST['keyword']);
 	$session->set("status", '0');
-	$session->set("comentarios", 'Professor avaliador, por favor anote as alterações para o autor aqui.');
 
 // verifica se não está vazia as strings
 // senao faz um bypass

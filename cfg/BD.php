@@ -93,7 +93,7 @@
 				$pdo = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				
-				$sql = "SELECT nome, comentarios, titulo, curso, orientador, autores, resumo, keyword FROM eventos WHERE email like '%{$session->get('email')}%' AND ano like '2016' AND semestre like '1sem'";
+				$sql = "SELECT nome, comentarios, titulo, curso, orientador, autores, resumo, keyword FROM eventos WHERE email like '{$session->get('r_email')}' AND ano like '2016' AND semestre like '1sem'";
 				foreach($pdo->query($sql) as $row){
 					$session->set('comentarios',$row['comentarios']);
 					$session->set('nome',$row['nome']);
@@ -120,12 +120,9 @@
 				$sql = "UPDATE eventos SET titulo = '{$session->get('titulo')}', nome='{$session->get('nome')}', 
 							curso='{$session->get('curso')}', orientador='{$session->get('orientador')}', 
 							autores='{$session->get('autores')}', resumo='{$session->get('resumo')}', 
-							keyword = '{$session->get('keyword')}', status = 0,	comentarios = 'Professor avaliador, por favor 
-							anote as alterações para o autor aqui.' WHERE email like '{$session->get('email')}' 
+							keyword = '{$session->get('keyword')}', status = 0 WHERE email like '{$session->get('r_email')}' 
 							AND semestre like '%1sem%' AND ano like '%2016%'";
 				$pdo->query($sql);
-
-				//header("Location:final.php");
 
 			}catch(PDOException $e){
 				echo "ERROR" . $e->getMessage();

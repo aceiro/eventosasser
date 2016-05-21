@@ -3,7 +3,12 @@
 	$bd = new BD();
 	$bd->selecionaUmResumo();error_reporting(0);
 	$session = new Session("EventosAsser2016");
-	
+	$valida = $session->get('titulo');
+	if(strcmp($valida,"")==0){
+		require_once("../adm/sair.php");
+		sair();
+		header("location: ./");
+	}
 ?>
 
 <!DOCTYPE html >
