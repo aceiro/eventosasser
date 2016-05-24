@@ -31,7 +31,7 @@
 			$sqlAtualiza = "UPDATE evento SET nome =".$str1.", titulo = ".$str2." WHERE nome =".$row['nome'];
 			$link->query($sqlAtualiza);
 		}
-		header("Location:../../listar");
+		header("Location:../../n_listar");
 
 	}catch(PDOException $e){
 		echo "ERROR" . $e->getMessage();

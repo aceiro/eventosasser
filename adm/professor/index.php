@@ -106,47 +106,45 @@
 					<tr><th>ID</th><th>Título</th><th>Aluno</th><th>Curso</th><th>Status</th></tr>
                     </thead>
 					<tbody>
-					<?php					
-						foreach($bd->devolveLista() as $row){
-							$status = $row['status'];
+					<?php
+					define('ROW_TEMPLATE','<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr>');
+
+					foreach ($bd->devolveLista() as $row) {
+						$status = $row['status'];
 						switch($status){
 							case 0:{
 								$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
-								$linhaStatus = "info";
 								break;
 							}
 							case 1:{
 								$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
-								$linhaStatus = "success";
 								break;
 							}
 							case 2:{
 								$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
-								$linhaStatus = "warning";
 								break;
 							}
 							case 3:{
 								$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
-								$linhaStatus = "danger";
+								break;
+							}
+							case 4:{
+								$result="<span class=\" glyphicon glyphicon glyphicon-pencil\"></span><br/>Corrigido";
 								break;
 							}
 							default:{
-								$result="-";								
+								$result="-";
 							}
 						}
-						$titulo = $row['titulo'];						
-						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>';?>
-							
-							<script>			
-								var str = ' <?php echo $titulo; ?>  ';
-								var res = str.toUpperCase();
-								document.write(res);			
-							</script>						
-						
-						<?php
-							echo '</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td class=\'itemStatus\'>'.buildSimpleRowStatus($row['status']).'</td></tr>';
-						
-						}
+
+
+						$rowBuildId 	  = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
+						$rowBuildTitle    = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
+						$rowBuildName     = str_replace("{ALUNO}", $row['nome'], $rowBuildTitle);
+						$rowBuildCourse   = str_replace("{CURSO}", $row['curso'], $rowBuildName);
+						$rowBuildStatus   = str_replace("{STATUS}", $result, $rowBuildCourse);
+						echo $rowBuildStatus;
+					}
 					?>
 					</tbody>
 					</table>
