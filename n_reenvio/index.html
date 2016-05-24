@@ -22,34 +22,21 @@
 		$(function() {
 			$("#register-form").validate({
 				rules: {
-					nome: "required",
-					tipo: "required",
-					email: {
-						required: true,
-						email: true
-					},
-					password: {
-						required: true,
-						minlength: 5
-					},
-					password-again: { equalTo: '#password' }
+					r_email: "required",
+					r_password: "required"
 				},
 				messages: {
-					nome: "Escreva o seu nome completo",
-					email: "Escreva seu endereço de email corretamente",
-					tipo: "Escolha um tipo de participação",
-					password-again: "As senhas devem ser iguais",
-					password: {
-						required: "Campo obrigatório",
-						minlength: "Sua senha deve ter mais de 5 caracteres"
-					}
+					r_email: "Obrigatório",
+					r_password: "Obrigatório"
 				},
 				
 				submitHandler: function(form) {
 					form.submit();
 				}
 			});
-		}); 
+
+			
+		}); 		
 	</script>
 </head>
 <body>
@@ -82,16 +69,16 @@
                   action="confirmaUsuario.php"  novalidate="novalidate">
 
                 <fieldset>
-                        <legend>Cadastro de Autor Principal </legend>
+                        <legend>Login de Acesso do Autor Principal </legend>
                         
                         <div>
                             <label>E-mail:</label>
-                            <input type="text" id="email" name="r_email" size="50" maxlength="65"/>
+                            <input type="text" id="r_email" name="r_email" size="50" maxlength="65" value=""autocomplete='off'/>
                         </div>
 
                         <div>
                             <label>Senha:</label>
-                            <input type="password" id="r_password" name="r_password" size="50" maxlength="65" />
+                            <input type="password" id="r_password" name="r_password" size="50" maxlength="65" value="" autocomplete='off'/>
                         </div>
                         
                 </fieldset>
@@ -107,5 +94,11 @@
               <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
       </div>
     </div>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+			$("#r_email").val("");
+			$("#r_password").val("");
+		});
+    </script>
 </body>
 </html>

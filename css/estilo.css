@@ -172,7 +172,7 @@ fieldset {
 	border-radius: 5px;
 }
 
-/*#listar-coteudo{
+/*#n_listar-coteudo{
 	margin: 5px 5px 5px 50px;
 }*/
 
@@ -566,3 +566,25 @@ table, th, td {
 	width: 90%;
 }
 
+#caption-program-final{
+			font-size: 14px;
+			padding: 20px;
+			text-align: center;
+}
+#image-program-final {
+	font-size: 14px;
+	padding: 10px;
+	text-align: center;
+}
+#image-program-final img{
+	opacity:0;
+	-moz-transition: opacity 2s; /* Firefox 4 */
+	-webkit-transition: opacity 2s; /* Safari and Chrome */
+	-o-transition: opacity 2s;
+	transition: opacity 2s;
+	padding: 5px;
+	display: block;
+	margin: 5px;
+	width: 100%;
+
+}

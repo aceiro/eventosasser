@@ -62,11 +62,11 @@
             <br /> 
 
         <br />
-        
+
         <div>
     		<form id="register-form" 
                   name="register-form" method="post" 
-                  action="confirmaUsuario.php"  novalidate="novalidate">
+                  action="confirmaUsuario.php?id=<?php echo $_GET['id'] ?>"  novalidate="novalidate">
 
                 <fieldset>
                         <legend>Login de Acesso do Autor Principal </legend>

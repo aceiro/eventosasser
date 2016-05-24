@@ -1,8 +1,13 @@
 <?php
+
 	require_once("../cfg/BD.php");
 	$bd = new BD();
-	$bd->selecionaUmResumo();error_reporting(0);
+	$id = $_GET['id'];
+
+	$bd->recuperaResumoPorId($id);error_reporting(0);
+
 	$session = new Session("EventosAsser2016");
+
 	$valida = $session->get('titulo');
 	if(strcmp($valida,"")==0){
 		require_once("../adm/sair.php");
@@ -58,6 +63,15 @@
 			
 		});
 
+		$(document).ready(function () {
+			$('#cadastrar').click(function(event) {
+				if( !confirm('Deseja realmente confirmar e enviar o resumo ? ' +
+					'Após essa operação o resumo não poderá ser editado novamente.'))
+					event.preventDefault();
+
+			});
+		});
+
 	</script>
 	
 </head>
@@ -88,11 +102,11 @@
         <fieldset>
 			<legend> Reenvio de Resumo </legend>
 	        <div>
-			    <form id="register-form" name="register-form" method="post" action="confirma_resumo.php"  novalidate="novalidate">
+			    <form id="register-form" name="register-form" method="post" action="confirma_resumo.php?id=<?php echo $_GET['id'] ?>"  novalidate="novalidate">
 					<div id="info-title-bubble" class="info-resumo display-none">Leia os comentários do avaliador e só altere o que foi solicitado.</div>
 					
 					<div class="rotulo-resumo">Comentários do avaliador</div>
-					<div class="input-resumo"><textArea id="comentarios" name="comentarios" cols="70" rows="5" ><?php echo $session->get('comentarios');?></textArea></div>
+					<div class="input-resumo"><textArea disabled="true" id="comentarios" name="comentarios" cols="70" rows="5" ><?php echo $session->get('comentarios');?></textArea></div>
 								
 
 					<div class="rotulo-resumo">Titulo</div>
@@ -127,11 +141,10 @@
 					<div class="input-resumo"><input type="text" id="keyword" name="keyword" size="100" maxlength="95" value="<?php echo $session->get('keyword');?>"/></div>
 					
 	                 <div class="text-align-center">
-	              		<input class="button button-center" name="cadastrar" type="submit" id="cadastrar" value="Confirmar" /> 
-	              		<input class="button button-center" name="limpar" type="reset" id="limpar" value="Limpar" />
+						<input class="button button-center" name="cadastrar" type="submit" id="cadastrar" value="Confirmar" />
+						<input class="button button-center" name="limpar" type="reset" id="limpar" value="Limpar" />
 	              	</div>
-					
-	              
+
 	            </form>
 			</div>
 		</fieldset>

@@ -25,12 +25,16 @@
 
 // verifica se não está vazia as strings
 // senao faz um bypass
-	if( isEmpty($session->get('titulo')) || isEmpty($session->get('curso')) || isEmpty($session->get('orientador')) || isEmpty($session->get('resumo')) || isEmpty($session->get('keyword')) ){
+	if( isEmpty($session->get('titulo')) 	 ||
+		isEmpty($session->get('curso'))  	 ||
+		isEmpty($session->get('orientador')) ||
+		isEmpty($session->get('resumo')) 	 ||
+		isEmpty($session->get('keyword')) ){
 			die();
 		}
 	require_once("../cfg/BD.php");
 	$bd = new BD();
-	$bd->reenviar();
+	$bd->atualizaResumoPorId($_GET['id']);
 	require_once("../adm/sair.php");
 	sair();
 	header("Location:confirma.html");
