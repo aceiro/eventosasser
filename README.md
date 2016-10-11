@@ -12,7 +12,16 @@ Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para do
   <img width="400" src="https://github.com/aceiro/eventosasser/blob/master/eventosasser.png" alt="Screenshot"/>
 </p>
 
-* Lista de atualizações (releases) da plataforma de Eventos Asser *
-* Plataforma de Eventos Asser, versão [1.1.0] (http://eventosasser.com.br/) atualizado em 11 de outubro de 2016.
+*Lista de atualizações (releases) da plataforma de Eventos Asser*
+* Plataforma de Eventos Asser, versão [2.0.0] (http://eventosasser.com.br/) atualizado em 11 de outubro de 2016.
+... Versão em desenvolvimento (eventosasser-dev-v2) que deverá incluir:
+... * Melhorias de Backend
+... * Modificação do Banco de Dados
+... * Adição do conceito de Perfil (parcialmente) e gerenciamento de usuários por inscrição
+... * Redução de detalhes do menu principal
+... * Adicição de mensagens explicativas sobre o evento
 * Release da plataforma de Eventos Asser, versão [1.0.1] (http://eventosasser.com.br/) atualizado em 6 de maio de 2016.
+... * Inclui tratamento e melhorias de UI
+... * Primeiro suporte a PDO e Sessions
+
 
