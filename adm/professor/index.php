@@ -88,6 +88,7 @@
             <br /> 
         
         <div id="listar-coteudo">
+        <!--
     		<form id="register-form" name="register-form" method="post" action="av_resumo.php"  >
             <fieldset>
 				<legend> Formulário de Avaliação </legend>
@@ -106,7 +107,7 @@
 					<tr><th>ID</th><th>Título</th><th>Aluno</th><th>Curso</th><th>Status</th></tr>
                     </thead>
 					<tbody>
-					<?php
+					<?php/*
 					define('ROW_TEMPLATE','<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr>');
 
 					foreach ($bd->devolveLista() as $row) {
@@ -145,12 +146,15 @@
 						$rowBuildStatus   = str_replace("{STATUS}", $result, $rowBuildCourse);
 						echo $rowBuildStatus;
 					}
+					*/
 					?>
 					</tbody>
 					</table>
                 </div>
 			</fieldset>
             </form>
+            -->
+            <p>O período de avaliação expirou. Os trabalhos que estarão nos anais são aqueles com status de aprovado.</p>
         </div>            
         <div id="rodape">
     	<p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2016, ASSER - Todos os direitos reservados  Visualização: 800 x 600 - Desenvolvido pelo Curso de Sistemas de Informação. </p>
