@@ -11,13 +11,13 @@
 				$sql = "INSERT INTO palestraa (palestrante,palestra,dia,horario,ano, semestre)values('$palestrante','$palestra','$dia','$horario','2016','1sem')";
 				$pdo->query($sql);
 
-				header("Location: listar.php");
+				header("Location: n_listar.php");
 
 			}catch(PDOException $e){
 				echo "ERROR" . $e->getMessage();
 			}
 		}
-		//listar todas as palestras do ano por semestre
+		//n_listar todas as palestras do ano por semestre
 		public function listar(){
 			$config = require '../../../cfg/config.php';
 			try{

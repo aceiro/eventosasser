@@ -9,7 +9,7 @@
         //
         // parâmetros gerais para o banco de dados
         'dbname'    => 'eventosa_1sem2016',
-        'dsn'       => "mysql:host=localhost;dbname=eventosa_2sem2015",
+        'dsn'       => "mysql:host=localhost;dbname=eventosa_1sem2016",
         'dbuser'    => 'root',//minutum($shadow['u']),
         'dbpass'    => '123456'//minutum($shadow['p'])
     );

@@ -1,14 +1,3 @@
-<?php 
-	require_once("../cfg/Session.php");
-	require_once("BD.php");
-	error_reporting(0);
-	$bd = new BD();
-	$session = new Session("EventosAsser2016");
-	header("Content-Type: text/html; charset=UTF-8", true);
-	include_once('../utils/common.php');
-	$bd->gravaResumo();
-?>
-
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -43,13 +32,9 @@
         
           <div id='cssmenu'>
                 <ul>
-                   <li><a href='../index.html'>Evento</a></li>       
-                   <li class='active'><a href='../index.html'>Submissão de Trabalhos</a></li>
-                   <li><a href='../palestra'>Palestras</a></li>
-                   <li><a href='../programa.html'>Programação</a></li>            
-                   <li> <a href='../anais'>Edições<br>Anteriores</a></li>     
-                   <li><a href='../contato'>Contato</a></li>
-                   <li><a href='../creditos.html'>Créditos</a></li>
+                   <li><a href='../index.html'>Evento</a></li>      
+                   <li class='active'><a>Reenvio de Trabalhos</a></li>
+                   <li><a href='../index.html'>Sair</a></li>
                 </ul>
             </div>
 
@@ -62,21 +47,15 @@
         
         <div id="texto">
             	<fieldset>
-				<legend>Cadastro realizado com sucesso!</legend>
+				<legend><strong>Não foi possível concluir o envio!</strong></legend>
 				<br />
 				
-				<p id="effect" class="ui-corner-all">Agora você deve acompanhar o andamento da avaliação do seu resumo.</p>
-				<p id="effect" class="ui-corner-all">Caso seu resumo seja aprovado (com <strong>Status</strong> de <strong>aprovado</strong>), recolha taxa de R$ 20,00 na secretaria da faculdade.</p>
-
-				<div class="rotulo-resumo"><strong>Salve e imprima os dados de acesso para acompanhar o <strong>Status</strong> do seu resumo</strong></div>
-				<div class="deail-final-resumo">
-					Login: <strong><?php echo $session->get('login'); ?></strong> <br />
-					Senha: <strong><?php echo $session->get('password'); ?></strong>
-				</div>
-
+				<p id="effect" class="ui-corner-all"><span class="bg-warning"> <strong>Não foi possível concluir o envio! Tente novamente enviar o Resumo, selecionando-o na listagem.
+					Verifique se os campos, Título, Orientador, Resumo e Palavras-chave estão preenchidos.  Caso tenha o mesmo problema, entre em contato com o administrador do evento.</strong></span></p>
+				
 			</fieldset>
 			<div class="text-align-center">
-              		<button class="button button-center" onclick="javascript:location.href='../'" />  Voltar </button>
+              		<button class="button button-center" onclick="javascript:location.href='../'" />  Sair </button>
               		<button class="button button-center"  onclick="javascript:location.href='../n_listar'" /> Verificar Resumo </button>
              </div>
 		</div>

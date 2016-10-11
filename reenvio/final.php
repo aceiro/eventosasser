@@ -66,7 +66,7 @@
 				<p id="effect" class="ui-corner-all">Agora você pode verificar o andamento da avaliação do seu resumo. Basta clicar em Verificar resumo.</p>
 				
 				<br />
-				<p align="center"><a href="../">Voltar</a> | <a href="../listar">Verificar resumo</a></p>
+				<p align="center"><a href="../">Voltar</a> | <a href="../n_listar">Verificar resumo</a></p>
 			</fieldset>
 		</div>
         

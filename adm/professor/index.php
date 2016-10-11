@@ -6,7 +6,7 @@
 	header("Content-Type: text/html; charset=UTF-8", true);
 	include_once('../../utils/common.php');
 	
-	$bd->checkUsuario($session->get('login'));
+	//$bd->checkUsuario($session->get('login'));
 	
     if(!strcmp($session->get('login'),null)){
        header('Location: ../../');
@@ -30,81 +30,38 @@
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
 	<!-- adicionado o suporte para o bootstrap padrão  -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<!-- outros suporte a css da página -->
 	<link rel="stylesheet" href="../../css/menu-styles.css" type="text/css">
 	<link rel="stylesheet" href="../../css/estilo.css" type="text/css">
 
+
 	<!-- outros scripts para o menu-->
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 	<script src="../../scripts/asser-main-menu.js"></script>
 	<script src="../../scripts/asser-commum.js"></script>
-	<link rel="stylesheet" href="../../scripts/tablesorter/blue/style.css" type="text/css" id="" media="print, projection, screen">
+
+	<link rel="stylesheet" href="../../scripts/tablesorter/blue/style.css" type="text/css" media="print, projection, screen">
+	<link rel="stylesheet" href="../../css/teacher-evaluation-style.css" type="text/css">
 	<script type="text/javascript" src="../../scripts/tablesorter/jquery.tablesorter.js"></script>
+	
+
 
 	<script type="application/javascript">
-		$(document).ready(function()
-        {
-            $("#myTable").tablesorter();
-        }
-		);
+		$(function() {
+		    evc.init();
+		    evc.addSelectOptionCourse('select-content');
+		    evc.addTableFilter('#abstracts-table','#select-content select');
+		});
+
+		var evc = ASSER.courses;
+
+	  	
+		
 	</script>
-
-    <style type="text/css">
-        #listar-coteudo{
-            margin: 5px 5px 5px 50px;
-        }
-
-        table{
-            width: 95%;
-        }
-
-        table caption{
-            font-size: 14px;
-            text-align: center;
-        }
-
-        table, th, td{
-            border: 1px solid #CBCDDD;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 5px;
-            text-align: left;
-        }
-
-        tr:nth-child(even){
-            background-color: #eee;
-        }
-
-        tr:nth-child(odd){
-            background-color: #fff;
-        }
-
-        th{
-            background-color: #1862A1;
-            color: white;
-        }
-
-        .itemStatus {
-            text-align: center;
-        }
-
-
-        fieldset{
-            width: auto;
-            height: auto;
-            margin: 10px;
-        }
-
-        table.tablesorter thead tr th{
-            background-color: #1862A1;
-        }
-    </style>
-
+   
 </head>
 
 <body>
@@ -118,7 +75,7 @@
         <!-- inicio do menu da aplicacao -->
           <div id='cssmenu'>
                 <ul>
-				<li><a href='./'>Voltar</a></li>
+				<li><a href='../'>Voltar</a></li>
                    <li><a href='../'>Sair</a></li>
                 </ul>
             </div>
@@ -133,58 +90,61 @@
         <div id="listar-coteudo">
     		<form id="register-form" name="register-form" method="post" action="av_resumo.php"  >
             <fieldset>
-				<legend>Digite o ID do resumo a avaliar</legend>
-				<div align="center"><strong>ID: </strong><input type="text" name="id" id="id" size="19" maxlength="20" />
-					<input name="avaliar" type="submit" id="avaliar" value="Avaliar" />
+				<legend> Formulário de Avaliação </legend>
+
+				<div class="filter-container">
+					<div> Curso: </div> <div id="select-content"> </div> 
+					<div> ID: </div> 	 <div> 
+											<input type="text" name="id" id="id" size="5" maxlength="5" />
+								 	 	 	<input name="avaliar" type="submit" id="avaliar" value="Avaliar" />
+								 	 	 </div>	
 				</div>
 				<div>
-					<table id="myTable" class="tablesorter" >
-                    <caption><strong>Lista de resumos submetidos para avaliação</strong> <br/> Clique nas colunas para ordenar</caption>
+					<table id="abstracts-table" class="tablesorter" >
+                    
                     <thead>
-					<tr><th>ID</th><th>TITULO</th><th>ALUNO</th><th>CURSO</th><th>STATUS</th></tr>
+					<tr><th>ID</th><th>Título</th><th>Aluno</th><th>Curso</th><th>Status</th></tr>
                     </thead>
 					<tbody>
-					<?php					
-						foreach($bd->devolveLista() as $row){
-							$status = $row['status'];
+					<?php
+					define('ROW_TEMPLATE','<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr>');
+
+					foreach ($bd->devolveLista() as $row) {
+						$status = $row['status'];
 						switch($status){
 							case 0:{
 								$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
-								$linhaStatus = "info";
 								break;
 							}
 							case 1:{
 								$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
-								$linhaStatus = "success";
 								break;
 							}
 							case 2:{
 								$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
-								$linhaStatus = "warning";
 								break;
 							}
 							case 3:{
 								$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
-								$linhaStatus = "danger";
+								break;
+							}
+							case 4:{
+								$result="<span class=\" glyphicon glyphicon glyphicon-pencil\"></span><br/>Corrigido";
 								break;
 							}
 							default:{
-								$result="-";								
+								$result="-";
 							}
 						}
-						$titulo = $row['titulo'];						
-						echo '<tr class=\''.$linhaStatus. '\'><td>'.$row['id'].'</td><td>';?>
-							
-							<script>			
-								var str = ' <?php echo $titulo; ?>  ';
-								var res = str.toUpperCase();
-								document.write(res);			
-							</script>						
-						
-						<?php
-							echo '</td><td>'.$row['nome'].'</td><td>'.$row['curso'].'</td><td class=\'itemStatus\'>'.buildSimpleRowStatus($row['status']).'</td></tr>';
-						
-						}
+
+
+						$rowBuildId 	  = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
+						$rowBuildTitle    = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
+						$rowBuildName     = str_replace("{ALUNO}", $row['nome'], $rowBuildTitle);
+						$rowBuildCourse   = str_replace("{CURSO}", $row['curso'], $rowBuildName);
+						$rowBuildStatus   = str_replace("{STATUS}", $result, $rowBuildCourse);
+						echo $rowBuildStatus;
+					}
 					?>
 					</tbody>
 					</table>

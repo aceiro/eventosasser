@@ -23,6 +23,7 @@
     <script>
         $(function () {
             $("#tabs").tabs();
+            $( "#tabs" ).tabs( { disabled: [1] } );
         });
 
     </script>
@@ -79,8 +80,9 @@
             <ul>
                 <li><a href="#tabs-1">Passo 1 - Modelos</a></li>
                 <li><a href="#tabs-2">Passo 2 - Enviar Resumo</a></li>
+                <li><a href="#tabs-3">Passo 3 - Status do Resumo</a></li>
                 <!-- <li><a href="#tabs-3">3 - Verificar Status</a></li> -->
-                <!-- <li><a href="#tabs-4">4 - Reenvio</a></li> -->
+                
 				<!-- <li><a href="#tabs-5">5 - Certificados</a></li> -->
             </ul>
 
@@ -124,33 +126,31 @@
 
             </div>
 
-            <!--
             <div id="tabs-3" style="padding:5px">
 
-                <p> Esse é o <span class="bg-warning"> terceiro passo </span> para o envio do resumo para o evento. Aqui
-                    você poderá conferir o status se está <span class="bg-success">aprovado</span> ou se precisa ser
-                    <span class="bg-danger">re-enviado</span>. Para verificar o seu resumo, clique no ícone abaixo para
-                    continuar.</p>
+                <p> Acompanhe o status do seu resumo clicando no ícone abaixo. </p>
 
-                <p style="text-align: center;">
-                    <a href="listar" title="Clique para verificar o status do seu resumo">
-                        <img  src="imagens/status.png" style="vertical-align:middle" width="25" height="25"/></a>
-                </p>
+                <p> Não esqueça de ter em mãos o seu e-mail e senha previamente cadastrados no envio. </p>
+
+                <a class="button-step-status" href="n_listar" title="Clique para re-enviar o seu resumo"> </a>
 
             </div>
-			
-			<div id="tabs-4" style="padding:5px">
 
-                <p> Esse passo é utilizado para o <code><strong>reenvio</strong></code> do resumo para o evento.
-				Para reenviar o seu resumo, clique no ícone abaixo para
+            <!--
+            
+			
+            <div id="tabs-4" style="padding:5px">
+
+                <p> Esse passo é utilizado para <code><strong>reenviar</strong></code> o resumo para o evento.
+                Para reenviar o seu resumo, clique no ícone abaixo para
                     continuar.</p>
 
                 <p style="text-align: center;">
                     <a href="reenvio" title="Clique para verificar o re-enviar o seu resumo">
                         <img src="imagens/status.png" style="vertical-align:middle" width="25" height="25"/></a>
                 </p>
-
             </div>
+			
 			
 			<div id="tabs-5" style="padding:5px">
                 <p>

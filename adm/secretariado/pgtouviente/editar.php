@@ -65,6 +65,7 @@
 			exit("<center>Não encontrei este RA.<br><a href='./'>Voltar</a></center>");
 			die();
 		}
+		$session->set('pago',1);
 	?>
 	<fieldset>	
 		<legend>Confirmar Pagamento</legend>

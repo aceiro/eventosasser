@@ -54,12 +54,12 @@
 		}	
 		
 		public function checkUsuario($login){
-			$config = require_once("../../cfg/config.php");
+			$config = require '../../cfg/config.php';
 			try{
 				$pdo = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-				$sql = "SELECT COUNT(*) FROM adm where login like '%{$login}%'";
+				$sql = "SELECT COUNT(*) FROM adm where login like '%$login%'";
 				$stmt = $pdo->prepare($sql);
 				$stmt->execute();
 				$num = $stmt->fetchColumn();

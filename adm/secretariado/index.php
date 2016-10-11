@@ -7,7 +7,7 @@
 	
 	require_once("../professor/BD.php");
 	$bd = new BD();
-	$bd->checkUsuario($session->get('login'));
+	//$bd->checkUsuario($session->get('login'));
 	
     if(!strcmp($session->get('login'),null)){
        header('Location: ../../');

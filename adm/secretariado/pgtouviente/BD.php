@@ -23,7 +23,7 @@
 				$pdo = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
-				$sql = "SELECT * FROM palestrass WHERE semestre like '%1sem%' AND ra like '%{$session->get('ra')}%' AND ano like '%2016%'";
+				$sql = "SELECT * FROM palestrass WHERE semestre like '%1sem%' AND ra like '{$session->get('ra')}' AND ano like '%2016%'";
 				foreach($pdo->query($sql) as $row){
 					$session->set('nome',$row['nome']);
 					$session->set('ra',$row['ra']);

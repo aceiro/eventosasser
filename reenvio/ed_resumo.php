@@ -113,7 +113,7 @@
 				<div class="rotulo-resumo">Autor principal</div>				
 				<div class="input-resumo"><input type="text" id="nome" name="nome" size="40" maxlength="255" value="<?php echo $session->get('nome'); ?>" /> </div>
                 <div class="rotulo-resumo">Autores</div>				
-				<div class="input-resumo"><input type="text" id="autor1" name="autor1" size="40" maxlength="255" value="<?php echo $session->get('autores'); ?>" /> </div>
+				<div class="input-resumo"><input type="text" id="autor1" name="autor1" size="40" maxlength="1500" value="<?php echo $session->get('autores'); ?>" /> </div>
                 
                 <div class="info-resumo">Aqui você deve inserir o seu resumo. Não esqueça que um resumo deve contér:
                 <strong>Contexto, Lacuna de pesquisa, Objetivo, Metodologia, Resultado e Conclusão</strong></div>

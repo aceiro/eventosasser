@@ -1,0 +1,46 @@
+table{
+    width: 100%;
+}
+
+table caption{
+    font-size: 14px;
+    text-align: center;
+}
+
+table, th, td{
+    border: 1px solid #CBCDDD;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+table.table-hover tr:nth-child(even){
+    background-color: #eee;
+}
+
+table.table-hover tr:nth-child(odd){
+    background-color: #fff;
+}
+
+th{
+    background-color: #1862A1;
+    color: white;
+}
+
+.itemStatus {
+    text-align: center;
+}
+
+
+fieldset{
+    width: auto;
+    height: auto;
+    margin: 10px;
+}
+
+table.table-hover thead tr th{
+    background-color: #1862A1;
+}
