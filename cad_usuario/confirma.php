@@ -1,6 +1,6 @@
 <?php 
 	require_once("../cfg/Session.php");
-	require_once("BD.php");
+	require_once("../cfg/BD.php");
 	error_reporting(0);
 	$bd = new BD();
 	$session = new Session("EventosAsser2016");
@@ -77,7 +77,7 @@
 			</fieldset>
 			<div class="text-align-center">
               		<button class="button button-center" onclick="javascript:location.href='../'" />  Voltar </button>
-              		<button class="button button-center"  onclick="javascript:location.href='../n_listar'" /> Verificar Resumo </button>
+              		<button class="button button-center"  onclick="javascript:location.href='../listar'" /> Verificar Resumo </button>
              </div>
 		</div>
         

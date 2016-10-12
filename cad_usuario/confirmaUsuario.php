@@ -5,7 +5,7 @@
 	header("Content-Type: text/html; charset=UTF-8", true);
 	$session->set("login", $_POST['email1']);
 	$session->set("autor", $_POST['autor']);
-	$session->set("tipo", $_POST['tipo']);
+	$session->set("curso", $_POST['curso']);
 	$session->set("password", $_POST['password']);
 
 	header("Location: cad_resumo.php");
