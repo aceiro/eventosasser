@@ -46,7 +46,7 @@ create table `trabalho`(
 	`id` int NOT NULL AUTO_INCREMENT,
     `titulo` varchar(2000) NOT NULL,
     `resumo` varchar(7000) NOT NULL,
-    `palavras_cahve` varchar(2000) NOT NULL,
+    `palavras_chave` varchar(2000) NOT NULL,
     `status_r` char(1), 		-- o campo status tambem poderia ser uma tabela auxiliar, com todos os estados
     `comentarios` varchar(3000),
     `id_curso` int,
