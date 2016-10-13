@@ -4,6 +4,7 @@
     require_once("../cfg/BD.php");
     $bd = new BD();
 	header("Content-Type: text/html; charset=UTF-8", true);
+
 ?>
 
 <!DOCTYPE html >

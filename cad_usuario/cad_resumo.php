@@ -1,3 +1,10 @@
+<?php
+    require_once("../cfg/Session.php");
+    $session = new Session("EventosAsser2016");
+    error_reporting(0);
+
+?>
+
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
@@ -80,14 +87,11 @@
                     <div>
                         <center><select id="tipo" name="tipo">
                             <?php
-                            require_once("../cfg/Session.php");
                             require_once("../cfg/BD.php");
                             $bd = new BD();
-                            $session = new Session("EventosAsser2016");
-                            error_reporting(0);
                             $str = "";
                             foreach($bd->retornaTipo() as $row) {
-                                $str .= "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+                                $str .= "<option value='" . $row['id'] . "'>" . $row['descricao'] . "</option>";
                             }
                             echo $str;
                             ?>
@@ -112,8 +116,8 @@
 							            <table id="table-authors">
 							                <tr>
 												<td> Autor (1) </td>
-												<td> <input type="text" id="autor1" name="autor1" size="40" maxlength="255" /> </td>
-												<td> <input type="text" id="email1" name="email1" size="40" maxlength="255" /> </td>
+												<td> <input type="text" id="autor1" name="autor1" size="40" maxlength="255" value="<?php echo $session->get('nome'); ?>" /> </td>
+												<td> <input type="text" id="email1" name="email1" size="40" maxlength="255" value="<?php echo $session->get('email'); ?>" /> </td>
 											</tr>
 
 							                <tr>

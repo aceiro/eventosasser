@@ -1,17 +1,16 @@
 <?php
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
-    error_reporting(0);
-    $session->set('nome',addslashes($_POST['nome']));
-    $session->set('email',addslashes($_POST['email']));
-    $session->set('senha',addslashes($_POST['password']));
-    $session->set('curso',addslashes($_POST['curso']));
+    require_once("../repositorio/models/Participante.php");
+    require_once("../repositorio/ParticipanteRepository.php");
 
+$meuobj = new Participante(addslashes($_POST['nome']), addslashes($_POST['email']), addslashes($_POST['password']), 0, 0, 0, 0, addslashes($_POST['curso']));
+    $pasticipanteDb = new ParticipanteRepository();
     require_once("../cfg/BD.php");
     $bd = new BD();
     //validar usuário se já cadastrado mostrar as opções, se não
     //cadastrá-lo
-    $bd->cadastraAluno();
+    $bd->cadastraParticipante();
     header("Content-Type: text/html; charset=UTF-8", true);
 ?>
 
@@ -105,39 +104,43 @@
     <div style="padding: 50px; margin-bottom: 50px; height: 100px;">
         <div style="height: 150px; width: 33%; float: left;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
-                <legend style="background-color: white">Enviar Resumo</legend>
                 <form id="register-form"
                       name="register-form" method="post"
                       action="cad_resumo.php"  novalidate="novalidate">
                     <div class="text-align-center">
-                        <div style="height: 50px">Cadastrar dados do resumo</div>
-                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Cadastrar" />
+                        <br/>
+                        <div><img src="../imagens/enviar_resumo.png" height="70px" width="70px"></div>
+                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Cadastrar Resumo" />
                     </div>
                 </form>
             </fieldset>
         </div>
         <div style="height: 150px; width: 33%; float: left;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
-                <legend style="background-color: white">Co-autor de Resumo</legend>
                 <form id="register-form"
                       name="register-form" method="post"
                       action="coautor.php"  novalidate="novalidate">
-                    <div style="height: 50px">Associar-se a um resumo enviado</div>
                     <div class="text-align-center">
-                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Associar" />
+                        <br/>
+                    <div><img src="../imagens/adicionar_autor.jpg" height="70px" width="70px"></div>
+                    <div class="text-align-center">
+                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Associar a um resumo" />
+                    </div>
                     </div>
                 </form>
             </fieldset>
         </div>
         <div style="height: 150px; width: 33%; float: left;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
-                <legend style="background-color: white">Inscrição em Atividades</legend>
                 <form id="register-form"
                       name="register-form" method="post"
                       action="../palestra/atividades.php"  novalidate="novalidate">
-                    <div style="height: 50px">Inscrever-se em palestras</div>
                     <div class="text-align-center">
-                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Increver" />
+                        <br/>
+                    <div><img src="../imagens/assistir_atividade.jpg" height="70px" width="70px"></div>
+                    <div class="text-align-center">
+                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Increver-se em Atividade" />
+                    </div>
                     </div>
                 </form>
             </fieldset>
