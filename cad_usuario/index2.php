@@ -1,18 +1,3 @@
-<?php
-    require_once("../cfg/Session.php");
-    $session = new Session("EventosAsser2016");
-    //require_once("../repositorio/models/Participante.php");
-   // require_once("../repositorio/ParticipanteRepository.php");
-
-//$meuobj = new Participante(addslashes($_POST['nome']), addslashes($_POST['email']), addslashes($_POST['password']), 0, 0, 0, 0, addslashes($_POST['curso']));
-    //$pasticipanteDb = new ParticipanteRepository();
-    require_once("../cfg/BD.php");
-    //$bd = new BD();
-    //validar usuário se já cadastrado mostrar as opções, se não
-    //cadastrá-lo
-   // $bd->cadastraParticipante();
-    header("Content-Type: text/html; charset=UTF-8", true);
-?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
@@ -100,46 +85,39 @@
     <div id="mmenubar"> &nbsp;</div>
     <div id="mmenusubbar"> &nbsp;</div>
     <div id="mmenusubsubbar"> &nbsp;</div>
-    <div style="text-align: right"><?php echo "Olá " . $session->get('nome');?></div>
     <div style="padding: 50px; margin-bottom: 50px; height: 100px;">
-        <div style="height: 150px; width: 33%; float: left;">
-            <fieldset style="background-color: #e6EEEE; width: 80%">
+
+        <div style="height: 150px; width: 45%; float: left;">
+
+            <fieldset style="width: 80%;padding-top: 5px;border-top-width: 0.8;margin-top: 10px;height: 150px;">
                 <form id="register-form"
                       name="register-form" method="post"
-                      action="cad_resumo.php"  novalidate="novalidate">
-                    <div class="text-align-center">
-                        <br/>
-                        <div><img src="../imagens/enviar_resumo.png" height="70px" width="70px"></div>
-                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Cadastrar Resumo" />
-                    </div>
-                </form>
-            </fieldset>
-        </div>
-        <div style="height: 150px; width: 33%; float: left;">
-            <fieldset style="background-color: #e6EEEE; width: 80%">
-                <form id="register-form"
-                      name="register-form" method="post"
-                      action="coautor.php"  novalidate="novalidate">
+                      action="index.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                     <div><img src="../imagens/adicionar_autor.jpg" height="70px" width="70px"></div>
                     <div class="text-align-center">
-                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Associar a um resumo" />
+                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Novo Cadastro" />
                     </div>
                     </div>
                 </form>
             </fieldset>
         </div>
-        <div style="height: 150px; width: 33%; float: left;">
-            <fieldset style="background-color: #e6EEEE; width: 80%">
+        <div class="rotulo-resumo" style="float: left;"> 
+            <img src="../imagens/barra.jpg" height="80px" />  <br />
+            OU <br />
+            <img src="../imagens/barra.jpg" height="90px" />   
+        </div>
+            <div style="height: 150px; width: 45%; float: left;">
+            <fieldset style="width: 80%;padding-top: 5px;border-top-width: 0.8;margin-top: 10px;height: 150px;">
                 <form id="register-form"
                       name="register-form" method="post"
-                      action="../palestra/atividades.php"  novalidate="novalidate">
+                      action="../login.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
-                    <div><img src="../imagens/assistir_atividade.jpg" height="70px" width="70px"></div>
+                    <div><img src="../imagens/adicionar_autor.jpg" height="70px" width="70px"></div>
                     <div class="text-align-center">
-                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Increver-se em Atividade" />
+                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Login" />
                     </div>
                     </div>
                 </form>
