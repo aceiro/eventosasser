@@ -15,6 +15,14 @@ class Database{
         return $id;
     }
 
+    public function findAll($table)
+    {
+        if($table==null || empty($table))
+            throw new Exception("The $table param can't be null or empty");
+
+        return R::findAll($table);
+    }
+
     public function findById($table,$id)
     {
         if($table==null || empty($table))

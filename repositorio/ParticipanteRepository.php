@@ -1,6 +1,6 @@
 <?php
 
-require 'interfaces\GenericRepository.php';
+require_once 'interfaces\GenericRepository.php';
 
 class ParticipanteRepository implements GenericRepository{
     protected $db;
@@ -10,7 +10,7 @@ class ParticipanteRepository implements GenericRepository{
 
 
     public function findOne($id){
-        return R::findOne( 'participante', 'id=?', [ $id ] );
+        return $this->db->findById( 'curso',$id );
     }
 
     public function save(BaseDataTransferObject $dto){
@@ -65,5 +65,10 @@ class ParticipanteRepository implements GenericRepository{
             return  $this->db->save($participante);
         }
 
+    }
+
+    public function findAll()
+    {
+        return $this->db->findAll('participante');
     }
 }
