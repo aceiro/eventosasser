@@ -11,5 +11,6 @@
 	$session->set('palestra',$_POST['palestra']);
 	
 	$bd->cadastrarAlunoPalestra();
-	header('location:finalizar.php');
+
+    header('location:finalizar.php');
 ?>

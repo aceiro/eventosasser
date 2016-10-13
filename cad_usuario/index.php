@@ -1,6 +1,8 @@
 <?php 
 	require_once("../cfg/Session.php");
 	$session = new Session("EventosAsser2016");
+    require_once("../cfg/BD.php");
+    $bd = new BD();
 	header("Content-Type: text/html; charset=UTF-8", true);
 ?>
 
@@ -29,6 +31,7 @@
 			$("#register-form").validate({
 				rules: {
 					nome: "required",
+                    curso: "required",
 					tipo: "required",
 					email: {
 						required: true,
@@ -37,25 +40,33 @@
 					password: {
 						required: true,
 						minlength: 5
-					},
-					password-again: { equalTo: '#password' }
+					}
 				},
 				messages: {
 					nome: "Escreva o seu nome completo",
 					email: "Escreva seu endereço de email corretamente",
-					tipo: "Escolha um tipo de participação",
-					password-again: "As senhas devem ser iguais",
-					password: {
-						required: "Campo obrigatório",
-						minlength: "Sua senha deve ter mais de 5 caracteres"
-					}
+					  tipo: "Escolha um tipo de participação",
+                    password: {
+                        required: "Por favor, digite uma senha",
+                        minlength: "Sua senha deve ter mais de 5 caracteres"
+                    },
+                    password1: {
+                        required: "Por favor, digite uma senha",
+                        minlength: "Sua senha deve ter mais de 5 caracteres"
+                    }
 				},
 				
 				submitHandler: function(form) {
+                    senha = document.getElementById('password');
+                    senhaRepetida = document.getElementById('password1');
+                    if (senha != senhaRepetida){
+                        alert("Repita a senha corretamente");
+                        document.getElementById('password1').focus();
+                        return false;
 					form.submit();
 				}
 			});
-		}); 
+		});  
 	</script>
 </head>
 <body>
@@ -69,8 +80,7 @@
           <div id='cssmenu'>
                 <ul>
                    <li><a href='../index.html'>Evento</a></li>      
-                   <li class='active'><a href='../index.html'>Submissão de Trabalhos</a></li>
-                   <li><a href='../palestra'>Palestras</a></li>
+                   <li class='active'><a href='../index.html'>Inscrição no evento</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
                    <li> <a href='../anais'>Edições<br>Anteriores</a></li>       
                    <li><a href='../contato'>Contato</a></li>
@@ -86,45 +96,45 @@
 
         <br />
         
-        <div>
+        <div id="texto">
     		<form id="register-form" 
                   name="register-form" method="post" 
-                  action="confirmaUsuario.php"  novalidate="novalidate">
+                  action="inscr.php"  novalidate="novalidate">
 
                 <fieldset>
-                        <legend>Cadastro de Autor Principal </legend>
+                        <legend>Inscrição no Evento</legend>
                         <div>
                             <label> Nome:</label>
-                            <input type="text" id="autor" name="autor" size="50" maxlength="65"  />
+                            <input type="text" id="nome" name="nome" size="50" maxlength="65"  />
                         </div>
 
                         <div>
                             <label>E-mail:</label>
-                            <input type="text" id="email1" name="email1" size="50" maxlength="65"/>
+                            <input type="text" id="email" name="email" size="50" maxlength="65"/>
                         </div>
 
                         <div>
                             <label>Senha:</label>
-                            <input type="password" id="password" name="password" size="50" maxlength="65" />
+                            <input type="password" id="password" name="password" size="50" maxlength="8" />
                         </div>
 
                         <div>
-                            <label>Confirmar Senha:</label>
-                            <input type="password" id="password-again" name="password-again" size="50" maxlength="65"  />
+                            <label>Confirme sua Senha:</label>
+                            <input type="password" id="password1" name="password1" size="50" maxlength="8" />
                         </div>
 
-                        <div>                        
-                            <label>Tipo:</label>
-                            <select id="tipo" name="tipo">
-                                <option value="oral"> Apresentação oral</option>
-                                <option value="painel"> Apresentação em painel</option>
-								<option value="painel"> Exposição</option>
-								<option value="painel"> Mini Curso</option>
-								<option value="painel"> Palestra</option>
-								<option value="painel"> Oficina</option>
-                            </select>                            
+                        <div>
+                            <label>Curso:</label>
+                            <select id="curso" name="curso">
+                                <?php
+                                    $str = "";
+                                    foreach($bd->retornaCurso() as $row) {
+                                        $str .= "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+                                    }
+                                    echo $str;
+                                ?>
+                            </select>
                         </div>
-
                         
                 </fieldset>
                 <div class="text-align-center">

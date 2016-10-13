@@ -48,8 +48,9 @@
             <div id='mmenubar'> &nbsp;</div>
             <div id='mmenusubbar'> &nbsp;</div>
             <div id='mmenusubsubbar'> &nbsp;</div>
-            <br /> <br />       
-        
+            <br />        
+        <br />        
+        <br />
         
         <div>
 			<div align='center'><table><th><center>Palestras em que está cadastrado</center></th>
@@ -57,22 +58,20 @@
 				foreach($bd->listaPalestrasRa() as $row){
 					echo '<tr><td>' . $row['palestra'] . '</td></tr>';
 				}
+                $session->destroy();
 			?>
 			</table></div>
-				<br/>
-				<div class="deail-final-resumo">
-					<p> Recolher a taxa de R$ 20,00 na secretaria da faculdade apresentando o RA.</p>
-					<p> Participantes externos devem apresentar o RA gerado pelo sistema. </p> 
-				</div>
-				<br/>
-				<div class="text-align-center">
-					<button class="button button-center"  onclick="javascript:location.href='palestras.php'" /> Cadastrar outra palestra </button>
+			<div align="center">	
+				<br /><a href="palestras.php">Cadastrar-se em mais palestras?</a><br /><br />
+				<br /><a href="palestras.php">Não?</a><br /><br />
+				<br /><a href="palestras.php">Então não se esqueça de recolher a taxa de R$ 20,00 na secretaria da faculdade apresentando o RA.</a><br /><br />
+				<br /><a href="palestras.php">Participantes externos devem apresentar o RA gerado pelo sistema.</a><br /><br />
+				<a href="../">Sair?</a>
+			</div>
+			<br />	
 
-              		<button class="button button-center" onclick="javascript:location.href='../'" />  Voltar </button>
-              		
-             	</div>
-
-        </div>   
+        </div>        
+        <br />
     
     <div id="rodape">
               <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
