@@ -16,6 +16,25 @@ class ParticipanteRepository implements GenericRepository{
     public function save(BaseDataTransferObject $dto){
 
         if ($dto instanceof Participante) {
+            if( empty($dto->nome) ){
+                var_dump($dto);
+                throw new InvalidArgumentException;
+            }
+
+            if( empty($dto->email)  ){
+                var_dump($dto);
+                throw new InvalidArgumentException;
+            }
+
+            if( empty($dto->senha)  ){
+                var_dump($dto);
+                throw new InvalidArgumentException;
+            }
+            if( empty($dto->idCurso)  ){
+                var_dump($dto);
+                throw new InvalidArgumentException;
+            }
+
             // from DTO to SimpleBean
             // no need pass id
             // this id is automatically generated

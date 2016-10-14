@@ -1,5 +1,5 @@
 <?php
-require 'Base.php';
+require_once 'Base.php';
 
 class Participante extends BaseDataTransferObject{
 
@@ -25,6 +25,7 @@ class Participante extends BaseDataTransferObject{
         $this->idTrabalho = $idTrabalho;
         $this->idCurso = $idCurso;
     }
+
 
 
 }

@@ -1,16 +1,21 @@
 <?php
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
-    require_once("../repositorio/models/Participante.php");
-    require_once("../repositorio/ParticipanteRepository.php");
+    require_once '..\repositorio\models\Curso.php';
+    require_once '..\repositorio\models\Participante.php';
+    require_once '..\repositorio\facade\EventosAsserFacade.php';
 
-$meuobj = new Participante(addslashes($_POST['nome']), addslashes($_POST['email']), addslashes($_POST['password']), 0, 0, 0, 0, addslashes($_POST['curso']));
-    $pasticipanteDb = new ParticipanteRepository();
-    require_once("../cfg/BD.php");
-    $bd = new BD();
-    //validar usuário se já cadastrado mostrar as opções, se não
-    //cadastrá-lo
-    $bd->cadastraParticipante();
+    $cursoRepository        = EventosAsserFacade::createCursoRepository();
+    $participanteRepository = EventosAsserFacade::createParticipanteRepository();
+
+    $nome    = $_POST['nome'];
+    $email   = $_POST['email'];
+    $senha   = $_POST['senha'];
+    $idCurso = $_POST['curso'];
+
+    $participante = new Participante(null, $nome, $email, $senha, null, null, null, null, $idCurso);
+    $participanteRepository->save($participante);
+
     header("Content-Type: text/html; charset=UTF-8", true);
 ?>
 

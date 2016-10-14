@@ -1,8 +1,11 @@
 <?php 
 	require_once("../cfg/Session.php");
 	$session = new Session("EventosAsser2016");
-    require_once("../cfg/BD.php");
-    $bd = new BD();
+    require '..\repositorio\models\Curso.php';
+    require '..\repositorio\facade\EventosAsserFacade.php';
+    $cursoRepository = EventosAsserFacade::createCursoRepository();
+
+
 	header("Content-Type: text/html; charset=UTF-8", true);
 
 ?>
@@ -38,7 +41,7 @@
 						required: true,
 						email: true
 					},
-					password: {
+                    senha: {
 						required: true,
 						minlength: 5
 					}
@@ -47,22 +50,22 @@
 					nome: "Escreva o seu nome completo",
 					email: "Escreva seu endereço de email corretamente",
 					  tipo: "Escolha um tipo de participação",
-                    password: {
+                    senha: {
                         required: "Por favor, digite uma senha",
                         minlength: "Sua senha deve ter mais de 5 caracteres"
                     },
-                    password1: {
+                    resenha: {
                         required: "Por favor, digite uma senha",
                         minlength: "Sua senha deve ter mais de 5 caracteres"
                     }
 				},
 				
 				submitHandler: function(form) {
-                    senha = document.getElementById('password');
-                    senhaRepetida = document.getElementById('password1');
+                    senha = document.getElementById('senha');
+                    senhaRepetida = document.getElementById('resenha');
                     if (senha != senhaRepetida){
                         alert("Repita a senha corretamente");
-                        document.getElementById('password1').focus();
+                        document.getElementById('resenha').focus();
                         return false;
 					form.submit();
 				}
@@ -116,12 +119,12 @@
 
                         <div>
                             <label>Senha:</label>
-                            <input type="password" id="password" name="password" size="50" maxlength="8" />
+                            <input type="password" id="senha" name="senha" size="50" maxlength="8" />
                         </div>
 
                         <div>
                             <label>Confirme sua Senha:</label>
-                            <input type="password" id="password1" name="password1" size="50" maxlength="8" />
+                            <input type="password" id="resenha" name="resenha" size="50" maxlength="8" />
                         </div>
 
                         <div>
@@ -129,7 +132,8 @@
                             <select id="curso" name="curso">
                                 <?php
                                     $str = "";
-                                    foreach($bd->retornaCurso() as $row) {
+
+                                    foreach($cursoRepository->findAll() as $row) {
                                         $str .= "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
                                     }
                                     echo $str;

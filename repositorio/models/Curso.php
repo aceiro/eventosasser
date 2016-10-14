@@ -1,5 +1,5 @@
 <?php
-require 'Base.php';
+require_once 'Base.php';
 
 class Curso extends BaseDataTransferObject{
     public $nome;
