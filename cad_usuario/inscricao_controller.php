@@ -8,10 +8,14 @@
     $cursoRepository        = EventosAsserFacade::createCursoRepository();
     $participanteRepository = EventosAsserFacade::createParticipanteRepository();
 
-    $nome    = $_POST['nome'];
-    $email   = $_POST['email'];
-    $senha   = $_POST['senha'];
+    $nome    = strtoupper(addslashes($_POST['nome']));
+    $email   = strtoupper(addslashes($_POST['email']));
+    $senha   = addslashes($_POST['senha']);
     $idCurso = $_POST['curso'];
+
+    $session->set('nome',$nome);
+    $session->set('email',$email);
+    $session->set('idCurso',$idCurso);
 
     $participante = new Participante(null, $nome, $email, $senha, null, null, null, null, $idCurso);
     $participanteRepository->save($participante);
