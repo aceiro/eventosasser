@@ -15,60 +15,24 @@
 	require_once("../cfg/Session.php");
 	$session = new Session("EventosAsser2016");
 	header("Content-Type: text/html; charset=UTF-8", true);
-	
-	$session->set('autor1',addslashes($_POST['autor1']));
-	$session->set('email1',addslashes($_POST['email1']));
-	$session->set("titulo",addslashes($_POST['titulo']));
-	$session->set("resumo",addslashes($_POST['texto']));
-	$session->set("keyword",addslashes($_POST['keyword']));
-	$session->set("status", '0');
-	$session->set("comentarios", 'Professor avaliador, por favor anote as alterações para o autor aqui.');
-	
-	$autores = $session->get("autor1") . "  - " . $session->get("email1");
-	//verifica se há mais autores
-	if(strcmp($_POST['autor2'],"")!=0){
-			$session->set("autor2",addslashes($_POST['autor2']));
-			$session->set("email2",addslashes($_POST['email2']));
-            $session->set("co-autor2",1);
-		}	
-	if(strcmp($_POST['autor3'],"")!=0){
-			$session->set("autor3",addslashes($_POST['autor3']));
-			$session->set("email3",addslashes($_POST['email3']));
-            $session->set("co-autor3",1);
-		}	
-	if(strcmp($_POST['autor4'],"")!=0){
-			$session->set("autor4",addslashes($_POST['autor4']));
-			$session->set("email4",addslashes($_POST['email4']));
-            $session->set("co-autor4",1);
-		}		
-	if(strcmp($_POST['autor5'],"")!=0){
-			$session->set("autor5",addslashes($_POST['autor5']));
-			$session->set("email5",addslashes($_POST['email5']));
-            $session->set("co-autor5",1);
-		}	
-		
+    $titulo         = strtoupper(addslashes($_POST['titulo']));
+    $resumo         = addslashes($_POST['texto']);
+    $keyword        = addslashes($_POST['keyword']);
+    $statusR         = 1;
+    $comentarios    = 'Professor avaliador, por favor anote as alterações para o autor aqui.';
+    $idCurso        = $session->get('idCurso');
+    $idTipoAtividade = $_POST['tipo'];
+    $idEvento       = 1;
 
-	if( isset($_POST['authorPlus']) ){
-		$authorPlus = $_POST['authorPlus'];
-        //$emails = $_POST['emails'];
+    require_once ("../repositorio/models/Trabalho.php");
+    require_once ("../repositorio/TrabalhoRepository.php");
+    require_once ('../repositorio/facade/EventosAsserFacade.php');
 
-		foreach ($authorPlus as $key => $value) {
-			$authorName  = $value['author'];
-			//$authorEmail = $value['emails'];
-		}
-	}
+    $trabalhoRepository = EventosAsserFacade::createTrabalhoRepository();
 
-	
-	$session->set("autores", $autores);
-    //$session->set("emails", $emails);
-    $session->set("co-autorplus",1);
+    $trabalho = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento);
+    $trabalhoRepository->save($trabalho);
 
-// verifica se não está vazia as strings
-// senao faz um bypass
-	if( isEmpty($session->get('titulo')) || isEmpty($session->get('curso')) || isEmpty($session->get('orientador')) || isEmpty($session->get('resumo')) || isEmpty($session->get('keyword')) ){
-			die();
-		}
-	
 	header("Location:confirma.php");
 	
 ?>
