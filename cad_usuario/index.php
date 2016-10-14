@@ -2,10 +2,7 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-store" />
+    <meta charset="ISO-8859-1"/>
     <link rel="shortcut icon" href="../favicon.ico">
     <title>Asser Eventos</title>
     <!-- adicionado o suporte para o jquery e thema redmond -->

@@ -2,10 +2,17 @@
 
 require_once 'interfaces\GenericRepository.php';
 
+define("RETORNA_TODOS_PARTICIPANTES",'SELECT * FROM participante WHERE email = :email and senha = :senha');
+
 class ParticipanteRepository implements GenericRepository{
     protected $db;
     public function __construct(Database $db){
         $this->db = $db;
+    }
+
+    public function findAllBySql($sql, $bindings = array())
+    {
+        return $this->db->getAllBySql($sql, $bindings);
     }
 
 
@@ -47,7 +54,7 @@ class ParticipanteRepository implements GenericRepository{
             $participante = $this->db->load('participante');
             $participante->nome     = $dto->nome;
             $participante->email    = $dto->email;
-            $participante->senha    = $dto->senha;
+            $participante->senha    = md5($dto->senha);
             $participante->ouvinte  = $dto->ouvinte;
             $participante->autorPrincipal = $dto->autorPrincipal;
             $participante->coAutor    = $dto->coAutor;
@@ -94,4 +101,17 @@ class ParticipanteRepository implements GenericRepository{
     {
         return $this->db->findAll('participante');
     }
+
+    public function existsParticipante($email, $senha)
+    {
+        $participanteExistente = $this->findAllBySql(RETORNA_TODOS_PARTICIPANTES, [':email' => $email,
+                                                                                    ':senha' => md5($senha)
+                                                                                  ]);
+
+        if( count($participanteExistente)==1 )
+            return true;
+            else return false;
+    }
+
+
 }

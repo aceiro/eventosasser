@@ -8,6 +8,12 @@ class TipoAtividadeRepository implements GenericRepository{
         $this->db = $db;
     }
 
+    public function findAllBySql($sql, $bindings = array())
+    {
+        return $this->db->getAllBySql($sql, $bindings);
+    }
+
+
 
     public function findOne($id){
         return $this->db->findById( 'curso',$id );

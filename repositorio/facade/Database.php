@@ -48,4 +48,9 @@ class Database{
         R::trash($table);
     }
 
+    public function getAllBySql($sql, $bindings = array())
+    {
+        return R::getAll($sql, $bindings);
+    }
+
 }

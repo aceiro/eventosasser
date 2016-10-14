@@ -9,9 +9,6 @@
 <html lang="pt-BR">
 <head>
 	<meta charset="UTF-8"/>
-	<meta http-equiv="pragma" content="no-cache" />
-	<meta http-equiv="cache-control" content="no-cache" />
-	<meta http-equiv="cache-control" content="no-store" />
 	<link rel="shortcut icon" href="../favicon.ico">
 	<title>Asser Eventos</title>	
 	<!-- adicionado o suporte para o jquery e thema redmond -->
@@ -98,7 +95,7 @@
         <div id="texto">
     		<form id="register-form" 
                   name="register-form" method="post" 
-                  action="???????"  novalidate="novalidate">
+                  action="confirma_login_controller.php"  novalidate="novalidate">
 
                 <fieldset>
                         <legend>Acesso ao sistema de Eventos</legend>
@@ -110,7 +107,7 @@
 
                         <div>
                             <label>Senha:</label>
-                            <input type="password" id="password" name="password" size="50" maxlength="8" />
+                            <input type="password" id="senha" name="senha" size="50" maxlength="8" />
                         </div>
                         
                 </fieldset>

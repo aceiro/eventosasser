@@ -6,17 +6,14 @@ require '..\repositorio\facade\EventosAsserFacade.php';
 $cursoRepository = EventosAsserFacade::createCursoRepository();
 
 
-header("Content-Type: text/html; charset=UTF-8", true);
+header('Content-Type: text/html; charset=UTF-8');
 
 ?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
     <link rel="shortcut icon" href="../favicon.ico">
     <title>Asser Eventos</title>
     <!-- adicionado o suporte para o jquery e thema redmond -->
@@ -103,7 +100,7 @@ header("Content-Type: text/html; charset=UTF-8", true);
     <div id="texto">
         <form id="register-form"
               name="register-form" method="post"
-              action="inscr.php"  novalidate="novalidate">
+              action="inscricao_controller.php"  novalidate="novalidate">
 
             <fieldset>
                 <legend>Inscrição no Evento</legend>
