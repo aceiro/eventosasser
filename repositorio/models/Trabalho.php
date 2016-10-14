@@ -1,5 +1,5 @@
 <?php
-
+require 'Base.php';
 class Trabalho extends BaseDataTransferObject{
     public $titulo;
     public $resumo;
