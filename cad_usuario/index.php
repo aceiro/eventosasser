@@ -16,48 +16,7 @@
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../scripts/asser-main-menu.js"></script>
     <script src="../scripts/asser-commum.js"></script>
-    <script>
-        $(function() {
-            $("#register-form").validate({
-                rules: {
-                    nome: "required",
-                    curso: "required",
-                    tipo: "required",
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 5
-                    }
-                },
-                messages: {
-                    nome: "Escreva o seu nome completo",
-                    email: "Escreva seu endereço de email corretamente",
-                    tipo: "Escolha um tipo de participação",
-                    password: {
-                        required: "Por favor, digite uma senha",
-                        minlength: "Sua senha deve ter mais de 5 caracteres"
-                    },
-                    password1: {
-                        required: "Por favor, digite uma senha",
-                        minlength: "Sua senha deve ter mais de 5 caracteres"
-                    }
-                },
 
-                submitHandler: function(form) {
-                    senha = document.getElementById('password');
-                    senhaRepetida = document.getElementById('password1');
-                    if (senha != senhaRepetida){
-                        alert("Repita a senha corretamente");
-                        document.getElementById('password1').focus();
-                        return false;
-                        form.submit();
-                    }
-                });
-        });
-    </script>
 </head>
 <body>
 <div id="corpo">
