@@ -13,10 +13,8 @@ class TipoAtividadeRepository implements GenericRepository{
         return $this->db->getAllBySql($sql, $bindings);
     }
 
-
-
     public function findOne($id){
-        return $this->db->findById( 'curso',$id );
+        return $this->db->findById( 'tipo_atividade',$id );
     }
 
     public function save(BaseDataTransferObject $dto){
@@ -27,7 +25,7 @@ class TipoAtividadeRepository implements GenericRepository{
             // this id is automatically generated
             // by MySQL db
 
-            $tipoAtividade = $this->db->load('tipoatividade');
+            $tipoAtividade = $this->db->load('tipo_atividade');
             $tipoAtividade->descricao = $dto->descricao;
 
             // save the dto
@@ -59,6 +57,6 @@ class TipoAtividadeRepository implements GenericRepository{
 
     public function findAll()
     {
-        return $this->db->findAll('tipoatividade');
+        return $this->db->findAll('tipo_atividade');
     }
 }
