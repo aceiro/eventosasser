@@ -1,9 +1,8 @@
 <?php 
 	require_once("../cfg/Session.php");
-	$session = new Session("EventosAsser2016");
-    require_once("../cfg/BD.php");
-    $bd = new BD();
-	header("Content-Type: text/html; charset=UTF-8", true);
+    header("Content-Type: text/html; charset=UTF-8", true);
+    $session = new Session("EventosAsser2016");
+
 
 ?>
 
@@ -100,7 +99,7 @@
         <div id="texto">
     		<form id="register-form" 
                   name="register-form" method="post" 
-                  action="inscr.php"  novalidate="novalidate">
+                  action="???????"  novalidate="novalidate">
 
                 <fieldset>
                         <legend>Acesso ao sistema de Eventos</legend>
