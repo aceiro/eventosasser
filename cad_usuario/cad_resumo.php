@@ -1,7 +1,13 @@
 <?php
     require_once("../cfg/Session.php");
+    require_once ("../repositorio/models/TipoAtividade.php");
+    require_once ("../repositorio/TipoAtividadeRepository.php");
+    require_once ('../repositorio/facade/EventosAsserFacade.php');
+
     $session = new Session("EventosAsser2016");
-    error_reporting(0);
+   // error_reporting(0);
+
+    $tipoAtividadeRepository = EventosAsserFacade::createTipoAtividadeRepository();
 
 ?>
 
@@ -85,15 +91,14 @@
 					<div class="rotulo-resumo">Tipo</div>
                     <div>
                         <center><select id="tipo" name="tipo">
-                            <?php
-                            require_once("../cfg/BD.php");
-                            $bd = new BD();
-                            $str = "";
-                            foreach($bd->retornaTipo() as $row) {
-                                $str .= "<option value='" . $row['id'] . "'>" . $row['descricao'] . "</option>";
-                            }
-                            echo $str;
-                            ?>
+                                <?php
+                                $str = "";
+
+                                foreach($tipoAtividadeRepository->findAll() as $row) {
+                                    $str .= "<option value='" . $row['id'] . "'>" . $row['descricao'] . "</option>";
+                                }
+                                echo $str;
+                                ?>
                         </select></center>
                     </div>
 
