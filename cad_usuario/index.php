@@ -95,9 +95,9 @@
                       action="novo.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
-                        <div><img src="../imagens/adicionar_autor.jpg" height="70px" width="70px"></div>
-                        <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Novo Cadastro" />
+                        <div><img src="../imagens/user-icon-01.png" height="70px" width="70px"></div>
+                        <div class="text-align-center-btn-access">
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Criar usuário" />
                         </div>
                     </div>
                 </form>
@@ -115,9 +115,9 @@
                       action="login.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
-                        <div><img src="../imagens/adicionar_autor.jpg" height="70px" width="70px"></div>
-                        <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Login" />
+                        <div><img src="../imagens/access_key-512.png" height="70px" width="70px"></div>
+                        <div class="text-align-center-btn-access">
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Fazer login" />
                         </div>
                     </div>
                 </form>

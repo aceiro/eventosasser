@@ -23,9 +23,9 @@
 }
 #cabecalho {
 	height: 159px;
-	background: rgb(255, 255, 255) url("../imagens/header.png") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
-	background-size: 860px 160px;
-	padding: 0px 0px 0px 17px;
+	background: rgb(255, 255, 255) url("../imagens/header-v3.jpg") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
+	background-size: 890px 175px;
+	padding: 0px 0px 0px 0px;
 }
 
 .subcabecalho{
@@ -267,9 +267,16 @@ fieldset input {
     border-radius: 4px; 
 }
 
+
+.text-align-center-btn-access{
+	text-align: center;
+	padding: 0px;
+}
+
 .text-align-center{
 	text-align: center;
 	padding: 0px;
+
 }
 
 .text-align-left{

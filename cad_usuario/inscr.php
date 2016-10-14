@@ -114,7 +114,7 @@
                       action="cad_resumo.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
-                        <div><img src="../imagens/enviar_resumo.png" height="70px" width="70px"></div>
+                        <div><img src="../imagens/articles.png" height="70px" width="70px"></div>
                         <input class="button button-center" name="resumo" type="submit" id="resumo" value="Cadastrar Resumo" />
                     </div>
                 </form>
