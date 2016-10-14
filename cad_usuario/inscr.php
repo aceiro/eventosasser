@@ -59,22 +59,22 @@
                     nome: "Escreva o seu nome completo",
                     email: "Escreva seu endereço de email corretamente",
                     tipo: "Escolha um tipo de participação",
-                    password: {
+                    senha: {
                         required: "Por favor, digite uma senha",
                         minlength: "Sua senha deve ter mais de 5 caracteres"
                     },
-                    password1: {
+                    resenha: {
                         required: "Por favor, digite uma senha",
                         minlength: "Sua senha deve ter mais de 5 caracteres"
                     }
                 },
 
                 submitHandler: function(form) {
-                    senha = document.getElementById('password');
-                    senhaRepetida = document.getElementById('password1');
+                    senha = document.getElementById('senha');
+                    senhaRepetida = document.getElementById('resenha');
                     if (senha != senhaRepetida){
                         alert("Repita a senha corretamente");
-                        document.getElementById('password1').focus();
+                        document.getElementById('resenha').focus();
                         return false;
                         form.submit();
                     }
