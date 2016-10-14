@@ -106,12 +106,12 @@
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="register-form"
                       name="register-form" method="post"
-                      action="coautor.php"  novalidate="novalidate">
+                      action="listagem_resumos_autor.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
-                        <div><img src="../imagens/adicionar_autor.jpg" height="70px" width="70px"></div>
+                        <div><img src="../imagens/clipboard-list-flat.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Associar a um resumo" />
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Listar Resumos" />
                         </div>
                     </div>
                 </form>
