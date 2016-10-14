@@ -35,6 +35,10 @@ class ParticipanteRepository implements GenericRepository{
                 throw new InvalidArgumentException;
             }
 
+            //
+            //TODO verificar se já existe um participante cadastrado com o mesmo e-mail
+            //
+
             // from DTO to SimpleBean
             // no need pass id
             // this id is automatically generated
