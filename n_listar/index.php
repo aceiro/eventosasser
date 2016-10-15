@@ -1,7 +1,20 @@
 <?php 
 	include_once('../utils/common.php');
-	require_once("../cfg/BD.php");
-	$bd = new BD();
+
+    require_once '..\repositorio\models\Trabalho.php';
+    require_once '..\repositorio\models\Curso.php';
+    require_once '..\repositorio\models\Participante.php';
+
+    require_once '..\repositorio\TrabalhoRepository.php';
+    require_once '..\repositorio\CursoRepository.php';
+    require_once '..\repositorio\ParticipanteRepository.php';
+
+    require_once '..\repositorio\facade\EventosAsserFacade.php';
+
+    $trabalhoRepository     = EventosAsserFacade::createTrabalhoRepository();
+    $cursoRepository        = EventosAsserFacade::createCursoRepository();
+    $participanteRepository = EventosAsserFacade::createParticipanteRepository();
+
 	header("Content-Type: text/html; charset=UTF-8", true);	
 ?>
 
@@ -73,13 +86,13 @@
                 <table id="table-hover">
 					<caption><strong>Lista de Resumos submetidos </strong><br>
 					</caption>
-					<th>ID</th><th>TÍTULO</th><th>ALUNO</th><th>CURSO</th><th>STATUS</th>
+					<th>ID</th><th>TÍTULO</th><th>AUTOR</th><th>CURSO</th><th>STATUS</th>
 					<?php
 
-						define('ROW_TEMPLATE','<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr>');
+						define('ROW_TEMPLATE','<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{AUTOR}</td><td>{CURSO}</td><td>{STATUS}</td></tr>');
 
-						foreach ($bd->listar() as $row) {
-							$status = $row['status'];
+						foreach ($trabalhoRepository->findAll() as $row) {
+							$status = $row['statusR'];
 							switch($status){
 								case 0:{
 									$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
@@ -108,15 +121,18 @@
 
 
 							$rowBuildId 	  = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
-							$rowBuildTitle    = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
-							$rowBuildName     = str_replace("{ALUNO}", $row['nome'], $rowBuildTitle);
-							$rowBuildCourse   = str_replace("{CURSO}", $row['curso'], $rowBuildName);
+                            $rowBuildTitle   = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
+                            $sql = 'SELECT nome FROM participante WHERE id_trabalho = :idtrabalho AND autor_principal = 1;';
+                            foreach($participanteRepository->findAllBySql($sql, [':idtrabalho'=>$rowBuildId]) as $aluno);
+                            $rowBuildAutor    = str_replace("{AUTOR}", $aluno['nome'], $rowBuildTitle);
+                            foreach($cursoRepository->findOne($row['idCurso']) as $nomeCurso);
+							$rowBuildCourse   = str_replace("{CURSO}", $nomeCurso, $rowBuildAutor);
 							$rowBuildStatus   = str_replace("{STATUS}", $result, $rowBuildCourse);
 							echo $rowBuildStatus;
 						}
 					?>
 				</table>
-				<br />			
+				<br />
                 <p align="center"><a href="../">Voltar</a></p>
 				<br />	
         </div>
