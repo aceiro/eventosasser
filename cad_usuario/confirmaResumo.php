@@ -26,12 +26,28 @@
 
     require_once ("../repositorio/models/Trabalho.php");
     require_once ("../repositorio/TrabalhoRepository.php");
+    require_once ("../repositorio/models/Participante.php");
+    require_once ("../repositorio/ParticipanteRepository.php");
     require_once ('../repositorio/facade/EventosAsserFacade.php');
 
     $trabalhoRepository = EventosAsserFacade::createTrabalhoRepository();
+    $participanteRepository = EventosAsserFacade::createParticipanteRepository();
 
     $trabalho = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento);
     $trabalhoRepository->save($trabalho);
+
+    //recuperando id do trbalho para update participante autor principal
+
+    $sql = 'SELECT id FROM trabalho WHERE titulo = :titulo';
+    foreach($participanteRepository->findAllBySql($sql, [':titulo'=>$titulo]) as $idTrabalho);
+
+
+    $sql = 'SELECT * FROM participante WHERE nome = :nome;';
+    foreach($participanteRepository->findAllBySql($sql, [':nome'=>$session->get('nome')]) as $row){
+        $participante = new Participante($row['id'],$row['nome'],$row['email'],$row['senha'],null,1,$id['id'],$idCurso);
+    };
+
+    $participanteRepository->update($participante);
 
 	header("Location:confirma.php");
 	
