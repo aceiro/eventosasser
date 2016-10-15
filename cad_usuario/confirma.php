@@ -67,7 +67,8 @@
 				<div class="rotulo-resumo"><strong>Salve e imprima os dados de acesso para acompanhar o <strong>Status</strong> do seu resumo</strong></div>
 				<div class="deail-final-resumo">
 					E-mail cadastrado: <strong><?php echo $session->get('email'); ?></strong> <br />
-					Senha: <strong><?php echo $session->get('password'); ?></strong>
+					Senha: <strong><?php echo $session->get('senha'); ?></strong>
+                    <?php $session->destroy(); ?>
 				</div>
 
 			</fieldset>
