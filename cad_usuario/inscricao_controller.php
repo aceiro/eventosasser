@@ -9,12 +9,13 @@
     $participanteRepository = EventosAsserFacade::createParticipanteRepository();
 
     $nome    = strtoupper(addslashes($_POST['nome']));
-    $email   = strtoupper(addslashes($_POST['email']));
+    $email   = addslashes($_POST['email']);
     $senha   = addslashes($_POST['senha']);
     $idCurso = $_POST['curso'];
 
     $session->set('nome',$nome);
     $session->set('email',$email);
+    $session->set('senha',$senha);
     $session->set('idCurso',$idCurso);
 
     $participante = new Participante(null, $nome, $email, $senha, null, null, null, null, $idCurso);
