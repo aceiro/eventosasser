@@ -12,21 +12,22 @@ var privates = {};
 /* private methods */
 var buildInputForID = function(rows){
 		var tdId    = '<td> Autor ({autorId}) </td>';
-		var newTdId = tdId.replace(/{autorId}/, (rows+1) );
-		return newTdId;
+		return tdId.replace(/{autorId}/, (rows+1) );
 };
 
 var buildInputForAuthor = function(rows){
-			var tdAuthor = '<td style=\"width: 30em\"> <input type=\"text\" id=\"authorPlus[{autorId}][author]\" name=\"authorPlus[{autorId}][author]\" size=\"40\" maxlength=\"255\" /> </td>';
-			var newTdId  = tdAuthor.replace(/{autorId}/g, (rows+1));
-		return newTdId;
+			var tdAuthor = '<td style=\"width: 30em\"> <input type=\"text\" id=\"autor{autorId}\" name=\"autor[]\" size=\"40\" maxlength=\"255\" readonly=\"readonly\"/> </td>';
+			return tdAuthor.replace(/{autorId}/g, (rows+1));
 };
 
 var buildInputForEmail = function(rows){
-			var tdEmail = '<td style="width: 30em"> <input type=\"text\" id=\"authorPlus[{autorId}][email]\" name=\"authorPlus[{autorId}][email]\" size=\"40\" maxlength=\"255\" /> </td>';
-			newTdEmail  = tdEmail.replace(/{autorId}/g, (rows+1));
-		return newTdEmail;
-		
+			var tdEmail = '<td style="width: 30em"> <input type=\"text\" id=\"email{emailId}\" name=\"email[]\" size=\"40\" maxlength=\"255\" /> </td>';
+			return tdEmail.replace(/{emailId}/g, (rows+1));
+};
+
+var buildButtonSearch = function(rows) {
+	var tdButtonSearch = '<td> <button  class="button button-find" type="button" onclick="searchOnJsonList({autorId});">Buscar</button> </td>';
+	return tdButtonSearch.replace(/{autorId}/g, (rows+1));
 };
 
 var validateForm = function(){
@@ -68,11 +69,13 @@ ASSER.submission =  {
 			var cellAuthorId 	= row.insertCell(0);
 			var cellAuthorName  = row.insertCell(1);
 			var cellAuthorEmail = row.insertCell(2);
+			var cellAuthorButton= row.insertCell(3);
 
 
 			cellAuthorId.innerHTML    = buildInputForID(numberOfRows) ;
 			cellAuthorName.innerHTML  = buildInputForAuthor(numberOfRows) ;
 			cellAuthorEmail.innerHTML = buildInputForEmail(numberOfRows) ;
+			cellAuthorButton.innerHTML= buildButtonSearch(numberOfRows);
 
 
 			var scrollTable = document.getElementById('table-authors-container');

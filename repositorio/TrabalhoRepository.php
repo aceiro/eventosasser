@@ -38,7 +38,7 @@ class TrabalhoRepository implements GenericRepository{
 
 
             // save the dto
-            $this->db->save($trabalho);
+            return $this->db->save($trabalho);  /*retorna o id do trabalho*/
 
         } else {
             throw new InvalidArgumentException;

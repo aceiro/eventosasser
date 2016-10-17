@@ -1,8 +1,11 @@
 <?php
 
 require_once 'interfaces\GenericRepository.php';
+require_once 'models\Participante.php';
 
 define("RETORNA_TODOS_PARTICIPANTES",'SELECT * FROM participante WHERE email = :email and senha = :senha');
+define("RETORNA_TODOS_PARTICIPANTES_POR_EMAIL",'SELECT * FROM participante WHERE email = :email');
+define("RETORNA_TOTOS_AUTORES", 'SELECT nome, email FROM participante ORDER BY email');
 
 class ParticipanteRepository implements GenericRepository{
     protected $db;
@@ -17,7 +20,7 @@ class ParticipanteRepository implements GenericRepository{
 
 
     public function findOne($id){
-        return $this->db->findById( 'curso',$id );
+        return $this->db->findById( 'participante',$id );
     }
 
     public function save(BaseDataTransferObject $dto){
@@ -55,11 +58,7 @@ class ParticipanteRepository implements GenericRepository{
             $participante->nome     = $dto->nome;
             $participante->email    = $dto->email;
             $participante->senha    = md5($dto->senha);
-            $participante->ouvinte  = $dto->ouvinte;
-            $participante->autorPrincipal = $dto->autorPrincipal;
-            $participante->coAutor    = $dto->coAutor;
-            $participante->idTrabalho = $dto->idTrabalho;
-            $participante->idCurso    = $dto->idCurso;
+            $participante->id_curso    = $dto->idCurso;
 
 
             // save the dto
@@ -81,18 +80,16 @@ class ParticipanteRepository implements GenericRepository{
 
     public function update(BaseDataTransferObject $dto)
     {
-        if ($dto instanceof Participante) {
-            $participante = $this->findOne($dto->id);
-            $participante->nome     = $dto->nome;
-            $participante->email    = $dto->email;
-            $participante->senha    = $dto->senha;
-            $participante->ouvinte  = $dto->ouvinte;
-            $participante->autorPrincipal = $dto->autorPrincipal;
-            $participante->coAutor    = $dto->coAutor;
-            $participante->idTrabalho = $dto->idTrabalho;
-            $participante->idCurso    = $dto->idCurso;
 
-            return  $this->db->save($participante);
+        if ($dto instanceof Participante) {
+            $bean = $this->findOne($dto->id);
+
+            $bean->nome     = $dto->nome;
+            $bean->email    = $dto->email;
+            $bean->senha    = $dto->senha;
+            $bean->id_curso    = $dto->idCurso;
+
+            return  $this->db->save($bean);
         }
 
     }
@@ -111,6 +108,38 @@ class ParticipanteRepository implements GenericRepository{
         if( count($participanteExistente)==1 )
             return true;
             else return false;
+    }
+
+    public function findAllAutores()
+    {
+        return $this->findAllBySql(RETORNA_TOTOS_AUTORES);
+    }
+
+    public function existsParticipanteByEmail($email){
+
+        $participanteExistente = $this->findAllBySql(RETORNA_TODOS_PARTICIPANTES_POR_EMAIL, [':email' => $email]);
+
+        if( count($participanteExistente)==1 )
+            return true;
+        else return false;
+
+    }
+
+    public function findParticipanteByEmail($email)
+    {
+        $participante  = $this->findAllBySql(RETORNA_TODOS_PARTICIPANTES_POR_EMAIL, [':email' => $email]);
+
+        if( count($participante)==1 ){
+            $umParticipante   = $participante[0];
+            $participanteDto  = Participante::create()
+                ->setId($umParticipante['id'])
+                ->setNome($umParticipante['nome'])
+                ->setEmail($umParticipante['email'])
+                ->setSenha($umParticipante['senha'])
+                ->setIdCurso($umParticipante['id_curso']);
+            return $participanteDto;
+        } else return null;
+
     }
 
 

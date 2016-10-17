@@ -1,4 +1,7 @@
-<?php 
+<?php
+	require_once("../cfg/Session.php");
+	$session = new Session("EventosAsser2016");
+
 	include_once('../utils/common.php');
 
     require_once '..\repositorio\models\Trabalho.php';
@@ -88,29 +91,29 @@
 					</caption>
 					<th>ID</th><th>TÍTULO</th><th>AUTOR</th><th>CURSO</th><th>STATUS</th>
 					<?php
-
-						define('ROW_TEMPLATE','<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{AUTOR}</td><td>{CURSO}</td><td>{STATUS}</td></tr>');
+						require_once '../constants/AsserEventosConstants.php';
+						$email = $session->get('email');
 
 						foreach ($trabalhoRepository->findAll() as $row) {
 							$status = $row['statusR'];
 							switch($status){
-								case 0:{
+								case ENVIADO:{
 									$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
 									break;
 								}
-								case 1:{
+								case APROVADO:{
 									$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
 									break;
 								}
-								case 2:{
+								case REENVIAR:{
 									$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
 									break;
 								}
-								case 3:{
+								case REPROVADO:{
 									$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
 									break;
 								}
-								case 4:{
+								case CORRIGIDO:{
 									$result="<span class=\" glyphicon glyphicon glyphicon-pencil\"></span><br/>Corrigido";
 									break;
 								}
@@ -120,8 +123,9 @@
 							}
 
 
+
 							$rowBuildId 	  = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
-                            $rowBuildTitle   = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
+                            $rowBuildTitle    = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
                             $sql = 'SELECT nome FROM participante WHERE id_trabalho = :idtrabalho AND autor_principal = 1;';
                             foreach($participanteRepository->findAllBySql($sql, [':idtrabalho'=>$rowBuildId]) as $aluno);
                             $rowBuildAutor    = str_replace("{AUTOR}", $aluno['nome'], $rowBuildTitle);

@@ -2,6 +2,7 @@
 require_once '..\repositorio\TipoAtividadeRepository.php';
 require_once '..\repositorio\CursoRepository.php';
 require_once '..\repositorio\ParticipanteRepository.php';
+require_once '..\repositorio\ParticipanteTrabalhoRepository.php';
 require_once '..\repositorio\facade\Database.php';
 
 class EventosAsserFacade
@@ -24,6 +25,11 @@ class EventosAsserFacade
 
     public static function createTipoAtividadeRepository(){
         $db = (new TipoAtividadeRepository(new Database()));
+        return $db;
+    }
+
+    public static function createParticipanteTrabalhoRepository(){
+        $db = (new ParticipanteTrabalhoRepository(new Database()));
         return $db;
     }
 }

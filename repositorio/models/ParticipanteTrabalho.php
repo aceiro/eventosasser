@@ -1,34 +1,33 @@
 <?php
 require_once 'Base.php';
 
-class Participante extends BaseDataTransferObject{
+class ParticipanteTrabalho extends BaseDataTransferObject{
 
-    public $nome;
-    public $email;
-    public $senha;
+
+
+    public $idTrabalho;
+    public $idParticipante;
     public $ouvinte;
     public $autorPrincipal;
     public $coAutor;
-    public $idTrabalho;
-    public $idCurso;
 
 
-
-    public function __construct($id, $nome, $email, $senha, $idCurso)
+    public function __construct($idTrabalho, $idParticipante, $ouvinte, $autorPrincipal, $coAutor)
     {
-        $this->id = $id;
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->senha = $senha;
-        $this->idCurso = $idCurso;
+        $this->idTrabalho = $idTrabalho;
+        $this->idParticipante = $idParticipante;
+        $this->ouvinte = $ouvinte;
+        $this->autorPrincipal = $autorPrincipal;
+        $this->coAutor = $coAutor;
     }
+
 
     // TODO: Fluent API
     // add for others DTOs
     //
 
-    public static function createParticipante(){
-        return new Participante(-1,"N/A","N/A","N/A",-1);
+    public static function create(){
+        return new ParticipanteTrabalho(-1,-1,-1,false,false,false);
     }
 
 
@@ -39,32 +38,41 @@ class Participante extends BaseDataTransferObject{
     }
 
 
-    public function setNome($nome)
+    public function setIdTrabalho($idTrabalho)
     {
-        $this->nome = $nome;
+        $this->idTrabalho = $idTrabalho;
         return $this;
     }
 
 
-    public function setEmail($email)
+    public function setIdParticipante($idParticipante)
     {
-        $this->email = $email;
+        $this->idParticipante = $idParticipante;
         return $this;
     }
 
 
-    public function setSenha($senha)
+    public function setOuvinte($ouvinte)
     {
-        $this->senha = $senha;
+        $this->ouvinte = $ouvinte;
         return $this;
     }
 
 
-    public function setIdCurso($idCurso)
+    public function setAutorPrincipal($autorPrincipal)
     {
-        $this->idCurso = $idCurso;
+        $this->autorPrincipal = $autorPrincipal;
         return $this;
     }
+
+
+    public function setCoAutor($coAutor)
+    {
+        $this->coAutor = $coAutor;
+        return $this;
+    }
+
+
 
 
 
