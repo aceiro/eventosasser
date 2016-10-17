@@ -19,18 +19,19 @@
     require_once ("../repositorio/ParticipanteRepository.php");
     require_once ('../repositorio/facade/EventosAsserFacade.php');
 
+    $listOfEmails = $_POST['email'];
+
     $trabalhoRepository     = EventosAsserFacade::createTrabalhoRepository();
     $participanteRepository = EventosAsserFacade::createParticipanteRepository();
     $participanteTrabalhoRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();
 
-    $trabalho = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento);
+    $trabalho   = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento);
     $idTrabalho = $trabalhoRepository->save($trabalho);
-    if(is_null($idTrabalho)){
+    if( is_null($idTrabalho) ){
         echo "<br>Não foi possível criar o resumo!";
         return;
     }
 
-    $listOfEmails = $_POST['email'];
 
     foreach ($listOfEmails as $email) {
         if( $email==NULL )
@@ -51,7 +52,7 @@
                                         ->setAutorPrincipal(false)
                                         ->setOuvinte(false);
 
-        $idTrabalho = $participanteTrabalhoRepository->save($participanteTrabalho);
+        $participanteTrabalhoRepository->save($participanteTrabalho);
 
     }
     header("Location:confirma.php");

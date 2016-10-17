@@ -1,7 +1,7 @@
 <?php
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
-header('Content-Type: text/html; charset=UTF-8');
+    header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html >

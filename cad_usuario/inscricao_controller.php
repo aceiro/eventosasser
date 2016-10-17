@@ -18,7 +18,8 @@
     $session->set('senha',$senha);
     $session->set('idCurso',$idCurso);
 
-    $participante = new Participante(null, $nome, $email, $senha, null, null, null, null, $idCurso);
+
+    $participante = new Participante(null, $nome, $email, $senha, $idCurso);
     $participanteRepository->save($participante);
 
     header('Content-Type: text/html; charset=iso-8859-1');      /* hack to be used on redirect */

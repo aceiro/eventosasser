@@ -1,12 +1,10 @@
 <?php
-require_once("../cfg/Session.php");
-$session = new Session("EventosAsser2016");
-require '..\repositorio\models\Curso.php';
-require '..\repositorio\facade\EventosAsserFacade.php';
-$cursoRepository = EventosAsserFacade::createCursoRepository();
+    require '..\repositorio\models\Curso.php';
+    require '..\repositorio\facade\EventosAsserFacade.php';
+    $cursoRepository = EventosAsserFacade::createCursoRepository();
 
 
-header('Content-Type: text/html; charset=UTF-8');
+    header('Content-Type: text/html; charset=UTF-8');
 
 ?>
 
