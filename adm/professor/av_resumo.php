@@ -128,7 +128,7 @@
 					</select>
                 </div>
 					
-			     <input type="hidden" name="id" value="<?php echo $id; ?>" />			
+			     <input type="hidden" name="id" value="<?php echo $idTrabalho; ?>" />
                 	
 				<div button type="button" class="btn btn-default" aria-label="Left Align">
 				   <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar" value="Enviar" />

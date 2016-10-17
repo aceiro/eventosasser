@@ -17,12 +17,12 @@
 			}
 		}
 		//remoção de resumo conforme pedido do aluno
-		public removeResumo($id){
+		public removeResumo($idTrabalho){
 			try{
 				$pdo = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);
 				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
-				$sql = "DELETE FROM eventos WHERE id='$id'";
+				$sql = "DELETE FROM eventos WHERE id='$idTrabalho'";
 				$pdo->query($sql);
 				
 			}catch(PDOException $e){
