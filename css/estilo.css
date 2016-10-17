@@ -311,7 +311,27 @@ fieldset input {
 	color: #fff;
     background-color: #286090;
     border-color: #204d74;
-}  
+}
+
+
+.button-find{
+	font-size: small
+	height: 25px;
+	float: right;
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #2e6da4;
+	margin: 0px;
+}
+
+.button-find:hover {
+	color: #fff;
+	background-color: #286090;
+	border-color: #204d74;
+}
+
+
+
 
 label.error{
 	float: none;
@@ -394,6 +414,12 @@ hr.fancy-line, hr.fancy-line:before {
 	 border-radius: 40px 40px 40px 2px;
 	 margin-left: 55%;
 
+}
+
+.select-tiporesumo{
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
 }
 
 
@@ -484,7 +510,7 @@ blockquote p {
 /* CSS cad_resumo */
 tbody div{
     overflow-y:scroll;
-    height:200px;
+    height:220px;
 }
 
 th, td {
