@@ -15,3 +15,11 @@
     define('SESSION_KEY_EMAIL',     'email');
     define('SESSION_KEY_NOME',      'nome');
     define('SESSION_KEY_SENHA',     'senha');
+    define('SESSION_MESSAGE_ERROR', 'message_error');
+    define('SESSION_ERROR_CODE',    'error_code');
+
+    //
+    // Constantes usadas para tratamento de log
+
+    define('ERROR_CODE_EMAIL_EXISTING', 500);
+    define('ERROR_CODE_GENERAL',        501);

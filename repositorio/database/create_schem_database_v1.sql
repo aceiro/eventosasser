@@ -138,3 +138,13 @@ create table `inscricao`(
     FOREIGN KEY (`id_participante`) REFERENCES `participante` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+CREATE TABLE `log` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(5000) NOT NULL,
+  `id_participante` int,
+  `email` varchar(5000),
+  `data_log` date,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+

@@ -3,7 +3,6 @@
     require '..\repositorio\facade\EventosAsserFacade.php';
     $cursoRepository = EventosAsserFacade::createCursoRepository();
 
-
     header('Content-Type: text/html; charset=UTF-8');
 
 ?>
@@ -26,12 +25,13 @@
     <script src="../scripts/asser-main-menu.js"></script>
     <script src="../scripts/asser-commum.js"></script>
     <script>
+
         $(function() {
+            document.getElementById("resenha-error").style.display = 'none';
             $("#register-form").validate({
                 rules: {
                     nome: "required",
                     curso: "required",
-                    tipo: "required",
                     email: {
                         required: true,
                         email: true
@@ -39,33 +39,42 @@
                     senha: {
                         required: true,
                         minlength: 5
+                    },
+                    resenha: {
+                        required: true,
+                        minlength: 5
                     }
                 },
                 messages: {
-                    nome: "Escreva o seu nome completo",
-                    email: "Escreva seu endereço de email corretamente",
-                    tipo: "Escolha um tipo de participação",
+                    nome: "Nome requerido",
+                    email: "E-mail requerido",
                     senha: {
-                        required: "Por favor, digite uma senha",
-                        minlength: "Sua senha deve ter mais de 5 caracteres"
+                        required: "Senha requerida",
+                        minlength: "A senha deve ter mais de 5 caracteres"
                     },
                     resenha: {
-                        required: "Por favor, digite uma senha",
-                        minlength: "Sua senha deve ter mais de 5 caracteres"
+                        required: "Confirmação de senha requerida",
+                        minlength: "A senha deve ter mais de 5 caracteres"
                     }
                 },
 
                 submitHandler: function(form) {
-                    senha = document.getElementById('senha');
+
+                    senha         = document.getElementById('senha');
                     senhaRepetida = document.getElementById('resenha');
-                    if (senha != senhaRepetida){
-                        alert("Repita a senha corretamente");
+                    if (senha.value != senhaRepetida.value){
                         document.getElementById('resenha').focus();
+                        document.getElementById("resenha-error").style.display = 'block';
                         return false;
-                        form.submit();
                     }
-                });
+                    form.submit();
+                }
+            });
+
         });
+
+
+
     </script>
 </head>
 <body>
@@ -114,24 +123,25 @@
 
                 <div>
                     <label>Senha:</label>
-                    <input type="password" id="senha" name="senha" size="50" maxlength="8" />
+                    <input type="password" id="senha" name="senha" size="50" />
                 </div>
 
                 <div>
                     <label>Confirme sua Senha:</label>
-                    <input type="password" id="resenha" name="resenha" size="50" maxlength="8" />
+                    <input type="password" id="resenha" name="resenha" size="50" />
+                    <label id="resenha-error" for="resenha" class="error">As senhas não conferem</label>
                 </div>
 
                 <div>
                     <label>Curso:</label>
                     <select id="curso" name="curso">
                         <?php
-                        $str = "";
+                            $str = "";
 
-                        foreach($cursoRepository->findAll() as $row) {
-                            $str .= "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
-                        }
-                        echo $str;
+                            foreach($cursoRepository->findAll() as $row) {
+                                $str .= "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+                            }
+                            echo $str;
                         ?>
                     </select>
                 </div>

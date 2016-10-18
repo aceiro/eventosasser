@@ -1,4 +1,6 @@
 <?php
+
+
     require_once("../constants/AsserEventosConstants.php");
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
@@ -100,7 +102,8 @@
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="register-form"
                       name="register-form" method="post"
-                      novalidate="novalidate">
+                      novalidate="novalidate"
+                      action="../inscricao/confirma_pagamento_controller.php">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/payment.png" height="70px" width="70px"></div>

@@ -393,8 +393,31 @@ hr.fancy-line, hr.fancy-line:before {
 	 font-size: 18px;
 	 text-align: center;
 	 color: rgba(214, 6, 6, 0.9);
-	 border-color: rgba(0, 0, 0, 0.65);
-     border-style: dashed;
+	border: dashed rgba(0, 0, 0, 0.65);
+}
+
+.message-payment-detail{
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	color: #336799;
+}
+
+.message-payment-detail-alert{
+	font-weight: bold;
+	font-size: 16px;
+	text-align: left;
+	color: rgba(214, 6, 6, 0.9);
+}
+
+.message-payment-success{
+	padding: 10px;
+	margin: 30px 100px 30px 100px;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: left;
+	color: #336799;
+	border: dashed rgba(0, 0, 0, 0.65);
 }
 
 .input-resumo{

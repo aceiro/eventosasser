@@ -50,6 +50,8 @@ class Database{
 
     public function getAllBySql($sql, $bindings = array())
     {
+
+
         return R::getAll($sql, $bindings);
     }
 
