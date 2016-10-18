@@ -92,12 +92,12 @@
                 <table id="table-hover">
 					<caption><strong>Lista de Resumos submetidos </strong><br>
 					</caption>
-					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th>
+					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th>OPERAÇÕES</th>
 					<?php
 
 						require_once '../constants/AsserEventosConstants.php';
 						$email  = $session->get(SESSION_KEY_EMAIL);
-						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td></tr>';
+						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{OPERACOES}</td></tr>';
 
 						foreach ($trabalhoRepository->findAllTrabalhosByEmail($email) as $row) {
 							$status = $row['status'];
@@ -127,13 +127,15 @@
 								}
 							}
 
+							$operacoes = "<a href='#'> <span title='Remover' class=\"glyphicon glyphicon-remove\"/> </a> &nbsp; &nbsp; <a href='#'> <span title='Editar' class=\"glyphicon glyphicon-edit\"/></a>";
 
 
 							$strRowId 	  = str_replace("{ID}", $row['id'], $strRow);
 							$strRowTitulo = str_replace("{TITULO}", $row['titulo'], $strRowId);
 							$strRowCurso  = str_replace("{CURSO}",  $row['curso'],  $strRowTitulo);
 							$strRowStatus = str_replace("{STATUS}", $result,  		$strRowCurso);
-							echo $strRowStatus;
+							$strRowOp	  = str_replace("{OPERACOES}", $operacoes,  $strRowStatus);
+							echo $strRowOp;
 						}
 					?>
 				</table>
