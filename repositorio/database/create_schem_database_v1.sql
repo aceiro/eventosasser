@@ -85,6 +85,9 @@ create table `trabalho`(
     FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+ALTER TABLE `eventosasser_v2`.`trabalho` 
+ADD COLUMN `removido` TINYINT(1) NULL AFTER `id_tipo_atividade`;
+
 
 CREATE TABLE `participante`(
 	`id` int NOT NULL AUTO_INCREMENT,
