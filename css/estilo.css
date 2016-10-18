@@ -37,6 +37,7 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #44443D;
+	margin-top: -20px;
 	margin-right: 1px;
 	margin-left: 1px;
 	line-height:1.5;
@@ -403,6 +404,20 @@ hr.fancy-line, hr.fancy-line:before {
 	 color: rgba(214, 6, 6, 0.9);
 }
 
+.info-resumo-email {
+
+	font-size: 12px;
+	text-align: center;
+	width: 30%;
+	background-color: rgba(26, 165, 26, 0.5);
+	border: 1px dashed red ;
+	color: white;
+	border-radius: 40px 40px 40px 2px;
+	margin-left: 15%;
+
+}
+
+
 .info-resumo {
 
 	 font-size: 12px;
@@ -536,7 +551,7 @@ table, th, td {
 	font-size: 12px;
 }
 #table-author-name{
-	width: 15em;	
+	width: 55em;
 	font-size: 12px;
 }
 #table-author-email {
@@ -623,28 +638,39 @@ table, th, td {
 }
 
 .welcome-login {
-	text-align: right;
+	text-align: left;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: small;
 	font-weight: bold;
 	color: rgb(194, 0, 22);
 	padding-top: 10px;
+	padding-left: 10px;
 }
 
 
-.logout-class{
+.small-button-class {
 	border-radius: 3px;
 	float: right;
-	margin: 18px 0px -7px -25px;
+	/* margin: 18px 0px -7px -25px; */
 	padding: 3px;
 	border: 1px solid #336799;
 	color: #336799;
 	font-size: 11px;
 }
 
-#logout-action:hover{
+#small-button-class:hover{
 	font-size: 11px;
 	border: 1px solid #336799;
 	cursor: pointer;
 	background-color: rgba(40, 96, 144, 0.09);
+}
+
+.disable-resumo-inputs{
+	background-color: transparent;
+	color: #333;
+}
+
+.disable-resumo-inputs-effect{
+	background-color: rgb(250, 255, 189);
+	color: #333;
 }

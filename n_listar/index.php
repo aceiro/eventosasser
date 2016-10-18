@@ -82,10 +82,13 @@
 		<div id="mmenubar"> &nbsp;</div>
 		<div id="mmenusubbar"> &nbsp;</div>
 		<div id="mmenusubsubbar"> &nbsp;</div>
+
+		<br />
+		<span id="small-button-class" class="small-button-class" onclick="javascript:location.href='../cad_usuario/perfil.php'"> voltar </span>
 		<br />   
         
         <div id="listar-coteudo">
-		<p align="center"><a href="../cad_usuario/perfil.php">Voltar</a></p>
+
                 <table id="table-hover">
 					<caption><strong>Lista de Resumos submetidos </strong><br>
 					</caption>
@@ -134,9 +137,7 @@
 						}
 					?>
 				</table>
-				<br />
-                <p align="center"><a href="../cad_usuario/perfil.php">Voltar</a></p>
-				<br />	
+
         </div>
         
         <br />

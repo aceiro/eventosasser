@@ -22,48 +22,7 @@
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../scripts/asser-main-menu.js"></script>
     <script src="../scripts/asser-commum.js"></script>
-    <script>
-        $(function() {
-            $("#register-form").validate({
-                rules: {
-                    nome: "required",
-                    curso: "required",
-                    tipo: "required",
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 5
-                    }
-                },
-                messages: {
-                    nome: "Escreva o seu nome completo",
-                    email: "Escreva seu endere�o de email corretamente",
-                    tipo: "Escolha um tipo de participa��o",
-                    senha: {
-                        required: "Por favor, digite uma senha",
-                        minlength: "Sua senha deve ter mais de 5 caracteres"
-                    },
-                    resenha: {
-                        required: "Por favor, digite uma senha",
-                        minlength: "Sua senha deve ter mais de 5 caracteres"
-                    }
-                },
 
-                submitHandler: function(form) {
-                    senha = document.getElementById('senha');
-                    senhaRepetida = document.getElementById('resenha');
-                    if (senha != senhaRepetida){
-                        alert("Repita a senha corretamente");
-                        document.getElementById('resenha').focus();
-                        return false;
-                        form.submit();
-                    }
-                });
-        });
-    </script>
 </head>
 <body>
 <div id="corpo">
@@ -89,16 +48,15 @@
     <div id="mmenusubbar"> &nbsp;</div>
     <div id="mmenusubsubbar"> &nbsp;</div>
     <div class="welcome-login">
-
         <?php echo "Bem vindo, " . explode(" ", $session->get(SESSION_KEY_NOME))[0] . " !" ;?>
-        <span id="logout-action" class="logout-class" onclick="javascript:location.href='logout.php'"> sair </span>
+        <span id="small-button-class" class="small-button-class" onclick="javascript:location.href='logout.php'"> Efetuar logoff </span>
     </div>
-    <div style="padding: 50px; margin-bottom: 50px; height: 100px;">
+    <div style="padding: 50px; margin-bottom: 50px; height: 300px;">
         <div style="height: 150px; width: 33%; float: left;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="register-form"
                       name="register-form" method="post"
-                      action="cad_resumo.php"  novalidate="novalidate">
+                      action="cadastro_resumo.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/articles.png" height="70px" width="70px"></div>
@@ -126,21 +84,38 @@
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="register-form"
                       name="register-form" method="post"
-                       novalidate="novalidate"> <!-- action="../palestra/atividades.php" -->
+                      novalidate="novalidate"> <!-- action="../palestra/atividades.php" -->
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/interview_icon.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Increver-se em Atividade" />
+                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Inscrição em Atividades" />
                         </div>
                     </div>
                 </form>
             </fieldset>
         </div>
+
+        <div style="height: 150px;width: 33%;float: left;padding-top: 40px;">
+            <fieldset style="background-color: #e6EEEE; width: 80%">
+                <form id="register-form"
+                      name="register-form" method="post"
+                      novalidate="novalidate">
+                    <div class="text-align-center">
+                        <br/>
+                        <div><img src="../imagens/payment.png" height="70px" width="70px"></div>
+                        <div class="text-align-center">
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Status do Pagamento" />
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+
     </div>
 
     <div id="rodape">
-        <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 � 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informa��o </a> </p>
+        <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
     </div>
 </div>
 </body>

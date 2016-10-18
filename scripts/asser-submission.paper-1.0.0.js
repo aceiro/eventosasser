@@ -67,8 +67,8 @@ ASSER.submission =  {
 
 			var row  = authorsTable.insertRow( numberOfRows );
 			var cellAuthorId 	= row.insertCell(0);
-			var cellAuthorName  = row.insertCell(1);
-			var cellAuthorEmail = row.insertCell(2);
+			var cellAuthorEmail = row.insertCell(1);
+			var cellAuthorName  = row.insertCell(2);
 			var cellAuthorButton= row.insertCell(3);
 
 

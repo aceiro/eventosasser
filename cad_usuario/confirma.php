@@ -63,16 +63,15 @@
 				<br />
 				
 				<p id="effect" class="ui-corner-all">Agora você deve acompanhar o andamento da avaliação do seu resumo.</p>
-				<p id="effect" class="ui-corner-all">Caso seu resumo seja aprovado (com <strong>Status</strong> de <strong>aprovado</strong>), recolha taxa de R$ 20,00 na secretaria da faculdade.</p>
 
-				<div class="rotulo-resumo"><strong>Salve e imprima os dados de acesso para acompanhar o <strong>Status</strong> do seu resumo</strong></div>
+				<div class="rotulo-resumo"><strong>Salve e imprima os dados de acesso para acompanhar o <strong>status</strong> do seu resumo</strong></div>
 				<div class="deail-final-resumo">
 					E-mail cadastrado <strong><?php echo $session->get(SESSION_KEY_EMAIL); ?></strong> <br />
 				</div>
 
 			</fieldset>
 			<div class="text-align-center">
-              		<button class="button button-center" onclick="javascript:location.href='../'" />  Voltar </button>
+              		<button class="button button-center" onclick="javascript:location.href='perfil.php'" />  Voltar </button>
               		<button class="button button-center"  onclick="javascript:location.href='../n_listar'" /> Verificar Resumo </button>
              </div>
 		</div>
