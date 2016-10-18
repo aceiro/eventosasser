@@ -29,7 +29,7 @@
     <div id='cssmenu'>
         <ul>
             <li><a href='../index.html'>Evento</a></li>
-            <li class='active'><a href='../index.html'>Inscrição no evento</a></li>
+            <li class='active'><a href='#'>Inscrição no evento</a></li>
             <li><a href='../programa.html'>Programação</a></li>
             <li> <a href='../anais'>Edições<br>Anteriores</a></li>
             <li><a href='../contato'>Contato</a></li>

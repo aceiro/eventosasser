@@ -1,6 +1,20 @@
 <?php
 
 require_once 'interfaces\GenericRepository.php';
+define("RETORNA_TRABALHOS_EMAIL",'SELECT   t.id as id,
+                                           p.nome as nome,
+                                           p.email as email,
+                                           c.nome as curso,
+                                           t.titulo as titulo,
+                                           t.status_r as status
+                                    FROM participante p,
+                                         curso c,
+                                         trabalho t,
+                                         participantextrabalho pxt
+                                    WHERE p.email = :email
+                                      AND p.id_curso = c.id
+                                      AND t.id = pxt.id_trabalho
+                                      AND p.id = pxt.id_participante');
 
 class TrabalhoRepository implements GenericRepository{
     protected $db;
@@ -75,5 +89,10 @@ class TrabalhoRepository implements GenericRepository{
     public function findAll()
     {
         return $this->db->findAll('trabalho');
+    }
+
+    public function findAllTrabalhosByEmail($email)
+    {
+        return $this->findAllBySql(RETORNA_TRABALHOS_EMAIL, [':email' => $email] );
     }
 }

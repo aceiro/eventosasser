@@ -1,4 +1,5 @@
 <?php
+    require_once("../constants/AsserEventosConstants.php");
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
     header('Content-Type: text/html; charset=UTF-8');
@@ -87,7 +88,11 @@
     <div id="mmenubar"> &nbsp;</div>
     <div id="mmenusubbar"> &nbsp;</div>
     <div id="mmenusubsubbar"> &nbsp;</div>
-    <div style="text-align: right"><?php echo "Olá " . $session->get('nome');?></div>
+    <div class="welcome-login">
+
+        <?php echo "Bem vindo, " . explode(" ", $session->get(SESSION_KEY_NOME))[0] . " !" ;?>
+        <span id="logout-action" class="logout-class" onclick="javascript:location.href='logout.php'"> sair </span>
+    </div>
     <div style="padding: 50px; margin-bottom: 50px; height: 100px;">
         <div style="height: 150px; width: 33%; float: left;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
@@ -106,7 +111,7 @@
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="register-form"
                       name="register-form" method="post"
-                      action="listagem_resumos_autor.php"  novalidate="novalidate">
+                      action="../n_listar/index.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/clipboard-list-flat.png" height="70px" width="70px"></div>
@@ -121,10 +126,10 @@
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="register-form"
                       name="register-form" method="post"
-                      action="../palestra/atividades.php"  novalidate="novalidate">
+                       novalidate="novalidate"> <!-- action="../palestra/atividades.php" -->
                     <div class="text-align-center">
                         <br/>
-                        <div><img src="../imagens/assistir_atividade.jpg" height="70px" width="70px"></div>
+                        <div><img src="../imagens/interview_icon.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
                             <input class="button button-center" name="resumo" type="submit" id="resumo" value="Increver-se em Atividade" />
                         </div>

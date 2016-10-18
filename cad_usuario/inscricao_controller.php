@@ -1,5 +1,7 @@
 <?php
+    require_once("../constants/AsserEventosConstants.php");
     require_once("../cfg/Session.php");
+
     $session = new Session("EventosAsser2016");
     require_once '..\repositorio\models\Curso.php';
     require_once '..\repositorio\models\Participante.php';
@@ -13,10 +15,10 @@
     $senha   = addslashes($_POST['senha']);
     $idCurso = $_POST['curso'];
 
-    $session->set('nome',$nome);
-    $session->set('email',$email);
-    $session->set('senha',$senha);
-    $session->set('idCurso',$idCurso);
+    $session->set(SESSION_KEY_NOME,$nome);
+    $session->set(SESSION_KEY_EMAIL,$email);
+    $session->set(SESSION_KEY_SENHA,$senha);
+    $session->set(SESSION_KEY_ID_CURSO,$idCurso);
 
 
     $participante = new Participante(null, $nome, $email, $senha, $idCurso);

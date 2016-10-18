@@ -96,6 +96,11 @@ CREATE TABLE `participante`(
     FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+ALTER TABLE `eventosasser_v2`.`participante` 
+ADD UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+ADD UNIQUE INDEX `id_UNIQUE` (`id` ASC);
+
+
 CREATE TABLE `participantextrabalho`(
 	`id` int NOT NULL AUTO_INCREMENT,
     `id_participante` int,

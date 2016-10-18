@@ -1,14 +1,15 @@
 <?php
 
+    require_once("../constants/AsserEventosConstants.php");
 	require_once("../cfg/Session.php");
 	$session = new Session("EventosAsser2016");
 	header("Content-Type: text/html; charset=UTF-8", true);
     $titulo          = strtoupper(addslashes($_POST['titulo']));
     $resumo          = addslashes($_POST['texto']);
     $keyword         = addslashes($_POST['keyword']);
-    $statusR         = 1;
+    $statusR         = RESUMO_STATUS_ENVIADO;
     $comentarios     = 'Professor avaliador, por favor anote as alterações para o autor aqui.';
-    $idCurso         = $session->get('idCurso');
+    $idCurso         = $session->get(SESSION_KEY_ID_CURSO);
     $idTipoAtividade = $_POST['tipo'];
     $idEvento        = 1;
 

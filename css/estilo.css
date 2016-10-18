@@ -621,3 +621,30 @@ table, th, td {
 	width: 100%;
 
 }
+
+.welcome-login {
+	text-align: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: bold;
+	color: rgb(194, 0, 22);
+	padding-top: 10px;
+}
+
+
+.logout-class{
+	border-radius: 3px;
+	float: right;
+	margin: 18px 0px -7px -25px;
+	padding: 3px;
+	border: 1px solid #336799;
+	color: #336799;
+	font-size: 11px;
+}
+
+#logout-action:hover{
+	font-size: 11px;
+	border: 1px solid #336799;
+	cursor: pointer;
+	background-color: rgba(40, 96, 144, 0.09);
+}

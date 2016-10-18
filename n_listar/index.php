@@ -85,35 +85,37 @@
 		<br />   
         
         <div id="listar-coteudo">
-		<p align="center"><a href="../">Voltar</a></p>
+		<p align="center"><a href="../cad_usuario/perfil.php">Voltar</a></p>
                 <table id="table-hover">
 					<caption><strong>Lista de Resumos submetidos </strong><br>
 					</caption>
-					<th>ID</th><th>TÍTULO</th><th>AUTOR</th><th>CURSO</th><th>STATUS</th>
+					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th>
 					<?php
-						require_once '../constants/AsserEventosConstants.php';
-						$email = $session->get('email');
 
-						foreach ($trabalhoRepository->findAll() as $row) {
-							$status = $row['statusR'];
+						require_once '../constants/AsserEventosConstants.php';
+						$email  = $session->get(SESSION_KEY_EMAIL);
+						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td></tr>';
+
+						foreach ($trabalhoRepository->findAllTrabalhosByEmail($email) as $row) {
+							$status = $row['status'];
 							switch($status){
-								case ENVIADO:{
+								case RESUMO_STATUS_ENVIADO:{
 									$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
 									break;
 								}
-								case APROVADO:{
+								case RESUMO_STATUS_APROVADO:{
 									$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
 									break;
 								}
-								case REENVIAR:{
+								case RESUMO_STATUS_REENVIAR:{
 									$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
 									break;
 								}
-								case REPROVADO:{
+								case RESUMO_STATUS_REPROVADO:{
 									$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
 									break;
 								}
-								case CORRIGIDO:{
+								case RESUMO_STATUS_CORRIGIDO:{
 									$result="<span class=\" glyphicon glyphicon glyphicon-pencil\"></span><br/>Corrigido";
 									break;
 								}
@@ -124,20 +126,16 @@
 
 
 
-							$rowBuildId 	  = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
-                            $rowBuildTitle    = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
-                            $sql = 'SELECT nome FROM participante WHERE id_trabalho = :idtrabalho AND autor_principal = 1;';
-                            foreach($participanteRepository->findAllBySql($sql, [':idtrabalho'=>$rowBuildId]) as $aluno);
-                            $rowBuildAutor    = str_replace("{AUTOR}", $aluno['nome'], $rowBuildTitle);
-                            foreach($cursoRepository->findOne($row['idCurso']) as $nomeCurso);
-							$rowBuildCourse   = str_replace("{CURSO}", $nomeCurso, $rowBuildAutor);
-							$rowBuildStatus   = str_replace("{STATUS}", $result, $rowBuildCourse);
-							echo $rowBuildStatus;
+							$strRowId 	  = str_replace("{ID}", $row['id'], $strRow);
+							$strRowTitulo = str_replace("{TITULO}", $row['titulo'], $strRowId);
+							$strRowCurso  = str_replace("{CURSO}",  $row['curso'],  $strRowTitulo);
+							$strRowStatus = str_replace("{STATUS}", $result,  		$strRowCurso);
+							echo $strRowStatus;
 						}
 					?>
 				</table>
 				<br />
-                <p align="center"><a href="../">Voltar</a></p>
+                <p align="center"><a href="../cad_usuario/perfil.php">Voltar</a></p>
 				<br />	
         </div>
         
