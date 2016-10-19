@@ -77,6 +77,10 @@ class ParticipanteTrabalhoRepository implements GenericRepository{
     {
         return $this->db->findAll('participantextrabalho');
     }
+    public function updateStatusRemovidoById($id)
+    {
+        throw new Exception('Not implemented yet!');
+    }
 
 
 }

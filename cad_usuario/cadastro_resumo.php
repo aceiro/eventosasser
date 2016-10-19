@@ -25,6 +25,7 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="../scripts/notify.min.js"></script>
 
 	<script src="../scripts/asser-main-menu.js"></script>
 	<script src="../scripts/asser-commum.js"></script>
@@ -76,6 +77,9 @@
 
 						$(buildHashAutorFieldById(id)).addClass('disable-resumo-inputs-effect');
 						$(buildHashEmailFieldById(id)).addClass('disable-resumo-inputs-effect');
+
+						$.notify("Autor incluído com sucesso!", "success");
+
 						return false;
 					}else{
 						foundId 	= false;
@@ -86,7 +90,7 @@
 				if(!foundId){
 					console.log('Não foi encontrado o email no banco de dados!');
 					console.log('Email -> ' + emailField.value);
-					alert('Não foi encontrado o email no banco de dados!')
+					$.notify("Não foi encontrado o email no banco de dados!", "warn");
 				}
 
 		}

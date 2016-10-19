@@ -5,6 +5,7 @@ require_once '..\repositorio\ParticipanteRepository.php';
 require_once '..\repositorio\ParticipanteTrabalhoRepository.php';
 require_once '..\repositorio\InscricaoRepository.php';
 require_once '..\repositorio\LogRepository.php';
+require_once '..\repositorio\TrabalhoRepository.php';
 require_once '..\repositorio\facade\Database.php';
 
 class EventosAsserFacade

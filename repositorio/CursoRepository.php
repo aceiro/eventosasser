@@ -61,4 +61,8 @@ class CursoRepository implements GenericRepository{
     {
         return $this->db->findAll('curso');
     }
+    public function updateStatusRemovidoById($id)
+    {
+        throw new Exception('Not implemented yet!');
+    }
 }

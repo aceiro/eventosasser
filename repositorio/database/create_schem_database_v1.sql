@@ -86,7 +86,7 @@ create table `trabalho`(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `eventosasser_v2`.`trabalho` 
-ADD COLUMN `removido` TINYINT(1) NULL AFTER `id_tipo_atividade`;
+ADD COLUMN `status_atualizacao` varchar(1) NULL AFTER `id_tipo_atividade`;
 
 
 CREATE TABLE `participante`(

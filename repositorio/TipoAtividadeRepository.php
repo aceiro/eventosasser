@@ -59,4 +59,8 @@ class TipoAtividadeRepository implements GenericRepository{
     {
         return $this->db->findAll('tipoatividade');
     }
+    public function updateStatusRemovidoById($id)
+    {
+        throw new Exception('Not implemented yet!');
+    }
 }

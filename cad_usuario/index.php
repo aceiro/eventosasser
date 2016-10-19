@@ -48,7 +48,7 @@
             <fieldset style="width: 80%;padding-top: 5px;border-top-width: 0.8;margin-top: 10px;height: 150px;">
                 <form id="register-form"
                       name="register-form" method="post"
-                      action="novo.php"  novalidate="novalidate">
+                      action="novo_participante.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/user-icon-01.png" height="70px" width="70px"></div>

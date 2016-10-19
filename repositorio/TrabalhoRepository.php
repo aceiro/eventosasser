@@ -14,7 +14,8 @@ define("RETORNA_TRABALHOS_EMAIL",'SELECT   t.id as id,
                                     WHERE p.email = :email
                                       AND p.id_curso = c.id
                                       AND t.id = pxt.id_trabalho
-                                      AND p.id = pxt.id_participante');
+                                      AND p.id = pxt.id_participante
+                                      AND t.status_atualizacao <> \'D\' ');
 
 class TrabalhoRepository implements GenericRepository{
     protected $db;
@@ -49,6 +50,7 @@ class TrabalhoRepository implements GenericRepository{
             $trabalho->idCurso = $dto->idCurso;
             $trabalho->idTipoAtividade = $dto->idTipoAtividade;
             $trabalho->idEvento = $dto->idEvento;
+            $trabalho->status_atualizacao = $dto->statusAtualizacao;
 
 
             // save the dto
@@ -80,7 +82,7 @@ class TrabalhoRepository implements GenericRepository{
             $trabalho->idCurso = $dto->idCurso;
             $trabalho->idTipoAtividade = $dto->idTipoAtividade;
             $trabalho->idEvento = $dto->idEvento;
-
+            $trabalho->status_atualizacao = $dto->statusAtualizacao;
             return  $this->db->save($trabalho);
         }
 
@@ -94,5 +96,13 @@ class TrabalhoRepository implements GenericRepository{
     public function findAllTrabalhosByEmail($email)
     {
         return $this->findAllBySql(RETORNA_TRABALHOS_EMAIL, [':email' => $email] );
+    }
+
+    public function updateStatusRemovidoById($id)
+    {
+        $trabalho = $this->findOne($id);
+        $trabalho->status_atualizacao = 'D';
+        return $this->db->save($trabalho);
+
     }
 }

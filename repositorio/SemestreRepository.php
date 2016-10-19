@@ -60,4 +60,8 @@ class SemestreRepository implements GenericRepository{
     {
         return $this->db->findAll('semestre');
     }
+    public function updateStatusRemovidoById($id)
+    {
+        throw new Exception('Not implemented yet!');
+    }
 }

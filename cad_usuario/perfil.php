@@ -1,10 +1,11 @@
 <?php
 
+    header('Content-Type: text/html; charset=UTF-8');
 
     require_once("../constants/AsserEventosConstants.php");
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
-    header('Content-Type: text/html; charset=UTF-8');
+
 ?>
 
 <!DOCTYPE html >
@@ -24,6 +25,23 @@
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../scripts/asser-main-menu.js"></script>
     <script src="../scripts/asser-commum.js"></script>
+    <script src="../scripts/notify.min.js"></script>
+
+
+    <script type="application/javascript">
+        $(document).ready(function(){
+
+            $("#cadastro-resumo-button").notify(
+                "Clique aqui para enviar o seu resumo como autor principal. \n Inclua também outros autores",
+                { position:"right top",
+                  className:"success",
+                   showDuration: 500
+                }
+
+            )
+        });
+
+    </script>
 
 </head>
 <body>
@@ -54,23 +72,23 @@
         <span id="small-button-class" class="small-button-class" onclick="javascript:location.href='logout.php'"> Efetuar logoff </span>
     </div>
     <div style="padding: 50px; margin-bottom: 50px; height: 300px;">
-        <div style="height: 150px; width: 33%; float: left;">
+        <div id="cadastro_resumo" style="height: 150px; width: 33%; float: left;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
-                <form id="register-form"
-                      name="register-form" method="post"
+                <form id="cadastro-resumo"
+                      name="cadastro-resumo" method="post"
                       action="cadastro_resumo.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/articles.png" height="70px" width="70px"></div>
-                        <input class="button button-center" name="resumo" type="submit" id="resumo" value="Cadastrar Resumo" />
+                        <input class="button button-center" name="resumo" type="submit" id="cadastro-resumo-button" value="Cadastrar Resumo" />
                     </div>
                 </form>
             </fieldset>
         </div>
         <div style="height: 150px; width: 33%; float: left;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
-                <form id="register-form"
-                      name="register-form" method="post"
+                <form id="lista-resumos"
+                      name="lista-resumos" method="post"
                       action="../n_listar/index.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
@@ -100,8 +118,8 @@
 
         <div style="height: 150px;width: 33%;float: left;padding-top: 40px;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
-                <form id="register-form"
-                      name="register-form" method="post"
+                <form id="confirma_pagamento"
+                      name="confirma_pagamento" method="post"
                       novalidate="novalidate"
                       action="../inscricao/confirma_pagamento_controller.php">
                     <div class="text-align-center">

@@ -70,4 +70,8 @@ class LogRepository implements GenericRepository{
     {
         return $this->db->findAll('log');
     }
+    public function updateStatusRemovidoById($id)
+    {
+        throw new Exception('Not implemented yet!');
+    }
 }

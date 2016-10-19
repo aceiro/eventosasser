@@ -100,4 +100,8 @@ class InscricaoRepository implements GenericRepository{
             return $inscricaoDetalhe[0];
         else return null;
     }
+    public function updateStatusRemovidoById($id)
+    {
+        throw new Exception('Not implemented yet!');
+    }
 }

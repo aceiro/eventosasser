@@ -143,4 +143,8 @@ class ParticipanteRepository implements GenericRepository{
     }
 
 
+    public function updateStatusRemovidoById($id)
+    {
+        throw new Exception('Not implemented yet!');
+    }
 }

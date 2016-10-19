@@ -34,6 +34,11 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+	<script src="../scripts/notify.min.js"></script>
+
 
 
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -47,16 +52,71 @@
 
 	<script src="../scripts/asser-main-menu.js"></script>
 	<script src="../scripts/asser-list-student.paper-1.0.0.js"></script>
+
+	<style type="text/css">
+
+		.ui-dialog-titlebar-close {
+			background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+			border: medium none;
+		}
+		.ui-dialog-titlebar-close:hover {
+			background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_222222_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+		}
+
+	</style>
+
+
 	<script type="application/javascript">
 		$(document).ready(function() {
 			var alp = ASSER.liststudentpaper;
 				alp.init();
         	}
 		);
+
+		$(document).ready(function() {
+			$('table tbody tr td .remove-icon-class').click(function() {
+				var spanId 			= $(this).prop('id');
+				var abstractId		= spanId.split(":")[1];
+
+				$( "#dialog-confirm" ).dialog({
+					resizable: false,
+					height: "auto",
+					width: 400,
+					modal: true,
+					buttons: {
+						"Remover resumo": function() {
+							$.get( "../cad_usuario/lista_resumo_controller.php",
+								   { t: "r", id: abstractId })
+							.done(function(data){
+								var json = jQuery.parseJSON(data);
+								if(json.status === 100) {
+										$.notify("Resumo removido com sucesso!", "success");
+										setTimeout( function(){window.location = window.location.href} , 500);
+								}
+								else if(json.status === 200){
+										$.notify("Problemas ao remover o resumo!");
+								}else
+										$.notify('Erro inesperado!');
+							});
+							$( this ).dialog( "close" );
+						},
+						"Cancelar": function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				});
+			});
+		});
+
+
 	</script>
 </head>
 
 <body>
+	<div style="display: none;" id="dialog-confirm" title="Confirmação">
+		<p style="margin-top: 15px "><span class="ui-icon ui-icon-alert" style="float:left; margin: 0 15px 25px 0;"></span>Deseja realmente remover esse resumo ? </p>
+	</div>
+
 	<div id="corpo">
     	
 		<div id="cabecalho">
@@ -77,6 +137,7 @@
 			</ul>
 	 	</div>
 
+
 		<!-- adiciona o suporte ao separador gradiente -->
 		<div id="mmenu"> &nbsp;</div>
 		<div id="mmenubar"> &nbsp;</div>
@@ -90,36 +151,36 @@
         <div id="listar-coteudo">
 
                 <table id="table-hover">
-					<caption><strong>Lista de Resumos submetidos </strong><br>
+					<caption><strong>Lista de Resumos Submetidos </strong><br>
 					</caption>
-					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th>OPERAÇÕES</th>
+					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th colspan="2">OPERAÇÕES</th></th>
 					<?php
 
 						require_once '../constants/AsserEventosConstants.php';
 						$email  = $session->get(SESSION_KEY_EMAIL);
-						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{OPERACOES}</td></tr>';
+						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{REMOVER}</td><td>{EDITAR}</td></tr>';
 
 						foreach ($trabalhoRepository->findAllTrabalhosByEmail($email) as $row) {
 							$status = $row['status'];
 							switch($status){
 								case RESUMO_STATUS_ENVIADO:{
-									$result="<span class=\"glyphicon glyphicon-list-alt\"></span><br/> Enviado";
+									$result="<span class='glyphicon glyphicon-list-alt'></span><br/> Enviado";
 									break;
 								}
 								case RESUMO_STATUS_APROVADO:{
-									$result="<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
+									$result="<span class='glyphicon glyphicon-ok-circle'></span><br/>Aprovado";
 									break;
 								}
 								case RESUMO_STATUS_REENVIAR:{
-									$result="<span class=\" glyphicon glyphicon-ban-circle\"></span><br/>Re-enviar";
+									$result="<span class='glyphicon glyphicon-ban-circle'></span><br/>Re-enviar";
 									break;
 								}
 								case RESUMO_STATUS_REPROVADO:{
-									$result="<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
+									$result="<span class='glyphicon glyphicon-remove-circle'></span><br/>Reprovado";
 									break;
 								}
 								case RESUMO_STATUS_CORRIGIDO:{
-									$result="<span class=\" glyphicon glyphicon glyphicon-pencil\"></span><br/>Corrigido";
+									$result="<span class='glyphicon glyphicon-pencil'></span><br/>Corrigido";
 									break;
 								}
 								default:{
@@ -127,15 +188,17 @@
 								}
 							}
 
-							$operacoes = "<a href='#'> <span title='Remover' class=\"glyphicon glyphicon-remove\"/> </a> &nbsp; &nbsp; <a href='#'> <span title='Editar' class=\"glyphicon glyphicon-edit\"/></a>";
+							$id 	 = $row['id'];
+							$remover = "<span class='remove-icon-class' id=\"rs:$id\"> <span id=\"r:$id\" title='Remover' class='glyphicon glyphicon-remove' style='cursor:pointer'/>  </span> ";
+							$editar  = "<span class='edit-icon-class' id=\"es:$id\">   <span id=\"e:$id\" title='Editar' class='glyphicon glyphicon-edit'/>    </span>";
 
-
-							$strRowId 	  = str_replace("{ID}", $row['id'], $strRow);
-							$strRowTitulo = str_replace("{TITULO}", $row['titulo'], $strRowId);
-							$strRowCurso  = str_replace("{CURSO}",  $row['curso'],  $strRowTitulo);
-							$strRowStatus = str_replace("{STATUS}", $result,  		$strRowCurso);
-							$strRowOp	  = str_replace("{OPERACOES}", $operacoes,  $strRowStatus);
-							echo $strRowOp;
+							$strRowId 	   = str_replace("{ID}"		,	$row['id'], 	$strRow);
+							$strRowTitulo  = str_replace("{TITULO}" , 	$row['titulo'], $strRowId);
+							$strRowCurso   = str_replace("{CURSO}"  ,  	$row['curso'],  $strRowTitulo);
+							$strRowStatus  = str_replace("{STATUS}" , 	$result,  		$strRowCurso);
+							$strRowRemover = str_replace("{REMOVER}", 	$remover, 		$strRowStatus);
+							$strRowEditar  = str_replace("{EDITAR}" , 	$editar,  		$strRowRemover);
+							echo $strRowEditar;
 						}
 					?>
 				</table>
@@ -143,7 +206,7 @@
         </div>
         
         <br />
-    <div id="rodape">
+     <div id="rodape">
               <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
       </div>
     </div>
