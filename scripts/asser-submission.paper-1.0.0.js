@@ -16,7 +16,7 @@ var buildInputForID = function(rows){
 };
 
 var buildInputForAuthor = function(rows){
-			var tdAuthor = '<td style=\"width: 30em\"> <input type=\"text\" id=\"autor{autorId}\" name=\"autor[]\" size=\"40\" maxlength=\"255\" readonly=\"readonly\"/> </td>';
+			var tdAuthor = '<td style=\"width: 30em\"> <input type=\"text\" id=\"autor{autorId}\" name=\"autor[]\" size=\"40\" maxlength=\"255\" readonly=\"readonly\" style=\"cursor: not-allowed\"/> </td>';
 			return tdAuthor.replace(/{autorId}/g, (rows+1));
 };
 

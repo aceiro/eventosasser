@@ -126,12 +126,7 @@
         
           <div id='cssmenu'>
               <ul>
-                  <li><a href='../index.html'>Evento</a></li>
-                  <li class='active'><a href='../index.html'>Inscrição no evento</a></li>
-                  <li><a href='../programa.html'>Programação</a></li>
-                  <li> <a href='../anais'>Edições<br>Anteriores</a></li>
-                  <li><a href='../contato'>Contato</a></li>
-                  <li><a href='../creditos.html'>Créditos</a></li>
+                  <li class='active'><a href='#'>Inscrição no evento</a></li>
               </ul>
             </div>
 
@@ -140,14 +135,7 @@
             <div id="mmenusubbar"> &nbsp;</div>
             <div id="mmenusubsubbar"> &nbsp;</div>
 
-
-		<br />
-		<span id="small-button-class" class="small-button-class" onclick="javascript:location.href='../cad_usuario/perfil.php'"> voltar </span>
-		<br />
-		<br />
-		<br />
-
-
+		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../cad_usuario/perfil.php'"> voltar </span>
 
         <fieldset>
 			<legend> Cadastro de Resumo </legend>
@@ -199,35 +187,35 @@
 							            <table id="table-authors">
 							                <tr>
 												<td> Autor (1) </td>
-												<td> <input class="disable-resumo-inputs disable-resumo-inputs-effect" type="text" id="email1" name="email[]" size="40" maxlength="255" readonly="readonly" value="<?php echo $session->get('email'); ?>" /> </td>
-												<td> <input class="disable-resumo-inputs disable-resumo-inputs-effect" type="text" id="autor1" name="autor[]" size="40" maxlength="255" readonly="readonly"  value="<?php echo $session->get('nome'); ?>" /> </td>
+												<td> <input class="disable-resumo-inputs disable-resumo-inputs-effect"  type="text" id="email1" name="email[]" size="40" maxlength="255" readonly="readonly" value="<?php echo $session->get('email'); ?>" /> </td>
+												<td> <input class="disable-resumo-inputs disable-resumo-inputs-effect" style="cursor: not-allowed" type="text" id="autor1" name="autor[]" size="40" maxlength="255" readonly="readonly"  value="<?php echo $session->get('nome'); ?>" /> </td>
 											</tr>
 
 							                <tr>
 												<td> Autor (2) </td>
 												<td> <input type="text" id="email2" name="email[]" size="40" maxlength="255" /> </td>
-												<td> <input class="disable-resumo-inputs" type="text" id="autor2" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
+												<td> <input class="disable-resumo-inputs" style="cursor: not-allowed" type="text" id="autor2" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
 												<td> <button  class="button button-find" type="button" onclick="searchOnJsonList('2');">Buscar</button> </td>
 											</tr>
 
 											<tr>
 												<td> Autor (3) </td>
 												<td> <input type="text" id="email3" name="email[]" size="40" maxlength="255" /> </td>
-												<td> <input class="disable-resumo-inputs" type="text" id="autor3" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
+												<td> <input class="disable-resumo-inputs" style="cursor: not-allowed" type="text" id="autor3" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
 												<td> <button  class="button button-find" type="button" onclick="searchOnJsonList('3');">Buscar</button> </td>
 											</tr>
 
 											<tr>
 												<td> Autor (4) </td>
 												<td> <input type="text" id="email4" name="email[]" size="40" maxlength="255" /> </td>
-												<td> <input class="disable-resumo-inputs" type="text" id="autor4" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
+												<td> <input class="disable-resumo-inputs" style="cursor: not-allowed" type="text" id="autor4" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
 												<td> <button  class="button button-find" type="button" onclick="searchOnJsonList('4');">Buscar</button> </td>
 											</tr>
 
 											<tr>
 												<td> Autor (5) </td>
 												<td> <input type="text" id="email5" name="email[]" size="40" maxlength="255" /> </td>
-												<td> <input class="disable-resumo-inputs" type="text" id="autor5" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
+												<td> <input class="disable-resumo-inputs" style="cursor: not-allowed" type="text" id="autor5" name="autor[]" size="40" maxlength="255" readonly="readonly" /> </td>
 												<td> <button  class="button button-find" type="button" onclick="searchOnJsonList('5');">Buscar</button> </td>
 											</tr>
 							            </table>

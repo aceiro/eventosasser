@@ -57,12 +57,7 @@
         
           <div id='cssmenu'>
               <ul>
-                  <li><a href='../index.html'>Evento</a></li>
                   <li class='active'><a href='#'>Inscrição no evento</a></li>
-                  <li><a href='../programa.html'>Programação</a></li>
-                  <li> <a href='../anais'>Edições<br>Anteriores</a></li>
-                  <li><a href='../contato'>Contato</a></li>
-                  <li><a href='../creditos.html'>Créditos</a></li>
               </ul>
             </div>
 
@@ -71,10 +66,7 @@
             <div id="mmenusubbar"> &nbsp;</div>
             <div id="mmenusubsubbar"> &nbsp;</div>
 
-        <br />
-		<span id="small-button-class" class="small-button-class" onclick="javascript:location.href='../cad_usuario/perfil.php'"> voltar </span>
-		<br />
-		<br />
+		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../cad_usuario/perfil.php'"> voltar </span>
 
         <div id="texto">
 			<div class="message-payment-success">

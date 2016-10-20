@@ -33,7 +33,7 @@
 
             $("#cadastro-resumo-button").notify(
                 "Clique aqui para enviar o seu resumo como autor principal. \n Inclua também outros autores",
-                { position:"right top",
+                { position:"top left",
                   className:"success",
                    showDuration: 500
                 }
@@ -54,12 +54,7 @@
 
     <div id='cssmenu'>
         <ul>
-            <li><a href='../index.html'>Evento</a></li>
-            <li class='active'><a href='../index.html'>Inscrição no evento</a></li>
-            <li><a href='../programa.html'>Programação</a></li>
-            <li> <a href='../anais'>Edições<br>Anteriores</a></li>
-            <li><a href='../contato'>Contato</a></li>
-            <li><a href='../creditos.html'>Créditos</a></li>
+            <li class='active'><a href='#'>Inscrição no evento</a></li>
         </ul>
     </div>
 
@@ -68,8 +63,8 @@
     <div id="mmenusubbar"> &nbsp;</div>
     <div id="mmenusubsubbar"> &nbsp;</div>
     <div class="welcome-login">
-        <?php echo "Bem vindo, " . explode(" ", $session->get(SESSION_KEY_NOME))[0] . " !" ;?>
-        <span id="small-button-class" class="small-button-class" onclick="javascript:location.href='logout.php'"> Efetuar logoff </span>
+        <?php echo trim("Bem vindo, " . explode(" ", $session->get(SESSION_KEY_NOME))[0] . " !") ;?>
+        <span id="small-button-class" class="small-button-class" onclick="javascript:location.href='logout.php'"> Sair </span>
     </div>
     <div style="padding: 50px; margin-bottom: 50px; height: 300px;">
         <div id="cadastro_resumo" style="height: 150px; width: 33%; float: left;">

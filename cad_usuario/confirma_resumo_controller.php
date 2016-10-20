@@ -37,7 +37,7 @@
             return;
         }
 
-
+        $firstAuthor = true;
         foreach ($listOfEmails as $email) {
             if( $email==NULL )
                 continue;
@@ -53,11 +53,12 @@
             $participanteTrabalho = ParticipanteTrabalho::create()
                 ->setIdParticipante($idParticipante)
                 ->setIdTrabalho($idTrabalho)
-                ->setCoAutor(false)
-                ->setAutorPrincipal(false)
+                ->setCoAutor($firstAuthor == false)
+                ->setAutorPrincipal($firstAuthor == true)
                 ->setOuvinte(false);
 
             $participanteTrabalhoRepository->save($participanteTrabalho);
+            $firstAuthor = false;
 
         }
         header("Location:confirma.php");

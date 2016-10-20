@@ -661,24 +661,29 @@ table, th, td {
 }
 
 .welcome-login {
-	text-align: left;
+	text-align: right;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: small;
 	font-weight: bold;
-	color: rgb(194, 0, 22);
-	padding-top: 10px;
-	padding-left: 10px;
+	color: rgb(51, 103, 153);
+	/* padding-top: 10px;
+	padding-left: 10px; */
+
+	margin-top: -80px;
+	margin-bottom: 20px;
+	margin-right: 10px;
 }
 
 
 .small-button-class {
 	border-radius: 3px;
 	float: right;
-	/* margin: 18px 0px -7px -25px; */
+	margin: 24px 10px -7px -25px;
 	padding: 3px;
 	border: 1px solid #336799;
 	color: #336799;
 	font-size: 11px;
+
 }
 
 #small-button-class:hover{
@@ -687,6 +692,27 @@ table, th, td {
 	cursor: pointer;
 	background-color: rgba(40, 96, 144, 0.09);
 }
+
+.small-button-back-class {
+	border-radius: 3px;
+	float: right;
+	margin: -60px 10px -7px -25px;
+	padding: 3px;
+	border: 1px solid #336799;
+	color: #336799;
+	font-size: 11px;
+
+}
+
+#small-button-back-class:hover{
+	font-size: 11px;
+	border: 1px solid #336799;
+	cursor: pointer;
+	background-color: rgba(40, 96, 144, 0.09);
+}
+
+
+
 
 .disable-resumo-inputs{
 	background-color: transparent;
