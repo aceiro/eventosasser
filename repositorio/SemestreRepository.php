@@ -1,6 +1,6 @@
 <?php
 
-require_once 'interfaces\GenericRepository.php';
+require_once 'interfaces/GenericRepository.php';
 
 class SemestreRepository implements GenericRepository{
     protected $db;

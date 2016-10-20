@@ -1,6 +1,6 @@
 <?php
 
-require_once 'interfaces\GenericRepository.php';
+require_once 'interfaces/GenericRepository.php';
 define("RETORNA_TRABALHOS_EMAIL",'SELECT   t.id as id,
                                            p.nome as nome,
                                            p.email as email,

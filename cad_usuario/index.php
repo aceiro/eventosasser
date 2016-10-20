@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
-    <meta charset="ISO-8859-1"/>
+    <meta charset="UTF-8"/>
     <link rel="shortcut icon" href="../favicon.ico">
     <title>Asser Eventos</title>
     <!-- adicionado o suporte para o jquery e thema redmond -->
@@ -30,6 +30,7 @@
         <ul>
             <li><a href='../index.html'>Evento</a></li>
             <li class='active'><a href='#'>Inscrição no evento</a></li>
+            <li><a href='../modelos'>Modelos</a></li>
             <li><a href='../programa.html'>Programação</a></li>
             <li> <a href='../anais'>Edições<br>Anteriores</a></li>
             <li><a href='../contato'>Contato</a></li>

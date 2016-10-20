@@ -1,6 +1,6 @@
 <?php
 
-require_once 'interfaces\GenericRepository.php';
+require_once 'interfaces/GenericRepository.php';
 
 class LogRepository implements GenericRepository{
     protected $db;

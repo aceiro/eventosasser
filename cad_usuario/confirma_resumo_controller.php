@@ -2,7 +2,7 @@
     try{
         header("Content-Type: text/html; charset=UTF-8", true);
 
-        require_once ("../constants/AsserEventosConstants.php");
+        require_once("../constants/asser_eventos_constants.php");
         require_once ("../cfg/Session.php");
         require_once ("../repositorio/models/Trabalho.php");
         require_once ("../repositorio/TrabalhoRepository.php");

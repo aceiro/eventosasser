@@ -2,7 +2,7 @@
 
 
 	require_once("../cfg/Session.php");
-	require_once('../constants/AsserEventosConstants.php');
+	require_once('../constants/asser_eventos_constants.php');
 	require_once ("../repositorio/models/Inscricao.php");
 	require_once ("../repositorio/InscricaoRepository.php");
 	require_once ('../repositorio/facade/EventosAsserFacade.php');

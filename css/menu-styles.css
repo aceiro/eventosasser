@@ -39,10 +39,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 3px;
+  height: 20px;
   /*background: #009ae1;*/
   /*background: #991D27;*/
-  background: #FBB24A;
+  background: rgba(251,178,74,0.75);
   -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -ms-transition: all 0.25s ease-out;
@@ -246,6 +246,7 @@
   }
   #menu-line {
     display: none;
+    left: 320px;
   }
   #cssmenu #menu-button {
     display: block;

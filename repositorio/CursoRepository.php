@@ -1,6 +1,6 @@
 <?php
 
-require_once 'interfaces\GenericRepository.php';
+require_once 'interfaces/GenericRepository.php';
 
 class CursoRepository implements GenericRepository{
     protected $db;

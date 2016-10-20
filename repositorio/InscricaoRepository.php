@@ -1,6 +1,6 @@
 <?php
 
-require_once 'interfaces\GenericRepository.php';
+require_once 'interfaces/GenericRepository.php';
 define("RETORNA_PAGAMENTO_POR_EMAIL",'SELECT i.* FROM participante p, inscricao i WHERE p.id = i.id_participante AND p.email = :email');
 define("RETORNA_DETALHES_PAGAMENTO", 'SELECT p.nome,
        cc.nome as nome_curso,

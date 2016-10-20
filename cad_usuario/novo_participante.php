@@ -1,6 +1,6 @@
 <?php
-    require '..\repositorio\models\Curso.php';
-    require '..\repositorio\facade\EventosAsserFacade.php';
+    require '../repositorio/models/Curso.php';
+    require '../repositorio/facade/EventosAsserFacade.php';
     $cursoRepository = EventosAsserFacade::createCursoRepository();
 
     header('Content-Type: text/html; charset=UTF-8');

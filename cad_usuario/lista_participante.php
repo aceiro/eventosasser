@@ -4,7 +4,7 @@
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
 
-    require_once '..\repositorio\facade\EventosAsserFacade.php';
+    require_once '../repositorio/facade/EventosAsserFacade.php';
     $participanteRepository = EventosAsserFacade::createParticipanteRepository();
     $participantes          = $participanteRepository->findAllAutores();
     $json                   = json_encode($participantes);

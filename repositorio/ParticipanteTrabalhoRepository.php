@@ -1,6 +1,6 @@
 <?php
 
-require_once 'interfaces\GenericRepository.php';
+require_once 'interfaces/GenericRepository.php';
 
 define("ALGUMA_QUERY",'SELECT * FROM participantextrabalho WHERE XXX = :XXX and XX = :XX');
 

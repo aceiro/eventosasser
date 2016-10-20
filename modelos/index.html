@@ -23,19 +23,14 @@
 
 	<style type="text/css">
 
-
-
-		h3 {
-			text-align: center;
-			font-size: 1.65em;
-			margin: 0 0 30px;
-		}
-
-
-		div#grid-gallery {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between; /* or space-around */
+		img {
+			margin-left: 70px;
+			border: none;
+			max-width: 40%;
+			height: auto;
+			display: block;
+			background: #ccc;
+			transition: transform .2s ease-in-out;
 		}
 
 		#row a {
@@ -43,45 +38,19 @@
 			margin-bottom: 8px;
 			width: calc(50% - 4px);
 			text-decoration: none;
-			color: black;
 		}
 
-		@media screen and (min-width: 50em) {
-			#row a {
-				width: calc(25% - 6px);
-			}
-		}
-
-		#row a:hover img {
+		a:hover img {
 			transform: scale(1.15);
 		}
 
-		figure {
-			margin: 0;
-			overflow: hidden;
+
+		a figcaption{
+			margin-left: 80px;
+			margin-top: 10px;
 		}
 
-		figcaption {
-			color: #336799;
-			margin-top: 15px;
-		}
 
-		img {
-			border: none;
-			max-width: 80%;
-			height: auto;
-			display: block;
-			background: #ccc;
-			transition: transform .2s ease-in-out;
-		}
-
-		.p a {
-			display: inline;
-			font-size: 13px;
-			margin: 0;
-			text-decoration: underline;
-			color: blue;
-		}
 
 
 	</style>
@@ -99,9 +68,9 @@
 		<ul>
 			<li><a href='../index.html'>Evento</a></li>
 			<li><a href='../cad_usuario'>Inscrição no evento</a></li>
-			<li><a href='../modelos'>Modelos</a></li>
+			<li class='active'><a href='#'>Modelos</a></li>
 			<li><a href='../programa.html'>Programação</a></li>
-			<li class='active'><a href='../anais'>Edições<br>Anteriores</a></li>
+			<li><a href='../anais'>Edições<br>Anteriores</a></li>
 			<li><a href='../contato'>Contato</a></li>
 			<li><a href='../creditos.html'>Créditos</a></li>
 		</ul>
@@ -114,44 +83,28 @@
 	<div id="mmenusubsubbar"> &nbsp;</div>
 	<!-- fim do menu da aplicação -->
 
-	<div id="caption-editions">
-		<strong>Lista de edições anteriores</strong>
+	<div id="caption-models">
+		<strong>Modelos Powerpoint e Word</strong>
 	</div>
 
 
-	<div id="grid-gallery">
+	<div>
 
 
 		<div id="row">
-			<a href="anais_1sem_2016.pdf">
-				<figure>
-					<img src="../imagens/image-1-2016.png" alt="">
+			<a href="artigo.doc">
+				<figure id="word" >
+					<img  src="../imagens/word.png" alt="">
 					<figcaption>
-						1º Semestre de 2016.
+						MS/Word
 					</figcaption>
 				</figure>
 			</a>
-			<a href="anais_2sem_2015.pdf">
-				<figure>
-					<img src="../imagens/image-2-2015.png" alt="">
+			<a href="painel.ppt">
+				<figure id="ppt">
+					<img src="../imagens/ppt.png" alt="">
 					<figcaption>
-						2º Semestre de 2015.
-					</figcaption>
-				</figure>
-			</a>
-			<a href="anais_1sem_2015.pdf">
-				<figure>
-					<img src="../imagens/image-1-2015.png" alt="">
-					<figcaption>
-						1º Semestre de 2015.
-					</figcaption>
-				</figure>
-			</a>
-			<a href="anais_1sem_2014.pdf">
-				<figure>
-					<img src="../imagens/image-1-2014.png" alt="">
-					<figcaption>
-						2º semestre de 2014.
+						MS/PowerPoint
 					</figcaption>
 				</figure>
 			</a>

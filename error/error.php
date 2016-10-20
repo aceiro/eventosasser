@@ -1,10 +1,10 @@
 <?php
     header('Content-Type: text/html; charset=iso-8859-1'); /* hack to be used on redirect*/
 
-    require_once '../constants/AsserEventosConstants.php';
+    require_once '../constants/asser_eventos_constants.php';
     require_once '../cfg/Session.php';
-    require_once '../repositorio\models\Log.php';
-    require_once '../repositorio\facade\EventosAsserFacade.php';
+    require_once '../repositorio/models/Log.php';
+    require_once '../repositorio/facade/EventosAsserFacade.php';
 
     $logRepository = EventosAsserFacade::createLogRepository();
 

@@ -2,9 +2,7 @@
 -- --------------------------------------------------------
 -- 							DATABASE 
 -- --------------------------------------------------------
-DROP DATABASE eventosasser_v2;
-CREATE DATABASE eventosasser_v2;
-USE eventosasser_v2;
+USE eventosa_v1;
 
 -- --------------------------------------------------------
 -- 							TABELAS 
@@ -16,11 +14,11 @@ CREATE TABLE `tipoatividade` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `eventosasser_v2`.`tipoatividade` (`id`, `descricao`) VALUES (1, "PALESTRA");
-INSERT INTO `eventosasser_v2`.`tipoatividade` (`descricao`) VALUES ("RESUMO");
-INSERT INTO `eventosasser_v2`.`tipoatividade` (`descricao`) VALUES ("ARTIGO COMPLETO");
-INSERT INTO `eventosasser_v2`.`tipoatividade` (`descricao`) VALUES ("ARTIGO EXTENDIDO");
-INSERT INTO `eventosasser_v2`.`tipoatividade` (`descricao`) VALUES ("SEMINÁRIO");
+INSERT INTO `eventosa_v1`.`tipoatividade` (`id`, `descricao`) VALUES (1, "PALESTRA");
+INSERT INTO `eventosa_v1`.`tipoatividade` (`descricao`) VALUES ("RESUMO");
+INSERT INTO `eventosa_v1`.`tipoatividade` (`descricao`) VALUES ("ARTIGO COMPLETO");
+INSERT INTO `eventosa_v1`.`tipoatividade` (`descricao`) VALUES ("ARTIGO EXTENDIDO");
+INSERT INTO `eventosa_v1`.`tipoatividade` (`descricao`) VALUES ("SEMINÁRIO");
 
 
 CREATE TABLE `semestre` (
@@ -29,8 +27,8 @@ CREATE TABLE `semestre` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `eventosasser_v2`.`semestre` (`id`, `descricao`) VALUES (1, "PRIMEIRO SEMESTRE");
-INSERT INTO `eventosasser_v2`.`semestre` (`descricao`) VALUES ("SEGUNDO SEMESTRE");
+INSERT INTO `eventosa_v1`.`semestre` (`id`, `descricao`) VALUES (1, "PRIMEIRO SEMESTRE");
+INSERT INTO `eventosa_v1`.`semestre` (`descricao`) VALUES ("SEGUNDO SEMESTRE");
 
 
 CREATE TABLE `curso` (
@@ -40,20 +38,20 @@ CREATE TABLE `curso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO `eventosasser_v2`.`curso`(`id`, `nome`) VALUES (1, "BACHARELADO EM ARQUITETURA E URBANISMO");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM ENGENHARIA DE PRODUÇÃO");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM EDUCAÇÃO FÍSICA");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM ADMINISTRAÇÃO");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("LICENCIATURA EM PEDAGOGIA");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM ENGENHARIA CIVIL");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM SISTEMAS DE INFORMAÇÃO");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("LICENCIATURA EM EDUCAÇÃO FÍSICA");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM FISIOTERAPIA");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM NUTRIÇÃO");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("BACHARELADO EM FARMÁCIA");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("TECNÓLOGO EM DESIGN DE INTERIORES");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("TECNÓLOGO EM GESTÃO FINANCEIRA");
-INSERT INTO `eventosasser_v2`.`curso`(`nome`) VALUES ("TECNÓLOGO EM GESTÃO DA PRODUÇÃO INDUSTRIAL");
+INSERT INTO `eventosa_v1`.`curso`(`id`, `nome`) VALUES (1, "BACHARELADO EM ARQUITETURA E URBANISMO");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM ENGENHARIA DE PRODUÇÃO");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM EDUCAÇÃO FÍSICA");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM ADMINISTRAÇÃO");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("LICENCIATURA EM PEDAGOGIA");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM ENGENHARIA CIVIL");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM SISTEMAS DE INFORMAÇÃO");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("LICENCIATURA EM EDUCAÇÃO FÍSICA");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM FISIOTERAPIA");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM NUTRIÇÃO");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("BACHARELADO EM FARMÁCIA");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("TECNÓLOGO EM DESIGN DE INTERIORES");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("TECNÓLOGO EM GESTÃO FINANCEIRA");
+INSERT INTO `eventosa_v1`.`curso`(`nome`) VALUES ("TECNÓLOGO EM GESTÃO DA PRODUÇÃO INDUSTRIAL");
 
 
 CREATE TABLE `evento` (
@@ -66,7 +64,7 @@ CREATE TABLE `evento` (
   FOREIGN KEY (`id_semestre`) REFERENCES `semestre` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `eventosasser_v2`.`evento` (`id`, `id_semestre`, `titulo_evento`, `data_inicio`, `data_fim`) VALUES (1, 2, 'Mostra de iniciação científica e conhecimento','2016-10-24', '2016-11-25');
+INSERT INTO `eventosa_v1`.`evento` (`id`, `id_semestre`, `titulo_evento`, `data_inicio`, `data_fim`) VALUES (1, 2, 'Mostra de iniciação científica e conhecimento','2016-10-24', '2016-11-25');
 
 
 create table `trabalho`(
@@ -76,6 +74,7 @@ create table `trabalho`(
     `palavras_chave` varchar(2000) NOT NULL,
     `status_r` char(1), 		-- o campo status tambem poderia ser uma tabela auxiliar, com todos os estados
     `comentarios` varchar(3000),
+     `status_atualizacao` varchar(1),
     `id_curso` int,
     `id_tipoatividade` int,
     `id_evento` int,
@@ -84,9 +83,6 @@ create table `trabalho`(
     FOREIGN KEY (`id_tipoatividade`) REFERENCES `tipoatividade` (`id`),
     FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `eventosasser_v2`.`trabalho` 
-ADD COLUMN `status_atualizacao` varchar(1) NULL AFTER `id_tipo_atividade`;
 
 
 CREATE TABLE `participante`(
@@ -99,7 +95,7 @@ CREATE TABLE `participante`(
     FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `eventosasser_v2`.`participante` 
+ALTER TABLE `eventosa_v1`.`participante` 
 ADD UNIQUE INDEX `email_UNIQUE` (`email` ASC),
 ADD UNIQUE INDEX `id_UNIQUE` (`id` ASC);
 

@@ -1,8 +1,8 @@
 <?php
     try{
         require_once("../cfg/Session.php");
-        require_once '..\repositorio\models\Curso.php';
-        require_once '..\repositorio\facade\EventosAsserFacade.php';
+        require_once '../repositorio/models/Curso.php';
+        require_once '../repositorio/facade/EventosAsserFacade.php';
 
         $repository = EventosAsserFacade::createParticipanteRepository();
 

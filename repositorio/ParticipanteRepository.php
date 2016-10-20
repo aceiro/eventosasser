@@ -1,7 +1,7 @@
 <?php
 
-require_once 'interfaces\GenericRepository.php';
-require_once 'models\Participante.php';
+require_once 'interfaces/GenericRepository.php';
+require_once 'models/Participante.php';
 
 define("RETORNA_TODOS_PARTICIPANTES",'SELECT * FROM participante WHERE email = :email and senha = :senha');
 define("RETORNA_TODOS_PARTICIPANTES_POR_EMAIL",'SELECT * FROM participante WHERE email = :email');

@@ -1,7 +1,7 @@
 <?php
-    require_once("../cfg/Session.php");
-    require_once ("../repositorio/models/TipoAtividade.php");
-    require_once ("../repositorio/TipoAtividadeRepository.php");
+    require_once ('../cfg/Session.php');
+    require_once ('../repositorio/models/TipoAtividade.php');
+    require_once ('../repositorio/TipoAtividadeRepository.php');
     require_once ('../repositorio/facade/EventosAsserFacade.php');
 
     $session = new Session("EventosAsser2016");

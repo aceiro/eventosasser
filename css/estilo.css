@@ -1,13 +1,17 @@
 @charset "UTF-8";
 /* CSS Document */
 
+a {
+	text-decoration: none;
+}
+
 .label {
 	width:100px;
 	text-align:right;
 	float:left;
 	padding-right:10px;
 	font-weight:bold;
-	}
+}
     
 #register-form label.error, .output {
 	color:#FB3A3A;
@@ -82,7 +86,7 @@
 
 #effect { 
 	/* width: 740px;*/
-	padding: 1em;  
+	/*padding: 1em;*/
 	font-size: 1.2em; 
 	/*border: 1px solid #A6C9E2;*/
 	color: #333; 
@@ -642,6 +646,21 @@ table, th, td {
 			padding: 20px;
 			text-align: center;
 }
+
+#caption-editions{
+	font-size: 14px;
+	padding: 20px;
+	text-align: center;
+	color: #336799;
+}
+
+#caption-models{
+	font-size: 14px;
+	padding: 20px;
+	text-align: center;
+	color: #336799;
+}
+
 #image-program-final {
 	font-size: 14px;
 	padding: 10px;

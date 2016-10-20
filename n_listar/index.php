@@ -4,15 +4,15 @@
 
 	include_once('../utils/common.php');
 
-    require_once '..\repositorio\models\Trabalho.php';
-    require_once '..\repositorio\models\Curso.php';
-    require_once '..\repositorio\models\Participante.php';
+    require_once '../repositorio/models/Trabalho.php';
+    require_once '../repositorio/models/Curso.php';
+    require_once '../repositorio/models/Participante.php';
 
-    require_once '..\repositorio\TrabalhoRepository.php';
-    require_once '..\repositorio\CursoRepository.php';
-    require_once '..\repositorio\ParticipanteRepository.php';
+    require_once '../repositorio/TrabalhoRepository.php';
+    require_once '../repositorio/CursoRepository.php';
+    require_once '../repositorio/ParticipanteRepository.php';
 
-    require_once '..\repositorio\facade\EventosAsserFacade.php';
+    require_once '../repositorio/facade/EventosAsserFacade.php';
 
     $trabalhoRepository     = EventosAsserFacade::createTrabalhoRepository();
     $cursoRepository        = EventosAsserFacade::createCursoRepository();
@@ -148,7 +148,7 @@
 					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th colspan="2">OPERAÇÕES</th></th>
 					<?php
 
-						require_once '../constants/AsserEventosConstants.php';
+						require_once '../constants/asser_eventos_constants.php';
 						$email  = $session->get(SESSION_KEY_EMAIL);
 						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{REMOVER}</td><td>{EDITAR}</td></tr>';
 
