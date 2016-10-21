@@ -2,7 +2,7 @@
 
     header('Content-Type: text/html; charset=UTF-8');
 
-    require_once("../constants/AsserEventosConstants.php");
+    //require_once("../constants/AsserEventosConstants.php");
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
 
@@ -37,35 +37,24 @@
     <br />
 
     <div id='cssmenu'>
-        <ul>
-            <li class='active'><a href='#'>Inscrição no evento</a></li>
-        </ul>
+        <!-- botão sair é aqui-->
     </div>
 
     <div id="mmenu"> &nbsp;</div>
     <div id="mmenubar"> &nbsp;</div>
     <div id="mmenusubbar"> &nbsp;</div>
     <div id="mmenusubsubbar"> &nbsp;</div>
+    <div class="welcome-login" style="margin-bottom: 80px;">
+        <span id="small-button-class" class="small-button-class" onclick="javascript:location.href='loggout.php'"> Sair </span>
+    </div>
 
-    <div style="padding: 50px; margin-bottom: 50px; height: 300px;">
-        <div id="cadastro_resumo" style="height: 150px; width: 33%; float: left;">
-            <fieldset style="background-color: #e6EEEE; width: 80%">
-                <form id="login"
-                      name="login" method="post"
-                      action="professor.php"  novalidate="novalidate">
-                    <div class="text-align-center">
-                        <br/>
-                        <div><img src="../imagens/revisado.png" height="70px" width="70px"></div>
-                        <input class="button button-center" name="revisar" type="submit" id="cadastro-resumo-button" value="Professor Avaliador" />
-                    </div>
-                </form>
-            </fieldset>
-        </div>
-        <div style="height: 150px; width: 33%; float: left;">
+    <div style="padding: 50px; margin-bottom: 50px; height: 120px;">
+
+        <div style="height: 150px; width: 33%; float: left; margin-left: 33%;">
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="lista-resumos"
                       name="secretaria" method="post"
-                      action="secretaria.php.php"  novalidate="novalidate">
+                      action="pagamento.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/payment.png" height="70px" width="70px"></div>
