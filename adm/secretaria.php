@@ -5,6 +5,10 @@
     //require_once("../constants/AsserEventosConstants.php");
     require_once("../cfg/Session.php");
     $session = new Session("EventosAsser2016");
+    if(isEmpty($session->get('login'))){
+        header('Location: ../');
+        die();
+    }
 
 ?>
 

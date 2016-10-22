@@ -1,41 +1,50 @@
 <?php 
-	require_once("../../cfg/Session.php");
+	require_once("../cfg/Session.php");
 	error_reporting(0);
 	$session = new Session("EventosAsser2016");
 	require_once("BD.php");
 	$bd = new BD();
 	header("Content-Type: text/html; charset=UTF-8", true);
-	include_once('../../utils/common.php');
+	include_once('../utils/common.php');
 	
-    if(!strcmp($session->get('login'),null)){
+   /* if(!strcmp($session->get('login'),null)){
        header('Location: ../');
        die();
-    }
+    }*/
 ?>
 
 <!DOCTYPE html >
-<html>
+<html lang="pt-BR">
 <head>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="pragma" content="no-cache" />
-	<meta http-equiv="cache-control" content="no-cache" />
-	<meta http-equiv="cache-control" content="no-store" />
-	<link rel="shortcut icon" href="../../favicon.ico">
-	<title>Asser Eventos</title>
-	
-	<!-- adicionado o suporte para o jquery e thema redmond -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <title>Asser Eventos</title>
 
-	<!-- outros suporte a css da página -->
-	<link rel="stylesheet" href="../../css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../../css/estilo.css" type="text/css">
+    <!-- adicionado o suporte para o jquery e thema redmond -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-	<!-- outros scripts para o menu-->
-	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-	<script src="../../scripts/asser-main-menu.js"></script>
-	<script src="../../scripts/asser-commum.js"></script>
+    <!-- adicionado o suporte para o bootstrap padrão  -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- outros suporte a css da página -->
+    <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
+
+
+    <!-- outros scripts para o menu-->
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="../scripts/asser-main-menu.js"></script>
+    <script src="../scripts/asser-commum.js"></script>
+
+    <link rel="stylesheet" href="../scripts/tablesorter/blue/style.css" type="text/css" media="print, projection, screen">
+    <link rel="stylesheet" href="../css/teacher-evaluation-style.css" type="text/css">
+    <script type="text/javascript" src="../scripts/tablesorter/jquery.tablesorter.js"></script>
 </head>
 
 <script>
@@ -67,8 +76,7 @@
         
           <div id='cssmenu'>
               <ul>
-                   <li class='active'><a href='./'>Voltar</a></li>
-                   <li><a href='../'>Sair</a></li>
+                   <li class='active'><a href='professor.php'>Voltar</a></li>
                 </ul>
             </div>
 
@@ -76,12 +84,15 @@
             <div id="mmenubar"> &nbsp;</div>
             <div id="mmenusubbar"> &nbsp;</div>
             <div id="mmenusubsubbar"> &nbsp;</div>
+        <div class="welcome-login" style="margin-bottom: 80px;">
+            <span id="small-button-class" class="small-button-class" onclick="javascript:location.href='loggout.php'"> Sair </span>
+        </div>
             <br /> 
         
         
 		<form id="register-form" 
                   name="register-form" method="post" 
-                  action="confirma.php"  novalidate="novalidate">
+                  action="confirma_resumo.php"  novalidate="novalidate">
           <fieldset>	
 			<legend>Avaliar Resumo</legend>
 			<?php

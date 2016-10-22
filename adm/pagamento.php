@@ -37,7 +37,6 @@ $session = new Session("EventosAsser2016");
     <br />
 
     <div id='cssmenu'>
-        <!-- botão sair é aqui-->
     </div>
 
     <div id="mmenu"> &nbsp;</div>
