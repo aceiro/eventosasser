@@ -7,6 +7,7 @@
     $session = new Session("EventosAsser2016");
 
     $tipoAtividadeRepository = EventosAsserFacade::createTipoAtividadeRepository();
+	$orientadorRepository    = EventosAsserFacade::createorientadorRepository();
 
 
 ?>
@@ -39,6 +40,8 @@
 
 	  	$(function() {
 		    evs.init();
+			$("#orientador").prop("selectedIndex", -1);
+			$("#tipo").prop("selectedIndex", -1);
 		});
 
 		// callback (usado para chamar via POST o listar participante com todos autores)
@@ -153,7 +156,7 @@
 					<div class="rotulo-resumo">Titulo</div>
 					<div class="input-resumo"><input type="text" id="titulo" name="titulo" size="100" maxlength="250"  /></div>
 
-	                <div class="info-resumo">Escolha o Tipo de apresentação</div>
+	                <div class="info-resumo">Escolha o formato da apresentação</div>
 					<div class="rotulo-resumo">Tipo</div>
                     <div class="select-tiporesumo">
                         <select id="tipo" name="tipo">
@@ -167,8 +170,9 @@
                                 ?>
                         </select>
                     </div>
+					<br/>
 
-				  	<div class="info-resumo-email">Informe o e-mail do autor</div>
+				  	<div class="info-resumo-email">O autor principal já está selecionado. Informe os e-mails dos outros autores. </div>
 					<br/>
 				  	<table id="table-authors-wrapper">
 				    <thead>
@@ -224,14 +228,30 @@
 				        </tr>
 				    </tbody>
 				</table>
-								             
 				<button  class="button button-right" type="button" onclick="evs.addNewAuthorRowToTable();">Novo autor</button>
 				<br/> <br/> <br/>
-					
-			                
+
+				<div class="info-resumo-orientador">Escolha o orientador</div>
+				<br/>
+				<div class="rotulo-resumo">Orientador</div>
+				<div class="select-orientador">
+					<select id="orientador" name="orientador">
+						<?php
+						$str = "";
+
+						foreach($orientadorRepository->findAll() as $row) {
+							$str .= "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+						}
+						echo $str;
+						?>
+					</select>
+				</div>
+					<br/><br/>
+
 	                <div class="info-resumo"> &nbsp; Informe seu resumo aqui, com Contexto, Lacuna de pesquisa, Objetivo, Metodologia, Resultado e Conclusão.
 	                </div>
 					<div class="rotulo-resumo">Resumo</div>
+					<br/>
 					<div class="input-resumo"><textArea id="texto" name="texto" cols="100" rows="7"></textArea></div>
 					
 					<div class="info-resumo">Adicone pelo menos três palavras-chave que caracterizem o seu trabalho. 

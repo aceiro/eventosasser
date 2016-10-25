@@ -147,3 +147,41 @@ CREATE TABLE `log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabela de Orientador 
+
+
+
+CREATE TABLE `titulacao` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descricacao` varchar(50) NOT NULL,
+  `abreviacao` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `eventosa_v1`.`titulacao` (`id`, `descricacao`, `abreviacao`) VALUES ('1', 'Especialista', 'Esp.');
+INSERT INTO `eventosa_v1`.`titulacao` (`id`, `descricacao`, `abreviacao`) VALUES ('2', 'Mestre', 'Ms.');
+INSERT INTO `eventosa_v1`.`titulacao` (`id`, `descricacao`, `abreviacao`) VALUES ('3', 'Mestra', 'Ma.');
+INSERT INTO `eventosa_v1`.`titulacao` (`id`, `descricacao`, `abreviacao`) VALUES ('4', 'Doutor', 'Dr.');
+INSERT INTO `eventosa_v1`.`titulacao` (`id`, `descricacao`, `abreviacao`) VALUES ('5', 'Doutora', 'Dra.');
+
+CREATE TABLE `orientador` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(500) NOT NULL,
+  `id_titulacao` int,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id_titulacao`) REFERENCES `titulacao` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `eventosa_v1`.`trabalho` 
+ADD COLUMN `id_orientador` INT(11) NULL DEFAULT NULL AFTER `id_evento`,
+ADD INDEX `trabalho_ibfk_4_idx` (`id_orientador` ASC);
+ALTER TABLE `eventosa_v1`.`trabalho` 
+ADD CONSTRAINT `trabalho_ibfk_4`
+  FOREIGN KEY (`id_orientador`)
+  REFERENCES `eventosa_v1`.`orientador` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+  

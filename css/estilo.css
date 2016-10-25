@@ -433,26 +433,39 @@ hr.fancy-line, hr.fancy-line:before {
 
 .info-resumo-email {
 
-	font-size: 12px;
+	font-size: 16px;
 	text-align: center;
 	width: 30%;
-	background-color: rgba(26, 165, 26, 0.5);
+	/*background-color: rgba(26, 165, 26, 0.5);*/
 	border: 1px dashed red ;
-	color: white;
+	color: #337ab7;
 	border-radius: 40px 40px 40px 2px;
 	margin-left: 15%;
+
+}
+
+.info-resumo-orientador {
+
+	font-size: 16px;
+	text-align: center;
+	width: 30%;
+	/*background-color: rgba(26, 165, 26, 0.5);*/
+	border: 1px dashed red ;
+	color: #337ab7;
+	border-radius: 40px 40px 40px 2px;
+	margin-left: 55%;
 
 }
 
 
 .info-resumo {
 
-	 font-size: 12px;
+	 font-size: 16px;
 	 text-align: center;
 	 width: 30%;
-	 background-color: rgba(26, 165, 26, 0.5);
+	 /*background-color: rgba(26, 165, 26, 0.5);*/
 	 border: 1px dashed red ;
-	 color: white;
+	 color: #337ab7;
 	 border-radius: 40px 40px 40px 2px;
 	 margin-left: 55%;
 
@@ -464,6 +477,11 @@ hr.fancy-line, hr.fancy-line:before {
 	text-align: center;
 }
 
+.select-orientador{
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+}
 
 /* Estilo para as frases (quotes) */
 blockquote {

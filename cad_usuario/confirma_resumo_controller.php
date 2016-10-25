@@ -20,6 +20,7 @@
         $comentarios        =  'Professor avaliador, por favor anote as alterações para o autor aqui.';
         $idCurso            =  $session->get(SESSION_KEY_ID_CURSO);
         $idTipoAtividade    =  $_POST['tipo'];
+        $idOrientador       =  $_POST['orientador'];
 
 
         $idEvento               = ID_EVENTO_ATUAL;
@@ -30,7 +31,7 @@
         $participanteRepository         = EventosAsserFacade::createParticipanteRepository();
         $participanteTrabalhoRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();
 
-        $trabalho   = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $statusAtualizacao);
+        $trabalho   = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $idOrientador, $statusAtualizacao);
         $idTrabalho = $trabalhoRepository->save($trabalho);
         if( is_null($idTrabalho) ){
             echo "<br>Não foi possível criar o resumo!";

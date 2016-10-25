@@ -9,10 +9,11 @@ class Trabalho extends BaseDataTransferObject{
     public $idCurso;
     public $idTipoAtividade;
     public $idEvento;
+    public $idOrientador;
     public $statusAtualizacao;
 
 
-    public function __construct($id, $titulo, $resumo, $palavrasChave, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $statusAtualizacao)
+    public function __construct($id, $titulo, $resumo, $palavrasChave, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $idOrientador, $statusAtualizacao)
     {
         $this->id = $id;
         $this->titulo = $titulo;
@@ -23,6 +24,7 @@ class Trabalho extends BaseDataTransferObject{
         $this->idCurso = $idCurso;
         $this->idTipoAtividade = $idTipoAtividade;
         $this->idEvento = $idEvento;
+        $this->idOrientador = $idOrientador;
         $this->statusAtualizacao = $statusAtualizacao;
     }
 

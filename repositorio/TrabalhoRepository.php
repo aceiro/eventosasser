@@ -44,12 +44,13 @@ class TrabalhoRepository implements GenericRepository{
             $trabalho = $this->db->load('trabalho');
             $trabalho->titulo = $dto->titulo;
             $trabalho->resumo = $dto->resumo;
-            $trabalho->palavrasChave = $dto->palavrasChave;
-            $trabalho->statusR = $dto->statusR;
+            $trabalho->palavras_chave = $dto->palavrasChave;
+            $trabalho->status_r = $dto->statusR;
             $trabalho->comentarios = $dto->comentarios;
-            $trabalho->idCurso = $dto->idCurso;
-            $trabalho->idTipoAtividade = $dto->idTipoAtividade;
-            $trabalho->idEvento = $dto->idEvento;
+            $trabalho->id_curso = $dto->idCurso;
+            $trabalho->id_tipoatividade = $dto->idTipoAtividade;
+            $trabalho->id_evento = $dto->idEvento;
+            $trabalho->id_orientador = $dto->idOrientador;
             $trabalho->status_atualizacao = $dto->statusAtualizacao;
 
 
@@ -76,12 +77,13 @@ class TrabalhoRepository implements GenericRepository{
             $trabalho = $this->findOne($dto->id);
             $trabalho->titulo = $dto->titulo;
             $trabalho->resumo = $dto->resumo;
-            $trabalho->palavrasChave = $dto->palavrasChave;
-            $trabalho->statusR = $dto->statusR;
+            $trabalho->palavras_chave = $dto->palavrasChave;
+            $trabalho->status_r = $dto->statusR;
             $trabalho->comentarios = $dto->comentarios;
-            $trabalho->idCurso = $dto->idCurso;
-            $trabalho->idTipoAtividade = $dto->idTipoAtividade;
-            $trabalho->idEvento = $dto->idEvento;
+            $trabalho->id_curso = $dto->idCurso;
+            $trabalho->id_tipoatividade = $dto->idTipoAtividade;
+            $trabalho->id_evento = $dto->idEvento;
+            $trabalho->id_orientador = $dto->idOrientador;
             $trabalho->status_atualizacao = $dto->statusAtualizacao;
             return  $this->db->save($trabalho);
         }

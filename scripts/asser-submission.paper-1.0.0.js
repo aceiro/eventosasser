@@ -36,6 +36,7 @@ var validateForm = function(){
 		            titulo: "required",
 		            curso: "required",
 					orientador: "required",
+					tipo:"required",
 		            autor1: "required",
 		            email1: "required",
 				    resumo: "required",
@@ -45,7 +46,8 @@ var validateForm = function(){
 		        messages: {
 		            titulo: "Escreva o titulo",
 					curso: "Escreva o nome do seu curso",
-					orientador: "Escreva o nome do seu orientador",
+					tipo: "(*) obrigatório",
+					orientador: "(*) obrigatório",
 					autor1: "(*) obrigatório",
 					email1: "(*) obrigatório",
 					resumo: "Copie e cole seu resumo",
