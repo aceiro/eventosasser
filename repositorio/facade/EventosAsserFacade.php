@@ -7,6 +7,7 @@ require_once '../repositorio/InscricaoRepository.php';
 require_once '../repositorio/LogRepository.php';
 require_once '../repositorio/TrabalhoRepository.php';
 require_once '../repositorio/OrientadorRepository.php';
+require_once '../repositorio/UsuarioRepository.php';
 require_once '../repositorio/facade/Database.php';
 
 class EventosAsserFacade
@@ -49,6 +50,11 @@ class EventosAsserFacade
 
     public static function createOrientadorRepository(){
         $db = (new OrientadorRepository(new Database()));
+        return $db;
+    }
+
+    public static function createUsuarioRepository(){
+        $db = (new UsuarioRepository(new Database()));
         return $db;
     }
 }

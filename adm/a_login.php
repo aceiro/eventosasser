@@ -1,19 +1,55 @@
 <?php
 	require_once("../cfg/Session.php");
-	$session = new Session("EventosAsser2016");
-	header("Content-Type: text/html; charset=UTF-8", true);
-	
-	$session->set('login', addslashes($_POST['login']));
-	$session->set('password', addslashes($_POST['password']));
-	$session->set('funcao', addslashes($_POST['funcao']));
-	
-	//$bd->check($session->get('login'), $session->get('password')); sem validar
+    require_once("../constants/asser_eventos_constants.php");
+    require_once '../repositorio/models/Usuario.php';
+    require_once '../repositorio/facade/EventosAsserFacade.php';
 
-    if(strcmp($session->get('funcao'),"administrador")==0){
-        header("location:administrador.php");
-    }else if(strcmp($session->get('funcao'),"professor")==0){
-        header("location:professor.php");
-    }else{
-        header("location:secretaria.php");
+    $session    = new Session("EventosAsser2016");
+    $repository = EventosAsserFacade::createUsuarioRepository();
+
+	header("Content-Type: text/html; charset=UTF-8", true);
+
+
+    if( !isset($_POST) ){
+        header("location:index.php");
+        die;
+    }
+
+    $login          = $_POST['login'];
+    $senha          = $_POST['password'];
+    $tipoatividade  = $_POST['funcao'];
+
+    $session->set(SESSION_KEY_TYPE_ACADEMIC, $tipoatividade);
+    $session->set(SESSION_KEY_LOGIN_ACADEMIC, $login);
+    $session->set(SESSION_KEY_PASSWORD_ACADEMIC, $senha);
+
+
+    function isProfessor($session){
+        return strcmp($session->get(SESSION_KEY_TYPE_ACADEMIC), "professor") == 0;
+    }
+
+    function isSecretaria($session){
+        return strcmp($session->get(SESSION_KEY_TYPE_ACADEMIC), "secretaria") == 0;
+    }
+
+
+    // controller (redirect)
+    // manage routes
+    // for professor and secretary
+    if(isProfessor($session)){
+        // 1. find login for professor access
+        // 2. set login for processor access on session
+        if( $repository->existsLogin($login, $senha) ){
+            header("location:professor.php");
+        }else  header("location:index.php");
+
+    }else if(isSecretaria($session)){
+
+        // 1. find login for secretary access
+        // 2. set login for secretary access on session
+
+        if( $repository->existsLogin($login, $senha) ){
+            header("location:secretaria.php");
+        }else  header("location:index.php");
     }
 

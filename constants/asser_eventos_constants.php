@@ -24,6 +24,11 @@
     define('SESSION_ERROR_CODE',    'error_code');
     define('SESSION_REQUEST_DATA',  'request_data');
 
+    define('SESSION_KEY_LOGIN_ACADEMIC',    'login_academico');
+    define('SESSION_KEY_PASSWORD_ACADEMIC', 'password_academico');
+    define('SESSION_KEY_TYPE_ACADEMIC',     'funcao_academico');
+    define('SESSION_KEY_NAME_ACADEMIC',     'nome_academico');
+
     //
     // Constantes usadas para tratamento de log
 

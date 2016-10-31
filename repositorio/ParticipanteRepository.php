@@ -6,6 +6,14 @@ require_once 'models/Participante.php';
 define("RETORNA_TODOS_PARTICIPANTES",'SELECT * FROM participante WHERE email = :email and senha = :senha');
 define("RETORNA_TODOS_PARTICIPANTES_POR_EMAIL",'SELECT * FROM participante WHERE email = :email');
 define("RETORNA_TOTOS_AUTORES", 'SELECT nome, email FROM participante ORDER BY email');
+define("RETORNA_TODOS_PARICIPANTES_PARA_PAGAMENTO", 'SELECT p.nome,
+       p.email,
+       cc.nome as nome_curso
+ FROM participante p,
+      curso cc
+ WHERE cc.id = p.id_curso
+       AND p.id NOT IN (SELECT id_participante FROM inscricao)
+ORDER BY p.email');
 
 class ParticipanteRepository implements GenericRepository{
     protected $db;
@@ -115,6 +123,7 @@ class ParticipanteRepository implements GenericRepository{
         return $this->findAllBySql(RETORNA_TOTOS_AUTORES);
     }
 
+
     public function existsParticipanteByEmail($email){
 
         $participanteExistente = $this->findAllBySql(RETORNA_TODOS_PARTICIPANTES_POR_EMAIL, [':email' => $email]);
@@ -146,5 +155,9 @@ class ParticipanteRepository implements GenericRepository{
     public function updateStatusRemovidoById($id)
     {
         throw new Exception('Not implemented yet!');
+    }
+
+    public function findAllParticipantesForPayment(){
+        return $this->findAllBySql(RETORNA_TODOS_PARICIPANTES_PARA_PAGAMENTO);
     }
 }

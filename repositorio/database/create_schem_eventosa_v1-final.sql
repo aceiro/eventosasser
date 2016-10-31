@@ -151,7 +151,6 @@ CREATE TABLE `log` (
 -- Tabela de Orientador 
 
 
-
 CREATE TABLE `titulacao` (
   `id` int NOT NULL AUTO_INCREMENT,
   `descricacao` varchar(50) NOT NULL,
@@ -184,4 +183,4 @@ ADD CONSTRAINT `trabalho_ibfk_4`
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
   
-  
+

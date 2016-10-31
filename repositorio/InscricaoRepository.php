@@ -12,6 +12,17 @@ define("RETORNA_DETALHES_PAGAMENTO", 'SELECT p.nome,
  WHERE p.id = i.id_participante
   AND cc.id = p.id_curso
   AND p.email = :email');
+define("RETORNA_TODOS_PAGANTES_INSCITOS", 'SELECT
+       p.email,
+       p.nome,
+       cc.nome as nome_curso,
+       i.data_pagamento,
+       i.valor
+ FROM participante p,
+     inscricao i,
+     curso cc
+ WHERE p.id = i.id_participante
+  AND cc.id = p.id_curso');
 
 class InscricaoRepository implements GenericRepository{
     protected $db;
@@ -21,7 +32,6 @@ class InscricaoRepository implements GenericRepository{
 
     public function findAllBySql($sql, $bindings = array())
     {
-
 
         return $this->db->getAllBySql($sql, $bindings);
     }
@@ -48,7 +58,7 @@ class InscricaoRepository implements GenericRepository{
             $bean->id_participante = $dto->idParticipante;
 
             // save the dto
-            $this->db->save($bean);
+            return $this->db->save($bean);
 
         } else {
             throw new InvalidArgumentException;
@@ -103,5 +113,12 @@ class InscricaoRepository implements GenericRepository{
     public function updateStatusRemovidoById($id)
     {
         throw new Exception('Not implemented yet!');
+    }
+
+    public function findAllPagantesInscritos()
+    {
+        $inscricoes = $this->db->getAllBySql(RETORNA_TODOS_PAGANTES_INSCITOS);
+        return $inscricoes;
+
     }
 }

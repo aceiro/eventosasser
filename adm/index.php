@@ -47,9 +47,14 @@
                 <div>
                     <label for="funcao">Tipo de função</label>
                     <select id="funcao" name="funcao">
-                        <option value="professor">Professor Avaliador</option>
-                        <option value="secretariado">Secretariado</option>
-                        <option value="administrativo">Administrativo</option>
+                        <!--
+                            <option value="professor">Professor Avaliador</option>
+                         -->
+
+                        <option value="secretaria">Secretaria</option>
+                        <!--
+                            <option value="administrativo">Administrativo</option>
+                        -->
                     </select>
                 </div>
 
@@ -61,8 +66,8 @@
                     <label for="password">Senha</label><input type="password" id="password" name="password" />
                 </div>
 
-                <div class="button">
-                    <input name="acessar" type="submit" id="acessar" value="Acessar" />
+                <div class="text-align-center-btn-access">
+                    <input name="acessar" type="submit" id="acessar" value="Acessar" class="button button-center ui-button ui-widget ui-state-default ui-corner-all" role="button">
                 </div>
             </fieldset>
         </form>

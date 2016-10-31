@@ -103,12 +103,12 @@
 
                         <div>
                             <label>E-mail:</label>
-                            <input type="text" id="email" name="email" size="50" maxlength="65"/>
+                            <input type="text" id="email" name="email" size="50"/>
                         </div>
 
                         <div>
                             <label>Senha:</label>
-                            <input type="password" id="senha" name="senha" size="50" maxlength="8" />
+                            <input type="password" id="senha" name="senha" size="50" />
                         </div>
                         
                 </fieldset>
