@@ -47,10 +47,7 @@
                 <div>
                     <label for="funcao">Tipo de função</label>
                     <select id="funcao" name="funcao">
-                        <!--
-                            <option value="professor">Professor Avaliador</option>
-                         -->
-
+                        <option value="professor">Professor Avaliador</option>
                         <option value="secretaria">Secretaria</option>
                         <!--
                             <option value="administrativo">Administrativo</option>

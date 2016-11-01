@@ -40,7 +40,7 @@
         // 1. find login for professor access
         // 2. set login for processor access on session
         if( $repository->existsLogin($login, $senha) ){
-            header("location:professor.php");
+            header("location:professor_perfil.php");
         }else  header("location:index.php");
 
     }else if(isSecretaria($session)){
@@ -49,7 +49,7 @@
         // 2. set login for secretary access on session
 
         if( $repository->existsLogin($login, $senha) ){
-            header("location:secretaria.php");
+            header("location:secretaria_perfil.php");
         }else  header("location:index.php");
     }
 

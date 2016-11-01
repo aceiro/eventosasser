@@ -3,8 +3,9 @@
 
 	require_once("../constants/asser_eventos_constants.php");
 	require_once("../cfg/Session.php");
-	$session = new Session("EventosAsser2016");
 	include_once('../utils/common.php');
+
+	$session = new Session("EventosAsser2016");
 
 ?>
 
@@ -73,7 +74,7 @@
 			</fieldset>
 			<div class="text-align-center">
               		<button class="button button-center" onclick="javascript:location.href='perfil.php'" />  Voltar </button>
-              		<button class="button button-center"  onclick="javascript:location.href='../n_listar'" /> Verificar Resumo </button>
+              		<button class="button button-center"  onclick="javascript:location.href='../n_listar/lista_resumos_x_participantes.php'" /> Verificar Resumo </button>
              </div>
 		</div>
         

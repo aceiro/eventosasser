@@ -13,11 +13,13 @@
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
     <link rel="shortcut icon" href="../favicon.ico">
     <title>Asser Eventos</title>
-    <!-- adicionado o suporte para o jquery e thema redmond -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <!-- outros suporte a css da página -->
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+
     <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
     <link rel="stylesheet" href="../css/estilo.css" type="text/css">
     <!-- outros scripts para o menu-->
@@ -60,17 +62,33 @@
 
                 submitHandler: function(form) {
 
-                    senha         = document.getElementById('senha');
-                    senhaRepetida = document.getElementById('resenha');
-                    if (senha.value != senhaRepetida.value){
-                        document.getElementById('resenha').focus();
-                        document.getElementById("resenha-error").style.display = 'block';
-                        return false;
-                    }
-                    form.submit();
+                    $("#dialog-confirm").dialog({
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                            "Sim": function () {
+                                senha         = document.getElementById('senha');
+                                senhaRepetida = document.getElementById('resenha');
+                                if (senha.value != senhaRepetida.value){
+                                    document.getElementById('resenha').focus();
+                                    document.getElementById("resenha-error").style.display = 'block';
+                                    return false;
+                                }
+                                form.submit();
+
+                                $(this).dialog("close");
+
+                            },
+                            "Cancelar": function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    });
+                    /*close dialog*/
                 }
             });
-
         });
 
 
@@ -78,6 +96,10 @@
     </script>
 </head>
 <body>
+<div style="display: none; font-size: inherit;" id="dialog-confirm" title="Confirmação">
+    <p style="margin-top: 15px "> Confirma a inscrição ? </p>
+</div>
+
 <div id="corpo">
 
     <div id="cabecalho">

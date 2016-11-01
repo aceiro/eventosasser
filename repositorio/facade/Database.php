@@ -6,7 +6,6 @@ R::setup( 'mysql:host=localhost;dbname=eventosa_v1', 'root', '123456' );
 
 
 
-
 class Database{
 
     public function save($data){

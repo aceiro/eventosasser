@@ -2,7 +2,8 @@
 
 require_once 'interfaces/GenericRepository.php';
 
-define("ALGUMA_QUERY",'SELECT * FROM participantextrabalho WHERE XXX = :XXX and XX = :XX');
+define("RETORNA_AUTORES_POR_RESUMO",'SELECT p.id, p.nome, p.email  FROM participante p
+      WHERE p.id IN (SELECT id_participante FROM participantextrabalho WHERE  id_trabalho = :id_trabalho); ');
 
 
 class ParticipanteTrabalhoRepository implements GenericRepository{
@@ -82,5 +83,8 @@ class ParticipanteTrabalhoRepository implements GenericRepository{
         throw new Exception('Not implemented yet!');
     }
 
+    public function findAutoresByTrabalhoId($id){
+        return $this->findAllBySql(RETORNA_AUTORES_POR_RESUMO, [':id_trabalho'=>$id]);
+    }
 
 }

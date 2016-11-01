@@ -13,18 +13,22 @@
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
     <link rel="shortcut icon" href="../favicon.ico">
     <title>Asser Eventos</title>
-    <!-- adicionado o suporte para o jquery e thema redmond -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <!-- outros suporte a css da p�gina -->
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <script src="../scripts/notify.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
     <link rel="stylesheet" href="../css/estilo.css" type="text/css">
-    <!-- outros scripts para o menu-->
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../scripts/asser-main-menu.js"></script>
-    <script src="../scripts/asser-commum.js"></script>
-    <script src="../scripts/notify.min.js"></script>
 
     <script type="text/javascript">
         // callback (usado para chamar via POST o listar participante com todos autores)
@@ -39,21 +43,37 @@
             $('#rodape').css( {display: 'block'});
 
             $("#validatepayment").click(function(){
-                var emailField = document.getElementById('pagemail');
-                $.post("pag_confirma_controller.php",
-                    { "email": emailField.innerHTML },
-                    function(data,status){
-                        var json = jQuery.parseJSON(data);
-                        if(json.status === 100) {
-                            $.notify("Inscrição realizada com sucesso!", "success");
-                            setTimeout( function(){window.location = window.location.href} , 1250);
-                        }else if(json.status === 200){
-                            $.notify("Problemas ao realizar a inscrição!");
-                        }else
-                            $.notify('Erro inesperado!');
-                    });
-                    $( this ).dialog( "close" );
-            });
+
+                $( "#dialog-confirm" ).dialog({
+                    resizable: false,
+                    height: "auto",
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Sim": function() {
+
+                            var emailField = document.getElementById('pagemail');
+                            $.post("pag_confirma_controller.php",
+                                { "email": emailField.innerHTML },
+                                function(data,status){
+                                    var json = jQuery.parseJSON(data);
+                                    if(json.status === 100) {
+                                        $.notify("Inscrição realizada com sucesso!", "success");
+                                        setTimeout( function(){window.location = window.location.href} , 1250);
+                                    }else if(json.status === 200){
+                                        $.notify("Problemas ao realizar a inscrição!");
+                                    }else
+                                        $.notify('Erro inesperado!');
+                                });
+                            $( this ).dialog( "close" );
+
+                        },
+                        "Cancelar": function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                });/*close dialog*/
+              });
 
         });
 
@@ -130,6 +150,10 @@
 
 </head>
 <body>
+<div style="display: none;" id="dialog-confirm" title="Confirmação">
+    <p style="margin-top: 15px "> Confirma o pagamento da inscrição ? </p>
+</div>
+
 <div id="dados" style="display: none"></div>
 
 <div id="corpo">
@@ -150,7 +174,7 @@
     <div id="mmenusubbar"> &nbsp;</div>
     <div id="mmenusubsubbar"> &nbsp;</div>
 
-    <span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../adm/secretaria.php'"> voltar </span>
+    <span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='secretaria_perfil.php'"> voltar </span>
 
 
 

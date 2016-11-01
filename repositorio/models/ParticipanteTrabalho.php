@@ -22,10 +22,6 @@ class ParticipanteTrabalho extends BaseDataTransferObject{
     }
 
 
-    // TODO: Fluent API
-    // add for others DTOs
-    //
-
     public static function create(){
         return new ParticipanteTrabalho(-1,-1,-1,false,false,false);
     }

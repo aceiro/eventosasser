@@ -30,6 +30,7 @@ a {
 	background: rgb(255, 255, 255) url("../imagens/header-v3.jpg") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
 	background-size: 890px 175px;
 	padding: 0px 0px 0px 0px;
+	margin-bottom: 23px;
 }
 
 .subcabecalho{
@@ -132,7 +133,7 @@ a {
 /* configurações gerais */
 body {
 	background-color: #FFF;
-	font-size: 100%;
+	/*font-size: 100%;*/
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0px;
 }
@@ -760,3 +761,14 @@ table, th, td {
 	background-color: rgb(250, 255, 189);
 	color: #333;
 }
+
+
+
+.ui-dialog-titlebar-close {
+	background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+	border: medium none;
+}
+.ui-dialog-titlebar-close:hover {
+	background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_222222_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+}
+

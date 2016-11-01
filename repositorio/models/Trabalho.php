@@ -28,5 +28,87 @@ class Trabalho extends BaseDataTransferObject{
         $this->statusAtualizacao = $statusAtualizacao;
     }
 
+    public static function create(){
+        return new Trabalho(-1, "N/A", "N/A", "N/A", "N/A", "N/A", -1, -1, -1, -1, -1);
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+        return $this;
+    }
+
+
+    public function setResumo($resumo)
+    {
+        $this->resumo = $resumo;
+        return $this;
+    }
+
+
+    public function setPalavrasChave($palavrasChave)
+    {
+        $this->palavrasChave = $palavrasChave;
+        return $this;
+    }
+
+
+    public function setStatusR($statusR)
+    {
+        $this->statusR = $statusR;
+        return $this;
+    }
+
+
+    public function setComentarios($comentarios)
+    {
+        $this->comentarios = $comentarios;
+        return $this;
+    }
+
+
+    public function setIdCurso($idCurso)
+    {
+        $this->idCurso = $idCurso;
+        return $this;
+    }
+
+
+    public function setIdTipoAtividade($idTipoAtividade)
+    {
+        $this->idTipoAtividade = $idTipoAtividade;
+        return $this;
+    }
+
+
+    public function setIdEvento($idEvento)
+    {
+        $this->idEvento = $idEvento;
+        return $this;
+    }
+
+
+    public function setIdOrientador($idOrientador)
+    {
+        $this->idOrientador = $idOrientador;
+        return $this;
+    }
+
+
+    public function setStatusAtualizacao($statusAtualizacao)
+    {
+        $this->statusAtualizacao = $statusAtualizacao;
+        return $this;
+    }
+
+
+
 
 }

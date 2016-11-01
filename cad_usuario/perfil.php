@@ -84,7 +84,7 @@
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="lista-resumos"
                       name="lista-resumos" method="post"
-                      action="../n_listar/index.php"  novalidate="novalidate">
+                      action="../n_listar/lista_resumos_x_participantes.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/clipboard-list-flat.png" height="70px" width="70px"></div>

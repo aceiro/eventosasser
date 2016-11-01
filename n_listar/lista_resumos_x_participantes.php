@@ -42,7 +42,7 @@
 
 
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	 
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
 	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
@@ -53,17 +53,6 @@
 	<script src="../scripts/asser-main-menu.js"></script>
 	<script src="../scripts/asser-list-student.paper-1.0.0.js"></script>
 
-	<style type="text/css">
-
-		.ui-dialog-titlebar-close {
-			background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
-			border: medium none;
-		}
-		.ui-dialog-titlebar-close:hover {
-			background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_222222_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
-		}
-
-	</style>
 
 
 	<script type="application/javascript">
@@ -104,7 +93,7 @@
 							$( this ).dialog( "close" );
 						}
 					}
-				});
+				}); /*close dialog*/
 			});
 		});
 
@@ -113,7 +102,7 @@
 </head>
 
 <body>
-	<div style="display: none;" id="dialog-confirm" title="Confirmação">
+	<div style="display: none; font-size: inherit;" id="dialog-confirm" title="Confirmação">
 		<p style="margin-top: 15px "><span class="ui-icon ui-icon-alert" style="float:left; margin: 0 15px 25px 0;"></span>Deseja realmente remover esse resumo ? </p>
 	</div>
 

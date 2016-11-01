@@ -1,25 +1,27 @@
-<?php 
-	require_once("../cfg/Session.php");
-	error_reporting(0);
-	$session = new Session("EventosAsser2016");
-	require_once("BD.php");
-	$bd = new BD();
-	header("Content-Type: text/html; charset=UTF-8", true);
-	include_once('../utils/common.php');
-	
-   /* if(!strcmp($session->get('login'),null)){
-       header('Location: ../');
-       die();
-    }*/
+<?php
+require_once("../cfg/Session.php");
+require_once("../constants/asser_eventos_constants.php");
+require_once '../repositorio/models/Trabalho.php';
+
+require_once '../repositorio/facade/EventosAsserFacade.php';
+
+$resumoId = $_POST['id'];
+$session = new Session("EventosAsser2016");
+$trabalhoRepository     = EventosAsserFacade::createTrabalhoRepository();
+$orientadorRepository   = EventosAsserFacade::createOrientadorRepository();
+$participanteTrabalhoRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();
+
+header("Content-Type: text/html; charset=UTF-8", true);
+
 ?>
 
 <!DOCTYPE html >
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8"/>
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-store"/>
     <link rel="shortcut icon" href="../../favicon.ico">
     <title>Asser Eventos</title>
 
@@ -42,116 +44,116 @@
     <script src="../scripts/asser-main-menu.js"></script>
     <script src="../scripts/asser-commum.js"></script>
 
-    <link rel="stylesheet" href="../scripts/tablesorter/blue/style.css" type="text/css" media="print, projection, screen">
+    <link rel="stylesheet" href="../scripts/tablesorter/blue/style.css" type="text/css"
+          media="print, projection, screen">
     <link rel="stylesheet" href="../css/teacher-evaluation-style.css" type="text/css">
     <script type="text/javascript" src="../scripts/tablesorter/jquery.tablesorter.js"></script>
 </head>
 
 <script>
-  $(function() {
-    $("#register-form").validate({
-        rules: {
-            comentarios: "required",
-            tipo: "required",
-            email: {
-                required: true,
-                email: true
-            },
-        
-        submitHandler: function(form) {
-            form.submit();
-        }
-    });
+    $(function () {
 
-  });
-  </script>
-  
+    });
+</script>
+
 <body>
-	<div id="corpo">
-    	
-		<div id="cabecalho">
-        </div>
-        
-        <br />
-        
-          <div id='cssmenu'>
-              <ul>
-                   <li class='active'><a href='professor.php'>Voltar</a></li>
-                </ul>
+<div id="corpo">
+
+    <div id="cabecalho">
+    </div>
+
+    <br/>
+
+    <div id='cssmenu'>
+        <ul>
+            <li class='active'><a href='professor_perfil.php'>Voltar</a></li>
+        </ul>
+    </div>
+
+    <div id="mmenu"> &nbsp;</div>
+    <div id="mmenubar"> &nbsp;</div>
+    <div id="mmenusubbar"> &nbsp;</div>
+    <div id="mmenusubsubbar"> &nbsp;</div>
+    <div class="welcome-login" style="margin-bottom: 80px;">
+        <span id="small-button-class" class="small-button-class"
+              onclick="javascript:location.href='loggout.php'"> Sair </span>
+    </div>
+    <br/>
+
+
+    <form id="register-form"
+          name="register-form" method="post"
+          action="confirma_resumo_controller.php" novalidate="novalidate">
+        <fieldset>
+            <legend>Avaliar Resumo</legend>
+            <?php
+
+            $trabalho = $trabalhoRepository->findOne($resumoId);
+
+            $idTrabalho = $trabalho->id;
+            $titulo         = $trabalho->titulo;
+            $resumo         = $trabalho->resumo;
+            $palavrasChave  = $trabalho->palavras_chave;
+            $status         = $trabalho->status_r;
+            $comentarios    = $trabalho->comentarios;
+            $idOrientador   = $trabalho->id_orientador;
+
+            $orientador     = $orientadorRepository->findOne($idOrientador);
+            $nomeOrientador = $orientador->nome;
+
+            $autores        = $participanteTrabalhoRepository->findAutoresByTrabalhoId($idTrabalho);
+            $autorLista     = "";
+
+            $autorSize      = count($autores);
+            $pos            = 1;
+            foreach ($autores as $autor) {
+                $autorLista.= ' '. $autor['nome']. ' - ' . $autor['email'] ;
+                $pos++;
+                if($pos <= $autorSize)
+                    $autorLista.=';';
+            }
+
+            ?>
+
+            <p style="text-align: center; font-size: x-large; font-weight: bold">  <?= $titulo ?> </p>
+            <p style='text-align: center; font-size: small'> <?=$autorLista;?> </p>
+
+            <p style='text-align: center; font-size: small'> (O) <?=$nomeOrientador;?> </p>
+            <p style='text-align: center; font-size: large; margin-top: 5px'> RESUMO </p>
+
+            <p style='text-align: justify; margin-left: 50px; margin-right: 50px; font-size: medium '>  <?= $resumo ?> </p>
+
+            <p style='text-align: left; font-size: large; font-weight: bold; margin-left: 50px;'>
+                Palavras-chave: <?= $palavrasChave; ?> </p>
+
+            <div>
+                <label>Comentários</label>
+                <textArea name="comentarios" rows="8" cols="80" /><?= $comentarios; ?></textArea>
             </div>
 
-            <div id="mmenu"> &nbsp;</div>
-            <div id="mmenubar"> &nbsp;</div>
-            <div id="mmenusubbar"> &nbsp;</div>
-            <div id="mmenusubsubbar"> &nbsp;</div>
-        <div class="welcome-login" style="margin-bottom: 80px;">
-            <span id="small-button-class" class="small-button-class" onclick="javascript:location.href='loggout.php'"> Sair </span>
-        </div>
-            <br /> 
-        
-        
-		<form id="register-form" 
-                  name="register-form" method="post" 
-                  action="confirma_resumo.php"  novalidate="novalidate">
-          <fieldset>	
-			<legend>Avaliar Resumo</legend>
-			<?php
-				$session->set('id',$_POST['id']);
-				
-				foreach($bd->devolveUm($session->get('id')) as $row){
-					$titulo = $row['titulo'];
-					
-					echo "<p align='center'><strong>";?>
-							
-							<script>			
-								var str = ' <?php echo $titulo; ?>  ';
-								var res = str.toUpperCase();
-								document.write(res);			
-							</script>						
-						
-						</strong></p>
-					<?php
-					if( !isEmpty($row['autores']) ) {
-						echo "<p align='right'>" . $row['autores'] . "</p>";
-					}else {
-						echo "<p align='right'>" . $row['nome'] . " - " . $row['email'] . "</p>";
-					}
+            <div>
+                <label>Status do trabalho</label>
+                <select id="status" name="status"/>
+                <option value="1">Aprovado</option>
+                <option value="2">Reenvio</option>
+                <option value="3">Reprovado</option>
+                </select>
+            </div>
 
-					echo "<p align='right'>" . $row['curso'] . "</p>";
-					echo "<p align='right'>Orientador(a): ".$row['orientador'] . "</p>";
-					echo "<p align='center'><b>RESUMO</b></p>";
-					echo "<p align='justify'>" . $row['resumo'] . "</p>";
-					echo "<p align='left'><strong>Palavras-chave:</strong> " . $row['keyword'] . "</p>";
-					$session->set('comentarios', $row['comentarios']);
-				}
-			?>
-				<div>
-                    <label>Comentários</label>
-                    <textArea name="comentarios" rows="8" cols="80" value="<?php $session->get('comentarios');?>" /></textArea>
-                </div>
-					
-				<div>
-                    <label>Status do trabalho</label>
-                    <select id="status" name="status"  />
-						<option value="1">Aprovado</option>
-						<option value="2">Reenvio</option>
-						<option value="3">Reprovado</option>
-					</select>
-                </div>
-					
-			     <input type="hidden" name="id" value="<?php echo $idTrabalho; ?>" />
-                	
-				<div button type="button" class="btn btn-default" aria-label="Left Align">
-				   <input name="cadastrar" style="width:30%;" type="submit" id="cadastrar" value="Enviar" />
-				
-				   <input name="limpar" style="width:30%;" type="reset" id="limpar" value="Limpar" />
-				</div>					
-                </fieldset>
-            </form>        
-        <br />        
-        <div id="rodape">
-    	<p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2016, ASSER - Todos os direitos reservados  Visualização: 800 x 600 - Desenvolvido pelo Curso de Sistemas de Informação. </p>
-    	</div>
+            <input type="hidden" name="id" value="<?= $idTrabalho; ?>"/>
+
+            <div class="text-align-center">
+                <input class="button button-center" name="cadastrar" type="submit" id="cadastrar" value="Enviar"/>
+                <input class="button button-center" name="limpar" type="reset" id="limpar" value="Limpar"/>
+            </div>
+        </fieldset>
+    </form>
+    <br/>
+
+    <div id="rodape">
+        <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2016, ASSER - Todos
+            os direitos reservados Visualização: 800 x 600 - Desenvolvido pelo Curso de Sistemas de Informação. </p>
     </div>
+</div>
 </body>
 </html>

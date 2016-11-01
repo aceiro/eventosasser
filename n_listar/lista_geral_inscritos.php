@@ -67,7 +67,7 @@
        <!-- menu da aplicacao -->
       <div id='cssmenu'>
 			<ul>
-				<li class='active'><a href='#'>Inscrição no evento</a></li>
+				<li class='active'><a href='#'>Lista geral</a></li>
 			</ul>
 	 	</div>
 
@@ -78,18 +78,18 @@
 		<div id="mmenusubbar"> &nbsp;</div>
 		<div id="mmenusubsubbar"> &nbsp;</div>
 
-		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../adm/secretaria_perfil.php'"> voltar </span>
+		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../adm/professor_perfil.php'"> voltar </span>
 
         <div id="listar-coteudo">
 
                 <table id="table-hover">
-					<caption><strong>Lista de Pagamentos X Inscritos </strong><br>
+					<caption><strong>Lista de inscritos </strong><br>
 					</caption>
-					<th>EMAIL</th><th>NOME</th><th>CURSO</th><th>DATA</th><th>VALOR</th></th>
+					<th>EMAIL</th><th>NOME</th><th>CURSO</th><th>DATA</th></th>
 					<?php
 
 
-						$strRow = '<tr><td>{EMAIL}</td><td>{NOME}</td><td>{CURSO}</td><td>{DATA}</td><td>{VALOR}</td></tr>';
+						$strRow = '<tr><td>{EMAIL}</td><td>{NOME}</td><td>{CURSO}</td><td>{DATA}</tr>';
 
 						foreach ($inscricaoRepository->findAllPagantesInscritos() as $row) {
 
@@ -97,8 +97,7 @@
 							$strRowNome    = str_replace("{NOME}"  , 	$row['nome'],   		 $strRowEmail);
 							$strRowCurso   = str_replace("{CURSO}" ,  	$row['nome_curso'],      $strRowNome);
 							$strRowStatus  = str_replace("{DATA}"  , 	$row['data_pagamento'],  $strRowCurso);
-							$strRowValor   = str_replace("{VALOR}" , 	$row['valor'],  		 $strRowStatus);
-							$rowFormated   = $strRowValor;
+							$rowFormated   = $strRowStatus;
 							echo $rowFormated;
 						}
 					?>
