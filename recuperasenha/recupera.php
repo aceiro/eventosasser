@@ -41,28 +41,26 @@
     <div id="mmenubar"> &nbsp;</div>
     <div id="mmenusubbar"> &nbsp;</div>
     <div id="mmenusubsubbar"> &nbsp;</div>
-    <div style="padding: 50px; margin-bottom: 50px; height: 100px;">
-
-        <div style="height: 150px; width: 45%; float: left;">
+    <div style="padding: 50px; margin-bottom: 15px; height: 125px;">
 	<form name="frmreset" id="frmreset" method="POST" action="reset.php">
-		<div>
-			<label><strong>Email cadastrado:</strong></label>
-			<input type="text" id="email" name="email" size="email" placeholder="Digite seu email aqui" size="65" value="<?php echo $_GET['email']?>">
+		<div class="text-align-center" style="margin-bottom: 25px">
+			<strong>Email cadastrado:</strong><br />
+			<input type="text" id="email" name="email" size="50" placeholder="Digite seu email aqui" size="65" value="<?php echo $_GET['email']; ?>">
 		</div>
 
-		<div>
-			<label><strong>Nova senha</strong> <code>(máximo 8 caracteres)</code>:</label>
-			<input type="password" id="senha" name="senha" size="senha">
+		<div class="text-align-center" style="margin-bottom: 25px">
+			<strong>Nova senha</strong> <code><br />(máximo 8 caracteres)</code>:<br />
+			<input type="password" id="senha" name="senha">
 		</div>
 		
-		<div>
-			<label><strong>Confirme a nova senha:</strong></label>
-			<input type="password" id="senha" name="senha" size="senha">
+		<div class="text-align-center">
+			<strong>Confirme a nova senha:</strong><br />
+			<input type="password" id="senha1" name="senha1">
 		</div>
-		
-		<div>
-			<button>Renovar senha</button>
-		</div>
+
+        <div class="text-align-center-btn-access">
+            <input class="button button-center" name="recovery" type="submit" id="recovery" value="Renovar Senha" />
+        </div>
 	<form>
  </div>
 

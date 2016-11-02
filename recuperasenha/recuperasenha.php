@@ -45,7 +45,7 @@ CREATE TABLE `alterarsenha`(
 					'hora'			=>	$hora
 				));
 
-				$link = "<a href='http://eventosasser.com.br/recuperasenha/recupera.php?utilizador=$email'>Recuperar Senha</a>";
+				$link = "<a href='http://eventosasser.com.br/recuperasenha/recupera.php?email=$email'>Recuperar Senha</a>";
 
 				if( mail($email, 'Sistema de eventos: Recuperação de senha', 'Olá '.$nome.', visite este link '.$link) ){
 					echo '<p>Foi enviado um e-mail para o seu endereço, onde poderá encontrar um link único para alterar a sua senha</p>';

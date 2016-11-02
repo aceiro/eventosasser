@@ -43,16 +43,17 @@
     <div id="mmenusubsubbar"> &nbsp;</div>
     <div style="padding: 50px; margin-bottom: 50px; height: 100px;">
 
-        <div style="height: 150px; width: 45%; float: left;">
+        <div style="height: 100px;">
 	<form name="frmrecuperar" id="frmrecuperar" method="POST" action="recuperasenha.php">
-		<div>
-			<label>Digite o email cadastrado aqui:</label>
-			<input type="text" id="email" name="email" size="email" placeholder="Digite seu email aqui">
+		<div class="text-align-center">
+			<strong>Digite o email cadastrado aqui:</strong><br /><br />
+			<input type="text" id="email" name="email" size="50" placeholder="Digite seu email aqui">
 		</div>
-		
-		<div>
-			<button>Resgatar senha</button>
-		</div>
+
+        <div class="text-align-center-btn-access">
+            <input class="button button-center" name="recovery" type="submit" id="recovery" value="Recuperar Senha" />
+        </div>
+
 	<form>
  </div>
 
