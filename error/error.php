@@ -36,12 +36,12 @@
 
 
 
-    <script src="../scripts/asser-main-menu.js"></script>
-    <script src="../scripts/asser-commum.js"></script>
+    <script src="../html/scripts/asser-main-menu.js"></script>
+    <script src="../html/scripts/asser-commum.js"></script>
 
 
-    <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
 </head>
 <body>
 <div id="corpo">

@@ -40,12 +40,12 @@
 
 	
 
-	<script src="../scripts/asser-main-menu.js"></script>
-	<script src="../scripts/asser-commum.js"></script>
+	<script src="../html/scripts/asser-main-menu.js"></script>
+	<script src="../html/scripts/asser-commum.js"></script>
 	
 
-	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
 </head>
 <body>
 	<div id="corpo">
@@ -66,7 +66,7 @@
             <div id="mmenusubbar"> &nbsp;</div>
             <div id="mmenusubsubbar"> &nbsp;</div>
 
-		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../cad_usuario/perfil.php'"> voltar </span>
+		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../resumo/perfil.php'"> voltar </span>
 
         <div id="texto">
 			<div class="message-payment-success">

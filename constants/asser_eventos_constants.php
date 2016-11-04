@@ -7,12 +7,15 @@
     define('RESUMO_STATUS_REENVIAR', 2);
     define('RESUMO_STATUS_REPROVADO',3);
     define('RESUMO_STATUS_CORRIGIDO',4);
+    define('RESUMO_STATUS_EDITADO' , 5);
 
     define('ID_EVENTO_ATUAL',       1);
     define('STATUS_ATUALIZACAO_INSERT', 'I');
     define('STATUS_ATUALIZACAO_DELETE', 'D');
     define('STATUS_ATUALIZACAO_UPDATE', 'U');
     define('STATUS_ATUALIZACAO_OTHER',  'X');
+    define('STATUS_ATUALIZACAO_REVISAR',  'R');
+    define('STATUS_ATUALIZACAO_REVISADO', 'O');
 
     //
     // Para controle de sessão

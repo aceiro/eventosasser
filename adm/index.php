@@ -9,13 +9,13 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da p�gina -->
-    <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="../scripts/asser-main-menu.js"></script>
-    <script src="../scripts/asser-commum.js"></script>
-    <script src="../scripts/notify.min.js"></script>
+    <script src="../html/scripts/asser-main-menu.js"></script>
+    <script src="../html/scripts/asser-commum.js"></script>
+    <script src="../html/scripts/notify.min.js"></script>
 
 </head>
 <body>
@@ -56,11 +56,11 @@
                 </div>
 
                 <div>
-                    <label for="login">Usuário</label><input type="text" id="login" name="login" size="30" maxlength="30" />
+                    <label for="login">Usuário</label><input type="text" id="login" name="login" size="30" maxlength="30" value=""/>
                 </div>
 
                 <div>
-                    <label for="password">Senha</label><input type="password" id="password" name="password" />
+                    <label for="password">Senha</label><input type="password" id="password" name="password" value=""/>
                 </div>
 
                 <div class="text-align-center-btn-access">

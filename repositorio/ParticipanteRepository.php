@@ -15,6 +15,11 @@ define("RETORNA_TODOS_PARICIPANTES_PARA_PAGAMENTO", 'SELECT p.nome,
        AND p.id NOT IN (SELECT id_participante FROM inscricao)
 ORDER BY p.email');
 
+define('RETORNA_TRABALHOS_EXISTENTES','SELECT email FROM participantextrabalho pt, participante p
+WHERE p.id = pt.id_participante AND
+      p.email = :email AND
+      pt.id_trabalho = :id');
+
 class ParticipanteRepository implements GenericRepository{
     protected $db;
     public function __construct(Database $db){
@@ -160,4 +165,14 @@ class ParticipanteRepository implements GenericRepository{
     public function findAllParticipantesForPayment(){
         return $this->findAllBySql(RETORNA_TODOS_PARICIPANTES_PARA_PAGAMENTO);
     }
+
+    public function checkIfTrabalhosExists($id, $email){
+        $trabalho = $this->findAllBySql(RETORNA_TRABALHOS_EXISTENTES, ['id'=>$id, 'email'=>$email]);
+
+        if( count($trabalho)>=1 )
+            return true;
+        else return false;
+    }
+
+
 }

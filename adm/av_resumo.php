@@ -35,19 +35,19 @@ header("Content-Type: text/html; charset=UTF-8", true);
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- outros suporte a css da página -->
-    <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
 
 
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="../scripts/asser-main-menu.js"></script>
-    <script src="../scripts/asser-commum.js"></script>
+    <script src="../html/scripts/asser-main-menu.js"></script>
+    <script src="../html/scripts/asser-commum.js"></script>
 
-    <link rel="stylesheet" href="../scripts/tablesorter/blue/style.css" type="text/css"
+    <link rel="stylesheet" href="../html/scripts/tablesorter/blue/style.css" type="text/css"
           media="print, projection, screen">
-    <link rel="stylesheet" href="../css/teacher-evaluation-style.css" type="text/css">
-    <script type="text/javascript" src="../scripts/tablesorter/jquery.tablesorter.js"></script>
+    <link rel="stylesheet" href="../html/css/teacher-evaluation-style.css" type="text/css">
+    <script type="text/javascript" src="../html/scripts/tablesorter/jquery.tablesorter.js"></script>
 </head>
 
 <script>
@@ -76,7 +76,7 @@ header("Content-Type: text/html; charset=UTF-8", true);
     <div id="mmenusubsubbar"> &nbsp;</div>
     <div class="welcome-login" style="margin-bottom: 80px;">
         <span id="small-button-class" class="small-button-class"
-              onclick="javascript:location.href='loggout.php'"> Sair </span>
+              onclick="javascript:location.href='professor_perfil.php'"> Voltar </span>
     </div>
     <br/>
 

@@ -19,22 +19,22 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
-    <script src="../scripts/notify.min.js"></script>
+    <script src="../html/scripts/notify.min.js"></script>
 
 
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
-    <script src="../scripts/asser-main-menu.js"></script>
+    <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <script src="../html/scripts/asser-main-menu.js"></script>
 
     <script type="text/javascript">
         // callback (usado para chamar via POST o listar participante com todos autores)
         // 1. retorna uma lista de autores
         $(function() {
-            $( "#dados" ).load( "lista_participante.php", { }, function() {
+            $( "#dados" ).load( "lista_participante_service.php", { }, function() {
                 console.log('Lista de participantes carregada com sucesso!');
             });
 

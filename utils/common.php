@@ -38,3 +38,10 @@
         return $result;
     }
 
+
+
+    function fmtBrazilianMoney($value){
+
+        return 'R$ ' . number_format($value, 2,',','.');
+    }
+

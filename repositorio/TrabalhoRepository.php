@@ -108,6 +108,25 @@ class TrabalhoRepository implements GenericRepository{
     }
 
 
+    public function updateTrabalhoReviewed($id, $titulo, $resumo, $keyword)
+    {
+        $trabalho = $this->findOne($id);
+
+        if($trabalho->status_r==RESUMO_STATUS_REENVIAR){
+            $trabalho->status_r=RESUMO_STATUS_CORRIGIDO;
+        }else{
+            $trabalho->status_r=RESUMO_STATUS_EDITADO;
+        }
+
+        $trabalho->titulo = $titulo;
+        $trabalho->resumo = $resumo;
+        $trabalho->palavras_chave = $keyword;
+        $trabalho->status_atualizacao = STATUS_ATUALIZACAO_REVISADO;
+        return  $this->db->save($trabalho);
+
+    }
+
+
 
 
     public function findAll()

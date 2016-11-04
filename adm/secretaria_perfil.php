@@ -19,13 +19,13 @@ $session = new Session("EventosAsser2016");
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da p�gina -->
-    <link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="../scripts/asser-main-menu.js"></script>
-    <script src="../scripts/asser-commum.js"></script>
-    <script src="../scripts/notify.min.js"></script>
+    <script src="../html/scripts/asser-main-menu.js"></script>
+    <script src="../html/scripts/asser-commum.js"></script>
+    <script src="../html/scripts/notify.min.js"></script>
 
 </head>
 <body>
@@ -74,12 +74,12 @@ $session = new Session("EventosAsser2016");
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="lista-resumos"
                       name="secretaria" method="post"
-                      action="../n_listar/lista_pagamentos_x_inscritos.php"  novalidate="novalidate">
+                      action="../relatorios/lista_pagamentos_x_inscritos.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/clipboard-list-flat.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Lista de Inscritos" />
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Lista de Pagantes X Inscritos" />
                         </div>
                     </div>
                 </form>

@@ -27,7 +27,7 @@
 
 		$id = $trabalhoRepository->updateReviewByIdTrabalho($idTrabalho, $status, $comentarios);
 		if( isset($id) ){
-			header("Location: ../n_listar/lista_resumos_x_autores.php");
+			header("Location: ../relatorios/lista_resumos_x_autores.php");
 		}else throw new Exception('Erro ao atualizar trabalho');
 
 

@@ -5,7 +5,7 @@
 	header("Content-Type: text/html; charset=UTF-8", true);
 	
 	class BD{
-		//n_listar certificado aluno participante
+		//relatorios certificado aluno participante
 		public buscaCerticiadoP(){
 			try{
 				$pdo = new PDO($config['dsn'], $config['dbuser'], $config['dbpass']);

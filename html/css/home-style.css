@@ -1,0 +1,60 @@
+.social{
+	width:  250px;
+	height: 70px;
+	margin-left: 600px;
+	border: 1px solid rgba(204, 213, 213, 0.72);
+	border-radius: 5px;
+}
+#compartilhe{
+	margin-left: 677px;
+	color: rgba(68, 68, 61, 0.6);
+	
+}
+
+#drawer{
+	/*width:890px;*/
+	box-shadow:1px 1px 2px #555;
+	background-color: rgba(242, 236, 130, 0.8);
+	color: #0F2345;
+	margin-top: -72px;
+	border-radius: 1px;
+	margin-left: 30px;
+}
+
+#drawer li{
+	height:40px;
+	overflow:hidden;
+	margin-bottom:10px;
+
+	transition: height 0.5s;
+	-moz-transition: height 0.5s; /* Firefox 4 */
+	-webkit-transition: height 0.5s; /* Safari and Chrome */
+	-o-transition: height 0.5s; /* Opera */
+}
+
+#drawer li:hover{
+	cursor: pointer;
+}
+
+.newImage{
+	width: 47px;
+	height: 40px;
+	margin-left: 3px;
+}
+
+.login-class{
+	border-radius: 3px;
+	float: right;
+    margin: 160px 0px 2px 2px;
+	padding: 3px;
+    border: 1px solid #336799;
+    color: #336799;
+    font-size: 11px;
+}
+
+#login-action:hover{
+	font-size: 11px;
+	border: 1px solid #336799;			
+	cursor: pointer;
+    background-color: rgba(40, 96, 144, 0.09);
+}

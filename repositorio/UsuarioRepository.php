@@ -31,7 +31,6 @@ class UsuarioRepository implements GenericRepository{
             $usuario = $this->db->load('usuario');
             $usuario->nome = $dto->nome;
             $usuario->senha = $dto->senha;
-            $usuario->id_tipoatividade = $dto->idTipoAtividade;
 
             // save the dto
             $this->db->save($usuario);
@@ -56,7 +55,6 @@ class UsuarioRepository implements GenericRepository{
             $bean = $this->findOne($dto->id);
             $bean->nome = $dto->nome;
             $bean->senha = $dto->senha;
-            $bean->id_tipoatividade = $dto->idTipoAtividade;
             return  $this->db->save($bean);
         }
 

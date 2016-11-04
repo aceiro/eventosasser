@@ -12,9 +12,9 @@
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<!-- outros suporte a css da página -->
-	<link rel="stylesheet" href="../css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../css/estilo.css" type="text/css">
-	<!-- outros scripts para o menu-->	<script src="../scripts/asser-main-menu.js"></script>
+	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+	<!-- outros scripts para o menu-->	<script src="../html/scripts/asser-main-menu.js"></script>
 	<style type="text/css">
 		#atencao {
 		width: 740px;  
