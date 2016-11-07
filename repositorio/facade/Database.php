@@ -2,7 +2,6 @@
 
 require '../RedBeanPHP4_3_2/rb.php';
 // DEV Environment at Local laptop
-//R::setup( 'mysql:host=localhost;dbname=eventosa_v1', 'root', '123456' );
 //R::setup( 'mysql:host=localhost;dbname=eventosa_v1_201611040912', 'root', '123456' );
 
 

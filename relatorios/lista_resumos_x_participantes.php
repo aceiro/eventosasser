@@ -103,6 +103,14 @@
 				var editUrl 		= '../resumo/editar_resumo.php?id='+abstractId;
 				setTimeout( function(){window.location = editUrl} , 500);
 			});
+
+			$('table tbody tr td .icon-eye-class').click(function() {
+				var spanId = $(this).prop('id');
+				var abstractId = spanId.split(":")[1];
+				var editUrl 		= '../resumo/visualizar_resumo.php?id='+abstractId;
+				setTimeout( function(){window.location = editUrl} , 500);
+
+			});
 		});
 
 
@@ -142,15 +150,17 @@
                 <table id="table-hover">
 					<caption><strong>Lista de Resumos Submetidos </strong><br>
 					</caption>
-					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th colspan="2">OPERAÇÕES</th></th>
+					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th colspan="3">OPERAÇÕES</th></th>
 					<?php
 
 						require_once '../constants/asser_eventos_constants.php';
 						$email  = $session->get(SESSION_KEY_EMAIL);
-						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{REMOVER}</td><td>{EDITAR}</td></tr>';
+						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{REMOVER}</td><td>{VISUALIZAR}</td><td>{EDITAR}</td></tr>';
 
 						foreach ($trabalhoRepository->findAllTrabalhosByEmail($email) as $row) {
-							$status = $row['status'];
+							$status 	   	  = $row['status'];
+							$principal_author = $participanteRepository->checkIfAuthorIsPrincipal($row['id'], $row['email']);
+
 							switch($status){
 								case RESUMO_STATUS_EDITADO:
 								case RESUMO_STATUS_ENVIADO:{
@@ -179,16 +189,28 @@
 							}
 
 							$id 	 = $row['id'];
-							$remover = "<span class='remove-icon-class' id=\"rs:$id\"> <span id=\"r:$id\" title='Remover' class='glyphicon glyphicon-remove' style='cursor: pointer;' />  </span> ";
-							$editar  = "<span class='edit-icon-class' id=\"es:$id\">   <span id=\"e:$id\" title='Editar' class='glyphicon glyphicon-edit' style='cursor: pointer;'/>    </span>";
 
-							$strRowId 	   = str_replace("{ID}"		,	$row['id'], 	$strRow);
-							$strRowTitulo  = str_replace("{TITULO}" , 	$row['titulo'], $strRowId);
-							$strRowCurso   = str_replace("{CURSO}"  ,  	$row['curso'],  $strRowTitulo);
-							$strRowStatus  = str_replace("{STATUS}" , 	$result,  		$strRowCurso);
-							$strRowRemover = str_replace("{REMOVER}", 	$remover, 		$strRowStatus);
-							$strRowEditar  = str_replace("{EDITAR}" , 	$editar,  		$strRowRemover);
-							echo $strRowEditar;
+							$remover     = "<span class='remove-icon-class' id=\"rs:$id\"> <span id=\"r:$id\" title='Remover' class='glyphicon glyphicon-remove' style='cursor: pointer;' />  </span> ";
+							$editar      = "<span class='edit-icon-class' id=\"es:$id\">   <span id=\"e:$id\" title='Editar' class='glyphicon glyphicon-edit' style='cursor: pointer;'/>    </span>";
+							$visualizar  = "<span class='icon-eye-class' id=\"vs:$id\">   <span id=\"e:$id\" title='Visualizar' class='glyphicon glyphicon-eye-open' style='cursor: pointer;'/>    </span>";
+
+							$strRowId 	   = str_replace("{ID}"		,		$row['id'], 	$strRow);
+							$strRowTitulo  = str_replace("{TITULO}" , 		$row['titulo'], $strRowId);
+							$strRowCurso   = str_replace("{CURSO}"  ,  		$row['curso'],  $strRowTitulo);
+							$strRowStatus  = str_replace("{STATUS}" , 		$result,  		$strRowCurso);
+							$strRowVisualizar  = str_replace("{VISUALIZAR}" , 	$visualizar,  		$strRowStatus);
+							$strRowFinal   = "";
+
+							if($principal_author==1) {
+								$strRowRemover = str_replace("{REMOVER}", $remover, $strRowVisualizar);
+								$strRowEditar  = str_replace("{EDITAR}", $editar, $strRowRemover);
+								$strRowFinal   = $strRowEditar;
+							}else{
+								$strRowRemover = str_replace("{REMOVER}", '',  $strRowVisualizar);
+								$strRowEditar  = str_replace("{EDITAR}",  '',  $strRowRemover);
+								$strRowFinal   = $strRowEditar;
+							}
+							echo $strRowFinal;
 						}
 					?>
 				</table>

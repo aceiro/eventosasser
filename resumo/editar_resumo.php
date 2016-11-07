@@ -143,7 +143,7 @@
             <div id="mmenusubbar"> &nbsp;</div>
             <div id="mmenusubsubbar"> &nbsp;</div>
 
-		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='perfil.php'"> voltar </span>
+		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../relatorios/lista_resumos_x_participantes.php'"> voltar </span>
 
         <fieldset>
 			<legend> Cadastro de Resumo </legend>

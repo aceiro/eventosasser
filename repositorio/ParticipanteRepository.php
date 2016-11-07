@@ -20,6 +20,13 @@ WHERE p.id = pt.id_participante AND
       p.email = :email AND
       pt.id_trabalho = :id');
 
+define('RETORNA_STATUS_AUTOR_PRINCIPAL','SELECT pte.autor_principal
+FROM participante p,
+     participantextrabalho pte
+WHERE p.id = pte.id_participante
+  AND p.email = :email
+  AND pte.id_trabalho = :id');
+
 class ParticipanteRepository implements GenericRepository{
     protected $db;
     public function __construct(Database $db){
@@ -174,5 +181,15 @@ class ParticipanteRepository implements GenericRepository{
         else return false;
     }
 
+    public function checkIfAuthorIsPrincipal($id, $email){
+        $trabalho = $this->findAllBySql(RETORNA_STATUS_AUTOR_PRINCIPAL, [':email'=>$email, ':id'=>$id]);
+
+        if( count($trabalho)==0 )
+            return false;
+
+        if( !isset($trabalho[0]['autor_principal']) || $trabalho[0]['autor_principal']==0 )
+            return false;
+        else if( $trabalho[0]['autor_principal']==1 )return true;
+    }
 
 }
