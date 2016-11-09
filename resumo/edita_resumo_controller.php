@@ -13,20 +13,21 @@
 
 
         $session            =  new Session("EventosAsser2016");
-        $trabalho_id        = $_POST['trabalho_id'];
+        $idTrabalho         =  $_POST['trabalho_id'];
         $titulo             =  strtoupper(addslashes($_POST['titulo']));
         $resumo             =  addslashes($_POST['texto']);
         $keywords           =  addslashes($_POST['keyword']);
-
-        $listOfEmails           = $_POST['email'];
+        $idTipoAtividade    =  $_POST['tipo'];
+        $idOrientador       =  $_POST['orientador'];
+        $listOfEmails       =  $_POST['email'];
 
         $trabalhoRepository             = EventosAsserFacade::createTrabalhoRepository();
         $participanteRepository         = EventosAsserFacade::createParticipanteRepository();
         $participanteTrabalhoRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();
 
-        $idTrabalho   = $trabalhoRepository->updateTrabalhoReviewed($trabalho_id, $titulo, $resumo, $keywords);
+        $idTrabalhoUpdated   = $trabalhoRepository->updateTrabalhoReviewed($idTrabalho, $titulo, $resumo, $keywords, $idOrientador, $idTipoAtividade);
 
-        if( is_null($idTrabalho) ){
+        if( is_null($idTrabalhoUpdated) ){
             echo "<br>Não foi possível criar o resumo!";
             return;
         }
@@ -36,7 +37,7 @@
             if( $email==NULL )
                 continue;
 
-            if( $participanteRepository->checkIfTrabalhosExists($idTrabalho, $email))
+            if( $participanteRepository->checkIfTrabalhosExists($idTrabalhoUpdated, $email))
                 continue;
 
             if( !is_string($email) && !$participanteRepository->existsParticipanteByEmail($email) )
@@ -49,7 +50,7 @@
 
             $participanteTrabalho = ParticipanteTrabalho::create()
                 ->setIdParticipante($idParticipante)
-                ->setIdTrabalho($idTrabalho)
+                ->setIdTrabalho($idTrabalhoUpdated)
                 ->setCoAutor($firstAuthor == false)
                 ->setAutorPrincipal($firstAuthor == true)
                 ->setOuvinte(false);

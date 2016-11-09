@@ -180,7 +180,8 @@
 									if($row['id']==$trabalho->id_tipoatividade) {
 										$selected = 'selected';
 									}
-                                    $str .= "<option id='". $row['id'] . "' $selected >" . $row['descricao'] . "</option>";
+
+									$str .= "<option value='" . $row['id'] . "' $selected >" . $row['descricao'] . "</option>";
                                 }
                                 echo $str;
                                 ?>

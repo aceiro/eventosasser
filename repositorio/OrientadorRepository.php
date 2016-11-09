@@ -1,6 +1,7 @@
 <?php
 
 require_once 'interfaces/GenericRepository.php';
+define("RETORNA_ORIENTADORES",'SELECT id, ucase(nome) as nome FROM orientador ORDER BY nome ');
 
 class OrientadorRepository implements GenericRepository{
     protected $db;
@@ -60,8 +61,10 @@ class OrientadorRepository implements GenericRepository{
 
     public function findAll()
     {
-        return $this->db->findAll('orientador');
+        return $this->findAllBySql(RETORNA_ORIENTADORES);
     }
+
+
 
     public function updateStatusRemovidoById($id)
     {

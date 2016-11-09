@@ -53,13 +53,52 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
 
 
     <script type="application/javascript">
-        $(function () {
+         $(function () {
             evc.init();
             evc.addSelectOptionCourse('select-content');
-            evc.addTableFilter('#abstracts-table', '#select-content select');
+            evc.addTableFilter($('#abstracts-table'), '#select-content select');
+
         });
 
         var evc = ASSER.courses;
+
+        $(function() {
+            //Created By: Brij Mohan
+            //Website: http://techbrij.com
+            //http://techbrij.com/html-table-row-grouping-jquery
+            function groupTable($rows, startIndex, total){
+                if (total === 0){
+                    return;
+                }
+                var i , currentIndex = startIndex, count=1, lst=[];
+                var tds = $rows.find('td:eq('+ currentIndex +')');
+                var ctrl = $(tds[0]);
+                lst.push($rows[0]);
+                for (i=1;i<=tds.length;i++){
+                    if (ctrl.text() ==  $(tds[i]).text()){
+                        count++;
+                        $(tds[i]).css('display', 'none')
+                        lst.push($rows[i]);
+                    }
+                    else{
+                        if (count>1){
+                            ctrl.attr('rowspan',count);
+                            groupTable($(lst),startIndex+1,total-1)
+                        }
+                        count=1;
+                        lst = [];
+                        ctrl=$(tds[i]);
+                        lst.push($rows[i]);
+                    }
+                }
+            }
+            groupTable($('#abstracts-table tr:has(td)'),0,2);
+            $('#abstracts-table .deleted').remove();
+        });
+
+
+
+
     </script>
 
 
@@ -89,92 +128,113 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
     <div id="mmenusubsubbar"> &nbsp;</div>
 
     <span id="small-button-class" class="small-button-back-class"
-          onclick="javascript:location.href='../adm/professor_perfil.php'"> voltar </span>
+          onclick="javascript:document.cookie='id_course_selected=; expires=Thu, 01 Jan 1970 00:00:00 UTC'; javascript:location.href='../adm/professor_perfil.php'"> voltar </span>
 
 
     <div id="listar-coteudo">
-        <form id="register-form" name="register-form" method="post" action="../adm/av_resumo.php">
-            <fieldset>
-                <legend style="width: 155px"> Formulário de Avaliação</legend>
 
-                <div class="filter-container">
-                    <div> Curso:</div>
-                    <div id="select-content"></div>
-                    <div> ID:</div>
-                    <div>
-                        <input type="text" name="id" id="id" size="5" maxlength="5"/>
-                        <input name="avaliar" type="submit" id="avaliar" value="Avaliar"/>
-                    </div>
-                </div>
-                <div>
-                    <table id="abstracts-table" class="tablesorter">
+            <div>
+                <fieldset>
+                <legend style="width: 155px"> Filtros </legend>
 
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Título</th>
-                            <th>Aluno</th>
-                            <th>Curso</th>
-                            <th>Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        require_once '../constants/asser_eventos_constants.php';
-                        define('ROW_TEMPLATE', '<tr class=\'{COLOR}\'><td>{ID}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr> ');
+                    <form id="select-content-form" name="select-content-form" method="post" action="#">
+                        <div id="select-content"></div>
+                    </form>
 
-                        foreach ($repository->findAllTrabalhosAndAutores() as $row) {
-                            $status = $row['status'];
-                            $colorClass = 'rowNoneColor';
-                            switch ($status) {
-                                case RESUMO_STATUS_EDITADO:
-                                case RESUMO_STATUS_ENVIADO: {
-                                    $result = "<span class=\"glyphicon glyphicon-list-alt rowNoneColor\" style='text-align: center'>  Enviado </span>";
-                                    $colorClass = '';
-                                    break;
-                                }
-                                case RESUMO_STATUS_APROVADO: {
-                                    $result = "<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
-                                    $colorClass = 'rowGreenColor';
-                                    break;
-                                }
-                                case RESUMO_STATUS_REENVIAR: {
-                                    $result = "<span class=\" glyphicon glyphicon-ban-circle\" style='text-align: center'></span><br/>Re-enviar";
-                                    $colorClass = 'rowYellowColor';
-                                    break;
-                                }
-                                case RESUMO_STATUS_REPROVADO: {
-                                    $result = "<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
-                                    $colorClass = 'rowRedColor';
-                                    break;
-                                }
-                                case RESUMO_STATUS_CORRIGIDO: {
-                                    $result = "<span class=\" glyphicon glyphicon glyphicon-pencil\"></span><br/>Corrigido";
-                                    $colorClass = 'rowBlueColor';
-                                    break;
-                                }
-                                default: {
-                                    $result = "-";
-                                }
+                    <form id="register-form" name="register-form" method="post" action="../adm/av_resumo.php">
+                        <div>
+                            <label> ID:</label>
+                            <input type="text" name="id" id="id" size="5" maxlength="5"/>
+                            <input name="avaliar" type="submit" id="avaliar" value="Avaliar"/>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+
+
+        <fieldset>
+            <legend style="width: 155px"> Lista de Resumos </legend>
+            <div id="main-table">
+                <table id="abstracts-table" class="tablesorter">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Aluno</th>
+                        <th>Curso</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    require_once '../constants/asser_eventos_constants.php';
+                    define('ROW_TEMPLATE', '<tr class=\'{COLOR}\'><td>{ID}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr> ');
+                    $id = 0;
+                    if( (isset($_GET['id']) && $_GET['id']>0) ){
+                        $id = $_GET['id'];
+                    }else if (isset($_COOKIE['id_course_selected']) ){
+                        $id = $_COOKIE['id_course_selected'];
+                    }
+
+                    if( $id>0 )
+                        $trabalhos = $repository->findAllTrabalhosAndAutoresById($id);
+                        else
+                            $trabalhos = $repository->findAllTrabalhosAndAutores();
+
+
+                    foreach ( $trabalhos as $row) {
+                        $status     = $row['status'];
+                        $colorClass = 'rowNoneColor';
+                        switch ($status) {
+                            case RESUMO_STATUS_EDITADO:
+                            case RESUMO_STATUS_ENVIADO: {
+                                $result = "<span class=\"glyphicon glyphicon-list-alt rowNoneColor\" style='text-align: center'>  Enviado </span>";
+                                $colorClass = '';
+                                break;
                             }
-
-
-                            $rowBuildId = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
-                            $rowBuildTitle = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
-                            $rowBuildName = str_replace("{ALUNO}", $row['nome'], $rowBuildTitle);
-                            $rowBuildCourse = str_replace("{CURSO}", $row['curso'], $rowBuildName);
-                            $rowBuildStatus = str_replace("{STATUS}", $result, $rowBuildCourse);
-                            $rowBuildColor  = str_replace("{COLOR}", $colorClass, $rowBuildStatus);
-
-                            echo $rowBuildColor;
+                            case RESUMO_STATUS_APROVADO: {
+                                $result = "<span class=\" glyphicon glyphicon-ok-circle\"></span><br/>Aprovado";
+                                $colorClass = 'rowGreenColor';
+                                break;
+                            }
+                            case RESUMO_STATUS_REENVIAR: {
+                                $result = "<span class=\" glyphicon glyphicon-ban-circle\" style='text-align: center'></span><br/>Re-enviar";
+                                $colorClass = 'rowYellowColor';
+                                break;
+                            }
+                            case RESUMO_STATUS_REPROVADO: {
+                                $result = "<span class=\" glyphicon glyphicon-remove-circle\"></span><br/>Reprovado";
+                                $colorClass = 'rowRedColor';
+                                break;
+                            }
+                            case RESUMO_STATUS_CORRIGIDO: {
+                                $result = "<span class=\" glyphicon glyphicon glyphicon-pencil\"></span><br/>Corrigido";
+                                $colorClass = 'rowBlueColor';
+                                break;
+                            }
+                            default: {
+                                $result = "-";
+                            }
                         }
 
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
-            </fieldset>
-        </form>
+
+                        $rowBuildId     = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
+                        $rowBuildTitle  = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
+                        $rowBuildName   = str_replace("{ALUNO}", $row['nome'], $rowBuildTitle);
+                        $rowBuildCourse = str_replace("{CURSO}", $row['curso'], $rowBuildName);
+                        $rowBuildStatus = str_replace("{STATUS}", $result, $rowBuildCourse);
+                        $rowBuildColor  = str_replace("{COLOR}", $colorClass, $rowBuildStatus);
+
+                        echo $rowBuildColor;
+                    }
+
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+
+        </fieldset>
+
 
     </div>
     <div id="rodape">

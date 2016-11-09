@@ -20,22 +20,21 @@ var Courses = (function(window){
 
 	var privates = {};
 	var asserCourseDetail = {
-		coursesName: [	'',
-						'Bacharelado em Administração',
-						'Bacharelado em Arquitetura e Urbanismo',
-						'Licenciatura em Pedagogia',
-						'Bacharelado em Comunicação Social Publicidade e Propaganda',
-						'Bacharelado em Engenharia Civil',
-						'Bacharelado em Engenharia de Produção',
-						'Bacharelado em Sistemas de Informação',
-						'Bacharelado em Educação Física',
-						'Licenciatura em Educação Física',
-						'Bacharelado em Fisioterapia',
-						'Bacharelado em Nutrição',
-						'Bacharelado em Farmácia',
-						'Tecnólogo em Design de Interiores',
-						'Tecnólogo em Gestão Financeira',
-						'Tecnólogo em Gestão da Produção Industrial'
+		coursesName: [		'TODOS',
+							'BACHARELADO EM ARQUITETURA E URBANISMO',
+							'BACHARELADO EM ENGENHARIA DE PRODUÇÃO',
+							'BACHARELADO EM EDUCAÇÃO FÍSICA',
+							'BACHARELADO EM ADMINISTRAÇÃO',
+							'LICENCIATURA EM PEDAGOGIA',
+							'BACHARELADO EM ENGENHARIA CIVIL',
+							'BACHARELADO EM SISTEMAS DE INFORMAÇÃO',
+							'LICENCIATURA EM EDUCAÇÃO FÍSICA',
+							'BACHARELADO EM FISIOTERAPIA',
+							'BACHARELADO EM NUTRIÇÃO',
+							'BACHARELADO EM FARMÁCIA',
+							'TECNÓLOGO EM DESIGN DE INTERIORES',
+							'TECNÓLOGO EM GESTÃO FINANCEIRA',
+							'TECNÓLOGO EM GESTÃO DA PRODUÇÃO INDUSTRIAL'
 					  ],
 
 		getCourseQuantity: function(){
@@ -43,19 +42,45 @@ var Courses = (function(window){
 		}
 	};
 
+	var getCookie = function (cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+
 
 	var buildSelectOptionForCourses = function(){
-			var selectTag = '<select>{{option_tag}}</select>';
-			var optionTag = '<option>{{course_name}}</option>';
+			var selectTag = '<label> Curso:</label> <select>{{option_tag}}</select>';
+			var optionTag = '<option id="{{value_id}}" {{isselected}}>{{course_name}}</option>';
 
 			var courses   = asserCourseDetail.coursesName;
 			var options   = '';
+			var id_course_selected = getCookie('id_course_selected');
+
 			for (var i = 0; i < asserCourseDetail.getCourseQuantity(); i++) {
-				var courseName   = courses[i];
-				var strOptionTag = optionTag.replace(/{{course_name}}/i,courseName);
-				options+=strOptionTag;
+				var courseName     = courses[i];
+				var strOptionTag   = optionTag.replace(/{{course_name}}/i,courseName);
+				var strOptionTagId = strOptionTag.replace(/{{value_id}}/i,""+i);
+
+				if(i==id_course_selected){
+					var strOptionTagSelected = strOptionTagId.replace(/{{isselected}}/i,"selected");
+					options+=strOptionTagSelected;
+				}else{
+					var strOptionTagSelected = strOptionTagId.replace(/{{isselected}}/i,"");
+					options+=strOptionTagSelected;
+				}
 			}
 			var select = selectTag.replace(/{{option_tag}}/i,options);
+
 			return select;
 	};
 
@@ -79,17 +104,12 @@ var Courses = (function(window){
             $table.tablesorter();
             
             /* hidden or show a row from table */
-            $select.change(function () {			    
-			    var reg   = new RegExp(this.value, 'i');      
-			    var tds   = $('tbody tr');
-			    var match = tds.filter(function (i, v) {
-			              return reg.test($(v).text());       
-			    });
+            $select.change(function () {
+				var $id = $(this).children(":selected").attr("id");
+				document.cookie = "id_course_selected="+$id;
+				window.location = "lista_resumos_x_autores.php?id="+$id;
 
-			    tds.not(match).css('display', 'none');   
-			    match.css('display', '');           
-
-			  }).focus(function () {
+			}).focus(function () {
 			    this.value = "";
 			    $(this).css('color', 'black');
 			    $(this).unbind('focus');

@@ -34,6 +34,24 @@ define("RETORNA_TODOS_TRABALHOS_X_AUTORES",'SELECT t.id AS id,
                                               AND t.status_atualizacao <> \'D\'
                                             ORDER BY t.titulo');
 
+
+define("RETORNA_TODOS_TRABALHOS_X_AUTORES_CURSO",'SELECT t.id AS id,
+                                                   p.nome AS nome,
+                                                   p.email AS email,
+                                                   c.nome AS curso,
+                                                   t.titulo AS titulo,
+                                                   t.status_r AS status
+                                            FROM participante p,
+                                                 curso c,
+                                                 trabalho t,
+                                                 participantextrabalho pxt
+                                            WHERE p.id_curso = c.id
+                                              AND t.id = pxt.id_trabalho
+                                              AND p.id = pxt.id_participante
+                                              AND t.status_atualizacao <> \'D\'
+                                              AND c.id = :curso_id
+                                            ORDER BY t.titulo');
+
 class TrabalhoRepository implements GenericRepository{
     protected $db;
     public function __construct(Database $db){
@@ -108,7 +126,7 @@ class TrabalhoRepository implements GenericRepository{
     }
 
 
-    public function updateTrabalhoReviewed($id, $titulo, $resumo, $keyword)
+    public function updateTrabalhoReviewed($id, $titulo, $resumo, $keyword, $idOrientador, $idTipoAtividade)
     {
         $trabalho = $this->findOne($id);
 
@@ -122,6 +140,9 @@ class TrabalhoRepository implements GenericRepository{
         $trabalho->resumo = $resumo;
         $trabalho->palavras_chave = $keyword;
         $trabalho->status_atualizacao = STATUS_ATUALIZACAO_REVISADO;
+        $trabalho->id_orientador    = $idOrientador;
+        $trabalho->id_tipoatividade = $idTipoAtividade;
+
         return  $this->db->save($trabalho);
 
     }
@@ -145,6 +166,13 @@ class TrabalhoRepository implements GenericRepository{
         $trabalho->status_atualizacao = 'D';
         return $this->db->save($trabalho);
 
+    }
+
+
+
+
+    public function findAllTrabalhosAndAutoresById($id){
+        return $this->findAllBySql(RETORNA_TODOS_TRABALHOS_X_AUTORES_CURSO, [':curso_id'=> $id]);
     }
 
     public function findAllTrabalhosAndAutores(){
