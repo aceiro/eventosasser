@@ -8,6 +8,8 @@ Contudo, ainda percebe-se uma carência por ferramentas e portais de submissão 
 
 Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para download no GitHub.
 
+(*) branch finalizada como stable em 13 de nov. de 2017 as 14:09 
+
 <p align="center">
   <img width="400" src="https://github.com/aceiro/eventosasser/blob/eventosasser-dev-v2/eventosasser.png" alt="Screenshot"/>
 </p>
