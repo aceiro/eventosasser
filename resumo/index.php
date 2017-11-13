@@ -24,7 +24,6 @@
     <div id="cabecalho">
     </div>
 
-    <br />
 
     <div id='cssmenu'>
         <ul>
