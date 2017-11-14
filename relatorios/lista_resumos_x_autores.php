@@ -44,7 +44,7 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>
-    <script src="../html/scripts/asser-commum-1.0.1.js"></script>
+    <script src="../html/scripts/asser-commum-1.0.2.js"></script>
 
     <link rel="stylesheet" href="../html/scripts/tablesorter/blue/style.css" type="text/css"
           media="print, projection, screen">
@@ -56,7 +56,9 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
          $(function () {
             evc.init();
             evc.addSelectOptionCourse('select-content');
+            evc.addSelectYearCourse('select-year');
             evc.addTableFilter($('#abstracts-table'), '#select-content select');
+            evc.addSelectYearFilter('#select-year select');
 
         });
 
@@ -128,7 +130,9 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
     <div id="mmenusubsubbar"> &nbsp;</div>
 
     <span id="small-button-class" class="small-button-back-class"
-          onclick="javascript:document.cookie='id_course_selected=; expires=Thu, 01 Jan 1970 00:00:00 UTC'; javascript:location.href='../adm/professor_perfil.php'"> voltar </span>
+          onclick="javascript:document.cookie='id_course_selected=; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+                   javascript:document.cookie='id_year_event_selected=; expires=Thu, 01 Jan 1970 00:00:00 UTC'
+          javascript:location.href='../adm/professor_perfil.php'"> voltar </span>
 
 
     <div id="listar-coteudo">
@@ -139,6 +143,10 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
 
                     <form id="select-content-form" name="select-content-form" method="post" action="#">
                         <div id="select-content"></div>
+                    </form>
+
+                    <form id="select-year-form" name="select-year-form" method="post" action="#">
+                        <div id="select-year"></div>
                     </form>
 
                     <form id="register-form" name="register-form" method="post" action="../adm/av_resumo.php">
@@ -159,6 +167,7 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Ano</th>
                         <th>Título</th>
                         <th>Aluno</th>
                         <th>Curso</th>
@@ -168,21 +177,30 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
                     <tbody>
                     <?php
                     require_once '../constants/asser_eventos_constants.php';
-                    define('ROW_TEMPLATE', '<tr class=\'{COLOR}\'><td>{ID}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr> ');
-                    $id = 0;
+                    define('ROW_TEMPLATE', '<tr class=\'{COLOR}\'><td>{ID}</td><td>{ANO}</td><td>{TITULO}</td><td>{ALUNO}</td><td>{CURSO}</td><td>{STATUS}</td></tr> ');
+                    $id = 0; $eventId = 0;
                     if( (isset($_GET['id']) && $_GET['id']>0) ){
                         $id = $_GET['id'];
                     }else if (isset($_COOKIE['id_course_selected']) ){
                         $id = $_COOKIE['id_course_selected'];
                     }
 
-                    if( $id>0 )
-                        $trabalhos = $repository->findAllTrabalhosAndAutoresById($id);
-                        else
-                            $trabalhos = $repository->findAllTrabalhosAndAutores();
+                    if( (isset($_GET['e']) && $_GET['e']>0) ){
+                        $eventId = $_GET['e'];
+                    }else if (isset($_COOKIE['id_year_event_selected']) ){
+                        $eventId = $_COOKIE['id_year_event_selected'];
+                    }
+
+                    if( $id == 0 && $eventId>0 )      /* find for all courses predicated star */
+                        $summaries = $repository->findAllTrabalhosAndAutoresByEventId( $eventId );
+                    else if( $id>0 && $eventId>0 )   /* find for specific courses */
+                        $summaries = $repository->findAllTrabalhosAndAutoresByIdAndEventId( $id, $eventId );
+                    else                            /* on the other hand, show all by current year*/
+                        $summaries = $repository->findAllTrabalhosAndAutoresByCurrentYear();
 
 
-                    foreach ( $trabalhos as $row) {
+
+                    foreach ($summaries as $row) {
                         $status     = $row['status'];
                         $colorClass = 'rowNoneColor';
                         switch ($status) {
@@ -219,7 +237,8 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
 
 
                         $rowBuildId     = str_replace("{ID}", $row['id'], ROW_TEMPLATE);
-                        $rowBuildTitle  = str_replace("{TITULO}", $row['titulo'], $rowBuildId);
+                        $rowBuildYear   = str_replace("{ANO}", $row['ano'], $rowBuildId);
+                        $rowBuildTitle  = str_replace("{TITULO}", $row['titulo'], $rowBuildYear);
                         $rowBuildName   = str_replace("{ALUNO}", $row['nome'], $rowBuildTitle);
                         $rowBuildCourse = str_replace("{CURSO}", $row['curso'], $rowBuildName);
                         $rowBuildStatus = str_replace("{STATUS}", $result, $rowBuildCourse);

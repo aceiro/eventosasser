@@ -9,7 +9,7 @@
     define('RESUMO_STATUS_CORRIGIDO',4);
     define('RESUMO_STATUS_EDITADO' , 5);
 
-    define('ID_EVENTO_ATUAL',       1);
+    define('ID_EVENTO_ATUAL',       2);
     define('STATUS_ATUALIZACAO_INSERT', 'I');
     define('STATUS_ATUALIZACAO_DELETE', 'D');
     define('STATUS_ATUALIZACAO_UPDATE', 'U');
@@ -40,3 +40,11 @@
 
     define('SUCCESS_PROCESS_STATUS',    100);
     define('ERROR_PROCESS_STATUS',      200);
+
+    //
+    // Ids dos Eventos que serao desabilitados na listagem de participantes
+    // e avaliacao de professores
+    define('EVENTS_DISABLE', array(
+        1,
+        100
+    ));

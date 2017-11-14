@@ -7,12 +7,16 @@ define("RETORNA_TRABALHOS_EMAIL",'SELECT   t.id as id,
                                            p.email as email,
                                            c.nome as curso,
                                            t.titulo as titulo,
-                                           t.status_r as status
+                                           t.status_r as status,
+                                           year(e.data_inicio) as ano,
+                                           e.id as id_evento
                                     FROM participante p,
                                          curso c,
                                          trabalho t,
+                                         evento e,
                                          participantextrabalho pxt
                                     WHERE p.email = :email
+                                      AND e.id = t.id_evento
                                       AND p.id_curso = c.id
                                       AND t.id = pxt.id_trabalho
                                       AND p.id = pxt.id_participante
@@ -23,15 +27,59 @@ define("RETORNA_TODOS_TRABALHOS_X_AUTORES",'SELECT t.id AS id,
                                                    p.email AS email,
                                                    c.nome AS curso,
                                                    t.titulo AS titulo,
+                                                   year(e.data_inicio) AS ano,
                                                    t.status_r AS status
                                             FROM participante p,
+                                                 evento e,
                                                  curso c,
                                                  trabalho t,
                                                  participantextrabalho pxt
                                             WHERE p.id_curso = c.id
+                                              AND e.id = t.id_evento
                                               AND t.id = pxt.id_trabalho
                                               AND p.id = pxt.id_participante
                                               AND t.status_atualizacao <> \'D\'
+                                            ORDER BY t.titulo');
+
+define("RETORNA_TODOS_TRABALHOS_X_AUTORES_CURRENT_YEAR",
+                                            'SELECT t.id AS id,
+                                                   p.nome AS nome,
+                                                   p.email AS email,
+                                                   c.nome AS curso,
+                                                   t.titulo AS titulo,
+                                                   year(e.data_inicio) AS ano,
+                                                   t.status_r AS status
+                                            FROM participante p,
+                                                 evento e,
+                                                 curso c,
+                                                 trabalho t,
+                                                 participantextrabalho pxt
+                                            WHERE p.id_curso = c.id
+                                              AND e.id = t.id_evento
+                                              AND t.id = pxt.id_trabalho
+                                              AND p.id = pxt.id_participante
+                                              AND t.status_atualizacao <> \'D\'
+                                              AND YEAR(e.data_inicio) = YEAR(CURDATE())
+                                            ORDER BY t.titulo');
+
+define("RETORNA_TODOS_TRABALHOS_X_AUTORES_BY_EVENT_ID", 'SELECT t.id AS id,
+                                                   p.nome AS nome,
+                                                   p.email AS email,
+                                                   c.nome AS curso,
+                                                   t.titulo AS titulo,
+                                                   year(e.data_inicio) AS ano,
+                                                   t.status_r AS status
+                                            FROM participante p,
+                                                 evento e,
+                                                 curso c,
+                                                 trabalho t,
+                                                 participantextrabalho pxt
+                                            WHERE p.id_curso = c.id
+                                              AND e.id = t.id_evento
+                                              AND t.id = pxt.id_trabalho
+                                              AND p.id = pxt.id_participante
+                                              AND t.status_atualizacao <> \'D\'
+                                              AND e.id = :evento_id
                                             ORDER BY t.titulo');
 
 
@@ -40,16 +88,20 @@ define("RETORNA_TODOS_TRABALHOS_X_AUTORES_CURSO",'SELECT t.id AS id,
                                                    p.email AS email,
                                                    c.nome AS curso,
                                                    t.titulo AS titulo,
-                                                   t.status_r AS status
+                                                   t.status_r AS status,
+                                                   year(e.data_inicio) as ano
                                             FROM participante p,
                                                  curso c,
+                                                 evento e,
                                                  trabalho t,
                                                  participantextrabalho pxt
                                             WHERE p.id_curso = c.id
+                                              AND e.id = t.id_evento
                                               AND t.id = pxt.id_trabalho
                                               AND p.id = pxt.id_participante
                                               AND t.status_atualizacao <> \'D\'
                                               AND c.id = :curso_id
+                                              AND e.id = :evento_id
                                             ORDER BY t.titulo');
 
 class TrabalhoRepository implements GenericRepository{
@@ -171,8 +223,17 @@ class TrabalhoRepository implements GenericRepository{
 
 
 
-    public function findAllTrabalhosAndAutoresById($id){
-        return $this->findAllBySql(RETORNA_TODOS_TRABALHOS_X_AUTORES_CURSO, [':curso_id'=> $id]);
+    public function findAllTrabalhosAndAutoresByIdAndEventId($id, $evento_id){
+        return $this->findAllBySql(RETORNA_TODOS_TRABALHOS_X_AUTORES_CURSO, [':curso_id'=> $id,
+                                                                                 ':evento_id'=> $evento_id]);
+    }
+
+    public function findAllTrabalhosAndAutoresByEventId($currentEventId){
+        return $this->findAllBySql(RETORNA_TODOS_TRABALHOS_X_AUTORES_BY_EVENT_ID, [':evento_id'=> $currentEventId]);
+    }
+
+    public function findAllTrabalhosAndAutoresByCurrentYear(){
+        return $this->findAllBySql(RETORNA_TODOS_TRABALHOS_X_AUTORES_CURRENT_YEAR);
     }
 
     public function findAllTrabalhosAndAutores(){

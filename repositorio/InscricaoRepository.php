@@ -21,8 +21,10 @@ define("RETORNA_TODOS_PAGANTES_INSCITOS", 'SELECT
  FROM participante p,
      inscricao i,
      curso cc
- WHERE p.id = i.id_participante
-  AND cc.id = p.id_curso');
+ WHERE
+   YEAR(i.data_pagamento) = YEAR(CURDATE())  
+   AND p.id = i.id_participante
+   AND cc.id = p.id_curso');
 
 class InscricaoRepository implements GenericRepository{
     protected $db;

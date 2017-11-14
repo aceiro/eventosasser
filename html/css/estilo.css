@@ -511,7 +511,7 @@ blockquote:before {
 	color: #FF0000;
 	content: open-quote;
 	font-size: 4.5em;
-	line-height: 0.1em;
+	line-height: 1.1em;
 	margin-right: 0.25em;
 	vertical-align: -0.4em;
 }
@@ -554,7 +554,7 @@ blockquote p {
 }
 
 #phrase_quote{
-	margin: 15px;
+	margin: 0px;
 }
 
 #quote-author{
