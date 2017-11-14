@@ -5,8 +5,7 @@ require '../RedBeanPHP4_3_2/rb.php';
 R::setup( 'mysql:host=localhost;dbname=eventosa_v1_Final_20170317', 'root', '' );
 
 
-// PRD Environment at EventosAsser.com.br
-//R::setup( 'mysql:host=localhost;dbname=eventosa_v1', 'eventosa_root', 'ewqiop#145869' );
+
 
 
 class Database{
