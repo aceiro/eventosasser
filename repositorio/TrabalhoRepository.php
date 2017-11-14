@@ -180,7 +180,7 @@ class TrabalhoRepository implements GenericRepository{
     }
 
 
-    public function updateTrabalhoReviewed($id, $titulo, $resumo, $keyword, $idOrientador, $idTipoAtividade)
+    public function updateTrabalhoReviewed($id, $titulo, $resumo, $keyword, $idOrientador, $idTipoAtividade, $idCoorientador)
     {
         $trabalho = $this->findOne($id);
 
@@ -196,6 +196,8 @@ class TrabalhoRepository implements GenericRepository{
         $trabalho->status_atualizacao = STATUS_ATUALIZACAO_REVISADO;
         $trabalho->id_orientador    = $idOrientador;
         $trabalho->id_tipoatividade = $idTipoAtividade;
+        $trabalho->id_coorientador  = $idCoorientador;
+
 
         return  $this->db->save($trabalho);
 

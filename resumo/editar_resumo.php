@@ -263,7 +263,7 @@
 				<div class="select-orientador">
 					<select id="orientador" name="orientador">
 						<?php
-						$str = "";
+                        $str = "<option value=''> NÃO SELECIONADO</option>";
 						foreach($orientadorRepository->findAll() as $row) {
 							$selected='';
 							if($row['id']==$trabalho->id_orientador) {
@@ -276,6 +276,31 @@
 						?>
 					</select>
 				</div>
+
+                    <br/><br/>
+
+                    <div class="info-resumo-orientador">Co-orientador é um segundo orientador que auxiliou no desenvolvimento do trabalho em igual valor ao orientador principal</div>
+                    <br/>
+                    <div class="rotulo-resumo">Co-orientador</div>
+                    <div class="select-orientador">
+                        <select id="coorientador" name="coorientador" disabled>
+                            <?php
+                            $str = "<option value=''> NÃO SELECIONADO</option>";
+
+                            foreach($orientadorRepository->findAllCoorientadores() as $row) {
+                                $selected='';
+                                if($row['id']==$trabalho->id_coorientador) {
+                                    $selected = 'selected';
+                                }
+
+                                $str .= "<option value='" . $row['id'] . "' $selected>" . $row['nome'] . "</option>";
+                            }
+                            echo $str;
+                            ?>
+                        </select>
+                    </div>
+
+
 					<br/><br/>
 
 	                <div class="info-resumo"> &nbsp; Informe seu resumo aqui, com Contexto, Lacuna de pesquisa, Objetivo, Metodologia, Resultado e Conclusão.
