@@ -21,6 +21,7 @@
         $idCurso            =  $session->get(SESSION_KEY_ID_CURSO);
         $idTipoAtividade    =  $_POST['tipo'];
         $idOrientador       =  $_POST['orientador'];
+        $idCoorientador     =  $_POST['coorientador'];
 
 
         $idEvento               = ID_EVENTO_ATUAL;
@@ -31,7 +32,7 @@
         $participanteRepository         = EventosAsserFacade::createParticipanteRepository();
         $participanteTrabalhoRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();
 
-        $trabalho   = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $idOrientador, $statusAtualizacao);
+        $trabalho   = new Trabalho(null,$titulo, $resumo, $keyword, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $idOrientador, $statusAtualizacao, $idCoorientador);
 
 
         $idTrabalho = $trabalhoRepository->save($trabalho);

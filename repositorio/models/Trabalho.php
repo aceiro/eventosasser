@@ -11,9 +11,10 @@ class Trabalho extends BaseDataTransferObject{
     public $idEvento;
     public $idOrientador;
     public $statusAtualizacao;
+    public $idCoorientador;
 
 
-    public function __construct($id, $titulo, $resumo, $palavrasChave, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $idOrientador, $statusAtualizacao)
+    public function __construct($id, $titulo, $resumo, $palavrasChave, $statusR, $comentarios, $idCurso, $idTipoAtividade, $idEvento, $idOrientador, $statusAtualizacao, $idCoorientador)
     {
         $this->id = $id;
         $this->titulo = $titulo;
@@ -26,10 +27,12 @@ class Trabalho extends BaseDataTransferObject{
         $this->idEvento = $idEvento;
         $this->idOrientador = $idOrientador;
         $this->statusAtualizacao = $statusAtualizacao;
+        $this->idCoorientador = $idCoorientador;
+
     }
 
     public static function create(){
-        return new Trabalho(-1, "N/A", "N/A", "N/A", "N/A", "N/A", -1, -1, -1, -1, -1);
+        return new Trabalho(-1, "N/A", "N/A", "N/A", "N/A", "N/A", -1, -1, -1, -1, -1, -1);
     }
 
     public function setId($id)
@@ -107,6 +110,19 @@ class Trabalho extends BaseDataTransferObject{
         $this->statusAtualizacao = $statusAtualizacao;
         return $this;
     }
+
+
+    public function getIdCoorientador()
+    {
+        return $this->idCoorientador;
+    }
+
+
+    public function setIdCoorientador($idCoorientador)
+    {
+        $this->idCoorientador = $idCoorientador;
+    }
+
 
 
 

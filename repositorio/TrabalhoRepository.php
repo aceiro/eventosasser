@@ -139,6 +139,7 @@ class TrabalhoRepository implements GenericRepository{
             $trabalho->id_evento = $dto->idEvento;
             $trabalho->id_orientador = $dto->idOrientador;
             $trabalho->status_atualizacao = $dto->statusAtualizacao;
+            $trabalho->id_coorientador = $dto->idCoorientador;
 
 
             // save the dto
@@ -172,6 +173,7 @@ class TrabalhoRepository implements GenericRepository{
             $trabalho->id_evento = $dto->idEvento;
             $trabalho->id_orientador = $dto->idOrientador;
             $trabalho->status_atualizacao = $dto->statusAtualizacao;
+            $trabalho->id_coorientador = $dto->idCoorientador;
             return  $this->db->save($trabalho);
         }
 
