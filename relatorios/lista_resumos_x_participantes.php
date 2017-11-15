@@ -203,7 +203,8 @@
 							$strRowFinal   = "";
 
 							$isDisableEvent = false;
-							foreach (EVENTS_DISABLE as $value) {
+                            $str_split = explode(":", EVENTS_DISABLE);
+							foreach ($str_split as $value) {
     							if($row['id_evento'] == $value){
 										$isDisableEvent = true;
 										continue;			

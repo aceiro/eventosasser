@@ -18,7 +18,7 @@
     define('STATUS_ATUALIZACAO_REVISADO', 'O');
 
     //
-    // Para controle de sessão
+    // Para controle de sessï¿½o
     define('SESSION_KEY_ID_CURSO',  'idCurso');
     define('SESSION_KEY_EMAIL',     'email');
     define('SESSION_KEY_NOME',      'nome');
@@ -44,7 +44,5 @@
     //
     // Ids dos Eventos que serao desabilitados na listagem de participantes
     // e avaliacao de professores
-    define('EVENTS_DISABLE', array(
-        1,
-        100
-    ));
+
+    const EVENTS_DISABLE = "1:100";
