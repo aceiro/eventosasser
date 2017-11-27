@@ -283,7 +283,7 @@
                     <br/>
                     <div class="rotulo-resumo">Co-orientador</div>
                     <div class="select-orientador">
-                        <select id="coorientador" name="coorientador" disabled>
+                        <select id="coorientador" name="coorientador">
                             <?php
                             $str = "<option value=''> NÃO SELECIONADO</option>";
 

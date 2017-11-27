@@ -16,6 +16,9 @@ class OrientadorRepository implements GenericRepository{
     }
 
 
+    public function findCoAdviserById($id){
+        return $this->db->findById( 'co_orientador',$id );
+    }
 
     public function findOne($id){
         return $this->db->findById( 'orientador',$id );

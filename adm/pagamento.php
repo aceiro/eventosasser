@@ -8,7 +8,7 @@
 ?>
 
 <!DOCTYPE html >
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
     <link rel="shortcut icon" href="../favicon.ico">
@@ -128,6 +128,13 @@
                     $('#data_pagamento').text(fmtCurrentDate());
                     $('#valor').text(fmtCurrencyForPayment());
 
+                    $('#nome2').text(item.nome);
+                    $('#pagemail2').text(item.email);
+                    $('#curso2').text(item.nome_curso);
+                    $('#data_pagamento2').text(fmtCurrentDate());
+                    $('#valor2').text(fmtCurrencyForPayment());
+
+
                     return false;
                 }else{
                     foundId 	= false;
@@ -147,6 +154,33 @@
 
 
     </script>
+
+    <style type="text/css">
+        .dotted {
+            border:none;
+            border-top:1px dotted #0F0F0F;
+            color:#fff;
+            background-color:#fff;
+            height:1px;
+            width:100%;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #print-area * {
+                visibility: visible;
+            }
+            #print-area {
+                font-family: "Courier New", Courier, monospace;
+                font-style: normal;
+                font-weight: normal;
+                font-size: small;
+            }
+        }
+
+    </style>
 
 </head>
 <body>
@@ -186,7 +220,7 @@
                       action="pag_confirma_controller.php"  novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
-                        <div class="text-align-center" style="height: 35px;"><strong>Entre com o e-mail do inscrito</strong></div>
+                        <div class="text-align-center" style="height: 35px;"><strong>Entre com o e-mail do aluno inscrito</strong></div>
                         <div class="text-align-center" style="height: 35px;"><input type="text" id="email" name="email" size="50"></div>
                         <div class="text-align-center">
                             <input class="button button-center" name="resumo" type="button" id="search" value="Buscar" onclick="searchEmailOnJsonList();"/>
@@ -197,23 +231,59 @@
         </div>
 
     </div>
-    <div id="info-pagamento">
-        <div class="message-payment-success">
 
+    <div id="info-pagamento">
+        <div id="print-area">
             <div class="message-payment-detail">
-                <strong> <p> Confirmação do pagamento pela secretaria </p> </strong>
+                <br/>
+                <p> <strong> Geração do Recibo e Confirmação do Pagamento </strong> </p>
+                <p> Portal de Eventos - VI - Mostra de Iniciação Científica da Faculdade ASSER de Rio Claro </p>
+                <p> Responsável _________________________________________________________________ </p>
+                <p> Data _______/_______/_______</p>
             </div>
 
-            <div> Nome completo: <div style="display: inline-block; color: #0F0F0F" id="nome" ></div> </div>
-            <div> E-mail: <div style="display: inline-block; color: #0F0F0F" id="pagemail" ></div> </div>
-            <div> Curso: <div style="display: inline-block; color: #0F0F0F" id="curso" /></div>  </div>
+            <hr/>
 
-            <div> Data do pagamento: <div style="display: inline-block; color: #0F0F0F" id="data_pagamento" /> </div> </div>
-            <div> Valor: <div style="display: inline-block; color: #0F0F0F" id="valor" /> </div> </div>
+            <div class="message-payment-success">
+
+                <div> Nome completo: <div style="display: inline-block; color: #0F0F0F" id="nome" ></div> </div>
+                <div> E-mail: <div style="display: inline-block; color: #0F0F0F" id="pagemail" ></div> </div>
+                <div> Curso: <div style="display: inline-block; color: #0F0F0F" id="curso" /></div>  </div>
+
+                <div> Data do pagamento: <div style="display: inline-block; color: #0F0F0F" id="data_pagamento" /> </div> </div>
+                <div> Valor: <div style="display: inline-block; color: #0F0F0F" id="valor" /> </div> </div>
+
+
+            </div>
+
+            <hr class="dotted"/>
+
+            <div class="message-payment-detail">
+                <br/>
+                <p> <strong> Geração do Recibo e Confirmação do Pagamento </strong> </p>
+                <p> Portal de Eventos - VI - Mostra de Iniciação Científica da Faculdade ASSER de Rio Claro </p>
+                <p> Responsável _________________________________________________________________ </p>
+                <p> Data _______/_______/_______</p>
+            </div>
+
+            <div class="message-payment-success">
+
+                <div> Nome completo: <div style="display: inline-block; color: #0F0F0F" id="nome2" ></div> </div>
+                <div> E-mail: <div style="display: inline-block; color: #0F0F0F" id="pagemail2" ></div> </div>
+                <div> Curso: <div style="display: inline-block; color: #0F0F0F" id="curso2" /></div>  </div>
+
+                <div> Data do pagamento: <div style="display: inline-block; color: #0F0F0F" id="data_pagamento2" /> </div> </div>
+                <div> Valor: <div style="display: inline-block; color: #0F0F0F" id="valor2" /> </div> </div>
+
+
+            </div>
         </div>
+
         <div class="text-align-center">
-            <input class="button button-center" name="resumo" type="button" id="validatepayment" value="Clque para validar pagamento" />
+            <input class="button button-center" name="print" type="button" id="printpayment" value="Gerar recibo" onclick="window.print();"/>
+            <input class="button button-center" name="resumo" type="button" id="validatepayment" value="Validar pagamento" />
         </div>
+
     </div>
 
     <br/>

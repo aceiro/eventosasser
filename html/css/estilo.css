@@ -404,9 +404,9 @@ hr.fancy-line, hr.fancy-line:before {
 }
 
 .message-payment-detail{
-	font-weight: bold;
-	font-size: 18px;
-	text-align: center;
+	font-weight: normal;
+	font-size: 16px;
+	text-align: left;
 	color: #336799;
 }
 
