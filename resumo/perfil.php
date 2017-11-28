@@ -99,12 +99,12 @@
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="register-form"
                       name="register-form" method="post"
-                      novalidate="novalidate"> <!-- action="../palestra/atividades.php" -->
+                      novalidate="novalidate" action="../palestra/atividades.php">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/interview_icon.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Inscrição em Atividades" />
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Inscrição em Atividades" />
                         </div>
                     </div>
                 </form>

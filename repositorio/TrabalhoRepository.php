@@ -190,6 +190,9 @@ class TrabalhoRepository implements GenericRepository{
             $trabalho->status_r=RESUMO_STATUS_EDITADO;
         }
 
+        if( strlen($idCoorientador)<=0 || !isset($idCoorientador) )
+            $idCoorientador = null;
+
         $trabalho->titulo = $titulo;
         $trabalho->resumo = $resumo;
         $trabalho->palavras_chave = $keyword;
