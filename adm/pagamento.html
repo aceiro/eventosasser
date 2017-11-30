@@ -111,7 +111,10 @@
             var json      = jQuery.parseJSON($dados);
             var foundId   = false;
 
+            console.log("Aqui!!");
+
             $.each(json, function(i, item) {
+                console.log(item.email);
                 if(emailField.value == item.email){
 
                     foundId = true;
