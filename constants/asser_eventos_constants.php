@@ -2,6 +2,7 @@
     //
     // Constantes usadas para as tabelas
 
+    // define as constantes para as operacoes de revisao do resumo
     define('RESUMO_STATUS_ENVIADO',  0);
     define('RESUMO_STATUS_APROVADO', 1);
     define('RESUMO_STATUS_REENVIAR', 2);
@@ -9,7 +10,11 @@
     define('RESUMO_STATUS_CORRIGIDO',4);
     define('RESUMO_STATUS_EDITADO' , 5);
 
+
+    // define o id do evento atual
     define('ID_EVENTO_ATUAL',       2);
+
+    // define os status para as operacoes de CRUD
     define('STATUS_ATUALIZACAO_INSERT', 'I');
     define('STATUS_ATUALIZACAO_DELETE', 'D');
     define('STATUS_ATUALIZACAO_UPDATE', 'U');
@@ -18,7 +23,7 @@
     define('STATUS_ATUALIZACAO_REVISADO', 'O');
 
     //
-    // Para controle de sess�o
+    // para controle de sessao
     define('SESSION_KEY_ID_CURSO',  'idCurso');
     define('SESSION_KEY_EMAIL',     'email');
     define('SESSION_KEY_NOME',      'nome');
@@ -45,4 +50,4 @@
     // Ids dos Eventos que serao desabilitados na listagem de participantes
     // e avaliacao de professores
 
-    const EVENTS_DISABLE = "1:100";
+    const EVENTS_DISABLE = "1:2:100";

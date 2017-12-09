@@ -1,6 +1,8 @@
 <?php
-    try{
+    //try{
         header('Content-Type: text/html; charset=iso-8859-1');      /* hack to be used on redirect */
+
+
 
         require_once '../constants/asser_eventos_constants.php';
         require_once '../cfg/Session.php';
@@ -22,12 +24,15 @@
         $session->set(SESSION_KEY_SENHA,$senha);
         $session->set(SESSION_KEY_ID_CURSO,$idCurso);
 
+
         if($participanteRepository->existsParticipanteByEmail($email)) {
             $session->set(SESSION_MESSAGE_ERROR, 'Constraint violation, the e-mail address exists on database, '.$email);
             $session->set(SESSION_ERROR_CODE, ERROR_CODE_EMAIL_EXISTING);
-            header("Location: ../error/error.php");
+            header("Location: ../../error/error.php");
             exit;
         }
+
+
 
 
         $participante = new Participante(null, $nome, $email, $senha, $idCurso);
@@ -39,9 +44,9 @@
             header( "Location: novo.php" );
         }
         die;
-    }catch(Exception $e){
-        $session->set(SESSION_MESSAGE_ERROR,$e);
-        header( "Location: ../error/error.php");
-    }
+    //}catch(Exception $e){
+    //    $session->set(SESSION_MESSAGE_ERROR,$e);
+    //    header( "Location: ../error/error.php");
+    //}
 
 
