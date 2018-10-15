@@ -150,12 +150,12 @@
                 <table id="table-hover">
 					<caption><strong>Lista de Resumos Submetidos </strong><br>
 					</caption>
-					<th>ID</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th colspan="3">OPERAÇÕES</th></th>
+					<th>ID</th><th>ANO</th><th>TÍTULO</th><th>CURSO</th><th>STATUS</th><th colspan="3">OPERAÇÕES</th></th>
 					<?php
 
 						require_once '../constants/asser_eventos_constants.php';
 						$email  = $session->get(SESSION_KEY_EMAIL);
-						$strRow = '<tr></tr><td>{ID}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{REMOVER}</td><td>{VISUALIZAR}</td><td>{EDITAR}</td></tr>';
+						$strRow = '<tr></tr><td>{ID}</td><td>{ANO}</td><td>{TITULO}</td><td>{CURSO}</td><td>{STATUS}</td><td>{REMOVER}</td><td>{VISUALIZAR}</td><td>{EDITAR}</td></tr>';
 
 						foreach ($trabalhoRepository->findAllTrabalhosByEmail($email) as $row) {
 							$status 	   	  = $row['status'];
@@ -195,13 +195,24 @@
 							$visualizar  = "<span class='icon-eye-class' id=\"vs:$id\">   <span id=\"e:$id\" title='Visualizar' class='glyphicon glyphicon-eye-open' style='cursor: pointer;'/>    </span>";
 
 							$strRowId 	   = str_replace("{ID}"		,		$row['id'], 	$strRow);
-							$strRowTitulo  = str_replace("{TITULO}" , 		$row['titulo'], $strRowId);
+							$strRowAno     = str_replace("{ANO}"    , 		$row['ano'],    $strRowId);
+							$strRowTitulo  = str_replace("{TITULO}" , 		$row['titulo'], $strRowAno);
 							$strRowCurso   = str_replace("{CURSO}"  ,  		$row['curso'],  $strRowTitulo);
 							$strRowStatus  = str_replace("{STATUS}" , 		$result,  		$strRowCurso);
 							$strRowVisualizar  = str_replace("{VISUALIZAR}" , 	$visualizar,  		$strRowStatus);
 							$strRowFinal   = "";
 
-							if($principal_author==1) {
+							$isDisableEvent = false;
+                            $str_split = explode(":", EVENTS_DISABLE);
+							foreach ($str_split as $value) {
+    							if($row['id_evento'] == $value){
+										$isDisableEvent = true;
+										continue;			
+									}
+							}
+
+
+							if($principal_author==1 && !$isDisableEvent) {
 								$strRowRemover = str_replace("{REMOVER}", $remover, $strRowVisualizar);
 								$strRowEditar  = str_replace("{EDITAR}", $editar, $strRowRemover);
 								$strRowFinal   = $strRowEditar;

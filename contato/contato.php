@@ -5,7 +5,7 @@
 	$assunto = $_POST["assunto"];
 	$mensagem = $_POST["mensagem"];
 
-	mail("mostra-cientifica-asser@bol.com.br","$assunto","Nome:$nome\n Email:$email\n Mensagem:$mensagem\n","De:$nome<$email>");
+	mail("aceiro@gmail.com","$assunto","Nome:$nome\n Email:$email\n Mensagem:$mensagem\n","De:$nome<$email>");
 ?>
 	<script language="javascript">
 		alert("E-mail enviado!"); 

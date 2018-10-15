@@ -58,7 +58,7 @@ $session = new Session("EventosAsser2016");
             <fieldset style="background-color: #e6EEEE; width: 80%">
                 <form id="confirma-pagamento"
                       name="secretaria" method="post"
-                      action="pagamento.php"  novalidate="novalidate">
+                      action="pagamento.html" novalidate="novalidate">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/payment.png" height="70px" width="70px"></div>

@@ -24,7 +24,6 @@
     <div id="cabecalho">
     </div>
 
-    <br />
 
     <div id='cssmenu'>
         <ul>
@@ -60,7 +59,7 @@
                 </form>
             </fieldset>
         </div>
-        <div class="rotulo-resumo" style="float: left;">
+        <div class="rotulo-resumo" style="float: left; padding-top: 60px">
             <img src="../imagens/barra.jpg" height="80px" />  <br />
             OU <br />
             <img src="../imagens/barra.jpg" height="90px" />

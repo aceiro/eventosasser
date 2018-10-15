@@ -19,13 +19,14 @@
         $keywords           =  addslashes($_POST['keyword']);
         $idTipoAtividade    =  $_POST['tipo'];
         $idOrientador       =  $_POST['orientador'];
+        $idCoorientador     =  $_POST['coorientador'];
         $listOfEmails       =  $_POST['email'];
 
         $trabalhoRepository             = EventosAsserFacade::createTrabalhoRepository();
         $participanteRepository         = EventosAsserFacade::createParticipanteRepository();
         $participanteTrabalhoRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();
 
-        $idTrabalhoUpdated   = $trabalhoRepository->updateTrabalhoReviewed($idTrabalho, $titulo, $resumo, $keywords, $idOrientador, $idTipoAtividade);
+        $idTrabalhoUpdated   = $trabalhoRepository->updateTrabalhoReviewed($idTrabalho, $titulo, $resumo, $keywords, $idOrientador, $idTipoAtividade, $idCoorientador);
 
         if( is_null($idTrabalhoUpdated) ){
             echo "<br>Não foi possível criar o resumo!";

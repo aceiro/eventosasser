@@ -97,9 +97,19 @@ header("Content-Type: text/html; charset=UTF-8", true);
             $status         = $trabalho->status_r;
             $comentarios    = $trabalho->comentarios;
             $idOrientador   = $trabalho->id_orientador;
+            $idCoorientador = $trabalho->id_coorientador;
 
+
+            $coorientador   = $orientadorRepository->findCoAdviserById($idCoorientador);
             $orientador     = $orientadorRepository->findOne($idOrientador);
-            $nomeOrientador = $orientador->nome;
+            $nomeOrientador   = $orientador->nome;
+
+
+            if(isset($coorientador)) {
+                $nomeCoorientador = $coorientador->nome;
+            } else {
+                $nomeCoorientador = "";
+            }
 
             $autores        = $participanteTrabalhoRepository->findAutoresByTrabalhoId($idTrabalho);
             $autorLista     = "";
@@ -119,6 +129,14 @@ header("Content-Type: text/html; charset=UTF-8", true);
             <p style='text-align: center; font-size: small'> <?=$autorLista;?> </p>
 
             <p style='text-align: center; font-size: small'> (O) <?=$nomeOrientador;?> </p>
+
+            <?
+                if( isset($nomeCoorientador) ) {
+                    $nomeCoorientador = (strlen($nomeCoorientador)>0? $nomeCoorientador: "não definido");
+                    $content = "(C) $nomeCoorientador";
+                }
+                echo "<p style='text-align: center; font-size: small'> $content </p>";
+            ?>
             <p style='text-align: center; font-size: large; margin-top: 5px'> RESUMO </p>
 
             <p style='text-align: justify; margin-left: 50px; margin-right: 50px; font-size: medium '>  <?= $resumo ?> </p>

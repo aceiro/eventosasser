@@ -12,7 +12,8 @@ define("RETORNA_TODOS_PARICIPANTES_PARA_PAGAMENTO", 'SELECT p.nome,
  FROM participante p,
       curso cc
  WHERE cc.id = p.id_curso
-       AND p.id NOT IN (SELECT id_participante FROM inscricao)
+       AND p.id NOT IN (SELECT id_participante FROM inscricao 
+                        WHERE YEAR(data_inscricao) = YEAR(CURDATE()))
 ORDER BY p.email');
 
 define('RETORNA_TRABALHOS_EXISTENTES','SELECT email FROM participantextrabalho pt, participante p
@@ -66,7 +67,7 @@ class ParticipanteRepository implements GenericRepository{
             }
 
             //
-            //TODO verificar se já existe um participante cadastrado com o mesmo e-mail
+            //TODO verificar se jï¿½ existe um participante cadastrado com o mesmo e-mail
             //
 
             // from DTO to SimpleBean

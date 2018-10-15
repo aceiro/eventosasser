@@ -1,7 +1,21 @@
 <?php
 
 require_once 'interfaces/GenericRepository.php';
-define("RETORNA_PAGAMENTO_POR_EMAIL",'SELECT i.* FROM participante p, inscricao i WHERE p.id = i.id_participante AND p.email = :email');
+
+define("RETORNA_PAGAMENTO_POR_EMAIL",'SELECT i.* FROM participante p, 
+inscricao i WHERE p.id = i.id_participante AND p.email = :email 
+AND YEAR(i.data_pagamento) = YEAR(CURDATE()) ');
+
+define("RETORNA_DETALHES_CERTIFICADO_POR_EMAIL", 'SELECT p.nome,
+       cc.nome as nome_curso
+ FROM participante p,
+     inscricao i,
+     curso cc
+ WHERE p.id = i.id_participante
+  AND cc.id = p.id_curso
+  AND p.email = :email
+  AND YEAR(i.data_pagamento) = 2017');
+
 define("RETORNA_DETALHES_PAGAMENTO", 'SELECT p.nome,
        cc.nome as nome_curso,
        i.data_pagamento,
@@ -11,8 +25,10 @@ define("RETORNA_DETALHES_PAGAMENTO", 'SELECT p.nome,
      curso cc
  WHERE p.id = i.id_participante
   AND cc.id = p.id_curso
-  AND p.email = :email');
+  AND p.email = :email
+  AND YEAR(i.data_pagamento) = YEAR(CURDATE())');
 define("RETORNA_TODOS_PAGANTES_INSCITOS", 'SELECT
+       p.id,
        p.email,
        p.nome,
        cc.nome as nome_curso,
@@ -21,8 +37,10 @@ define("RETORNA_TODOS_PAGANTES_INSCITOS", 'SELECT
  FROM participante p,
      inscricao i,
      curso cc
- WHERE p.id = i.id_participante
-  AND cc.id = p.id_curso');
+ WHERE
+   YEAR(i.data_pagamento) = YEAR(CURDATE())  
+   AND p.id = i.id_participante
+   AND cc.id = p.id_curso' );
 
 class InscricaoRepository implements GenericRepository{
     protected $db;
@@ -102,6 +120,8 @@ class InscricaoRepository implements GenericRepository{
         else return false;
     }
 
+
+
     public function findInscricaoDetailByEmail($email)
     {
         $inscricaoDetalhe = $this->db->getAllBySql(RETORNA_DETALHES_PAGAMENTO, [':email' => $email]);
@@ -110,6 +130,18 @@ class InscricaoRepository implements GenericRepository{
             return $inscricaoDetalhe[0];
         else return null;
     }
+
+    public function findCertificateAssociatedToSubscriptionByEmail($email)
+    {
+
+
+        $certificateDetails = $this->db->getAllBySql(RETORNA_DETALHES_CERTIFICADO_POR_EMAIL, [':email' => $email]);
+
+        if( count($certificateDetails)==1 )
+            return $certificateDetails[0];
+        else return null;
+    }
+
     public function updateStatusRemovidoById($id)
     {
         throw new Exception('Not implemented yet!');

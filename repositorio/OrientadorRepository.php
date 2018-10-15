@@ -2,6 +2,7 @@
 
 require_once 'interfaces/GenericRepository.php';
 define("RETORNA_ORIENTADORES",'SELECT id, ucase(nome) as nome FROM orientador ORDER BY nome ');
+define("RETORNA_COORIENTADORES",'SELECT id, ucase(nome) as nome FROM co_orientador ORDER BY nome ');
 
 class OrientadorRepository implements GenericRepository{
     protected $db;
@@ -15,6 +16,9 @@ class OrientadorRepository implements GenericRepository{
     }
 
 
+    public function findCoAdviserById($id){
+        return $this->db->findById( 'co_orientador',$id );
+    }
 
     public function findOne($id){
         return $this->db->findById( 'orientador',$id );
@@ -62,6 +66,12 @@ class OrientadorRepository implements GenericRepository{
     public function findAll()
     {
         return $this->findAllBySql(RETORNA_ORIENTADORES);
+    }
+
+
+    public function findAllCoorientadores()
+    {
+        return $this->findAllBySql(RETORNA_COORIENTADORES);
     }
 
 

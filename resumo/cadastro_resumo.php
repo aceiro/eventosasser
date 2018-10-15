@@ -41,6 +41,7 @@
 	  	$(function() {
 		    evs.init();
 			$("#orientador").prop("selectedIndex", -1);
+            $("#coorientador").prop("selectedIndex", -1);
 			$("#tipo").prop("selectedIndex", -1);
 		});
 
@@ -231,7 +232,7 @@
 				<button  class="button button-right" type="button" onclick="evs.addNewAuthorRowToTable();">Novo autor</button>
 				<br/> <br/> <br/>
 
-				<div class="info-resumo-orientador">Escolha o orientador</div>
+				<div class="info-resumo-orientador">Escolha o orientador do trabalho</div>
 				<br/>
 				<div class="rotulo-resumo">Orientador</div>
 				<div class="select-orientador">
@@ -246,7 +247,26 @@
 						?>
 					</select>
 				</div>
-					<br/><br/>
+
+                <br/><br/>
+
+                <div class="info-resumo-orientador">Co-orientador é um segundo orientador que auxiliou no desenvolvimento do trabalho em igual valor ao orientador principal</div>
+                <br/>
+                <div class="rotulo-resumo">Co-orientador</div>
+                <div class="select-orientador">
+                    <select id="coorientador" name="coorientador">
+                        <?php
+                        $str = "";
+
+                        foreach($orientadorRepository->findAllCoorientadores() as $row) {
+                            $str .= "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+                        }
+                        echo $str;
+                        ?>
+                    </select>
+                </div>
+                <br/><br/>
+
 
 	                <div class="info-resumo"> &nbsp; Informe seu resumo aqui, com Contexto, Lacuna de pesquisa, Objetivo, Metodologia, Resultado e Conclusão.
 	                </div>
