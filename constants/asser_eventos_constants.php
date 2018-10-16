@@ -12,7 +12,7 @@
 
 
     // define o id do evento atual
-    define('ID_EVENTO_ATUAL',       2);
+    define('ID_EVENTO_ATUAL',       3);
 
     // define os status para as operacoes de CRUD
     define('STATUS_ATUALIZACAO_INSERT', 'I');

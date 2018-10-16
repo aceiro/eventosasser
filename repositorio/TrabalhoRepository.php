@@ -20,7 +20,8 @@ define("RETORNA_TRABALHOS_EMAIL",'SELECT   t.id as id,
                                       AND p.id_curso = c.id
                                       AND t.id = pxt.id_trabalho
                                       AND p.id = pxt.id_participante
-                                      AND t.status_atualizacao <> \'D\' ');
+                                      AND t.status_atualizacao <> \'D\'
+                                      ORDER BY ano DESC');
 
 define("RETORNA_TODOS_TRABALHOS_X_AUTORES",'SELECT t.id AS id,
                                                    p.nome AS nome,
