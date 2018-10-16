@@ -4,7 +4,7 @@
 	require_once ("../repositorio/InscricaoRepository.php");
 	require_once ('../repositorio/facade/EventosAsserFacade.php');
 
-	$session = new Session("EventosAsser2016");
+	$session = new Session(SESSION_SERVER_ID);
 
 ?>
 
@@ -64,7 +64,7 @@
 				<div class="message-payment-detail">
 					<strong> <p>
                             Verifique se o e-mail acessado é o mesmo usado no momento do pagamento na secretaria.
-                            A geração do certificado depende da partifição do evento em 2017 e do pagamento da respectiva taxa de participação.
+                            A geração do certificado depende da partifição do evento e do pagamento da respectiva taxa de participação.
                             <hr>
                             Em caso de dúvidas, favor em entrar em contato com secretaria da faculdade de segunda à sexta das 8:00 às 18:00 e das 19:00 às 22:00
                             </p> </strong>

@@ -4,7 +4,7 @@
 	require_once ("../repositorio/InscricaoRepository.php");
 	require_once ('../repositorio/facade/EventosAsserFacade.php');
 
-	$session = new Session("EventosAsser2016");
+	$session = new Session(SESSION_SERVER_ID);
 
 	$inscricaoRepository = EventosAsserFacade::createInscricaoRepository();
 

@@ -6,7 +6,7 @@ require_once '../repositorio/models/Trabalho.php';
 require_once '../repositorio/facade/EventosAsserFacade.php';
 
 $resumoId = $_POST['id'];
-$session = new Session("EventosAsser2016");
+$session = new Session(SESSION_SERVER_ID);
 $trabalhoRepository     = EventosAsserFacade::createTrabalhoRepository();
 $orientadorRepository   = EventosAsserFacade::createOrientadorRepository();
 $participanteTrabalhoRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();

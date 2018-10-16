@@ -12,7 +12,7 @@
         require_once ('../repositorio/facade/EventosAsserFacade.php');
 
 
-        $session            =  new Session("EventosAsser2016");
+        $session            =  new Session(SESSION_SERVER_ID);
         $idTrabalho         =  $_POST['trabalho_id'];
         $titulo             =  strtoupper(addslashes($_POST['titulo']));
         $resumo             =  addslashes($_POST['texto']);

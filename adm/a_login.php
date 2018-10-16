@@ -4,7 +4,7 @@
     require_once '../repositorio/models/Usuario.php';
     require_once '../repositorio/facade/EventosAsserFacade.php';
 
-    $session    = new Session("EventosAsser2016");
+    $session    = new Session(SESSION_SERVER_ID);
     $repository = EventosAsserFacade::createUsuarioRepository();
 
 	header("Content-Type: text/html; charset=UTF-8", true);

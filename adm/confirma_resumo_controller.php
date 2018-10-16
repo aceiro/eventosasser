@@ -9,7 +9,7 @@
 		require_once ('../repositorio/facade/EventosAsserFacade.php');
 
 		$trabalhoRepository   = EventosAsserFacade::createTrabalhoRepository();
-		$session              =  new Session("EventosAsser2016");
+		$session              =  new Session(SESSION_SERVER_ID);
 
 		$login 		 = $session->get(SESSION_KEY_LOGIN_ACADEMIC);
 		$comentarios = $_POST['comentarios'];

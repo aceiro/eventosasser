@@ -1,7 +1,8 @@
 <?php
     header("Content-Type: text/html; charset=UTF-8", true);
+    require_once '../constants/asser_eventos_constants.php';
     require_once("../cfg/Session.php");
-    $session = new Session("EventosAsser2016");
+    $session = new Session(SESSION_SERVER_ID);
 
     require_once '../constants/asser_eventos_constants.php';
     require_once '../repositorio/models/Inscricao.php';
@@ -17,7 +18,7 @@
 
     $email = $_POST ['email'];
     if( !$participanteRepository->existsParticipanteByEmail($email) ){
-        echo "O participante não existe na base!";
+        echo "O participante nï¿½o existe na base!";
         return;
     }
     $participante = $participanteRepository->findParticipanteByEmail($email);

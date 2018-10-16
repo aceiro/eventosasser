@@ -6,7 +6,7 @@
 
     header('Content-Type: text/html; charset=iso-8859-1');
 
-    $session    = new Session("EventosAsser2016");
+    $session    = new Session(SESSION_SERVER_ID);
     $atividadesRepository   = EventosAsserFacade::createAtividadesRepository();
     $participanteRepository = EventosAsserFacade::createParticipanteRepository();
 

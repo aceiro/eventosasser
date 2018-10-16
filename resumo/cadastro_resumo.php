@@ -4,7 +4,7 @@
     require_once ('../repositorio/TipoAtividadeRepository.php');
     require_once ('../repositorio/facade/EventosAsserFacade.php');
 
-    $session = new Session("EventosAsser2016");
+    $session = new Session(SESSION_SERVER_ID);
 
     $tipoAtividadeRepository = EventosAsserFacade::createTipoAtividadeRepository();
 	$orientadorRepository    = EventosAsserFacade::createorientadorRepository();

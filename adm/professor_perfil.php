@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 
 require_once("../constants/asser_eventos_constants.php");
 require_once("../cfg/Session.php");
-$session = new Session("EventosAsser2016");
+$session = new Session(SESSION_SERVER_ID);
 
 ?>
 

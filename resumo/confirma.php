@@ -5,7 +5,7 @@
 	require_once("../cfg/Session.php");
 	include_once('../utils/common.php');
 
-	$session = new Session("EventosAsser2016");
+	$session = new Session(SESSION_SERVER_ID);
 
 ?>
 

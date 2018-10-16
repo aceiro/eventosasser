@@ -7,7 +7,7 @@ require_once '../constants/asser_eventos_constants.php';
 require_once '../repositorio/models/Trabalho.php';
 require_once '../repositorio/facade/EventosAsserFacade.php';
 
-$session = new Session("EventosAsser2016");
+$session = new Session(SESSION_SERVER_ID);
 $repository = EventosAsserFacade::createTrabalhoRepository();
 
 

@@ -9,7 +9,7 @@
 
         $repository = EventosAsserFacade::createTrabalhoRepository();
 
-        $session = new Session("EventosAsser2016");
+        $session = new Session(SESSION_SERVER_ID);
         $email = $session->get(SESSION_KEY_EMAIL);
         $curso = $session->get(SESSION_KEY_ID_CURSO);
 

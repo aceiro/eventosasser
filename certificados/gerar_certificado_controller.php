@@ -2,7 +2,7 @@
 
 require_once("../constants/asser_eventos_constants.php");
 require_once("../cfg/Session.php");
-$session = new Session("EventosAsser2016");
+$session = new Session(SESSION_SERVER_ID);
 
 require_once('../utils/common.php');
 require_once '../repositorio/InscricaoRepository.php';
@@ -76,7 +76,7 @@ if( is_null($subscription) ) {
 $html = str_replace("[onshow.fullname]", $subscription['nome'], $html);
 $html = str_replace("[onshow.coursename]", $subscription['nome_curso'], $html);
 $html = str_replace("[onshow.hours]", "10", $html);
-$html = str_replace("[onshow.datefmt]", "10 de dezembro de 2017", $html);
+$html = str_replace("[onshow.datefmt]", "10 de dezembro de 2018", $html);
 
 
 $dompdf->loadHtml( $html );
