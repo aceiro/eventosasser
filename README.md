@@ -8,27 +8,26 @@ Contudo, ainda percebe-se uma carência por ferramentas e portais de submissão 
 
 Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para download no GitHub.
 
-(*) branch finalizada como stable em 13 de nov. de 2017 as 14:09 
-
 <p align="center">
   <img width="400" src="eventosasser.png" alt="Screenshot"/>
 </p>
 
-**Lista de atualizações (releases) da plataforma de Eventos Asser**
-**Plataforma de Eventos Asser, versão [2.0.0] (http://eventosasser.com.br/) atualizado em 11 de outubro de 2016.**
+**v3.0.0 (2017)**
+   - Versão estável em *PRD* liberada em 13 de nov. de 2017 as 14:09
+   - Correções emergênciais efetuadas até dia 09 de dez. 2017
+   - Adicionado suporte para melhorar o controle de submissão dos Resumos
+   - Geração automática de certificados para alunos pagantes no evento
+   - Liberação do suporte ao uso de Perfis para o Aluno e Secretaria
 
-1. Melhorias de Backend
+**v2.0.0 (2016)**
+   - Versão estável em *PRD* liberada em 11 de outubro de 2016
+   - Melhorias de Backend
+   - Modificação do Banco de Dados
+   - Adição do conceito de Perfil (parcialmente) e gerenciamento de usuários por inscrição
+   - Redução de detalhes do menu principal
+   - Adicição de mensagens explicativas sobre o evento
 
-2. Modificação do Banco de Dados
-
-3. Adição do conceito de Perfil (parcialmente) e gerenciamento de usuários por inscrição
-
-4. Redução de detalhes do menu principal
-
-5. Adicição de mensagens explicativas sobre o evento
-
-**Release da plataforma de Eventos Asser, versão [1.0.1] (http://eventosasser.com.br/) atualizado em 6 de maio de 2016.**
-
-1. Inclui tratamento e melhorias de UI
-
-2. Primeiro suporte a PDO e Sessions
+**v1.0.0 (2016)**
+   - Versão estável em *PRD* liberada em 06 de maio de 2016   
+   - Inclui tratamento e melhorias de UI
+   - Primeiro suporte a PDO e Sessions
