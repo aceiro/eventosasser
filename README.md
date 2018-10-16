@@ -11,7 +11,7 @@ Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para do
 (*) branch finalizada como stable em 13 de nov. de 2017 as 14:09 
 
 <p align="center">
-  <img width="400" src="eventosasser.png" alt="Screenshot"/>
+  <img width="400" src="https://github.com/aceiro/eventosasser/blob/eventosasser-dev-v2/eventosasser.png" alt="Screenshot"/>
 </p>
 
 **Lista de atualizações (releases) da plataforma de Eventos Asser**

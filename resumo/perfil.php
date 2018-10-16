@@ -76,7 +76,7 @@
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/articles.png" height="70px" width="70px"></div>
-                        <input class="button button-center" disabled name="resumo" type="submit" id="cadastro-resumo-button" value="Cadastrar Resumo" />
+                        <input class="button button-center" name="resumo" type="submit" id="cadastro-resumo-button" value="Cadastrar Resumo" />
                     </div>
                 </form>
             </fieldset>
