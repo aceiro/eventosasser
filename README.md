@@ -12,6 +12,13 @@ Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para do
   <img width="400" src="eventosasser.png" alt="Screenshot"/>
 </p>
 
+**v4.0.0 (2018)**
+   - Versão estável em *PRD* para liberação em 18 de nov. de 2018
+   - Modificada mensagem de abertura
+   - Modificada listagem de professores como Orientador
+   - Alterar datas de referência do cronograma
+   - Adicionar cronograma de atividades de atividades (pagantes e/ou não pagantes) 
+
 **v3.0.0 (2017)**
    - Versão estável em *PRD* liberada em 13 de nov. de 2017 as 14:09
    - Correções emergênciais efetuadas até dia 09 de dez. 2017
