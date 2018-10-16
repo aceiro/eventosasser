@@ -2,13 +2,13 @@
 
     return array(
         //
-        // parâmetros gerais para a app
+        // parï¿½metros gerais para a app
         'title'     => 'Eventos Asser',
 
         //
-        // parâmetros gerais para o banco de dados
-        'dbname'    => 'eventosa_1sem2016',
-        'dsn'       => "mysql:host=localhost;dbname=eventosa_1sem2016",
+        // parï¿½metros gerais para o banco de dados
+        'dbname'    => 'eventosa_v1_201712061525',
+        'dsn'       => "mysql:host=localhost;dbname=eventosa_v1_201712061525",
         'dbuser'    => 'root',
         'dbpass'    => '123456'
     );
