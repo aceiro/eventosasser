@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 
 require_once("../constants/asser_eventos_constants.php");
 require_once("../cfg/Session.php");
-$session = new Session("EventosAsser2016");
+$session = new Session(SESSION_SERVER_ID);
 
 ?>
 
@@ -20,7 +20,7 @@ $session = new Session("EventosAsser2016");
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da p�gina -->
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>

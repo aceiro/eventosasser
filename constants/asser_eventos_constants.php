@@ -12,7 +12,7 @@
 
 
     // define o id do evento atual
-    define('ID_EVENTO_ATUAL',       2);
+    define('ID_EVENTO_ATUAL',       3);
 
     // define os status para as operacoes de CRUD
     define('STATUS_ATUALIZACAO_INSERT', 'I');
@@ -51,3 +51,7 @@
     // e avaliacao de professores
 
     const EVENTS_DISABLE = "1:2:100";
+
+    //
+    // Constante que caracteriza a session id current
+    define('SESSION_SERVER_ID',  'ed838b776ac6e8378e9b7a845b51fcfd');

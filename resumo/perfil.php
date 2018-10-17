@@ -4,7 +4,7 @@
 
     require_once("../constants/asser_eventos_constants.php");
     require_once("../cfg/Session.php");
-    $session = new Session("EventosAsser2016");
+    $session = new Session(SESSION_SERVER_ID);
 
 ?>
 
@@ -20,7 +20,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da p�gina -->
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>
@@ -55,7 +55,7 @@
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='#'>Inscrição no evento</a></li>
-            <li><a target="_blank" href='../atividades/Programacao-Geral-2017.pdf' >Programação 2017</a></li>
+            <!-- <li><a target="_blank" href='../atividades/Programacao-Geral-2017.pdf' >Programação 2018</a></li> !-->
         </ul>
     </div>
 
@@ -139,7 +139,7 @@
                         <br/>
                         <div><img src="../imagens/certificate-flat.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
+                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
                         </div>
                     </div>
                 </form>

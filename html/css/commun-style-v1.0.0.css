@@ -27,10 +27,11 @@ a {
 }
 #cabecalho {
 	height: 159px;
-	background: rgb(255, 255, 255) url("../../imagens/header-v4.jpg") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
+	background: rgb(255, 255, 255) url("../../imagens/header-v5.png") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
 	background-size: 890px 175px;
 	padding: 0px 0px 0px 0px;
 	margin-bottom: 23px;
+	margin-top: 5px;
 }
 
 .subcabecalho{
@@ -324,7 +325,7 @@ fieldset input {
 
 
 .button-find{
-	font-size: small
+	font-size: small;
 	height: 25px;
 	float: right;
 	color: #fff;
@@ -501,7 +502,7 @@ blockquote {
 	padding: 1.0em 0.6em;
 	quotes: "\201C""\201D""\2018""\2019";
 	font-style: italic;
-	border-radius: 3px;
+	border-radius: 5px;
 	/*margin: 1.5em 0.5em 1.5em 7.0em;*/
 	margin: -0.5em 0.5em 1.5em 0em;
 
@@ -512,7 +513,7 @@ blockquote:before {
 	color: #FF0000;
 	content: open-quote;
 	font-size: 4.5em;
-	line-height: 1.1em;
+	line-height: 0em;
 	margin-right: 0.25em;
 	vertical-align: -0.4em;
 }
@@ -529,7 +530,7 @@ blockquote:after {
 
 
 blockquote p {
-	display: inline;
+	display: block;
 }
 
 
@@ -551,16 +552,20 @@ blockquote p {
 
 #blockquote-right {
 	position: relative;
-	height: 155px;
+	height: 150px;
 }
 
 #phrase_quote{
-	margin: 0px;
+	margin: -1px;
+	font-size: 1.1em;
+	padding-left: 330px;
+
 }
 
 #quote-author{
 	vertical-align: -2em;
 	margin-left: 290px;
+	font-size: 1.2em;
 }
 
 #asser-name{
@@ -622,6 +627,7 @@ table, th, td {
 	height: 250px;
 }
 
+/*
 .button-step-send {
 	 margin: auto;
 	 width: 50px;
@@ -629,26 +635,31 @@ table, th, td {
 	 display:block;
 	 background:transparent url('../imagens/enviar.png') center top no-repeat;
 }
+*/
 
+/*
 .button-step-send:hover {
 	 opacity: 0.3;
-     filter: alpha(opacity=30); /* For IE8 and earlier */
+     filter: alpha(opacity=30);
      border-color: 2px solid black;
 }
+*/
 
+/*
 .button-step-status {
 	 margin: auto;
 	 width: 50px;
 	 height:50px;
 	 display:block;
 	 background:transparent url('../imagens/status.png') center top no-repeat;
-}
+}*/
 
+/*
 .button-step-status:hover {
 	 opacity: 0.3;
-     filter: alpha(opacity=30); /* For IE8 and earlier */
+     filter: alpha(opacity=30); 
      border-color: 2px solid black;
-}
+}*/
 
 
 .display-none {
@@ -656,7 +667,7 @@ table, th, td {
 }
 
 .display-remove {
-	display: '';
+	display: unset;
 }
 
 .fieldset-lg{

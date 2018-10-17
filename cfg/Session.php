@@ -1,4 +1,5 @@
 <?php
+require_once("../constants/asser_eventos_constants.php");
 
 class Session
 {

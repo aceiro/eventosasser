@@ -4,7 +4,7 @@
 	require_once ("../repositorio/InscricaoRepository.php");
 	require_once ('../repositorio/facade/EventosAsserFacade.php');
 
-	$session = new Session("EventosAsser2016");
+	$session = new Session(SESSION_SERVER_ID);
 
 	$inscricaoRepository = EventosAsserFacade::createInscricaoRepository();
 
@@ -22,7 +22,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da página -->
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>
@@ -35,7 +35,7 @@
 	
 
 	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 </head>
 <body>
 	<div id="corpo">

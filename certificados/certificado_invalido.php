@@ -4,7 +4,7 @@
 	require_once ("../repositorio/InscricaoRepository.php");
 	require_once ('../repositorio/facade/EventosAsserFacade.php');
 
-	$session = new Session("EventosAsser2016");
+	$session = new Session(SESSION_SERVER_ID);
 
 ?>
 
@@ -20,7 +20,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da página -->
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>
@@ -33,7 +33,7 @@
 	
 
 	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 </head>
 <body>
 	<div id="corpo">
@@ -64,7 +64,7 @@
 				<div class="message-payment-detail">
 					<strong> <p>
                             Verifique se o e-mail acessado é o mesmo usado no momento do pagamento na secretaria.
-                            A geração do certificado depende da partifição do evento em 2017 e do pagamento da respectiva taxa de participação.
+                            A geração do certificado depende da partifição do evento e do pagamento da respectiva taxa de participação.
                             <hr>
                             Em caso de dúvidas, favor em entrar em contato com secretaria da faculdade de segunda à sexta das 8:00 às 18:00 e das 19:00 às 22:00
                             </p> </strong>

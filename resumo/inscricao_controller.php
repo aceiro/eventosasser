@@ -10,7 +10,7 @@
         require_once '../repositorio/models/Participante.php';
         require_once '../repositorio/facade/EventosAsserFacade.php';
 
-        $session                = new Session("EventosAsser2016");
+        $session                = new Session(SESSION_SERVER_ID);
         $cursoRepository        = EventosAsserFacade::createCursoRepository();
         $participanteRepository = EventosAsserFacade::createParticipanteRepository();
 

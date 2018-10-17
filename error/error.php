@@ -8,7 +8,7 @@
 
     $logRepository = EventosAsserFacade::createLogRepository();
 
-    $session   = new Session("EventosAsser2016");
+    $session   = new Session(SESSION_SERVER_ID);
     $message   = ($session->get(SESSION_MESSAGE_ERROR)==NULL ? "Mensagem de erro nula" : $session->get(SESSION_MESSAGE_ERROR) );
     $email     = $session->get(SESSION_KEY_EMAIL);
     $errorCode = $session->get(SESSION_ERROR_CODE);
@@ -41,7 +41,7 @@
 
 
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 </head>
 <body>
 <div id="corpo">
@@ -68,17 +68,17 @@
                 <?php
                     switch($errorCode){
                         case ERROR_CODE_GENERAL:
-                            $m = '<strong>  <p> Operação inválida no Sistema de Eventos, favor contactar os administradores do sistema. </p> </strong> ID de erro:';
+                            $m = '<strong>  <p> Operaï¿½ï¿½o invï¿½lida no Sistema de Eventos, favor contactar os administradores do sistema. </p> </strong> ID de erro:';
                             $m = $m .  $logId;
                             echo $m;
                             break;
                         case ERROR_CODE_EMAIL_EXISTING:
-                            $m = '<strong>  <p> O endereço de e-mail já existente no banco de dados, faça o cadastro com outro endereço </p> </strong> ID de erro:';
+                            $m = '<strong>  <p> O endereï¿½o de e-mail jï¿½ existente no banco de dados, faï¿½a o cadastro com outro endereï¿½o </p> </strong> ID de erro:';
                             $m = $m .  $logId;
                             echo $m;
                             break;
                         default:
-                            $m = '<strong>  <p> Operação inválida no Sistema de Eventos, favor contactar os administradores do sistema. </p> </strong> ID de erro:';
+                            $m = '<strong>  <p> Operaï¿½ï¿½o invï¿½lida no Sistema de Eventos, favor contactar os administradores do sistema. </p> </strong> ID de erro:';
                             $m = $m .  $logId;
                             echo $m;
                     }
@@ -92,7 +92,7 @@
 
     <br />
     <div id="rodape">
-        <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
+        <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 ï¿½ 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informaï¿½ï¿½o </a> </p>
     </div>
 </div>
 </body>

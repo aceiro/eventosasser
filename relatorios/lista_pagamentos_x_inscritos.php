@@ -1,6 +1,6 @@
 <?php
 	require_once("../cfg/Session.php");
-	$session = new Session("EventosAsser2016");
+	$session = new Session(SESSION_SERVER_ID);
 
 	include_once('../utils/common.php');
 
@@ -39,7 +39,7 @@
 
 
 	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 	<link rel="stylesheet" href="../html/css/list-student-style.css" type="text/css">
 
 

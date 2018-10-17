@@ -4,7 +4,7 @@
     require_once ('../repositorio/TipoAtividadeRepository.php');
     require_once ('../repositorio/facade/EventosAsserFacade.php');
 
-    $session = new Session("EventosAsser2016");
+    $session = new Session(SESSION_SERVER_ID);
 	$id 	 = $_GET['id'];
 
     $tipoAtividadeRepository = EventosAsserFacade::createTipoAtividadeRepository();
@@ -39,7 +39,7 @@
 	<script src="../html/scripts/asser-submission.paper-1.0.0.js"></script>
 
 	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 
 	<script type="text/javascript">
 		var evs = ASSER.submission;

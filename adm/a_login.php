@@ -4,7 +4,7 @@
     require_once '../repositorio/models/Usuario.php';
     require_once '../repositorio/facade/EventosAsserFacade.php';
 
-    $session    = new Session("EventosAsser2016");
+    $session    = new Session(SESSION_SERVER_ID);
     $repository = EventosAsserFacade::createUsuarioRepository();
 
 	header("Content-Type: text/html; charset=UTF-8", true);
@@ -16,7 +16,7 @@
     }
 
     $login          = $_POST['login'];
-    $senha          = $_POST['password'];
+    $senha          = md5($_POST['password']);
     $tipoatividade  = $_POST['funcao'];
 
     $session->set(SESSION_KEY_TYPE_ACADEMIC, $tipoatividade);

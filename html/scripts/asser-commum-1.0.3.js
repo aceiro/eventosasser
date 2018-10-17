@@ -67,12 +67,19 @@ var Courses = (function(window){
         if(id_year_selected == 1) {
             optionTag = optionTag + '<option id="1" selected >  2016 </option>';
             optionTag = optionTag + '<option id="2" >  2017 </option>';
+            optionTag = optionTag + '<option id="3" >  2018 </option>';
         } else if(id_year_selected == 2) {
             optionTag = optionTag + '<option id="1" >  2016 </option>';
             optionTag = optionTag + '<option id="2" selected >  2017 </option>';
+            optionTag = optionTag + '<option id="3" >  2018 </option>';
+        }else if(id_year_selected == 3) {
+                optionTag = optionTag + '<option id="1" >  2016 </option>';
+                optionTag = optionTag + '<option id="2" >  2017 </option>';
+                optionTag = optionTag + '<option id="3" selected>  2018 </option>';
         }else{
             optionTag = optionTag + '<option id="1" >  2016 </option>';
             optionTag = optionTag + '<option id="2" >  2017 </option>';
+            optionTag = optionTag + '<option id="3" >  2018 </option>';
 		}
 
 

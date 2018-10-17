@@ -7,7 +7,7 @@ require_once '../constants/asser_eventos_constants.php';
 require_once '../repositorio/models/Trabalho.php';
 require_once '../repositorio/facade/EventosAsserFacade.php';
 
-$session = new Session("EventosAsser2016");
+$session = new Session(SESSION_SERVER_ID);
 $repository = EventosAsserFacade::createTrabalhoRepository();
 
 
@@ -38,13 +38,13 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
 
     <!-- outros suporte a css da página -->
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 
 
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>
-    <script src="../html/scripts/asser-commum-1.0.2.js"></script>
+    <script src="../html/scripts/asser-commum-1.0.3.js"></script>
 
     <link rel="stylesheet" href="../html/scripts/tablesorter/blue/style.css" type="text/css"
           media="print, projection, screen">

@@ -19,7 +19,7 @@
 
 
 
-		$session = new Session("EventosAsser2016");
+		$session = new Session(SESSION_SERVER_ID);
 		$t  	= $_GET['t'];
 		$id 	= $_GET['id'];
 

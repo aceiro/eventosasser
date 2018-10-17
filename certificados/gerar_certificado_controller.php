@@ -2,7 +2,7 @@
 
 require_once("../constants/asser_eventos_constants.php");
 require_once("../cfg/Session.php");
-$session = new Session("EventosAsser2016");
+$session = new Session(SESSION_SERVER_ID);
 
 require_once('../utils/common.php');
 require_once '../repositorio/InscricaoRepository.php';
@@ -24,7 +24,7 @@ $dompdf = new Dompdf();
 
 
 $html = '
- <img src="../imagens/header-v4.jpg" style="height: 80%; width: 85%;/>
+ <img src="../imagens/header-v5.png" style="height: 80%; width: 85%;/>
     <br/>
     <div id="header">
         <p>
@@ -42,7 +42,7 @@ $html = '
                    padding: 5px 5px 5px 5px;
                    line-height: 30px">
 
-        Certificamos para os devidos fins que [onshow.fullname] participou da “VI MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 04, 05 e 06 de dezembro de 2017 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas. </h3>
+        Certificamos para os devidos fins que [onshow.fullname] participou da “X MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 12, 13 e 14 de novembro de 2018 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas. </h3>
         </p>
         <p>
         <h3 style="text-align: center"> Rio Claro, [onshow.datefmt] </h3>
@@ -76,7 +76,7 @@ if( is_null($subscription) ) {
 $html = str_replace("[onshow.fullname]", $subscription['nome'], $html);
 $html = str_replace("[onshow.coursename]", $subscription['nome_curso'], $html);
 $html = str_replace("[onshow.hours]", "10", $html);
-$html = str_replace("[onshow.datefmt]", "10 de dezembro de 2017", $html);
+$html = str_replace("[onshow.datefmt]", "10 de novembro de 2018", $html);
 
 
 $dompdf->loadHtml( $html );
