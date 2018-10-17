@@ -27,7 +27,7 @@ a {
 }
 #cabecalho {
 	height: 159px;
-	background: rgb(255, 255, 255) url("../../imagens/header-v4.jpg") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
+	background: rgb(255, 255, 255) url("../../imagens/header-v5.png") no-repeat scroll center bottom / 860px 160px; /*860px 155px;*/
 	background-size: 890px 175px;
 	padding: 0px 0px 0px 0px;
 	margin-bottom: 23px;
@@ -501,7 +501,7 @@ blockquote {
 	padding: 1.0em 0.6em;
 	quotes: "\201C""\201D""\2018""\2019";
 	font-style: italic;
-	border-radius: 3px;
+	border-radius: 5px;
 	/*margin: 1.5em 0.5em 1.5em 7.0em;*/
 	margin: -0.5em 0.5em 1.5em 0em;
 
@@ -555,12 +555,14 @@ blockquote p {
 }
 
 #phrase_quote{
-	margin: 0px;
+	margin: -1px;
+	font-size: 1.1em;
 }
 
 #quote-author{
 	vertical-align: -2em;
 	margin-left: 290px;
+	font-size: 1.2em;
 }
 
 #asser-name{
