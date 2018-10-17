@@ -16,7 +16,7 @@
     }
 
     $login          = $_POST['login'];
-    $senha          = $_POST['password'];
+    $senha          = md5($_POST['password']);
     $tipoatividade  = $_POST['funcao'];
 
     $session->set(SESSION_KEY_TYPE_ACADEMIC, $tipoatividade);
@@ -39,6 +39,10 @@
     if(isProfessor($session)){
         // 1. find login for professor access
         // 2. set login for processor access on session
+        echo "BLA";
+        echo $login;
+        echo $senha;
+        //die;
         if( $repository->existsLogin($login, $senha) ){
             header("location:professor_perfil.php");
         }else  header("location:index.php");
