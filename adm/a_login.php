@@ -39,10 +39,6 @@
     if(isProfessor($session)){
         // 1. find login for professor access
         // 2. set login for processor access on session
-        echo "BLA";
-        echo $login;
-        echo $senha;
-        //die;
         if( $repository->existsLogin($login, $senha) ){
             header("location:professor_perfil.php");
         }else  header("location:index.php");
