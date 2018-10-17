@@ -14,7 +14,7 @@ define("RETORNA_DETALHES_CERTIFICADO_POR_EMAIL", 'SELECT p.nome,
  WHERE p.id = i.id_participante
   AND cc.id = p.id_curso
   AND p.email = :email
-  AND YEAR(i.data_pagamento) = 2017');
+  AND YEAR(i.data_pagamento) = 2018');
 
 define("RETORNA_DETALHES_PAGAMENTO", 'SELECT p.nome,
        cc.nome as nome_curso,

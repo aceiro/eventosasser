@@ -139,7 +139,7 @@
                         <br/>
                         <div><img src="../imagens/certificate-flat.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
+                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
                         </div>
                     </div>
                 </form>
