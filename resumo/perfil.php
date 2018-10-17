@@ -55,7 +55,7 @@
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='#'>Inscrição no evento</a></li>
-            <li><a target="_blank" href='../atividades/Programacao-Geral-2017.pdf' >Programação 2017</a></li>
+            <!-- <li><a target="_blank" href='../atividades/Programacao-Geral-2017.pdf' >Programação 2018</a></li> !-->
         </ul>
     </div>
 
