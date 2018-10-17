@@ -28,7 +28,7 @@ $participante = $participanteRepository->findParticipanteByEmail($session->get(S
     <link rel="stylesheet" href="../html/scripts/chosen_v1.8.2/docsupport/prism.css">
     <link rel="stylesheet" href="../html/scripts/chosen_v1.8.2/chosen.css">
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>

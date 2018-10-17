@@ -46,7 +46,7 @@
 
 
 	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-	<link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 	<link rel="stylesheet" href="../html/css/list-student-style.css" type="text/css">
 
 

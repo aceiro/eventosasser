@@ -11,7 +11,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da página -->
     <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>
@@ -60,9 +60,9 @@
             </fieldset>
         </div>
         <div class="rotulo-resumo" style="float: left; padding-top: 60px">
-            <img src="../imagens/barra.jpg" height="80px" />  <br />
+            <img  src="" height="80px" />  <br />
             OU <br />
-            <img src="../imagens/barra.jpg" height="90px" />
+            <img src="" height="90px" />
         </div>
         <div style="height: 150px; width: 45%; float: left;">
             <fieldset style="width: 80%;padding-top: 5px;border-top-width: 0.8;margin-top: 10px;height: 150px;">

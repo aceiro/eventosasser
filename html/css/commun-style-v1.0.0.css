@@ -31,6 +31,7 @@ a {
 	background-size: 890px 175px;
 	padding: 0px 0px 0px 0px;
 	margin-bottom: 23px;
+	margin-top: 5px;
 }
 
 .subcabecalho{
@@ -324,7 +325,7 @@ fieldset input {
 
 
 .button-find{
-	font-size: small
+	font-size: small;
 	height: 25px;
 	float: right;
 	color: #fff;
@@ -512,7 +513,7 @@ blockquote:before {
 	color: #FF0000;
 	content: open-quote;
 	font-size: 4.5em;
-	line-height: 1.1em;
+	line-height: 0em;
 	margin-right: 0.25em;
 	vertical-align: -0.4em;
 }
@@ -529,7 +530,7 @@ blockquote:after {
 
 
 blockquote p {
-	display: inline;
+	display: block;
 }
 
 
@@ -551,12 +552,14 @@ blockquote p {
 
 #blockquote-right {
 	position: relative;
-	height: 155px;
+	height: 150px;
 }
 
 #phrase_quote{
 	margin: -1px;
 	font-size: 1.1em;
+	padding-left: 330px;
+
 }
 
 #quote-author{
@@ -624,6 +627,7 @@ table, th, td {
 	height: 250px;
 }
 
+/*
 .button-step-send {
 	 margin: auto;
 	 width: 50px;
@@ -631,26 +635,31 @@ table, th, td {
 	 display:block;
 	 background:transparent url('../imagens/enviar.png') center top no-repeat;
 }
+*/
 
+/*
 .button-step-send:hover {
 	 opacity: 0.3;
-     filter: alpha(opacity=30); /* For IE8 and earlier */
+     filter: alpha(opacity=30);
      border-color: 2px solid black;
 }
+*/
 
+/*
 .button-step-status {
 	 margin: auto;
 	 width: 50px;
 	 height:50px;
 	 display:block;
 	 background:transparent url('../imagens/status.png') center top no-repeat;
-}
+}*/
 
+/*
 .button-step-status:hover {
 	 opacity: 0.3;
-     filter: alpha(opacity=30); /* For IE8 and earlier */
+     filter: alpha(opacity=30); 
      border-color: 2px solid black;
-}
+}*/
 
 
 .display-none {
@@ -658,7 +667,7 @@ table, th, td {
 }
 
 .display-remove {
-	display: '';
+	display: unset;
 }
 
 .fieldset-lg{
