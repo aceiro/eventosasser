@@ -81,7 +81,7 @@
                    <li><a href='../programa.html'>Programação</a></li>            
                    <li> <a href='../anais'>Edições<br>Anteriores</a></li>       
                    <li><a href='../contato'>Contato</a></li>
-                   <li><a href='../creditos.html'>Créditos</a></li>
+                   <li><a href='../comissao.html'>Créditos</a></li>
                 </ul>
             </div>
 
