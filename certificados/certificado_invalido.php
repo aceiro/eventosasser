@@ -19,7 +19,7 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- outros suporte a css da página -->
-    <link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/menu-styles-v1.0.0.css" type="text/css">
     <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
@@ -32,7 +32,7 @@
 	<script src="../html/scripts/asser-commum.js"></script>
 	
 
-	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/menu-styles-v1.0.0.css" type="text/css">
 	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 </head>
 <body>
@@ -45,7 +45,7 @@
         
           <div id='cssmenu'>
               <ul>
-                  <li class='active'><a href='#'>Inscrição no evento</a></li>
+                  <li class='active'><a href='#'>Inscrição</a></li>
               </ul>
             </div>
 

@@ -17,7 +17,7 @@
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<!-- outros suporte a css da página -->
-	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/menu-styles-v1.0.0.css" type="text/css">
 	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 	<!-- outros scripts para o menu-->
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
@@ -77,11 +77,12 @@
           <div id='cssmenu'>
                 <ul>
                    <li><a href='../index.html'>Evento</a></li>      
-                   <li class='active'><a href='../index.html'>Inscrição no evento</a></li>
+                   <li class='active'><a href='../index.html'>Inscrição</a></li>
                    <li><a href='../programa.html'>Programação</a></li>            
-                   <li> <a href='../anais'>Edições<br>Anteriores</a></li>       
-                   <li><a href='../contato'>Contato</a></li>
-                   <li><a href='../comissao.html'>Créditos</a></li>
+                   <li> <a href='../anais'>Edições Anteriores</a></li>
+                    <li><a href='../comissao.html'>Comissão</a></li>
+                    <li><a href='../ajuda'>Ajuda</a></li>
+                    <li><a href='../contato'>Contato</a></li>
                 </ul>
             </div>
 

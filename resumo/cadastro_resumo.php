@@ -32,7 +32,7 @@
 	<script src="../html/scripts/asser-commum.js"></script>
 	<script src="../html/scripts/asser-submission.paper-1.0.0.js"></script>
 
-	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/menu-styles-v1.0.0.css" type="text/css">
 	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 
 	<script type="text/javascript">
@@ -130,7 +130,7 @@
         
           <div id='cssmenu'>
               <ul>
-                  <li class='active'><a href='#'>Inscrição no evento</a></li>
+                  <li class='active'><a href='#'>Inscrição</a></li>
               </ul>
             </div>
 

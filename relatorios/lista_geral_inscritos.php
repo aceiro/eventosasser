@@ -38,7 +38,7 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	 
 
 
-	<link rel="stylesheet" href="../html/css/menu-styles.css" type="text/css">
+	<link rel="stylesheet" href="../html/css/menu-styles-v1.0.0.css" type="text/css">
 	<link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
 	<link rel="stylesheet" href="../html/css/list-student-style.css" type="text/css">
 
