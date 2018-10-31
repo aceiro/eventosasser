@@ -55,7 +55,8 @@
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='#'>Inscrição</a></li>
-            <!-- <li><a target="_blank" href='../atividades/Programacao-Geral-2017.pdf' >Programação 2018</a></li> !-->
+            <li><a target="_blank" href='../chamada/Chamada-Trabalhos-2018.pdf' >Chamada de Trabalhos 2018</a></li>
+            <li><a target="_blank" href='../atividades/Programacao-Geral-Final-2018.pdf' >Programação 2018</a></li>
         </ul>
     </div>
 
@@ -105,7 +106,7 @@
                         <br/>
                         <div><img src="../imagens/interview_icon.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input class="button button-center" disabled name="resumo" type="submit" id="resumo" value="Inscrição em Atividades" />
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Inscrição em Atividades" />
                         </div>
                     </div>
                 </form>

@@ -52,6 +52,24 @@
 			margin-left: 70px;
 			margin-bottom: 29px;
 		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.column {
+			float: left;
+			width: 33.33%;
+			padding-left: 100px;
+		}
+
+		/* Clearfix (clear floats) */
+		.row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
 	</style>
 </head>
 
@@ -85,7 +103,7 @@
 		<br />
 	        
     	<section>
-    		<header>Comissão Técnica e Científica</header>
+    		<header>Comissão Organizadora e Científica</header>
     		<section>
 
     			<header>Comissão Organizadora</header>
@@ -120,8 +138,20 @@
     			<header>Desenvolvimento do Sistema de Eventos </header>
     			<div class="nome">
 					Prof. Dr. Erik Aceiro Antonio <br/>
-					Prof. Esp. Cristiano José Cecanho <br/>
+					Coordenador do Curso de Sistemas de Informação <br/> <br/>
     			</div>
+
+				<header> </header>
+				<div class="row">
+					<div class="column">
+						<a target="_blank" href="https://github.com/aceiro/eventosasser"> <img alt="GitHub repositório" style="width:70%" src="imagens/github-logo.png"/></a>
+					</div>
+
+					<div class="column">
+						<a target="_blank" href="http://www.asser.edu.br/rioclaro/"> <img alt="Asser Rio Claro" style="width:50%" src="imagens/asser.png"/></a>
+					</div>
+				</div>
+
     		</section>
     	</section>
 

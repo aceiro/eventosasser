@@ -17,6 +17,21 @@
     <script src="../html/scripts/asser-main-menu.js"></script>
     <script src="../html/scripts/asser-commum.js"></script>
 
+    <style>
+        .recupera-senha-class{
+            text-decoration: none;
+            border-radius: 2px;
+
+            text-align: center;
+            background-color: #6be26c;
+            padding: 10px;
+            margin: 10px 300px 10px 300px;
+        }
+        .recupera-senha-class a{
+            color: #FFFFFF;
+        }
+    </style>
+
 </head>
 <body>
 <div id="corpo">
@@ -76,7 +91,10 @@
                         <div class="text-align-center-btn-access">
                             <input class="button button-center" name="resumo" type="submit" id="resumo" value="Fazer login" />
                         </div>
+
                     </div>
+
+
                 </form>
             </fieldset>
         </div>
