@@ -55,7 +55,7 @@
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='#'>Inscrição</a></li>
-            <li><a target="_blank" href='../chamada/Chamada-Trabalhos-2018.pdf' >Chamada de Trabalhos 2018</a></li>
+            <li><a target="_blank" href='../chamada/Chamada-Trabalhos-2018v2.pdf' >Chamada de Trabalhos 2018</a></li>
             <li><a target="_blank" href='../atividades/Programacao-Geral-Final-2018.pdf' >Programação 2018</a></li>
         </ul>
     </div>

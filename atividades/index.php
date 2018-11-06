@@ -59,7 +59,7 @@ $participante = $participanteRepository->findParticipanteByEmail($session->get(S
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='#'>Inscrição</a></li>
-            <li><a target="_blank" href='Programacao-Geral-Final-2018.pdf' >Programação 2018</a></li>
+            <li><a target="_blank" href='Programacao-Geral-Final-2018v2.pdf' >Programação 2018</a></li>
         </ul>
     </div>
 
