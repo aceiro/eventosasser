@@ -12,6 +12,12 @@ Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para do
   <img width="400" src="eventosasser.png" alt="Screenshot"/>
 </p>
 
+**v4.0.1 (2018)**
+   - Adicionado manuais para o portal
+   - Modificada datas limites e proramação
+   - Correções de link e texto
+
+
 **v4.0.0 (2018)**
    - Versão estável em *PRD* para liberação em 17 de nov. de 2018
    - Modificada mensagem de abertura
