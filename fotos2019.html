@@ -1,0 +1,649 @@
+<!DOCTYPE html >
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Asser Eventos</title>
+
+    <!-- adicionado o suporte para o jquery e thema redmond -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+    <!-- função para ativar o suporte de tabs do jquery -->
+    <script>
+        $(function() {
+            $( "#tabs" ).tabs();
+        });
+
+
+    </script>
+
+    <!-- outros suporte a css da página -->
+
+    <link rel="stylesheet" href="html/css/menu-styles-v1.0.0.css" type="text/css">
+    <link rel="stylesheet" href="html/css/commun-style-v1.0.0.css" type="text/css">
+    <link rel="stylesheet" href="html/css/home-style.css" type="text/css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Position the image container (needed to position the left and right arrows) */
+        .container {
+            position: relative;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Container for image text */
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Six columns side by side */
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+
+        /* Add a transparency effect for thumnbail images */
+        .demo {
+            opacity: 0.6;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+    </style>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+    </script>
+
+    <!-- outros scripts para o menu-->
+    <script src="html/scripts/asser-main-menu.js"></script>
+
+    <script type="application/javascript">
+        $(document).ready(function(){
+            $( "#drawer" ).click(function(){
+                window.open('programa.html','_parent');
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div id="corpo">
+    <div id="cabecalho">
+        <span id="login-action" class="login-class" onclick="javascript:location.href='adm/'"> Acesso acadêmico </span>
+    </div>
+    <!-- menu da aplicacao -->
+    <div id='cssmenu'>
+        <ul>
+            <li class='active'><a href='index.html'>Evento</a></li>
+            <li><a href='resumo'>Inscrição</a></li>
+            <li><a href='modelos'>Modelos</a></li>
+            <li><a href='programa.html'>Programação</a></li>
+            <li> <a href='anais'>Edições anteriores</a></li>
+            <li><a href='comissao.html'>Comissão</a></li>
+            <li><a href='ajuda'>Ajuda</a></li>
+            <li><a href='contato'>Contato</a></li>
+
+        </ul>
+    </div>
+
+    <!-- adiciona o suporte ao separador gradiente -->
+    <div id="mmenu"> &nbsp;</div>
+    <div id="mmenubar"> &nbsp;</div>
+    <div id="mmenusubbar"> &nbsp;</div>
+    <div id="mmenusubsubbar"> &nbsp;</div>
+    <br />
+
+
+
+    <!-- Container for the image gallery -->
+    <div class="container">
+
+        <!-- Full-width images with number text -->
+        <div class="mySlides">
+            <div class="numbertext">1 / 50</div>
+            <img src="imagens/fotos2018/mostra (1).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 50</div>
+            <img src="imagens/fotos2018/mostra (2).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 50</div>
+            <img src="imagens/fotos2018/mostra (3).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 50</div>
+            <img src="imagens/fotos2018/mostra (4).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 50</div>
+            <img src="imagens/fotos2018/mostra (5).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 50</div>
+            <img src="imagens/fotos2018/mostra (6).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">7 / 50</div>
+            <img src="imagens/fotos2018/mostra (7).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">8 / 50</div>
+            <img src="imagens/fotos2018/mostra (8).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">9 / 50</div>
+            <img src="imagens/fotos2018/mostra (9).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">10 / 50</div>
+            <img src="imagens/fotos2018/mostra (10).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">11 / 50</div>
+            <img src="imagens/fotos2018/mostra (11).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">12 / 50</div>
+            <img src="imagens/fotos2018/mostra (12).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">13 / 50</div>
+            <img src="imagens/fotos2018/mostra (13).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">14 / 50</div>
+            <img src="imagens/fotos2018/mostra (14).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">15 / 50</div>
+            <img src="imagens/fotos2018/mostra (15).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">16 / 50</div>
+            <img src="imagens/fotos2018/mostra (16).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">17 / 50</div>
+            <img src="imagens/fotos2018/mostra (17).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">18 / 50</div>
+            <img src="imagens/fotos2018/mostra (18).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">19 / 50</div>
+            <img src="imagens/fotos2018/mostra (19).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">20 / 50</div>
+            <img src="imagens/fotos2018/mostra (20).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">21 / 50</div>
+            <img src="imagens/fotos2018/mostra (21).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">22 / 50</div>
+            <img src="imagens/fotos2018/mostra (22).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">23 / 50</div>
+            <img src="imagens/fotos2018/mostra (23).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">24 / 50</div>
+            <img src="imagens/fotos2018/mostra (24).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">25 / 50</div>
+            <img src="imagens/fotos2018/mostra (25).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">26 / 50</div>
+            <img src="imagens/fotos2018/mostra (26).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">27 / 50</div>
+            <img src="imagens/fotos2018/mostra (27).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">28 / 50</div>
+            <img src="imagens/fotos2018/mostra (28).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">29 / 50</div>
+            <img src="imagens/fotos2018/mostra (29).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">30 / 50</div>
+            <img src="imagens/fotos2018/mostra (30).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">31 / 50</div>
+            <img src="imagens/fotos2018/mostra (31).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">32 / 50</div>
+            <img src="imagens/fotos2018/mostra (32).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">33 / 50</div>
+            <img src="imagens/fotos2018/mostra (33).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">34 / 50</div>
+            <img src="imagens/fotos2018/mostra (34).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">35 / 50</div>
+            <img src="imagens/fotos2018/mostra (35).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">36 / 50</div>
+            <img src="imagens/fotos2018/mostra (36).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">37 / 50</div>
+            <img src="imagens/fotos2018/mostra (37).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">38 / 50</div>
+            <img src="imagens/fotos2018/mostra (38).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">39 / 50</div>
+            <img src="imagens/fotos2018/mostra (39).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">40 / 50</div>
+            <img src="imagens/fotos2018/mostra (40).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">41 / 50</div>
+            <img src="imagens/fotos2018/mostra (41).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">42 / 50</div>
+            <img src="imagens/fotos2018/mostra (42).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">43 / 50</div>
+            <img src="imagens/fotos2018/mostra (43).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">44 / 50</div>
+            <img src="imagens/fotos2018/mostra (44).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">45 / 50</div>
+            <img src="imagens/fotos2018/mostra (45).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">46 / 50</div>
+            <img src="imagens/fotos2018/mostra (46).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">47 / 50</div>
+            <img src="imagens/fotos2018/mostra (47).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">48 / 50</div>
+            <img src="imagens/fotos2018/mostra (48).jpg" style="width:100%">
+        </div>
+
+
+        <div class="mySlides">
+            <div class="numbertext">49 / 50</div>
+            <img src="imagens/fotos2018/mostra (49).jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">50 / 50</div>
+            <img src="imagens/fotos2018/mostra (50).jpg" style="width:100%">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <!-- Image text -->
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <!-- Thumbnail images -->
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (1).jpg" style="width:100%" onclick="currentSlide(1)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (2).jpg" style="width:100%" onclick="currentSlide(2)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (3).jpg"style="width:100%" onclick="currentSlide(3)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (4).jpg"style="width:100%" onclick="currentSlide(4)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (5).jpg" style="width:100%" onclick="currentSlide(5)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (6).jpg"style="width:100%" onclick="currentSlide(6)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (7).jpg"style="width:100%" onclick="currentSlide(7)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (8).jpg"style="width:100%" onclick="currentSlide(8)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (9).jpg"style="width:100%" onclick="currentSlide(9)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (10).jpg"style="width:100%" onclick="currentSlide(10)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (11).jpg" style="width:100%" onclick="currentSlide(11)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (12).jpg" style="width:100%" onclick="currentSlide(12)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (13).jpg"style="width:100%" onclick="currentSlide(13)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (14).jpg"style="width:100%" onclick="currentSlide(14)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (15).jpg" style="width:100%" onclick="currentSlide(15)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (16).jpg"style="width:100%" onclick="currentSlide(16)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (17).jpg"style="width:100%" onclick="currentSlide(17)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (18).jpg"style="width:100%" onclick="currentSlide(18)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (19).jpg"style="width:100%" onclick="currentSlide(19)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (20).jpg"style="width:100%" onclick="currentSlide(20)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (21).jpg" style="width:100%" onclick="currentSlide(21)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (22).jpg" style="width:100%" onclick="currentSlide(22)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (23).jpg"style="width:100%" onclick="currentSlide(23)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (24).jpg"style="width:100%" onclick="currentSlide(24)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (25).jpg" style="width:100%" onclick="currentSlide(25)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (26).jpg"style="width:100%" onclick="currentSlide(26)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (27).jpg"style="width:100%" onclick="currentSlide(27)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (28).jpg"style="width:100%" onclick="currentSlide(28)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (29).jpg"style="width:100%" onclick="currentSlide(29)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (30).jpg"style="width:100%" onclick="currentSlide(30)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (31).jpg" style="width:100%" onclick="currentSlide(31)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (32).jpg" style="width:100%" onclick="currentSlide(32)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (33).jpg"style="width:100%" onclick="currentSlide(33)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (34).jpg"style="width:100%" onclick="currentSlide(34)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (35).jpg" style="width:100%" onclick="currentSlide(35)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (36).jpg"style="width:100%" onclick="currentSlide(36)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (37).jpg"style="width:100%" onclick="currentSlide(37)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (38).jpg"style="width:100%" onclick="currentSlide(38)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (39).jpg"style="width:100%" onclick="currentSlide(39)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (40).jpg"style="width:100%" onclick="currentSlide(40)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (41).jpg" style="width:100%" onclick="currentSlide(41)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (42).jpg" style="width:100%" onclick="currentSlide(42)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (43).jpg"style="width:100%" onclick="currentSlide(43)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (44).jpg"style="width:100%" onclick="currentSlide(44)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (45).jpg" style="width:100%" onclick="currentSlide(45)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (46).jpg"style="width:100%" onclick="currentSlide(46)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (47).jpg"style="width:100%" onclick="currentSlide(47)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (48).jpg"style="width:100%" onclick="currentSlide(48)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (49).jpg"style="width:100%" onclick="currentSlide(49)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/fotos2018/mostra (50).jpg"style="width:100%" onclick="currentSlide(50)" alt="X Mostra Científica e Semana do Conhecimento">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="rodape">
+        <p>Campus Rio Claro: Rua 7, 1193 - Centro - CEP 13500-200 - Fone/ Fax: (19) 3523-2001 © 2006-2013, ASSER - Todos os direitos reservados  <br/> Desenvolvido pelo <a href="http://www.asser.edu.br/rioclaro/graduacao/sistemas/" target="_new"> Curso de Sistemas de Informação </a> </p>
+    </div>
+</div>
+</body>
+</html>
