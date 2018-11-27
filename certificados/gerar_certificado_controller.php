@@ -22,40 +22,9 @@ use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 
 
-
-$html = '
- <img src="../imagens/header-v5.png" style="height: 80%; width: 85%;/>
-    <br/>
-    <div id="header">
-        <p>
-        <h1 style="text-align: center"> Certificado de Participação</h1>
-        </p>
-        <br/>
-        <hr/>
-    </div>
-    <div id="content">
-        <p>
-        <h3 style="text-align: justify;
-                   font-style: normal;
-                   font-weight: 100;
-                   font-size: large;
-                   padding: 5px 5px 5px 5px;
-                   line-height: 30px">
-
-        Certificamos para os devidos fins que [onshow.fullname] participou da “X MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 12, 13 e 14 de novembro de 2018 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas. </h3>
-        </p>
-        <p>
-        <h3 style="text-align: center"> Rio Claro, [onshow.datefmt] </h3>
-        <img src="digital-sig.png" style="padding-left: 50%;width: 40%;height: 40%;"/>
-        </p>        
-    </div>
-
-    <div id="footer">
-
-    </div> 
-';
-
 $email = base64_decode($_GET['e']);
+$year  = $_GET['y'];
+
 
 if( is_null($email) ) {
     header("Location:certificado_invalido.php");
@@ -63,7 +32,48 @@ if( is_null($email) ) {
 }
 
 
-$subscription = $studentSubscriptionRepository->findCertificateAssociatedToSubscriptionByEmail($email);
+
+$header = $studentSubscriptionRepository->findCertificateHeaderByYear($year);
+$text   = $studentSubscriptionRepository->findCertificateBodyByYear($year);
+
+
+$html = "
+ <img src=\"../imagens/$header\" style=\"height: 80%; width: 85%;\"/>
+    <br/>
+    <div id=\"header\">
+        <p>
+        <h1 style=\"text-align: center\"> Certificado de Participação</h1>
+        </p>
+        <br/>
+        <hr/>
+    </div>
+    <div id=\"content\">
+        <p>
+        <h3 style=\"text-align: justify;
+                   font-style: normal;
+                   font-weight: 100;
+                   font-size: large;
+                   padding: 5px 5px 5px 5px;
+                   line-height: 30px\">
+
+        $text
+         
+        </h3>
+        </p>
+        <p>
+        <h3 style=\"text-align: center\"> Rio Claro, [onshow.datefmt] </h3>
+        <img src=\"digital-sig.png\" style=\"padding-left: 50%;width: 40%;height: 40%;\"/>
+        </p>        
+    </div>
+
+    <div id=\"footer\">
+
+    </div> 
+";
+
+
+
+$subscription = $studentSubscriptionRepository->findCertificateAssociatedToSubscriptionByEmail($email, $year);
 
 
 if( is_null($subscription) ) {

@@ -54,7 +54,7 @@
             <div id="mmenusubbar"> &nbsp;</div>
             <div id="mmenusubsubbar"> &nbsp;</div>
 
-		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../resumo/perfil.php'"> voltar </span>
+		<span id="small-button-class" class="small-button-back-class" onclick="javascript:location.href='../certificados/lista_certificados_x_participantes.php'"> voltar </span>
 
         <div id="texto">
 			<div class="message-payment-success">
