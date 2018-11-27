@@ -77,7 +77,7 @@
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/articles.png" height="70px" width="70px"></div>
-                        <input class="button button-center" name="resumo" type="submit" id="cadastro-resumo-button" value="Cadastrar Resumo" />
+                        <input disabled class="button button-center" name="resumo" type="submit" id="cadastro-resumo-button" value="Cadastrar Resumo" />
                     </div>
                 </form>
             </fieldset>
@@ -140,7 +140,7 @@
                         <br/>
                         <div><img src="../imagens/certificate-flat.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
                         </div>
                     </div>
                 </form>
