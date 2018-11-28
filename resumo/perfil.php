@@ -77,7 +77,7 @@
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/articles.png" height="70px" width="70px"></div>
-                        <input class="button button-center" name="resumo" type="submit" id="cadastro-resumo-button" value="Cadastrar Resumo" />
+                        <input disabled class="button button-center" name="resumo" type="submit" id="cadastro-resumo-button" value="Cadastrar Resumo" />
                     </div>
                 </form>
             </fieldset>
@@ -106,7 +106,7 @@
                         <br/>
                         <div><img src="../imagens/interview_icon.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Inscrição em Atividades" />
+                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Inscrição em Atividades" />
                         </div>
                     </div>
                 </form>
@@ -135,12 +135,12 @@
                 <form id="gerar_certificado"
                       name="gerar_certificado" method="post"
                       novalidate="novalidate"
-                      action="../certificados/gerar_certificado_controller.php?e='<?php echo base64_encode($session->get(SESSION_KEY_EMAIL));?>'">
+                      action="../certificados/lista_certificados_x_participantes.php">
                     <div class="text-align-center">
                         <br/>
                         <div><img src="../imagens/certificate-flat.png" height="70px" width="70px"></div>
                         <div class="text-align-center">
-                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Gerar Certificado" />
                         </div>
                     </div>
                 </form>

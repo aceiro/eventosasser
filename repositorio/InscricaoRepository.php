@@ -14,7 +14,7 @@ define("RETORNA_DETALHES_CERTIFICADO_POR_EMAIL", 'SELECT p.nome,
  WHERE p.id = i.id_participante
   AND cc.id = p.id_curso
   AND p.email = :email
-  AND YEAR(i.data_pagamento) = 2018');
+  AND YEAR(i.data_pagamento) = :pyear');
 
 define("RETORNA_DETALHES_PAGAMENTO", 'SELECT p.nome,
        cc.nome as nome_curso,
@@ -131,11 +131,43 @@ class InscricaoRepository implements GenericRepository{
         else return null;
     }
 
-    public function findCertificateAssociatedToSubscriptionByEmail($email)
+
+    public function findCertificateHeaderByYear($year)
+    {
+
+        switch ($year) {
+            case '2018':
+                return "header-v5.png";
+            case '2017':
+                return "header-v4.jpg";
+            case '2016':
+                return "header-v3.jpg";
+        }
+
+        throw new Exception("Os certificados devem ser gerados entre 2017 e 2018!");
+    }
+
+    public function findCertificateBodyByYear($year)
+    {
+
+        switch ($year) {
+            case '2018':
+                return "Certificamos para os devidos fins que [onshow.fullname] participou da “X MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 12, 13 e 14 de novembro de 2018 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas.";;
+            case '2017':
+                return "Certificamos para os devidos fins que [onshow.fullname] participou da “IX MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 04, 05 e 06 de dezembro de 2017 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas.";
+            case '2016':
+                return "Certificamos para os devidos fins que [onshow.fullname] participou da “VIII MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 04, 05 e 06 de dezembro de 2017 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas.";
+        }
+
+        throw new Exception("Os certificados devem ser gerados entre 2017 e 2018!");
+    }
+
+
+    public function findCertificateAssociatedToSubscriptionByEmail($email, $year)
     {
 
 
-        $certificateDetails = $this->db->getAllBySql(RETORNA_DETALHES_CERTIFICADO_POR_EMAIL, [':email' => $email]);
+        $certificateDetails = $this->db->getAllBySql(RETORNA_DETALHES_CERTIFICADO_POR_EMAIL, [':email' => $email, ':pyear' => $year]);
 
         if( count($certificateDetails)==1 )
             return $certificateDetails[0];
