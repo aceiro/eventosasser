@@ -2,6 +2,19 @@
 
 require_once 'interfaces/GenericRepository.php';
 
+
+define("RETORNA_TODOS_IDS_TRABALHOS_ANAIS", 
+'SELECT t.id AS id
+  FROM evento e,
+     trabalho t, 
+     curso c 
+  WHERE 
+      e.id = t.id_evento 
+    AND t.status_atualizacao <> \'D\'
+    AND t.id_curso = c.id
+    AND YEAR(e.data_inicio) = \'2018\'
+  ORDER BY c.nome');
+
 define("RETORNA_TRABALHOS_EMAIL",'SELECT   t.id as id,
                                            p.nome as nome,
                                            p.email as email,
@@ -214,6 +227,12 @@ class TrabalhoRepository implements GenericRepository{
     {
         return $this->db->findAll('trabalho');
     }
+
+    public function findAllSummariesIds()
+    {
+        return $this->findAllBySql(RETORNA_TODOS_IDS_TRABALHOS_ANAIS);
+    }
+
 
     public function findAllTrabalhosByEmail($email)
     {
