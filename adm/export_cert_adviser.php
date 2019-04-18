@@ -69,8 +69,8 @@ header("Content-Type: text/html; charset=UTF-8", true);
                     </p>
                     <p>
                     <br/>
-                    <hr style=\"width: 40%\">
-                    <h3 style=\"text-align: center\"> Prof. Dr. Erik Aceiro Antonio (coordenador)</h3>
+                    <h3 style=\"text-align: center; font-weight: normal\"> -----------------------------</h3>
+                    <h3 style=\"text-align: center\"> Prof. Dr. Erik Aceiro Antonio <br/>(coordenador)</h3>
                     </p>            
                 </div>
 
@@ -125,13 +125,12 @@ header("Content-Type: text/html; charset=UTF-8", true);
                echo '<br style="page-break-before: always"/>';
                echo '<br style="page-break-before: always"/>';
 
-               $link = htmlentities("http:\\<eventosasser.com.br/anais/anais_2sem_2018.pdf>");
+               $link = htmlentities("<http://eventosasser.com.br/anais/anais_2sem_2018.pdf>");
                echo "
-               <strong>Trabalhos</strong>
+               <h3><strong>Trabalhos</strong></h3>
                <hr/>
+               <h3>Como citar em ABNT <br/></h3>
                <div style='text-align: justify'> 
-                            Como citar em ABNT <br/>
-
                             SOBRENOME, PRENOME abreviado. Título: subtítulo (se houver). In: X - MOSTRA DE INICIAÇÃO CIENTÍFICA, 10., 2018, Rio Claro. <b>Anais...</b> São Paulo: ASSER Rio Claro, 2018. Disponível em $link
                 </div>";
 
