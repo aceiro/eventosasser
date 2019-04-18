@@ -7,9 +7,11 @@ require_once '../repositorio/facade/EventosAsserFacade.php';
 
 $session = new Session(SESSION_SERVER_ID);
 $summaryRepository     = EventosAsserFacade::createTrabalhoRepository();
-$adviserRepository   = EventosAsserFacade::createOrientadorRepository();
+$adviserRepository     = EventosAsserFacade::createOrientadorRepository();
 $participantSummaryRepository = EventosAsserFacade::createParticipanteTrabalhoRepository();
 $courseRepository = EventosAsserFacade::createCursoRepository();
+
+
 
 header("Content-Type: text/html; charset=UTF-8", true);
 
