@@ -152,7 +152,7 @@ class InscricaoRepository implements GenericRepository{
 
         switch ($year) {
             case '2018':
-                return "Certificamos para os devidos fins que [onshow.fullname] participou da “X MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 12, 13 e 14 de novembro de 2018 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas.";;
+                return "Certificamos para os devidos fins que [onshow.fullname] participou da “X MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 12, 13 e 14 de novembro de 2018 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas.";
             case '2017':
                 return "Certificamos para os devidos fins que [onshow.fullname] participou da “IX MOSTRA DE INICIAÇÃO CIENTÍFICA E SEMANA DO CONHECIMENTO” que ocorreu nos dias 04, 05 e 06 de dezembro de 2017 nas dependências da  Faculdade ASSER de Rio Claro. Confere ainda a participação em atividades do curso [onshow.coursename] totalizando [onshow.hours] horas.";
             case '2016':
