@@ -2,6 +2,46 @@
 
 require_once 'interfaces/GenericRepository.php';
 
+define("RETORNA_TODOS_TITULOS_X_ORIENTADORES_ANAIS_POR_ID", 
+'SELECT DISTINCT t.id, TRIM(t.titulo) as titulo
+         FROM trabalho t 
+           INNER JOIN evento e  
+              ON t.id_evento  = e.id
+           INNER JOIN orientador o
+              ON t.id_orientador = o.id
+           AND YEAR(e.data_inicio) = \'2018\'
+           AND t.status_r = 1 
+           AND t.status_atualizacao <> \'D\'
+           AND o.id = :id
+           AND CHAR_LENGTH(TRIM(t.resumo)) >= 250');
+
+
+define("RETORNO_TODOS_ORIENTADORES_POR_ANO", 
+  'SELECT DISTINCT o.id, TRIM(o.nome) as orientador
+         FROM trabalho t 
+           INNER JOIN evento e  
+              ON t.id_evento  = e.id
+           INNER JOIN orientador o
+              ON t.id_orientador = o.id
+           AND YEAR(e.data_inicio) = \'2018\'
+           AND t.status_r = 1 
+           AND t.status_atualizacao <> \'D\'
+           AND CHAR_LENGTH(TRIM(t.resumo)) >= 250
+       ORDER BY orientador ASC');
+
+
+define("RETORNA_TODOS_IDS_TRABALHOS_ANAIS", 
+'SELECT t.id AS id
+  FROM evento e,
+     trabalho t, 
+     curso c 
+  WHERE 
+      e.id = t.id_evento 
+    AND t.status_atualizacao <> \'D\'
+    AND t.id_curso = c.id
+    AND YEAR(e.data_inicio) = \'2018\'
+  ORDER BY c.nome');
+
 define("RETORNA_TRABALHOS_EMAIL",'SELECT   t.id as id,
                                            p.nome as nome,
                                            p.email as email,
@@ -214,6 +254,28 @@ class TrabalhoRepository implements GenericRepository{
     {
         return $this->db->findAll('trabalho');
     }
+
+    public function findAllAdviserAndSummaryDetails()
+    {
+        return $this->findAllBySql( RETORNA_TODOS_TITULOS_X_ORIENTADORES_ANAIS );
+    } 
+
+    public function findAllAdviserPerYear()
+    {
+        return $this->findAllBySql( RETORNO_TODOS_ORIENTADORES_POR_ANO );
+    }
+
+    public function findAllSummariesById($id)
+    {
+        return $this->findAllBySql(RETORNA_TODOS_TITULOS_X_ORIENTADORES_ANAIS_POR_ID, [':id' => $id] );
+    }
+
+
+    public function findAllSummariesIds()
+    {
+        return $this->findAllBySql(RETORNA_TODOS_IDS_TRABALHOS_ANAIS);
+    }
+
 
     public function findAllTrabalhosByEmail($email)
     {
