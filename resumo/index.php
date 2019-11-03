@@ -69,7 +69,7 @@
                         <br/>
                         <div><img src="../imagens/user-icon-01.png" height="70px" width="70px"></div>
                         <div class="text-align-center-btn-access">
-                            <input disabled class="button button-center" name="resumo" type="submit" id="resumo" value="Criar usuário" />
+                            <input class="button button-center" name="resumo" type="submit" id="resumo" value="Criar usuário" />
                         </div>
                     </div>
                 </form>
