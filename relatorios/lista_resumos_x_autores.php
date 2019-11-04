@@ -38,7 +38,7 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
 
     <!-- outros suporte a css da página -->
     <link rel="stylesheet" href="../html/css/menu-styles-v1.0.0.css" type="text/css">
-    <link rel="stylesheet" href="../html/css/commun-style-v1.0.0.css" type="text/css">
+    <link rel="stylesheet" href="../html/css/commun-style-v1.0.1.css" type="text/css">
 
 
     <!-- outros scripts para o menu-->
