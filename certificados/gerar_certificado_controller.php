@@ -86,7 +86,7 @@ if( is_null($subscription) ) {
 $html = str_replace("[onshow.fullname]", $subscription['nome'], $html);
 $html = str_replace("[onshow.coursename]", $subscription['nome_curso'], $html);
 $html = str_replace("[onshow.hours]", "10", $html);
-$html = str_replace("[onshow.datefmt]", "10 de novembro de 2018", $html);
+$html = str_replace("[onshow.datefmt]", "04 de novembro de 2019", $html);
 
 
 $dompdf->loadHtml( $html );

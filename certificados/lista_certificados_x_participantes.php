@@ -91,7 +91,8 @@
                 <table id="table-hover">
 
 					<th>ANO</th><th>EVENTO</th><th colspan="3">DOWNLOAD</th></th>
-                    <tr></tr><td>2018</td><td>X - Mostra de Iniciação Científica 2018</td><td><a href="gerar_certificado_controller.php?y=2018&e='<?php echo base64_encode($session->get(SESSION_KEY_EMAIL));?>'"> <img width="50px" src="../imagens/pdf-icon.png"/></a></td></tr>
+					<tr></tr><td>2019</td><td>XI - Mostra de Iniciação Científica 2019</td><td><a href="gerar_certificado_controller.php?y=2019&e='<?php echo base64_encode($session->get(SESSION_KEY_EMAIL));?>'"> <img width="50px" src="../imagens/pdf-icon.png"/></a></td></tr>
+					<tr></tr><td>2018</td><td>X - Mostra de Iniciação Científica 2018</td><td><a href="gerar_certificado_controller.php?y=2018&e='<?php echo base64_encode($session->get(SESSION_KEY_EMAIL));?>'"> <img width="50px" src="../imagens/pdf-icon.png"/></a></td></tr>
                     <tr></tr><td>2017</td><td>IX - Mostra de Iniciação Científica 2017</td><td><a href="gerar_certificado_controller.php?y=2017&e='<?php echo base64_encode($session->get(SESSION_KEY_EMAIL));?>'"> <img width="50px" src="../imagens/pdf-icon.png"/></a></td></tr>
                     <tr></tr><td>2016</td><td>VIII - Mostra de Iniciação Científica 2016</td><td><a href="gerar_certificado_controller.php?y=2016&e='<?php echo base64_encode($session->get(SESSION_KEY_EMAIL));?>'"> <img width="50px" src="../imagens/pdf-icon.png"/></a></td></tr>
 				</table>
