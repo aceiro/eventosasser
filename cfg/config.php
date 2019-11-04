@@ -7,8 +7,8 @@
 
         //
         // par�metros gerais para o banco de dados
-        'dbname'    => 'eventosa_v1_201712061525',
-        'dsn'       => "mysql:host=localhost;dbname=eventosa_v1_201712061525",
+        'dbname'    => 'eventosa_v2_2018_bkp20181122',
+        'dsn'       => "mysql:host=localhost;dbname=eventosa_v2_2018_bkp20181122",
         'dbuser'    => 'root',
-        'dbpass'    => '123456'
+        'dbpass'    => ''
     );

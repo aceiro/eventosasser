@@ -12,6 +12,13 @@ Atualmente, a plataforma "EventosAsser" é gratuita e é disponibilizada para do
   <img width="400" src="eventosasser.png" alt="Screenshot"/>
 </p>
 
+**v5.0.0 (2019)**
+   - Modificação a homepage e header do site
+   - Liberado inscrição no evento
+   - Alteração de PPT modelo do evento
+   - 
+
+
 **v4.0.2 (2018)**
    - Liberado certificados para o ano atual (2018) e anterior (2017)
    - Bloqueado submissão de resumos 
