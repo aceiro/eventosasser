@@ -44,7 +44,7 @@ if (!strcmp($session->get(SESSION_KEY_LOGIN_ACADEMIC), null)) {
     <!-- outros scripts para o menu-->
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="../html/scripts/asser-main-menu.js"></script>
-    <script src="../html/scripts/asser-commum-1.0.3.js"></script>
+    <script src="../html/scripts/asser-commum-1.0.3.js?id=1.0.3"></script>
 
     <link rel="stylesheet" href="../html/scripts/tablesorter/blue/style.css" type="text/css"
           media="print, projection, screen">
